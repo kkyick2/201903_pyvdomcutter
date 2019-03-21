@@ -120,7 +120,7 @@ def generate_csv(results, keys, fd, newline, skip_header):
     """
     if results and keys:
         with open(fd, 'wb') as fd_output:
-            spamwriter = csv.writer(fd_output, delimiter=';')
+            spamwriter = csv.writer(fd_output)
 
             if not (skip_header):
                 spamwriter.writerow(keys)
@@ -154,6 +154,18 @@ def main(options, arguments):
 
     return
 
+
+def main2(input_file, output_file, newline, skip_header):
+    """
+        Dat main
+    """
+    if (input_file == None):
+        parser.error('Please specify a valid input file')
+
+    results, keys = parse(input_file)
+    generate_csv(results, keys, output_file, newline, skip_header)
+
+    return
 
 if __name__ == "__main__":
     parser = OptionParser()
