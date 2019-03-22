@@ -167,6 +167,7 @@ def main2(input_file, output_file, newline, skip_header):
 
     return
 
+
 if __name__ == "__main__":
     parser = OptionParser()
     for option in options:
