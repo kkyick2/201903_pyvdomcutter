@@ -1,23 +1,24 @@
 #!/usr/bin/env python
+# 20190322 | add vdom definition block | kkyick2 modify
 # -*- coding: utf-8 -*-
 
-# This file is part of fgpoliciestocsv.
+# This file is part of fg2csv.
 #
 # Copyright (C) 2014, Thomas Debize <tdebize at mail.com>
 # All rights reserved.
 #
-# fgpoliciestocsv is free software: you can redistribute it and/or modify
+# fg2csv is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# fgpoliciestocsv is distributed in the hope that it will be useful,
+# fg2csv is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with fgpoliciestocsv.  If not, see <http://www.gnu.org/licenses/>.
+# along with fg2csv.  If not, see <http://www.gnu.org/licenses/>.
 
 import re
 import os
@@ -41,8 +42,13 @@ option_3 = {'name': ('-s', '--skip-header'), 'help': '<SKIP_HEADER> : do not pri
 options = [option_0, option_1, option_2, option_3]
 
 # Handful patterns
+
+# -- Entering vdom definition block
+p_entering_vdom = re.compile('^\s*config vdom$', re.IGNORECASE)
+p_vdom_name = re.compile('^\s*edit\s+(?P<vdom_name>\w+)', re.IGNORECASE)
+
 # -- Entering policy definition block
-p_entering_policy_block = re.compile('^\s*config firewall policy$', re.IGNORECASE)
+p_entering_policy_block = re.compile('^\s*config firewall address$', re.IGNORECASE)
 
 # -- Exiting policy definition block
 p_exiting_policy_block = re.compile('^end$', re.IGNORECASE)
@@ -51,11 +57,10 @@ p_exiting_policy_block = re.compile('^end$', re.IGNORECASE)
 p_policy_next = re.compile('^next$', re.IGNORECASE)
 
 # -- Policy number
-p_policy_number = re.compile('^\s*edit\s+(?P<policy_number>\d+)', re.IGNORECASE)
+p_policy_number = re.compile('^\s*edit\s+"(?P<policy_number>.*)"$', re.IGNORECASE)
 
 # -- Policy setting
 p_policy_set = re.compile('^\s*set\s+(?P<policy_key>\S+)\s+(?P<policy_value>.*)$', re.IGNORECASE)
-
 
 # Functions
 def parse(fd):
@@ -66,8 +71,11 @@ def parse(fd):
         @rtype:	return a list of policies ( [ {'id' : '1', 'srcintf' : 'internal', ...}, {'id' : '2', 'srcintf' : 'external', ...}, ... ] )
                 and the list of unique seen keys ['id', 'srcintf', 'dstintf', ...]
     """
-    global p_entering_policy_block, p_exiting_policy_block, p_policy_next, p_policy_number, p_policy_set
+    global p_entering_vdom, p_vdom_name, p_entering_policy_block, p_exiting_policy_block, p_policy_next, p_policy_number, p_policy_set
 
+    vdom_name = None
+
+    in_vdom_block = False
     in_policy_block = False
 
     policy_list = []
@@ -79,6 +87,16 @@ def parse(fd):
         for line in fd_input:
             line = line.lstrip().rstrip().strip()
 
+            # We match a vdom block "config vdom"
+            if p_entering_vdom.search(line):
+                in_vdom_block = True
+
+            # We are in a vdom block, get the vdom name
+            if p_vdom_name.search(line) and in_vdom_block is True:
+                vdom_name = p_vdom_name.search(line).group('vdom_name')
+                if not ('vdom' in order_keys): order_keys.append('vdom')
+                in_vdom_block = False
+
             # We match a policy block
             if p_entering_policy_block.search(line):
                 in_policy_block = True
@@ -87,8 +105,9 @@ def parse(fd):
             if in_policy_block:
                 if p_policy_number.search(line):
                     policy_number = p_policy_number.search(line).group('policy_number')
-                    policy_elem['id'] = policy_number
-                    if not ('id' in order_keys): order_keys.append('id')
+                    policy_elem['vdom'] = vdom_name
+                    policy_elem['name'] = policy_number
+                    if not ('name' in order_keys): order_keys.append('name')
 
                 # We match a setting
                 if p_policy_set.search(line):

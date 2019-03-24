@@ -1,23 +1,24 @@
 #!/usr/bin/env python
+# 20190322 | add vdom definition block | kkyick2 modify
 # -*- coding: utf-8 -*-
 
-# This file is part of fgpoliciestocsv.
+# This file is part of fg2csv.
 #
 # Copyright (C) 2014, Thomas Debize <tdebize at mail.com>
 # All rights reserved.
 #
-# fgpoliciestocsv is free software: you can redistribute it and/or modify
+# fg2csv is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 #
-# fgpoliciestocsv is distributed in the hope that it will be useful,
+# fg2csv is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with fgpoliciestocsv.  If not, see <http://www.gnu.org/licenses/>.
+# along with fg2csv.  If not, see <http://www.gnu.org/licenses/>.
 
 import re
 import os
@@ -37,7 +38,7 @@ options = [option_0, option_1, option_2, option_3]
 
 # Handful patterns
 # -- Entering address definition block
-p_entering_address_block = re.compile('^\s*config firewall address$', re.IGNORECASE)
+p_entering_address_block = re.compile('^\s*config system interface$', re.IGNORECASE)
 
 # -- Exiting address definition block
 p_exiting_address_block = re.compile('^end$', re.IGNORECASE)
@@ -102,7 +103,7 @@ def parse(fd):
 			# We are exiting the address block
 			if p_exiting_address_block.search(line):
 				in_address_block = False
-	
+
 	return (address_list, order_keys)
 
 
@@ -114,7 +115,7 @@ def generate_csv(results, keys, fd, newline, skip_header):
 	"""
 	if results and keys:
 		with open(fd,'wb') as fd_output:
-			spamwriter = csv.writer(fd_output, delimiter=';')
+			spamwriter = csv.writer(fd_output)
 			
 			if not(skip_header):
 				spamwriter.writerow(keys)
@@ -135,6 +136,7 @@ def generate_csv(results, keys, fd, newline, skip_header):
 	
 	return
 
+
 def main(options, arguments):
 	"""
 		Dat main
@@ -146,7 +148,20 @@ def main(options, arguments):
 	generate_csv(results, keys, options.output_file, options.newline, options.skip_header)
 	
 	return
-	
+
+
+def main2(input_file, output_file, newline, skip_header):
+	"""
+		Dat main
+	"""
+	if (input_file == None):
+		parser.error('Please specify a valid input file')
+
+	results, keys = parse(input_file)
+	generate_csv(results, keys, output_file, newline, skip_header)
+
+	return
+
 
 if __name__ == "__main__" :
 	parser = OptionParser()
