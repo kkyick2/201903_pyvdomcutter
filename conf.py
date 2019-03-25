@@ -20,7 +20,7 @@ OUT_DIR_PATH = os.path.join(ROOT_DIR, OUT_DIR_NAME)
 BATCH_DIR_PATH = os.path.join(ROOT_DIR, OUT_DIR_PATH, BATCH_DIR_NAME)
 
 # Log config
-LOG_FORMAT = '%(asctime)s.%(msecs)03d %(module)-12s %(funcName)-12s %(levelname)-8s %(message)s'
+LOG_FORMAT = '%(asctime)s.%(msecs)03d %(module)-8s %(funcName)-8s %(levelname)-8s %(message)s'
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 LOG_FILE_NAME = 'mylog.log'

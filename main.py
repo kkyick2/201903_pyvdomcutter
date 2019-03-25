@@ -7,11 +7,11 @@ from os import listdir
 from os.path import isfile, join
 # import 3rd parties pkg
 # import project pkg
+from tools import logger
 import conf
-import logger
 from fg2csv.fg2csv import fg2csv
-from csv2xlsx import csv2xlsx
-from vdomcutter import vdomcutter
+from tools.csv2xlsx import csv2xlsx
+from tools.vdomcutter import vdomcutter
 
 
 def mkdir(path):
@@ -72,7 +72,7 @@ def start():
     # loop each config file in input file
     for filename in confList:
 
-        # define configFileName's path
+        # define configFileName's full path
         config_file = os.path.join(conf.IN_DIR_PATH, filename)
 
         # create result folder
@@ -87,12 +87,12 @@ def start():
         # convent csv to xlsx
         logger1.info('convent csv to xlsx: ' + filename)
         print ('convent csv to xlsx: ' + filename)
-        csv2xlsx(result_dir, result_dir, filename)
+        csv2xlsx(filename, result_dir, result_dir, )
 
         # cut fgconfig to multi vdom txt
         logger1.info('cutvdom to txt: ' + filename)
         print ('cutvdom to txt: ' + filename)
-        vdomcutter(config_file, result_dir)
+        vdomcutter(filename, config_file, result_dir)
 
     logger1.info('end script: '+__name__)
     print ('end script: '+__name__)
