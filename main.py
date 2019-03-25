@@ -52,6 +52,7 @@ def start():
     # define logger
     logger1 = logger.logger().get()
     logger1.info('start script: '+__name__)
+    print ('start script: '+__name__)
 
     # define conf file list from input folder
     confList = []
@@ -80,17 +81,21 @@ def start():
 
         # convent config to csv
         logger1.info('convent conf to csv: ' + filename)
+        print ('convent conf to csv: ' + filename)
         fg2csv(config_file, result_dir)
 
         # convent csv to xlsx
         logger1.info('convent csv to xlsx: ' + filename)
+        print ('convent csv to xlsx: ' + filename)
         csv2xlsx(result_dir, result_dir, filename)
 
         # cut fgconfig to multi vdom txt
         logger1.info('cutvdom to txt: ' + filename)
+        print ('cutvdom to txt: ' + filename)
         vdomcutter(config_file, result_dir)
 
     logger1.info('end script: '+__name__)
+    print ('end script: '+__name__)
     return
 
 

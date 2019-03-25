@@ -30,6 +30,7 @@ def vdomcutter(infile, outdir):
         name = p_foundvdom[i].split('\n')[1].rstrip()[5:]
         vdomList.append(name)
     logger1.info('cut vdom config to txt: ' + str(vdomList))
+    print('cut vdom config to txt: ' + str(vdomList))
     # write to each file
     for i in range(1, len(p_foundcontent) + 1):
         with open(os.path.join(outdir, vdomList[i - 1] + '.txt'), 'w') as outF:

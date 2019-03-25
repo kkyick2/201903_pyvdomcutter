@@ -24,7 +24,7 @@ LOG_FORMAT = '%(asctime)s.%(msecs)03d %(module)-12s %(funcName)-12s %(levelname)
 DATE_FORMAT = '%Y-%m-%d %H:%M:%S'
 
 LOG_FILE_NAME = 'mylog.log'
-LOG_LEVEL = logging.DEBUG
+LOG_LEVEL = logging.CRITICAL
 
 LOG_DIR_NAME = 'log'
 LOG_DIR_PATH = os.path.join(ROOT_DIR, LOG_DIR_NAME)
