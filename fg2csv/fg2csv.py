@@ -14,9 +14,9 @@ import fg2csv_zone
 
 def fg2csv(infile, outdir):
     """
-        input a fg config and convent the sections in csv
-        @param infile : input filename of the fg config
-        @param outdir : output folder: full path for the output folder
+        fg2xls_input a fg config and convent the sections in csv
+        @param infile : fg2xls_input filename of the fg config
+        @param outdir : fg2xls_output folder: full path for the fg2xls_output folder
         @rtype: na
     """
     fg2csv_interface.main2(infile, os.path.join(outdir, '01int.csv'), False, False)

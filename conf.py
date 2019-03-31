@@ -9,15 +9,22 @@ NEXTLINE = '\n'
 today = datetime.now()
 
 # Define file name
-IN_DIR_NAME = 'input'
-OUT_DIR_NAME = 'output'
-BATCH_DIR_NAME = today.strftime('%Y%m%d_%H%M')
+BATCH_NAME = today.strftime('%Y%m%d_%H%M')
+FG2XLS_IN_DIR = 'fg2xls_input'
+FG2XLS_OUT_DIR = 'fg2xls_output'
+
+FGCONFGEN_BAS_DIR = 'fgconfgen_baseline'
+FGCONFGEN_REQ_DIR = 'fgconfgen_req'
+
 
 # Define path
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-IN_DIR_PATH = os.path.join(ROOT_DIR, IN_DIR_NAME)
-OUT_DIR_PATH = os.path.join(ROOT_DIR, OUT_DIR_NAME)
-BATCH_DIR_PATH = os.path.join(ROOT_DIR, OUT_DIR_PATH, BATCH_DIR_NAME)
+FG2XLS_IN_PATH = os.path.join(ROOT_DIR, FG2XLS_IN_DIR)
+FG2XLS_OUT_PATH = os.path.join(ROOT_DIR, FG2XLS_OUT_DIR)
+BATCH_PATH = os.path.join(ROOT_DIR, FG2XLS_OUT_PATH, BATCH_NAME)
+
+FGCONFGEN_BAS_PATH = os.path.join(ROOT_DIR, FGCONFGEN_BAS_DIR)
+FGCONFGEN_REQ_PATH = os.path.join(ROOT_DIR, FGCONFGEN_REQ_DIR)
 
 # Log config
 LOG_FORMAT = '%(asctime)s.%(msecs)03d %(module)-8s %(funcName)-8s %(levelname)-8s %(message)s'

@@ -12,14 +12,15 @@ sys.setdefaultencoding('utf8')
 def csv2xlsx(filename, indir, outdir):
     """
         Generate a multi worksheet xlsx file from a folder contain csv files
-        @param filename : filename of the config for output use
-        @param indir : input folder: full path of the csv contained folder
-        @param outdir : output folder: full path for xlxs output folder
+        @param filename : filename of the config for fg2xls_output use
+        @param indir : fg2xls_input folder: full path of the csv contained folder
+        @param outdir : fg2xls_output folder: full path for xlxs fg2xls_output folder
         @rtype: na
     """
     csv_folder = indir
     xls_folder = outdir
-    workbook = xlsxwriter.Workbook(os.path.join(xls_folder, filename + '.xlsx'))
+    return_xls_path = os.path.join(xls_folder, filename + '.xlsx')
+    workbook = xlsxwriter.Workbook(return_xls_path)
 
     for sheet in os.listdir(csv_folder):
         if sheet.endswith('.csv'):
@@ -31,7 +32,7 @@ def csv2xlsx(filename, indir, outdir):
                         worksheet.write(r, c, col)
             worksheet.autofilter('A1:Z1')
     workbook.close()
-    return
+    return return_xls_path
 
 
 if __name__ == "__main__":

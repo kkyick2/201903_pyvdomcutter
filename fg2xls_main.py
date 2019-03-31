@@ -5,6 +5,7 @@ import os
 import sys
 from os import listdir
 from os.path import isfile, join
+from shutil import copy2
 # import 3rd parties pkg
 # import project pkg
 from tools import logger
@@ -21,7 +22,7 @@ def mkdir(path):
         @rtype: na
     """
     logger1 = logger.logger().get()
-    # create output batch folder
+    # create fg2xls_output batch folder
     try:
         os.makedirs(path)
         logger1.info('create dir: ' + path)
@@ -54,29 +55,29 @@ def start():
     logger1.info('start script: '+__name__)
     print ('start script: '+__name__)
 
-    # define conf file list from input folder
+    # define conf file list from fg2xls_input folder
     confList = []
     try:
-        confList = getdir2filelist(conf.IN_DIR_PATH)
-        logger1.info('read input: ' + conf.IN_DIR_PATH)
+        confList = getdir2filelist(conf.FG2XLS_IN_PATH)
+        logger1.info('read fg2xls_input: ' + conf.FG2XLS_IN_PATH)
         logger1.info('read config files: ' + str(confList))
         if not confList:
-            logger1.warning('Terminate, input folder empty!')
-            sys.exit('Terminate, input folder empty!')
+            logger1.warning('Terminate, fg2xls_input folder empty!')
+            sys.exit('Terminate, fg2xls_input folder empty!')
     except OSError as e:
         logger1.warning(e)
 
-    # create output batch folder
-    mkdir(conf.BATCH_DIR_PATH)
+    # create fg2xls_output batch folder
+    mkdir(conf.BATCH_PATH)
 
-    # loop each config file in input file
+    # loop each config file in fg2xls_input file
     for filename in confList:
 
         # define configFileName's full path
-        config_file = os.path.join(conf.IN_DIR_PATH, filename)
+        config_file = os.path.join(conf.FG2XLS_IN_PATH, filename)
 
         # create result folder
-        result_dir = os.path.join(conf.BATCH_DIR_PATH, filename)
+        result_dir = os.path.join(conf.BATCH_PATH, filename)
         mkdir(result_dir)
 
         # convent config to csv
@@ -87,12 +88,18 @@ def start():
         # convent csv to xlsx
         logger1.info('convent csv to xlsx: ' + filename)
         print ('convent csv to xlsx: ' + filename)
-        csv2xlsx(filename, result_dir, result_dir, )
+        return_xls_path = csv2xlsx(filename, result_dir, result_dir)
 
         # cut fgconfig to multi vdom txt
         logger1.info('cutvdom to txt: ' + filename)
         print ('cutvdom to txt: ' + filename)
         vdomcutter(filename, config_file, result_dir)
+
+        # copy original config to fg2xls_output folder
+        copy2(config_file, result_dir)
+
+        # copy conf.xls to baseline folder
+        copy2(return_xls_path, conf.FGCONFGEN_BAS_PATH)
 
     logger1.info('end script: '+__name__)
     print ('end script: '+__name__)

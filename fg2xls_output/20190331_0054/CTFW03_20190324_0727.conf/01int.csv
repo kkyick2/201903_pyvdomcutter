@@ -1,0 +1,105 @@
+name,vdom,status,type,snmp-index,alias,description,mtu-override,mtu,ip,allowaccess,dedicated-to,trust-ip-1,trust-ip-2,trust-ip-3,mode,role,interface,vlanid
+port1,root,down,physical,1,,,,,,,,,,,,,,
+port2,root,down,physical,2,,,,,,,,,,,,,,
+port3,root,down,physical,3,,,,,,,,,,,,,,
+port4,root,down,physical,4,,,,,,,,,,,,,,
+port5,root,down,physical,5,,,,,,,,,,,,,,
+port6,root,down,physical,6,,,,,,,,,,,,,,
+port7,root,down,physical,7,,,,,,,,,,,,,,
+port8,root,down,physical,8,,,,,,,,,,,,,,
+port9,root,down,physical,9,,,,,,,,,,,,,,
+port10,root,down,physical,10,,,,,,,,,,,,,,
+port11,root,down,physical,11,,,,,,,,,,,,,,
+port12,root,down,physical,12,,,,,,,,,,,,,,
+port13,root,down,physical,13,,,,,,,,,,,,,,
+port14,root,down,physical,14,,,,,,,,,,,,,,
+port15,root,down,physical,15,,,,,,,,,,,,,,
+port16,root,down,physical,16,,,,,,,,,,,,,,
+port17,root,,physical,17,HA1,,,,,,,,,,,,,
+port18,root,down,physical,18,,,,,,,,,,,,,,
+port19,root,,physical,19,SESSION_SYNC1,,,,,,,,,,,,,
+port20,root,down,physical,20,,,,,,,,,,,,,,
+port21,root,down,physical,21,,,,,,,,,,,,,,
+port22,root,down,physical,22,,,,,,,,,,,,,,
+port23,root,down,physical,23,,,,,,,,,,,,,,
+port24,root,down,physical,24,,,,,,,,,,,,,,
+port25,root,down,physical,25,,,,,,,,,,,,,,
+port26,root,,physical,26,HA2,,,,,,,,,,,,,
+port27,root,down,physical,27,,,,,,,,,,,,,,
+port28,root,,physical,28,SESSION_SYNC2,,,,,,,,,,,,,
+port29,root,down,physical,29,,,,,,,,,,,,,,
+port30,root,down,physical,30,,,,,,,,,,,,,,
+port31,root,down,physical,31,,,,,,,,,,,,,,
+port32,root,down,physical,32,,,,,,,,,,,,,,
+port33,root,,physical,33,INTERNAL,"CONNECT TO CTSP01,02 xe-0/0/22:2 for INTERNAL",enable,9000,,,,,,,,,,
+port34,root,down,physical,34,,,,,,,,,,,,,,
+port35,root,down,physical,35,,,,,,,,,,,,,,
+port36,root,down,physical,36,,,,,,,,,,,,,,
+port37,root,down,physical,37,,,,,,,,,,,,,,
+port38,root,down,physical,38,,,,,,,,,,,,,,
+port39,root,,physical,39,EXTERNAL,"CONNECT TO CTSP01,02 xe-0/0/22:3 for EXTERNAL",enable,9000,,,,,,,,,,
+port40,root,down,physical,40,,,,,,,,,,,,,,
+mgmt1,root,,physical,41,OOBMGT,,,,10.8.148.85 255.255.255.0,ping https ssh snmp fgfm,management,10.8.148.0 255.255.254.0,10.90.1.64 255.255.255.248,10.8.150.0 255.255.255.0,,,,
+mgmt2,root,,physical,42,OOBMGT-VIP,,,,10.8.148.94 255.255.255.0,ping https ssh snmp fgfm,,,,,,,,
+modem,root,,physical,43,,,,,,,,,,,pppoe,,,
+ssl.root,root,,tunnel,46,SSL VPN interface,,,,,,,,,,,,,
+ssl.CT03CASH2,CT03CASH2,,tunnel,44,SSL VPN interface,,,,,,,,,,,,,
+ssl.CT03OTPC,CT03OTPC,,tunnel,84,SSL VPN interface,,,,,,,,,,,,,
+npu0_vlink0,root,down,physical,47,,,,,,,,,,,,,,
+npu0_vlink1,root,down,physical,48,,,,,,,,,,,,,,
+npu1_vlink0,root,down,physical,49,,,,,,,,,,,,,,
+npu1_vlink1,root,down,physical,50,,,,,,,,,,,,,,
+E_OCG.3205,CT03CASH2,,,56,,,,,10.90.1.161 255.255.255.248,ping,,,,,,lan,port39,3205
+E_NMC.3202,CT03CASH2,,,66,,,,,10.90.1.145 255.255.255.248,ping,,,,,,lan,port39,3202
+E_UCN.3201,CT03CASH2,,,54,,,,,10.90.1.137 255.255.255.248,ping,,,,,,lan,port39,3201
+I_CASH.3112,CT03CASH2,,,51,,,,,10.90.3.65 255.255.255.248,ping,,,,,,lan,port33,3112
+I_OMC.3106,CT03CASH2,,,80,,,,,10.90.3.41 255.255.255.248,ping,,,,,,lan,port33,3106
+E_XSYS.3206,CT03CASH2,,,55,,,,,10.90.1.233 255.255.255.248,ping,,,,,,lan,port39,3206
+E_UCN.3203,CT03OTPC,,,86,,,,,10.90.1.153 255.255.255.248,ping,,,,,,,port39,3203
+E_NMC.3204,CT03OTPC,,,87,,,,,10.90.2.17 255.255.255.248,ping,,,,,,,port39,3204
+WAN_OCG.672,CT03CASH2,,,58,,,,,10.19.17.33 255.255.255.240,ping,,,,,,lan,port39,672
+WAN_OCG.673,CT03CASH2,,,65,,,,,10.19.17.49 255.255.255.240,ping,,,,,,lan,port39,673
+WAN_OCG.676,CT03CASH2,,,67,,,,,10.19.17.97 255.255.255.240,ping,,,,,,lan,port39,676
+WAN_OCG.677,CT03CASH2,,,68,,,,,10.19.17.113 255.255.255.240,ping,,,,,,lan,port39,677
+WAN_OCG.680,CT03CASH2,,,69,,,,,10.19.17.161 255.255.255.240,ping,,,,,,lan,port39,680
+WAN_OCG.681,CT03CASH2,,,70,,,,,10.19.17.177 255.255.255.240,ping,,,,,,lan,port39,681
+WAN_OMDC.602,CT03CASH2,,,71,,,,,10.19.15.33 255.255.255.240,ping,,,,,,lan,port39,602
+WAN_OMDC.603,CT03CASH2,,,72,,,,,10.19.15.49 255.255.255.240,ping,,,,,,lan,port39,603
+WAN_OMDC.606,CT03CASH2,,,73,,,,,10.19.15.97 255.255.255.240,ping,,,,,,lan,port39,606
+WAN_OMDC.607,CT03CASH2,,,81,,,,,10.19.15.113 255.255.255.240,ping,,,,,,lan,port39,607
+WAN_OMDC.610,CT03CASH2,,,82,,,,,10.19.15.161 255.255.255.240,ping,,,,,,lan,port39,610
+WAN_OMDC.611,CT03CASH2,,,83,,,,,10.19.15.177 255.255.255.240,ping,,,,,,lan,port39,611
+E_TOF1.351,CT03CASH2,,,88,,,,,10.70.17.1 255.255.255.240,ping,,,,,,lan,port39,351
+E_TOF2.461,CT03CASH2,,,89,,,,,10.1.87.163 255.255.255.240,ping,,,,,,lan,port39,461
+E_OMDD.3216,CT03CASH2,,,91,,,,,10.90.2.65 255.255.255.248,ping,,,,,,lan,port39,3216
+E_OMDD4.1442,CT03CASH2,,,92,,,,,10.0.57.1 255.255.255.240,ping,,,,,,lan,port39,1442
+E_HKATS.3213,CT03CASH2,,,90,,,,,10.90.2.41 255.255.255.248,ping,,,,,,lan,port39,3213
+E_CSC.1258,CT03CASH2,,,94,,,,,10.0.50.1 255.255.255.240,ping,,,,,,lan,port39,1258
+E_SMARTS.3211,CT03CASH2,,,93,,,,,10.90.2.25 255.255.255.248,ping,,,,,,lan,port39,3211
+I_OADMAPP.3107,CT03OTPC,,,96,,,,,10.90.3.73 255.255.255.248,ping,,,,,,lan,port33,3107
+I_OTPC.3105,CT03OTPC,,,85,,,,,10.90.3.33 255.255.255.248,ping,,,,,,lan,port33,3105
+I_TOFAPP.3108,CT03OTPC,,,95,,,,,10.90.3.81 255.255.255.248,ping,,,,,,lan,port33,3108
+I_MMDHPL.871,CT03CASH2,down,,45,,,,,10.1.106.254 255.255.255.0,ping,,,,,,lan,port33,871
+I_MMDHPLM.872,CT03CASH2,down,,52,,,,,10.1.107.254 255.255.255.0,ping,,,,,,lan,port33,872
+I_MMDHPL.873,CT03CASH2,down,,53,,,,,10.1.108.254 255.255.255.0,ping,,,,,,lan,port33,873
+I_OMDCFE.791,CT03CASH2,down,,74,,,,,10.68.11.254 255.255.255.0,ping,,,,,,lan,port33,791
+I_OMDCFEM.795,CT03CASH2,down,,79,,,,,10.68.15.254 255.255.255.0,ping,,,,,,lan,port33,795
+I_TOFAPP.3101,CT03CASH2,,,75,,,,,10.90.3.1 255.255.255.248,ping,,,,,,lan,port33,3101
+I_SATWEB.3102,CT03CASH2,,,76,,,,,10.90.3.9 255.255.255.248,ping,,,,,,lan,port33,3102
+I_OADMAPP.3103,CT03CASH2,,,77,,,,,10.90.3.17 255.255.255.248,ping,,,,,,lan,port33,3103
+I_OADMWEB.3104,CT03CASH2,,,78,,,,,10.90.3.25 255.255.255.248,ping,,,,,,lan,port33,3104
+E_MDF.3217,CT03CASH2,,,97,,,,,10.90.2.73 255.255.255.248,ping,,,,,,lan,port39,3217
+I_OADMWEB.3109,CT03OTPC,,,98,,,,,10.90.3.89 255.255.255.248,ping,,,,,,lan,port33,3109
+E_WATEREZ.3215,CT03CASH2,,,99,,,,,10.90.2.57 255.255.255.248,ping,,,,,,lan,port39,3215
+I_CNMC.3113,CT03CASH2,,,100,,,,,10.90.3.97 255.255.255.248,ping,,,,,,lan,port33,3113
+I_CNMC.3114,CT03OTPC,,,101,,,,,10.90.3.105 255.255.255.248,ping,,,,,,lan,port33,3114
+E_TOF.3212,CT03CASH2,,,103,,,,,10.90.2.33 255.255.255.248,ping,,,,,,lan,port39,3212
+E_TOF.3218,CT03OTPC,,,102,,,,,10.90.2.81 255.255.255.248,ping,,,,,,lan,port39,3218
+I_BCAN.3119,CT03CASH2,,,57,,,,,10.90.3.169 255.255.255.248,ping,,,,,,lan,port33,3119
+E_EMFTP.C2.3223,CT03CASH2,,,59,,,,,10.90.2.113 255.255.255.248,ping,,,,,,lan,port39,3223
+E_EMFTPA.3224,CT03CASH2,,,60,,,,,10.90.2.121 255.255.255.248,ping,,,,,,lan,port39,3224
+I_CSC.3116,CT03OTPC,,,61,,,,,10.90.3.129 255.255.255.248,ping,,,,,,lan,port33,3116
+I_MMDHPLT.1105,CT03CASH2,,,62,,,,,10.1.115.254 255.255.255.0,ping,,,,,,lan,port33,1105
+I_CCI.3161,CT03CASH2,,,63,,,,,10.90.4.9 255.255.255.248,ping,,,,,,lan,port33,3161
+I_CCI.3162,CT03OTPC,,,64,,,,,10.90.4.17 255.255.255.248,ping,,,,,,lan,port33,3162
+I_IISCORE.3164,CT03OTPC,,,104,,,,,10.90.4.33 255.255.255.248,ping,,,,,,lan,port33,3164

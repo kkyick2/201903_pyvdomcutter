@@ -29,8 +29,8 @@ import csv
 from optparse import OptionParser
 
 # Options definition
-option_0 = { 'name' : ('-i', '--input-file'), 'help' : '<INPUT_FILE>: Fortigate configuration file. Ex: fgfw.cfg', 'nargs' : 1}
-option_1 = { 'name' : ('-o', '--output-file'), 'help' : '<OUTPUT_FILE>: output csv file (default \'./addresses-out.csv\')', 'default' : 'addresses-out.csv', 'nargs' : 1}
+option_0 = { 'name' : ('-i', '--fg2xls_input-file'), 'help' : '<INPUT_FILE>: Fortigate configuration file. Ex: fgfw.cfg', 'nargs' : 1}
+option_1 = { 'name' : ('-o', '--fg2xls_output-file'), 'help' : '<OUTPUT_FILE>: fg2xls_output csv file (default \'./addresses-out.csv\')', 'default' : 'addresses-out.csv', 'nargs' : 1}
 option_2 = { 'name' : ('-n', '--newline'), 'help' : '<NEWLINE> : insert a newline between each address for better readability', 'action' : 'store_true', 'default' : False }
 option_3 = { 'name' : ('-s', '--skip-header'), 'help' : '<SKIP_HEADER> : do not print the csv header', 'action' : 'store_true', 'default' : False }
 
@@ -57,7 +57,7 @@ def parse(fd):
 	"""
 		Parse the data according to several regexes
 		
-		@param fd:	input file descriptor
+		@param fd:	fg2xls_input file descriptor
 		@rtype:	return a list of addresses ( [ {'id' : '1', 'srcintf' : 'internal', ...}, {'id' : '2', 'srcintf' : 'external', ...}, ... ] )  
 				and the list of unique seen keys ['id', 'srcintf', 'dstintf', ...]
 	"""
@@ -111,7 +111,7 @@ def generate_csv(results, keys, fd, newline, skip_header):
 	"""
 		Generate a plain ';' separated csv file
 
-		@param fd : output file descriptor
+		@param fd : fg2xls_output file descriptor
 	"""
 	if results and keys:
 		with open(fd,'wb') as fd_output:
@@ -142,7 +142,7 @@ def main(options, arguments):
 		Dat main
 	"""
 	if (options.input_file == None):
-		parser.error('Please specify a valid input file')
+		parser.error('Please specify a valid fg2xls_input file')
 				
 	results, keys = parse(options.input_file)
 	generate_csv(results, keys, options.output_file, options.newline, options.skip_header)
@@ -155,7 +155,7 @@ def main2(input_file, output_file, newline, skip_header):
 		Dat main
 	"""
 	if (input_file == None):
-		parser.error('Please specify a valid input file')
+		parser.error('Please specify a valid fg2xls_input file')
 
 	results, keys = parse(input_file)
 	generate_csv(results, keys, output_file, newline, skip_header)

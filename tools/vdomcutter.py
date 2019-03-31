@@ -11,10 +11,10 @@ import logger
 
 def vdomcutter(filename, infile, outdir):
     """
-        input a fg config and cut each vdom to txt file
+        fg2xls_input a fg config and cut each vdom to txt file
         @param filename : filename of the config
-        @param infile : input file full path of the fg config
-        @param outdir : output folder: full path for the output folder
+        @param infile : fg2xls_input file full path of the fg config
+        @param outdir : fg2xls_output folder: full path for the fg2xls_output folder
         @rtype: na
     """
     logger1 = logger.logger().get()
@@ -33,10 +33,10 @@ def vdomcutter(filename, infile, outdir):
         vdomList.append(name)
     logger1.info('cut vdom config to txt: ' + str(vdomList))
     print('cut vdom config to txt: ' + str(vdomList))
-    # write each vdom to txt in output folder
+    # write each vdom to txt in fg2xls_output folder
     for i in range(1, len(p_foundcontent) + 1):
         with open(os.path.join(outdir, filename + '_' + vdomList[i - 1] + '.txt'), 'w') as outF:
             outF.write(p_foundcontent[i - 1])
-    # copy original config to output folder
-    copy2(infile, outdir)
+    # copy original config to fg2xls_output folder
+    # copy2(infile, outdir)
     return
