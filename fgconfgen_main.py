@@ -11,6 +11,15 @@ import conf
 NEXTLINE = '\r\n'
 
 
+def cidr_to_netmask(cidr):
+  cidr = int(cidr)
+  mask = (0xffffffff >> (32 - cidr)) << (32 - cidr)
+  return (str( (0xff000000 & mask) >> 24)   + '.' +
+          str( (0x00ff0000 & mask) >> 16)   + '.' +
+          str( (0x0000ff00 & mask) >> 8)    + '.' +
+          str( (0x000000ff & mask)))
+
+
 def write_row(outF, row):
     outF.write(row)
 
@@ -22,6 +31,9 @@ def xls2_policy_list(infile, sheet, vdom):
                     2) if no vdom column, assume all policy in same vdom
                 sheet: xlsx sheet name
                 vdom: for filter only this vdom to output list
+        @return:
+                policy_list:
+                order_keys:
     """
     logger1 = logger.logger().get()
     # workbook object is created
@@ -75,6 +87,7 @@ def gen_conf_policy(dictList, keys, vdom):
                 keys: a list of unique seen keys
                     ['id', 'srcintf', 'dstintf', ...]
                 vdom: vdom name for output "config vdom, edit <vdom>"
+        @return: N/A
     """
     # output file name
     outfile = vdom + '_policy.txt'
@@ -104,6 +117,7 @@ def gen_conf_policy(dictList, keys, vdom):
                         # skip vdom column in xlsx
                         if key == 'vdom':
                             continue
+                        # skip column in xlsx
                         elif key == 'uuid':
                             continue
                         elif key == 'Config Change Date':
@@ -112,7 +126,7 @@ def gen_conf_policy(dictList, keys, vdom):
                         elif key == 'id':
                             write_row(outF, 'edit ' + str(policydict[key]) + NEXTLINE)
                         elif key == 'name' or key == 'comments':
-                            write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"'+ NEXTLINE)
+                            write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"' + NEXTLINE)
                         elif key == 'srcaddr' or key == 'dstaddr' or key == 'service':
                             # remove object's next line and space from xls
                             obj_list = str(policydict[key]).split()
@@ -124,7 +138,7 @@ def gen_conf_policy(dictList, keys, vdom):
                                     string = string + ' "' + obj + '"'
                             write_row(outF, 'set ' + str(key) + ' ' + string + ''+ NEXTLINE)
                         else:
-                            write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"'+ NEXTLINE)
+                            write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"' + NEXTLINE)
                 # End of each policy [next]
                 write_row(outF, "next" + NEXTLINE)
                 write_row(outF, NEXTLINE)
@@ -135,7 +149,11 @@ def gen_conf_policy(dictList, keys, vdom):
 
 
 def gen_conf_service(list, vdom):
-
+    """
+        @param:	list: a list of service object in List format
+                vdom: vdom name for output "config vdom, edit <vdom>"
+        @return: N/A
+    """
     # output file name
     outfile = vdom + '_service.txt'
 
@@ -154,33 +172,44 @@ def gen_conf_service(list, vdom):
         write_row(outF, 'end' + NEXTLINE)
         write_row(outF, NEXTLINE)
         write_row(outF, 'config firewall service custom' + NEXTLINE)
-
-        # loop for each item
+        # loop for each item in list
         for item in list:
+            # edit "<service name>"
+            # set category "HKEX_USE"
             write_row(outF, 'edit "' + str(item) + '"'+ NEXTLINE)
             write_row(outF, 'set category "HKEX_USE"' + NEXTLINE)
-            if item.startswith('tcp/') or item.startswith('TCP/'):
-                #print 'tcp'
+
+            # change to lower letter for checking, remarks: output is original letter
+            item_lw = item.lower()
+
+            # three types of service obj 1/tcp 2/udp 3/others
+            if item_lw.startswith('tcp/'):
+                #print 'tcp: ' + item
                 write_row(outF, 'set tcp-portrange ' + item.split('/')[1] + NEXTLINE)
-                write_row(outF, 'next' + NEXTLINE)
-                write_row(outF, NEXTLINE)
-            elif item.startswith('udp/') or item.startswith('UDP/'):
-                #print 'udp'
+
+            elif item_lw.startswith('udp/'):
+                #print 'udp: ' + item
                 write_row(outF, 'set udp-portrange ' + item.split('/')[1] + NEXTLINE)
-                write_row(outF, 'next' + NEXTLINE)
-                write_row(outF, NEXTLINE)
+
             else:
-                print item + ' <-- !! Not tcp/udp object, need manuel edit'
+                print item + ' <-- !! Not standard object, need manuel edit'
                 write_row(outF, 'set !!!!! need manuel edit !!!!!!! ' + NEXTLINE)
-                write_row(outF, 'next' + NEXTLINE)
-                write_row(outF, NEXTLINE)
+
+            # End of each policy [next]
+            write_row(outF, "next" + NEXTLINE)
+            write_row(outF, NEXTLINE)
+        # End section [end]
         write_row(outF, 'end' + NEXTLINE)
     logger1.info('end')
     return
 
 
 def gen_conf_address(list, vdom):
-
+    """
+        @param:	list: a list of address object in List format
+                vdom: vdom name for output "config vdom, edit <vdom>"
+        @return: N/A
+    """
     # output file name
     outfile = vdom + '_address.txt'
 
@@ -189,6 +218,66 @@ def gen_conf_address(list, vdom):
     logger1.info('start: gen_conf_address: (vdom): {}, Total item to gen is {}'.format(vdom,len(list)))
     print('***** output file {}'.format(outfile))
 
+    with open(outfile, 'wb') as outF:
+        # First section [config vdom, edit <vdom>]
+        write_row(outF, 'config vdom' + NEXTLINE)
+        write_row(outF, 'edit ' + vdom + NEXTLINE)
+        write_row(outF, 'config firewall address' + NEXTLINE)
+        write_row(outF, NEXTLINE)
+        # loop for each item in list
+        for item in list:
+            # edit "<address name>"
+            write_row(outF, 'edit "' + str(item) + '"' + NEXTLINE)
+            write_row(outF, 'set comment ' + '""' + NEXTLINE)
+            write_row(outF, 'set associated-interface ' + '"' + 'TBC' + '"' + NEXTLINE)
+
+            # change to lower letter for checking, remarks: output is original letter
+            item_lw = item.lower()
+
+            # three types of service obj 1/Host 2/Net 3/Range 4/others
+            if item_lw.startswith('host_'):
+                #print 'Host: ' + item
+                write_row(outF, 'set type ipmask' + NEXTLINE)
+                subnet = item.split('_')[1]
+                mask = '255.255.255.255'
+                write_row(outF, 'set subnet ' + subnet + ' ' + mask + NEXTLINE)
+
+            elif item_lw.startswith('net_'):
+                #print 'Net: ' + item
+                write_row(outF, 'set type ipmask' + NEXTLINE)
+                # if format is Net_10.1.0.0/16, get the mask
+                if '/' in item:
+                    cidr = item.split('_')[1].split('/')[1]
+                    subnet = item.split('_')[1].split('/')[0]
+                    mask = cidr_to_netmask(cidr)
+                    write_row(outF, 'set subnet ' + subnet + ' ' + mask + NEXTLINE)
+                # if format is Net_10.1.0.0, assume mask is /24
+                else:
+                    subnet = item.split('_')[1]
+                    mask = '255.255.255.0'
+                    write_row(outF, 'set subnet ' + subnet + ' ' + mask + NEXTLINE)
+
+            elif item_lw.startswith('range_'):
+                #print 'Range: ' + item
+                write_row(outF, 'set type iprange' + NEXTLINE)
+                # eg Range_10.1.90.117-118 --> 10.1.90.117
+                startip = item.split('_')[1].split('-')[0]
+                # eg Range_10.1.90.117-118 --> 118
+                endip_oct = item.split('_')[1].split('-')[1]
+                # convent to 4 oct ['10', '1', '90', '117']
+                ipoct = startip.split('.')
+                endip = ipoct[0] + '.' + ipoct[1] + '.' + ipoct[2] + '.' + endip_oct
+                write_row(outF, 'set start-ip ' + startip + NEXTLINE)
+                write_row(outF, 'set end-ip ' + endip + NEXTLINE)
+
+            else:
+                print item + ' <-- !! Not standard object, need manuel edit'
+                write_row(outF, 'set !!!!! need manuel edit !!!!!!! ' + NEXTLINE)
+            # End of each policy [next]
+            write_row(outF, "next" + NEXTLINE)
+            write_row(outF, NEXTLINE)
+        # End section [end]
+        write_row(outF, 'end' + NEXTLINE)
     logger1.info('end')
     return
 
@@ -200,6 +289,8 @@ def xls2_obj_list(infile, sheet, vdom, key):
                     2) if no vdom column, assume all policy in same vdom
                 sheet: xlsx sheet name
                 vdom: for filter only this vdom to output list
+        @return:
+                returnList
     """
     logger1 = logger.logger().get()
     print('start: p_getobjList: (vdom, sheet, key): {},{},{}'.format(vdom,sheet,key))
@@ -249,14 +340,14 @@ def xls2_obj_list(infile, sheet, vdom, key):
 
 def flatten_list(l):
     """
-        flatten List
+        return a flatten List
     """
     return [y for x in l for y in x]
 
 
 def remove_dup_list(l):
     """
-        Remove duplicate elements from list
+        return a List with remove duplicate elements
     """
     returnList = []
     # Iterate over the original list and for each element
@@ -268,7 +359,14 @@ def remove_dup_list(l):
 
 
 def raw2_uniq_list(key, req_polList):
-
+    """
+        @param:
+                req_polList: a list of policies in dictionary format
+                    [ {'id' : '1', 'srcintf' : 'internal', ...}, {'id' : '2', 'srcintf' : 'external', ...}, ... ]
+                key: key of the target return list, eg, srcintf, dstintf
+        @return
+                req_uniqList:  List of the target key
+    """
     logger1 = logger.logger().get()
     logger1.info('start: raw2_uniq_list')
     req_rawList = []
@@ -284,7 +382,14 @@ def raw2_uniq_list(key, req_polList):
 
 
 def analyze_bas_mis(req_key, bas_List, req_uniqList):
-
+    """
+        @param:
+                req_key: key of the operation string, eg,service
+                bas_List: baseline obj in List
+                req_uniqList: requirement obj in List
+        @return
+                missingObjList: find the requirement missing obj in baseline, return in list
+    """
     logger1 = logger.logger().get()
     print('--- [' + req_key + '] ----------------------------------------------------------')
     print('start: analyze_bas_mis_obj: (key,bas_len,req_len) is ({},{},{})'.format(req_key,len(bas_List),len(req_uniqList)))
@@ -317,11 +422,11 @@ def start():
     logger1 = logger.logger().get()
     logger1.info('start script: '+__name__)
 
-    # info1/baseline, xls
+    # arg1/baseline, xls
     bas_conf = 'CTFW03_20190324_0727.conf.xlsx'
     bas_conf_sheet = '07policy'
 
-    # info2/gen conf, xls requirement, vdom name
+    # arg2-4/gen conf, xls requirement, vdom name
     req_conf = 'CT03CASH2_20190328a.xlsx'
     req_conf_sheet = 'Policy'
     vdom = 'CT03CASH2'
@@ -338,49 +443,56 @@ def start():
     print('===========================================================================')
     print('')
 
-    print('====================== 1/Task: baseline check =============================')
     # 1/baseline, xls to List for checking
+    print('====================== 1/Task: get baseline to list  ========================')
     bas_intList = xls2_obj_list(bas_conf_path, '01int', vdom, 'name')
     bas_zonList = xls2_obj_list(bas_conf_path, '02zone', vdom, 'name')
     bas_addList = xls2_obj_list(bas_conf_path, '04addr', vdom, 'name')
     bas_serList = xls2_obj_list(bas_conf_path, '06service', vdom, 'name')
     print('')
 
-    print('=================== 2/Task: gen policy conf ===============================')
     # 2/gen conf, xls requirement to txt
+    print('=================== 2/Task: gen policy conf ===============================')
     req_polList, keys = xls2_policy_list(req_conf_path, req_conf_sheet, vdom)
     gen_conf_policy(req_polList, keys, vdom)
     print('')
 
-    print('=================== 3/Task: find missing object in baseline ===============')
     # 3/analyze baseline missing obj
+    print('=================== 3/Task: find missing object in baseline ===============')
+    # task for service
     req_key = 'service'
     req_uniqList = raw2_uniq_list(req_key, req_polList)
     missing_service = analyze_bas_mis(req_key, bas_serList, req_uniqList)
 
+    # task for address
     req_key = 'srcaddr'
     req_uniqList_srcaddr = raw2_uniq_list(req_key, req_polList)
     req_key = 'dstaddr'
     req_uniqList_dstaddr = raw2_uniq_list(req_key, req_polList)
     req_key = 'srcaddr_and_dstaddr'
     addrList = req_uniqList_srcaddr + req_uniqList_dstaddr
+    # srcaddr_and_dstaddr may have duplicate items
     addrList = remove_dup_list(addrList)
     missing_address = analyze_bas_mis(req_key, bas_addList, addrList)
 
+    # task for zone
     req_key = 'srcintf'
     req_uniqList_srcintf = raw2_uniq_list(req_key, req_polList)
     req_key = 'dstintf'
     req_uniqList_dstintf = raw2_uniq_list(req_key, req_polList)
     req_key = 'zone'
     intfList = req_uniqList_srcintf + req_uniqList_dstintf
+    # srcintf and dstintf may have duplicate items
     intfList = remove_dup_list(intfList)
     missing_zone = analyze_bas_mis(req_key, bas_zonList, intfList)
     print('')
 
+    # 4/gen conf, missing service
     print('=================== 4/Task: gen missing service conf ====================')
     gen_conf_service(missing_service,vdom)
     print('')
 
+    # 5/gen conf, missing address
     print('=================== 5/Task: gen missing address conf ====================')
     gen_conf_address(missing_address,vdom)
     print('')
