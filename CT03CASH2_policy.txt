@@ -1,6 +1,6 @@
 config vdom
 edit CT03CASH2
-config firewall policy 
+config firewall policy
 edit OMDC
 set name "CIS to TOF SFTP 2"
 set srcintf "E.TOF2"
