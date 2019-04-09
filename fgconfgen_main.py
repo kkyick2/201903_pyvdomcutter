@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # by kkyick2
 # import pkg
-from collections import Iterable, OrderedDict
+import os
 # import 3rd parties pkg
 import openpyxl
 # import project pkg
@@ -49,8 +49,7 @@ def xls2_policy_list(infile, sheet, vdom):
             else:
                 policy_key = order_keys[x - 1]
                 policy_elem[policy_key] = cell_obj.value
-                #  logger1.debug('cell({}, {}): (key|val) is: {} | {}'
-                #              .format(str(x),str(y),str(policy_key),str(cell_obj.value)))
+                # logger1.debug('cell({}, {}): (key|val) is: {} | {}'.format(str(x),str(y),str(policy_key),str(cell_obj.value)))
         if len(policy_elem) > 0:
             # 1) if have vdom column, filter input vdom only for output
             if 'vdom' in order_keys:
@@ -107,12 +106,32 @@ def gen_conf_policy(dictList, keys, vdom):
                             write_row(outF, 'edit ' + str(policydict[key]) + NEXTLINE)
                         elif key == 'name' or key == 'comments':
                             write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"'+ NEXTLINE)
+                        elif key == 'srcaddr' or key == 'dstaddr':
+                            # remove object's next line and space from xls
+                            obj_list = str(policydict[key]).split()
+                            string = ""
+                            for obj in obj_list:
+                                if string is "":
+                                    string = '"' + obj + '"'
+                                else:
+                                    string = string + ' "' + obj + '"'
+                            write_row(outF, 'set ' + str(key) + ' ' + string + ''+ NEXTLINE)
+                        elif key == 'service':
+                            # remove object's next line and space from xls
+                            obj_list = str(policydict[key]).split()
+                            string = ""
+                            for obj in obj_list:
+                                if string is "":
+                                    string = '"' + obj + '"'
+                                else:
+                                    string = string + ' "' + obj + '"'
+                            write_row(outF, 'set ' + str(key) + ' ' + string + ''+ NEXTLINE)
                         elif key == 'uuid':
                             continue
                         elif key == 'Config Change Date':
                             continue
                         else:
-                            write_row(outF, 'set ' + str(key) + ' ' + str(policydict[key]) + NEXTLINE)
+                            write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"'+ NEXTLINE)
                 # End of each policy [next]
                 write_row(outF, "next" + NEXTLINE)
                 write_row(outF, NEXTLINE)
@@ -237,14 +256,17 @@ def start():
     logger1.info('start script: '+__name__)
 
     # info1/baseline, xls
-    bas_conf = 'CPFW03_20190323_0454.conf.xlsx'
+    bas_conf = 'CTFW03_20190324_0727.conf.xlsx'
     bas_conf_sheet = '07policy'
 
-    # info2/gen conf, xls requirement
-    req_conf = 'CP03CASH2_20190328a.xlsx'
+    # info2/gen conf, xls requirement, vdom name
+    req_conf = 'CT03CASH2_20190328a.xlsx'
     req_conf_sheet = 'Policy'
-    # define the vdom name
-    vdom = 'CP03OTPC'
+    vdom = 'CT03CASH2'
+
+    # define full path
+    bas_conf_path = os.path.join(conf.FGCONFGEN_BAS_PATH, bas_conf)
+    req_conf_path = os.path.join(conf.FGCONFGEN_REQ_PATH, req_conf)
 
     print('************************************************')
     print('*** baseline conf: {}'.format(bas_conf))
@@ -253,13 +275,13 @@ def start():
     print('************************************************')
     print('************ task for baseline *****************')
     # 1/baseline, xls to List for checking
-    bas_intList = xls2_obj_list(bas_conf, '01int', vdom, 'name')
-    bas_addList = xls2_obj_list(bas_conf, '04addr', vdom, 'name')
-    bas_serList = xls2_obj_list(bas_conf, '06service', vdom, 'name')
+    bas_intList = xls2_obj_list(bas_conf_path, '01int', vdom, 'name')
+    bas_addList = xls2_obj_list(bas_conf_path, '04addr', vdom, 'name')
+    bas_serList = xls2_obj_list(bas_conf_path, '06service', vdom, 'name')
 
     print('************ task for gen conf *****************')
     # 2/gen conf, xls requirement to txt
-    req_polList, keys = xls2_policy_list(req_conf, req_conf_sheet, vdom)
+    req_polList, keys = xls2_policy_list(req_conf_path, req_conf_sheet, vdom)
     gen_conf_policy(req_polList, keys, vdom)
 
     print('************ task for find missing object *****************')
