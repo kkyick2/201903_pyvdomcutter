@@ -368,10 +368,31 @@ def raw2_uniq_list(key, req_polList):
                 req_uniqList:  List of the target key
     """
     logger1 = logger.logger().get()
-    logger1.info('start: raw2_uniq_list')
+    print('start: raw2_uniq_list ' + key)
+    logger1.info('start: raw2_uniq_list ' + key)
     req_rawList = []
+    req_rawDict = {}
+    ykk_List = []
     for dict in req_polList:
-        req_rawList.append(str(dict[key]).split())
+        if 'srcaddr' in key:
+            req_rawList.append(str(dict[key]).split())
+            lll = []
+            for item in str(dict['srcaddr']).split():
+                lll.append(item.split('\n'))
+                print 'lll: ' + str(lll)
+                for i in lll:
+                    print i
+                    req_rawDict['addr'] = i
+                    req_rawDict['asso_int'] = dict['srcintf']
+                ykk_List.append(req_rawDict)
+            # req_rawDict['addr'] = dict['srcaddr']
+            # req_rawDict['asso_int'] = dict['srcintf']
+            print 'dictList: '+ str(ykk_List)
+        elif 'dstaddr' in key:
+            req_rawList.append(str(dict[key]).split())
+        else:
+            req_rawList.append(str(dict[key]).split())
+
     req_flatList = flatten_list(req_rawList)
     req_uniqList = remove_dup_list(req_flatList)
     logger1.debug('before remove duplicate: {}'.format(req_flatList))
