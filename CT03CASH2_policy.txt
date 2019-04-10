@@ -1,8 +1,9 @@
 config vdom
 edit CT03CASH2
 config firewall policy
+
 edit OMDC
-set name "CIS to TOF SFTP 2"
+set name "CIStoTOFSFTP2"
 set srcintf "E.TOF2"
 set dstintf "I.CASH.Trust2"
 set srcaddr "Host_10.63.109.100" "Host_10.63.109.101"
@@ -13,12 +14,11 @@ set service "SSH" "PING"
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:2:2018_1222
-IT-NCR-2019-[T]21811:2:2019_0329"
+set comments "IT-NCR-2018-[T]2196:2:2018_1222IT-NCR-2019-[T]21811:2:2019_0329"
 next
 
 edit OMDC
-set name "RTS receive SPI"
+set name "RTSreceiveSPI"
 set srcintf "I.CASH.Trust2"
 set dstintf "E.TOF1"
 set srcaddr "Range_10.1.90.117-118" "Range_10.1.89.117-118"
@@ -29,12 +29,11 @@ set service "TCP/27171" "PING"
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:3:2018_1222
-IT-NCR-2018-[T]2196:3:2019_2811"
+set comments "IT-NCR-2018-[T]2196:3:2018_1222IT-NCR-2018-[T]2196:3:2019_2811"
 next
 
 edit OMDC
-set name "RTS receive HSI1"
+set name "RTSreceiveHSI1"
 set srcintf "I.CASH.Trust2"
 set dstintf "E.TOF1"
 set srcaddr "Range_10.1.90.117-118" "Range_10.1.89.117-118"
@@ -45,12 +44,11 @@ set service "TCP/31906" "TCP/31106" "TCP/31206" "TCP/31937" "TCP/31137" "TCP/312
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:4:2018_1222
-IT-NCR-2018-[T]2196:3:2019_2811"
+set comments "IT-NCR-2018-[T]2196:4:2018_1222IT-NCR-2018-[T]2196:3:2019_2811"
 next
 
 edit OMDC
-set name "RTS receive HSI2"
+set name "RTSreceiveHSI2"
 set srcintf "I.CASH.Trust2"
 set dstintf "E.TOF1"
 set srcaddr "Range_10.1.90.117-118" "Range_10.1.89.117-118" "Range_10.2.89.117-118"
@@ -61,12 +59,11 @@ set service "TCP/31906" "TCP/31106" "TCP/31206" "TCP/31937" "TCP/31137" "TCP/312
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:4:2018_1222
-IT-NCR-2018-[T]2811:2:2019_0328"
+set comments "IT-NCR-2018-[T]2196:4:2018_1222IT-NCR-2018-[T]2811:2:2019_0328"
 next
 
 edit OMDC
-set name "RTS receive HSI3"
+set name "RTSreceiveHSI3"
 set srcintf "I.CASH.Trust2"
 set dstintf "E.TOF2"
 set srcaddr "Range_10.1.90.117-118" "Range_10.1.89.117-118" "Range_10.2.89.117-118"
@@ -77,12 +74,11 @@ set service "TCP/31906" "TCP/31106" "TCP/31206" "TCP/31937" "TCP/31137" "TCP/312
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:4:2018_1222
-IT-NCR-2018-[T]2811:2:2019_0328"
+set comments "IT-NCR-2018-[T]2196:4:2018_1222IT-NCR-2018-[T]2811:2:2019_0328"
 next
 
 edit OMDC
-set name "RTS receive TRI1"
+set name "RTSreceiveTRI1"
 set srcintf "I.CASH.Trust2"
 set dstintf "E.TOF1"
 set srcaddr "Range_10.1.90.117-118" "Range_10.1.89.117-118" "Range_10.2.89.117-118"
@@ -93,12 +89,11 @@ set service "TCP/14002" "PING"
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:4:2018_1222
-IT-NCR-2018-[T]2811:2:2019_0328"
+set comments "IT-NCR-2018-[T]2196:4:2018_1222IT-NCR-2018-[T]2811:2:2019_0328"
 next
 
 edit OMDC
-set name "RTS receive TRI2"
+set name "RTSreceiveTRI2"
 set srcintf "I.CASH.Trust2"
 set dstintf "E.TOF2"
 set srcaddr "Range_10.1.90.117-118" "Range_10.1.89.117-118" "Range_10.2.89.117-118"
@@ -109,12 +104,11 @@ set service "TCP/14002" "PING"
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:4:2018_1222
-IT-NCR-2018-[T]2811:2:2019_0328"
+set comments "IT-NCR-2018-[T]2196:4:2018_1222IT-NCR-2018-[T]2811:2:2019_0328"
 next
 
 edit OMDC
-set name "RTS receive EXN"
+set name "RTSreceiveEXN"
 set srcintf "E.MDF"
 set dstintf "I.CASH.Trust2"
 set srcaddr "Range_192.168.20.14-15"
@@ -125,12 +119,11 @@ set service "TCP/22"
 set utm-status "enable"
 set logtraffic "all"
 set ips-sensor "otpc-all"
-set comments "IT-NCR-2018-[T]2196:4:2018_1222
-IT-NCR-2018-[T]2811:2:2019_0328"
+set comments "IT-NCR-2018-[T]2196:4:2018_1222IT-NCR-2018-[T]2811:2:2019_0328"
 next
 
 edit new
-set name "SMARTS to CSCDMZ PFX SFTP 1"
+set name "SMARTStoCSCDMZPFXSFTP1"
 set srcintf "E.SMARTS"
 set dstintf "I.CSCDMZ"
 set srcaddr "Host_10.1.150.20"
@@ -145,7 +138,7 @@ set comments "IT-NCR-2018-[T]2685:61:2019_0330"
 next
 
 edit new
-set name "SMARTS to CSCDMZ PFX SFTP 2"
+set name "SMARTStoCSCDMZPFXSFTP2"
 set srcintf "I.TOFAPP"
 set dstintf "I.CSCDMZ"
 set srcaddr "Host_10.2.150.20"
@@ -160,7 +153,7 @@ set comments "IT-NCR-2018-[T]2685:61:2019_0330"
 next
 
 edit CDG
-set name "PIM to CDG MGT"
+set name "PIMtoCDGMGT"
 set srcintf "E.NMC"
 set dstintf "I.CSI"
 set srcaddr "Host_10.63.142.210" "Host_10.63.142.150" "Host_10.163.143.210" "Host_10.163.143.219"
@@ -175,7 +168,7 @@ set comments "IT-NCR-2019-[T]2816"
 next
 
 edit CDG
-set name "Remote access from UCN NM1"
+set name "RemoteaccessfromUCNNM1"
 set srcintf "E.UCN"
 set dstintf "I.CSI"
 set srcaddr "Net_192.168.150.0" "Net_192.168.188.0" "Net_192.168.187.0" "Net_192.168.166.0" "Net_192.168.143.0" "Net_192.168.93.0"
@@ -190,7 +183,7 @@ set comments "IT-NCR-2019-[T]2816"
 next
 
 edit CDG
-set name "Remote access from UCN NM2"
+set name "RemoteaccessfromUCNNM2"
 set srcintf "I.CCI"
 set dstintf "I.CSI"
 set srcaddr "Net_10.248.95.0"
@@ -205,7 +198,7 @@ set comments "IT-NCR-2019-[T]2816"
 next
 
 edit CDG
-set name "PIM to CDG MGT"
+set name "PIMtoCDGMGT"
 set srcintf "I.CSI"
 set dstintf "E.UCN"
 set srcaddr "Net_10.90.36.0"
@@ -220,7 +213,7 @@ set comments "IT-NCR-2019-[T]2816"
 next
 
 edit CDG
-set name "PIM to CDG MGT"
+set name "PIMtoCDGMGT"
 set srcintf "I.CSI"
 set dstintf "I.CCI"
 set srcaddr "Net_10.90.36.0"

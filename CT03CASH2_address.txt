@@ -4,7 +4,7 @@ config firewall address
 
 edit "Range_10.1.90.117-118"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "I.CASH.Trust2"
 set type iprange
 set start-ip 10.1.90.117
 set end-ip 10.1.90.118
@@ -12,49 +12,49 @@ next
 
 edit "Host_10.63.142.150"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "E.NMC"
 set type ipmask
 set subnet 10.63.142.150 255.255.255.255
 next
 
 edit "Net_10.248.95.0"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "I.CCI"
 set type ipmask
 set subnet 10.248.95.0 255.255.255.0
 next
 
 edit "Net_10.90.36.0"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "I.CSI"
 set type ipmask
 set subnet 10.90.36.0 255.255.255.0
 next
 
 edit "Host_10.1.125.43"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "I.CSCDMZ"
 set type ipmask
 set subnet 10.1.125.43 255.255.255.255
 next
 
 edit "Net_10.77.0.0/27"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "I.CSI"
 set type ipmask
 set subnet 10.77.0.0 255.255.255.224
 next
 
 edit "Net_10.77.0.0/25_CSI"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "I.CSI"
 set type ipmask
 set subnet 10.77.0.0 255.255.255.128
 next
 
 edit "Range_10.77.0.1-25_CSI"
 set comment ""
-set associated-interface "TBC"
+set associated-interface "I.CSI"
 set type iprange
 set start-ip 10.77.0.1
 set end-ip 10.77.0.25
