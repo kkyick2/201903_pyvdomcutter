@@ -1,1 +1,110 @@
-dad
+dad2019-04-11 11:00:14.214 fgconfgen_main start    INFO     start script: __main__
+2019-04-11 11:00:14.214 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,02zone,name
+2019-04-11 11:00:14.753 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 02zone -- Total: 44 items
+2019-04-11 11:00:14.753 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:00:14.753 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,03route,dst
+2019-04-11 11:00:15.453 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 03route -- Total: 189 items
+2019-04-11 11:00:15.453 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:00:15.453 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,04addr,name
+2019-04-11 11:00:15.944 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 04addr -- Total: 682 items
+2019-04-11 11:00:15.944 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:00:15.944 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,06service,name
+2019-04-11 11:00:16.454 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 06service -- Total: 256 items
+2019-04-11 11:00:16.454 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:00:17.209 fgconfgen_main xls2_policy_list INFO     start: p_xls2dictList: (vdom, sheet): CT03CASH2,Policy
+2019-04-11 11:00:17.209 fgconfgen_main xls2_policy_list INFO     ***** vdom: all - raw sheet size with heading col,row: 17,16
+2019-04-11 11:00:17.209 fgconfgen_main xls2_policy_list INFO     ***** CT03CASH2, Policy -- Total 15 items
+2019-04-11 11:00:17.209 fgconfgen_main xls2_policy_list INFO     end
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list service
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list DEBUG    *****List: service, b4 remove duplicate: 39 in xls, after remove duplicate: 15
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: service, b4 remove duplicate: 0 in xls, after remove duplicate: 0
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:00:17.209 fgconfgen_main analyze_bas_mis_obj INFO     start: analyze_bas_mis_obj: (key,bas_len,req_len) is (service,256,15)
+2019-04-11 11:00:17.209 fgconfgen_main analyze_bas_mis_obj INFO     *** No of obj in (key,baseline,req,missing) is (service,256,15,5)
+2019-04-11 11:00:17.209 fgconfgen_main analyze_bas_mis_obj INFO     end
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list srcaddr
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list DEBUG    *****List: srcaddr, b4 remove duplicate: 34 in xls, after remove duplicate: 20
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: srcaddr, b4 remove duplicate: 34 in xls, after remove duplicate: 20
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list dstaddr
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list DEBUG    *****List: dstaddr, b4 remove duplicate: 31 in xls, after remove duplicate: 25
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: dstaddr, b4 remove duplicate: 31 in xls, after remove duplicate: 25
+2019-04-11 11:00:17.209 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:00:17.209 fgconfgen_main analyze_bas_mis_obj INFO     start: analyze_bas_mis_obj: (key,bas_len,req_len) is (srcaddr_and_dstaddr,682,34)
+2019-04-11 11:00:17.217 fgconfgen_main analyze_bas_mis_obj INFO     *** No of obj in (key,baseline,req,missing) is (srcaddr_and_dstaddr,682,34,8)
+2019-04-11 11:00:17.217 fgconfgen_main analyze_bas_mis_obj INFO     end
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list srcintf
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list DEBUG    *****List: srcintf, b4 remove duplicate: 15 in xls, after remove duplicate: 9
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: srcintf, b4 remove duplicate: 0 in xls, after remove duplicate: 0
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list dstintf
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list DEBUG    *****List: dstintf, b4 remove duplicate: 15 in xls, after remove duplicate: 7
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: dstintf, b4 remove duplicate: 0 in xls, after remove duplicate: 0
+2019-04-11 11:00:17.217 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:00:17.217 fgconfgen_main analyze_bas_mis_obj INFO     start: analyze_bas_mis_obj: (key,bas_len,req_len) is (zone,44,11)
+2019-04-11 11:00:17.217 fgconfgen_main analyze_bas_mis_obj INFO     *** No of obj in (key,baseline,req,missing) is (zone,44,11,2)
+2019-04-11 11:00:17.217 fgconfgen_main analyze_bas_mis_obj INFO     end
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_policy INFO     start: gen_conf_policy: (vdom): CT03CASH2, Total item to gen is 15
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_policy INFO     ***** requirement xls do not have vdom, skip vdom key
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_policy INFO     gen config to txt
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_policy INFO     end
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_service INFO     start: gen_conf_service: (vdom): CT03CASH2, Total item to gen is 5
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_service INFO     end
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_address INFO     start: gen_conf_address: (vdom): CT03CASH2, Total item to gen is 8
+2019-04-11 11:00:17.217 fgconfgen_main gen_conf_address INFO     end
+2019-04-11 11:00:17.217 fgconfgen_main start    INFO     end: __main__
+2019-04-11 11:01:21.457 fgconfgen_main start    INFO     start script: __main__
+2019-04-11 11:01:21.457 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,02zone,name
+2019-04-11 11:01:21.974 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 02zone -- Total: 44 items
+2019-04-11 11:01:21.974 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:01:21.974 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,03route,dst
+2019-04-11 11:01:22.394 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 03route -- Total: 189 items
+2019-04-11 11:01:22.394 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:01:22.394 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,04addr,name
+2019-04-11 11:01:22.944 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 04addr -- Total: 682 items
+2019-04-11 11:01:22.944 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:01:22.944 fgconfgen_main xls2_obj_list INFO     start: p_getobjList: (vdom, sheet, key): CT03CASH2,06service,name
+2019-04-11 11:01:23.394 fgconfgen_main xls2_obj_list INFO     ***** CT03CASH2 06service -- Total: 256 items
+2019-04-11 11:01:23.394 fgconfgen_main xls2_obj_list INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main xls2_policy_list INFO     start: p_xls2dictList: (vdom, sheet): CT03CASH2,Policy
+2019-04-11 11:01:24.092 fgconfgen_main xls2_policy_list INFO     ***** vdom: all - raw sheet size with heading col,row: 17,16
+2019-04-11 11:01:24.092 fgconfgen_main xls2_policy_list INFO     ***** CT03CASH2, Policy -- Total 15 items
+2019-04-11 11:01:24.092 fgconfgen_main xls2_policy_list INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list service
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****List: service, b4 remove duplicate: 39 in xls, after remove duplicate: 15
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: service, b4 remove duplicate: 0 in xls, after remove duplicate: 0
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     start: analyze_bas_mis_obj: (key,bas_len,req_len) is (service,256,15)
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     *** No of obj in (key,baseline,req,missing) is (service,256,15,5)
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list srcaddr
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****List: srcaddr, b4 remove duplicate: 34 in xls, after remove duplicate: 20
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: srcaddr, b4 remove duplicate: 34 in xls, after remove duplicate: 20
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list dstaddr
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****List: dstaddr, b4 remove duplicate: 31 in xls, after remove duplicate: 25
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: dstaddr, b4 remove duplicate: 31 in xls, after remove duplicate: 25
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     start: analyze_bas_mis_obj: (key,bas_len,req_len) is (srcaddr_and_dstaddr,682,34)
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     *** No of obj in (key,baseline,req,missing) is (srcaddr_and_dstaddr,682,34,8)
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list srcintf
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****List: srcintf, b4 remove duplicate: 15 in xls, after remove duplicate: 9
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: srcintf, b4 remove duplicate: 0 in xls, after remove duplicate: 0
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     start: raw2_uniq_list dstintf
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****List: dstintf, b4 remove duplicate: 15 in xls, after remove duplicate: 7
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list DEBUG    *****Dict: dstintf, b4 remove duplicate: 0 in xls, after remove duplicate: 0
+2019-04-11 11:01:24.092 fgconfgen_main raw2_uniq_list INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     start: analyze_bas_mis_obj: (key,bas_len,req_len) is (zone,44,11)
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     *** No of obj in (key,baseline,req,missing) is (zone,44,11,2)
+2019-04-11 11:01:24.092 fgconfgen_main analyze_bas_mis_obj INFO     end
+2019-04-11 11:01:24.092 fgconfgen_main gen_conf_policy INFO     start: gen_conf_policy: CT03CASH2, Total item to gen is 15
+2019-04-11 11:01:24.092 fgconfgen_main gen_conf_policy INFO     ***** requirement xls do not have vdom, skip vdom key
+2019-04-11 11:01:24.092 fgconfgen_main gen_conf_policy INFO     gen config to txt
+2019-04-11 11:01:24.102 fgconfgen_main gen_conf_policy INFO     end
+2019-04-11 11:01:24.102 fgconfgen_main gen_conf_service INFO     start: gen_conf_service: (vdom): CT03CASH2, Total item to gen is 5
+2019-04-11 11:01:24.102 fgconfgen_main gen_conf_service INFO     end
+2019-04-11 11:01:24.102 fgconfgen_main gen_conf_address INFO     start: gen_conf_address: (vdom): CT03CASH2, Total item to gen is 8
+2019-04-11 11:01:24.102 fgconfgen_main gen_conf_address INFO     end
+2019-04-11 11:01:24.102 fgconfgen_main start    INFO     end: __main__

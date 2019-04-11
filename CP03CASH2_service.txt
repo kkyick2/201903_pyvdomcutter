@@ -1,0 +1,15 @@
+config vdom
+edit CP03CASH2
+config firewall service category
+edit "HKEX_USE"
+next
+end
+
+config firewall service custom
+
+edit "ICMP"
+set category "HKEX_USE"
+set !!!!! need manuel edit !!!!!!! 
+next
+
+end

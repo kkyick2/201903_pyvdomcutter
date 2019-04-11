@@ -1,0 +1,55 @@
+config vdom
+edit CP03CASH2
+config firewall address
+
+edit "Host_10.63.110.11"
+set associated-interface "I.CSI"
+set type ipmask
+set subnet 10.63.110.11 255.255.255.255
+next
+
+edit "Host_10.63.142.150"
+set associated-interface "E.NMC"
+set type ipmask
+set subnet 10.63.142.150 255.255.255.255
+next
+
+edit "Host_10.163.143.219"
+set associated-interface "E.NMC"
+set type ipmask
+set subnet 10.163.143.219 255.255.255.255
+next
+
+edit "Net_10.248.95.0"
+set associated-interface "I.CCI"
+set type ipmask
+set subnet 10.248.95.0 255.255.255.0
+next
+
+edit "Net_10.91.36.0"
+set associated-interface "I.CSI"
+set type ipmask
+set subnet 10.91.36.0 255.255.255.0
+next
+
+edit "Range_10.1.90.123-124"
+set associated-interface "I.CASH.Trust2"
+set type iprange
+set start-ip 10.1.90.123
+set end-ip 10.1.90.124
+next
+
+edit "Range_10.2.90.123-124"
+set associated-interface "I.CASH.Trust2"
+set type iprange
+set start-ip 10.2.90.123
+set end-ip 10.2.90.124
+next
+
+edit "Host_10.2.125.43"
+set associated-interface "I.CSCDMZ"
+set type ipmask
+set subnet 10.2.125.43 255.255.255.255
+next
+
+end
