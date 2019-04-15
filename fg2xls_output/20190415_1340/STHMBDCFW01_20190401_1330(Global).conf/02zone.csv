@@ -1,0 +1,21 @@
+name,interface
+Trust,
+Untrust,
+DMZ,
+MGT,
+Untrust-Trust,
+VLAN,
+DMZ1,
+V1-Trust,
+V1-Untrust,
+V1-DMZ,
+Zone 123,
+DMZ_Zone,port12
+Scanning_Zone,Scanning
+Untrust_Metro_Zone,HGC_910037377 HGC_910037378 HGC_910042237 PCCW_CE551187
+Trust,VlanInt10
+VlanInt14_Zone,VlanInt14
+VPN_Tunnel_Zone,HA_eHR_HGC HA_eHR_HKT HA_MetroIP_DC4 LomondRDBLD_vpn HA_MetroIP_DC3 HA_eHR_Test
+wtt_test_zone,port17 WTT_test_int
+Wifi_FreeAccess,VlanInt102_new VlanInt202_new VlanInt205_new
+Untrust,

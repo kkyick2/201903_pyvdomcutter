@@ -1,0 +1,5818 @@
+config vdom
+edit root
+config system settings
+    set inspection-mode flow
+end
+config system replacemsg-group
+    edit "default"
+        set comment "Default replacement message group."
+    next
+end
+config system zone
+    edit "Trust"
+    next
+    edit "Untrust"
+    next
+    edit "DMZ"
+    next
+    edit "MGT"
+    next
+    edit "Untrust-Trust"
+    next
+    edit "VLAN"
+    next
+    edit "DMZ1"
+    next
+    edit "V1-Trust"
+    next
+    edit "V1-Untrust"
+    next
+    edit "V1-DMZ"
+    next
+    edit "Zone 123"
+    next
+end
+config firewall address
+    edit "all"
+        set uuid f06d2bc4-c571-51e7-53d4-14b3a8b86f02
+    next
+    edit "FIREWALL_AUTH_PORTAL_ADDRESS"
+        set uuid edf576b2-c571-51e7-e391-629b24d11518
+        set visibility disable
+    next
+    edit "SSLVPN_TUNNEL_ADDR1"
+        set uuid edf6303e-c571-51e7-5854-79de4c684cd5
+        set type iprange
+        set associated-interface "ssl.root"
+        set start-ip 10.212.134.200
+        set end-ip 10.212.134.210
+    next
+    edit "none"
+        set uuid f06d34ac-c571-51e7-df07-4e26f9e45c44
+        set subnet 0.0.0.0 255.255.255.255
+    next
+    edit "adobe"
+        set uuid f06d3cd6-c571-51e7-67e5-4eb4f06829f1
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.adobe.com"
+    next
+    edit "Adobe Login"
+        set uuid f06d4596-c571-51e7-28b6-d11aea0612d7
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.adobelogin.com"
+    next
+    edit "android"
+        set uuid f06d4e24-c571-51e7-d717-c7940cfbcebe
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.android.com"
+    next
+    edit "apple"
+        set uuid f06d564e-c571-51e7-a34d-12e16d43bd23
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.apple.com"
+    next
+    edit "appstore"
+        set uuid f06d5e82-c571-51e7-f072-be5f95374238
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.appstore.com"
+    next
+    edit "auth.gfx.ms"
+        set uuid f06d66fc-c571-51e7-a5b3-13218d468774
+        set type wildcard-fqdn
+        set wildcard-fqdn "*auth.gfx.ms"
+    next
+    edit "autoupdate.opera.com"
+        set uuid f06d6f8a-c571-51e7-6836-bdcfbf5693ad
+        set type fqdn
+        set fqdn "autoupdate.opera.com"
+    next
+    edit "citrix"
+        set uuid f06d7854-c571-51e7-1c33-8f75f4182fac
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.citrixonline.com"
+    next
+    edit "dropbox.com"
+        set uuid f06d80c4-c571-51e7-0d18-6428f2ae4c35
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.dropbox.com"
+    next
+    edit "eease"
+        set uuid f06d88f8-c571-51e7-ecb2-33cbf0904347
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.eease.com"
+    next
+    edit "firefox update server"
+        set uuid f06d917c-c571-51e7-bb35-197648fb87d8
+        set type wildcard-fqdn
+        set wildcard-fqdn "aus*.mozilla.org"
+    next
+    edit "fortinet"
+        set uuid f06d99a6-c571-51e7-e58a-0f178568ba04
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.fortinet.com"
+    next
+    edit "googleapis.com"
+        set uuid f06da22a-c571-51e7-d125-23e56365d7db
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.googleapis.com"
+    next
+    edit "google-drive"
+        set uuid f06daa5e-c571-51e7-340e-3ef0bda17870
+        set type wildcard-fqdn
+        set wildcard-fqdn "*drive.google.com"
+    next
+    edit "google-play"
+        set uuid f06db2ce-c571-51e7-d911-befa4c699392
+        set type fqdn
+        set fqdn "play.google.com"
+    next
+    edit "google-play2"
+        set uuid f06dbb70-c571-51e7-9dd1-b8577ab641a9
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.ggpht.com"
+    next
+    edit "google-play3"
+        set uuid f06dc3ae-c571-51e7-f51e-d35e8a030632
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.books.google.com"
+    next
+    edit "Gotomeeting"
+        set uuid f06dcbd8-c571-51e7-33e3-35b0ad1780b5
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.gotomeeting.com"
+    next
+    edit "icloud"
+        set uuid f06dd448-c571-51e7-293f-20f04aa9f6a2
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.icloud.com"
+    next
+    edit "itunes"
+        set uuid f06ddc68-c571-51e7-3fd7-48b8b72e300b
+        set type wildcard-fqdn
+        set wildcard-fqdn "*itunes.apple.com"
+    next
+    edit "microsoft"
+        set uuid f06de4a6-c571-51e7-b7d4-7b5941574599
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.microsoft.com"
+    next
+    edit "skype"
+        set uuid f06decd0-c571-51e7-466a-a3f1f631bd86
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.messenger.live.com"
+    next
+    edit "softwareupdate.vmware.com"
+        set uuid f06df518-c571-51e7-f705-5bc26379a0df
+        set type wildcard-fqdn
+        set wildcard-fqdn "*softwareupdate.vmware.com"
+    next
+    edit "swscan.apple.com"
+        set uuid f06dfd56-c571-51e7-2ed3-e52ea1a97c2c
+        set type fqdn
+        set fqdn "swscan.apple.com"
+    next
+    edit "update.microsoft.com"
+        set uuid f06e0616-c571-51e7-4f21-7e5b01f3a4b4
+        set type fqdn
+        set fqdn "update.microsoft.com"
+    next
+    edit "verisign"
+        set uuid f06e0e7c-c571-51e7-9310-ef8406617ac0
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.verisign.com"
+    next
+    edit "Windows update 2"
+        set uuid f06e16d8-c571-51e7-d7da-e4de67202fc5
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.windowsupdate.com"
+    next
+    edit "live.com"
+        set uuid f06e1ffc-c571-51e7-1693-217eb5563605
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.live.com"
+    next
+    edit "DEV VM-SQL2016DEV1"
+        set uuid 5e0deb10-f5aa-51e7-d41e-b27fdecd5b37
+        set associated-interface "Trust"
+        set subnet 192.168.180.127 255.255.255.255
+    next
+    edit "0.0.0.0/0"
+        set uuid 8d56801c-f5aa-51e7-9fc5-25bdd91b7208
+        set associated-interface "Trust"
+    next
+    edit "0.0.0.0/32"
+        set uuid 9c79dcec-f5aa-51e7-d34e-fe8e23937386
+        set associated-interface "Trust"
+        set subnet 0.0.0.0 255.255.255.255
+    next
+    edit "172.21.205.6/32"
+        set uuid d74c58e0-f5aa-51e7-c64c-86baf07369d0
+        set associated-interface "Trust"
+        set subnet 172.21.205.6 255.255.255.255
+    next
+    edit "172.21.206.0/24"
+        set uuid fb19f188-f5aa-51e7-d592-635240699b4b
+        set associated-interface "Trust"
+        set subnet 172.21.206.0 255.255.255.0
+    next
+    edit "172.21.206.12/32"
+        set uuid 1182dbec-f5ab-51e7-f4fe-ef8065c8ec0e
+        set associated-interface "Trust"
+        set subnet 172.21.206.12 255.255.255.255
+    next
+    edit "172.21.206.5/32"
+        set uuid 2786a52c-f5ab-51e7-0aca-21cdba643747
+        set associated-interface "Trust"
+        set subnet 172.21.206.5 255.255.255.255
+    next
+    edit "192.168.0.0/16"
+        set uuid 3addaf08-f5ab-51e7-db41-61fc238b9365
+        set associated-interface "Trust"
+        set subnet 192.168.0.0 255.255.0.0
+    next
+    edit "192.168.0.0/24"
+        set uuid 55c371ae-f5ab-51e7-87c3-5faa72f4d745
+        set associated-interface "Trust"
+        set subnet 192.168.0.0 255.255.255.0
+    next
+    edit "192.168.10.0/24"
+        set uuid ca78a136-f5ab-51e7-2149-c5e1e1f11a36
+        set associated-interface "Trust"
+        set subnet 192.168.10.0 255.255.255.0
+    next
+    edit "192.168.10.0/255.255.255.0"
+        set uuid e72695ea-f5ab-51e7-62b3-ed977712fa93
+        set associated-interface "Trust"
+        set subnet 192.168.10.0 255.255.255.0
+    next
+    edit "192.168.10.0/32"
+        set uuid 010f2922-f5ac-51e7-0019-fbe81fc07303
+        set associated-interface "Trust"
+        set subnet 192.168.10.0 255.255.255.255
+    next
+    edit "192.168.10.115/32"
+        set uuid 112d2e9e-f5ac-51e7-e33b-b39818238870
+        set associated-interface "Trust"
+        set subnet 192.168.10.115 255.255.255.255
+    next
+    edit "192.168.10.128/32"
+        set uuid 23d9d376-f5ac-51e7-e876-15551f4906ca
+        set associated-interface "Trust"
+        set subnet 192.168.10.128 255.255.255.255
+    next
+    edit "192.168.10.144/32"
+        set uuid 31e9c584-f5ac-51e7-1bbd-b670f716c9cd
+        set associated-interface "Trust"
+        set subnet 192.168.10.144 255.255.255.255
+    next
+    edit "192.168.10.145/32"
+        set uuid 41db5dfe-f5ac-51e7-b24d-d17b3e07abd3
+        set associated-interface "Trust"
+        set subnet 192.168.10.145 255.255.255.255
+    next
+    edit "192.168.10.162/24"
+        set uuid f1654e88-f5ac-51e7-d16b-e4aa692dbb5b
+        set associated-interface "Trust"
+        set subnet 192.168.10.0 255.255.255.0
+    next
+    edit "192.168.10.162/32"
+        set uuid 034c7572-f5ad-51e7-d2da-b7f9f3104141
+        set associated-interface "Trust"
+        set subnet 192.168.10.162 255.255.255.255
+    next
+    edit "192.168.10.167/32"
+        set uuid 153fd3b4-f5ad-51e7-1910-601732bc7f82
+        set associated-interface "Trust"
+        set subnet 192.168.10.167 255.255.255.255
+    next
+    edit "192.168.10.31/32"
+        set uuid aeb22f40-f5af-51e7-3689-8b67d36b5adc
+        set associated-interface "Trust"
+        set subnet 192.168.10.31 255.255.255.255
+    next
+    edit "192.168.10.40/32"
+        set uuid bd25c74e-f5af-51e7-eb63-a3ca4f9a4a21
+        set associated-interface "Trust"
+        set subnet 192.168.10.40 255.255.255.255
+    next
+    edit "192.168.10.51/255.255.255.255"
+        set uuid c91fd92c-f5af-51e7-50a6-d00422fe8b9d
+        set associated-interface "Trust"
+        set subnet 192.168.10.51 255.255.255.255
+    next
+    edit "192.168.10.57/32"
+        set uuid d835e992-f5af-51e7-7b57-1e824f5f411e
+        set associated-interface "Trust"
+        set subnet 192.168.10.57 255.255.255.255
+    next
+    edit "192.168.10.61/32"
+        set uuid 0d6f00d0-f5b0-51e7-9d6e-09f772f843ba
+        set associated-interface "Trust"
+        set subnet 192.168.10.61 255.255.255.255
+    next
+    edit "192.168.10.64/255.255.255.255"
+        set uuid 1a8f0daa-f5b0-51e7-71f8-a63bc7248e04
+        set associated-interface "Trust"
+        set subnet 192.168.10.64 255.255.255.255
+    next
+    edit "192.168.10.70/32"
+        set uuid 2e6c17c8-f5b0-51e7-6354-59fa49489a4a
+        set associated-interface "Trust"
+        set subnet 192.168.10.70 255.255.255.255
+    next
+    edit "192.168.10.71/32"
+        set uuid 440b7240-f5b0-51e7-b781-358dcef1a934
+        set associated-interface "Trust"
+        set subnet 192.168.10.71 255.255.255.255
+    next
+    edit "192.168.10.81/32"
+        set uuid 54dcb1e2-f5b0-51e7-2567-a97a4e8eace6
+        set associated-interface "Trust"
+        set subnet 192.168.10.81 255.255.255.255
+    next
+    edit "192.168.10.84/32"
+        set uuid 622e3622-f5b0-51e7-b4e6-356761077626
+        set associated-interface "Trust"
+        set subnet 192.168.10.84 255.255.255.255
+    next
+    edit "192.168.10.85/32"
+        set uuid 7fbb4900-f5b0-51e7-a594-4f2c440dd738
+        set associated-interface "Trust"
+        set subnet 192.168.10.85 255.255.255.255
+    next
+    edit "192.168.10.94/32"
+        set uuid 8cbca63a-f5b0-51e7-9424-806afa9b0ea3
+        set associated-interface "Trust"
+        set subnet 192.168.10.94 255.255.255.255
+    next
+    edit "192.168.11.0/24"
+        set uuid 9bd4da7a-f5b0-51e7-4bc0-72cd56e72353
+        set subnet 192.168.11.0 255.255.255.0
+    next
+    edit "192.168.11.109/32"
+        set uuid aaef4720-f5b0-51e7-c116-1736139399ef
+        set associated-interface "Trust"
+        set subnet 192.168.11.109 255.255.255.255
+    next
+    edit "192.168.11.133/32"
+        set uuid ba648b2a-f5b0-51e7-0b69-f69d01a3ac36
+        set associated-interface "Trust"
+        set subnet 192.168.11.133 255.255.255.255
+    next
+    edit "192.168.11.154/32"
+        set uuid c786c390-f5b0-51e7-0992-8cb3e3d21089
+        set associated-interface "Trust"
+        set subnet 192.168.11.154 255.255.255.255
+    next
+    edit "192.168.11.167/32"
+        set uuid daa66c14-f5b0-51e7-65dc-17bce347c7d6
+        set associated-interface "Trust"
+        set subnet 192.168.11.167 255.255.255.255
+    next
+    edit "192.168.11.169-bryan test"
+        set uuid ec50eba6-f5b0-51e7-294b-ea2ec44dfc0c
+        set associated-interface "Trust"
+        set subnet 192.168.11.169 255.255.255.255
+    next
+    edit "192.168.11.176"
+        set uuid 008a0738-f5b1-51e7-110f-3cacbe7e711f
+        set associated-interface "Trust"
+        set subnet 192.168.11.176 255.255.255.255
+    next
+    edit "192.168.11.222/32"
+        set uuid 0dc148b2-f5b1-51e7-b6a4-ff1da54a13c3
+        set associated-interface "Trust"
+        set subnet 192.168.11.222 255.255.255.255
+    next
+    edit "192.168.11.54/32"
+        set uuid 1f112e7a-f5b1-51e7-d60e-eee18d3d83cd
+        set associated-interface "Trust"
+        set subnet 192.168.11.54 255.255.255.255
+    next
+    edit "192.168.114.0/23"
+        set uuid 468b7546-f5b1-51e7-9dca-613542cfa9e6
+        set associated-interface "Trust"
+        set subnet 192.168.114.0 255.255.254.0
+    next
+    edit "192.168.114.0/24"
+        set uuid 77c63efc-f5b1-51e7-7608-ad1eec88c835
+        set associated-interface "Trust"
+        set subnet 192.168.114.0 255.255.255.0
+    next
+    edit "192.168.114.39/32"
+        set uuid 8812d7ac-f5b1-51e7-f3d4-e9fb2c3579c2
+        set associated-interface "Trust"
+        set subnet 192.168.114.39 255.255.255.255
+    next
+    edit "192.168.12.66/32"
+        set uuid 971ffd6a-f5b1-51e7-70a2-f3192a4700c2
+        set associated-interface "Trust"
+        set subnet 192.168.12.66 255.255.255.255
+    next
+    edit "192.168.140.68/32"
+        set uuid a8157c8a-f5b1-51e7-8279-14193ff4190c
+        set associated-interface "Trust"
+        set subnet 192.168.140.68 255.255.255.255
+    next
+    edit "192.168.15.0/24"
+        set uuid b7ba4cec-f5b1-51e7-6e8c-b4da69cc541d
+        set associated-interface "Trust"
+        set subnet 192.168.15.0 255.255.255.0
+    next
+    edit "192.168.15.12/32"
+        set uuid c481138e-f5b1-51e7-5a59-9ff5a10ed9f2
+        set associated-interface "Trust"
+        set subnet 192.168.15.12 255.255.255.255
+    next
+    edit "192.168.15.13/32"
+        set uuid d021c95e-f5b1-51e7-da5c-b8b806b9397b
+        set associated-interface "Trust"
+        set subnet 192.168.15.13 255.255.255.255
+    next
+    edit "192.168.15.180/32"
+        set uuid dcf4d932-f5b1-51e7-ea59-a4481ae62031
+        set associated-interface "Trust"
+        set subnet 192.168.15.180 255.255.255.255
+    next
+    edit "192.168.15.181/32"
+        set uuid f520a892-f5b1-51e7-8cf8-c1231feb1be7
+        set associated-interface "Trust"
+        set subnet 192.168.15.181 255.255.255.255
+    next
+    edit "192.168.15.182/32"
+        set uuid fe398e6c-f5b1-51e7-82f9-6491f3a8cfd6
+        set associated-interface "Trust"
+        set subnet 192.168.15.182 255.255.255.255
+    next
+    edit "192.168.15.183/32"
+        set uuid 0bc70bae-f5b2-51e7-a2a4-fa6e68640b2e
+        set associated-interface "Trust"
+        set subnet 192.168.15.183 255.255.255.255
+    next
+    edit "192.168.15.184/32"
+        set uuid 18f16266-f5b2-51e7-3594-e2d1c86e384a
+        set associated-interface "Trust"
+        set subnet 192.168.15.184 255.255.255.255
+    next
+    edit "192.168.15.185/32"
+        set uuid 233dc124-f5b2-51e7-c548-ace4057bc606
+        set associated-interface "Trust"
+        set subnet 192.168.15.185 255.255.255.255
+    next
+    edit "192.168.15.220/255.255.255.255"
+        set uuid 34357918-f5b2-51e7-4258-b7c5776ffe80
+        set associated-interface "Trust"
+        set subnet 192.168.15.220 255.255.255.255
+    next
+    edit "192.168.15.220/32"
+        set uuid 439279b0-f5b2-51e7-9944-6509a45786af
+        set associated-interface "Trust"
+        set subnet 192.168.15.220 255.255.255.255
+    next
+    edit "192.168.15.24/255.255.255.255"
+        set uuid 555a7620-f5b2-51e7-fd6e-38b17f1e88b7
+        set associated-interface "Trust"
+        set subnet 192.168.15.24 255.255.255.255
+    next
+    edit "192.168.150.0/24"
+        set uuid 628612a0-f5b2-51e7-a4ac-50cdba6283ed
+        set associated-interface "Trust"
+        set subnet 192.168.150.0 255.255.255.0
+    next
+    edit "192.168.150.104/32"
+        set uuid 90961eec-f5b2-51e7-4aca-ba2d12d14ecb
+        set associated-interface "Trust"
+        set subnet 192.168.150.104 255.255.255.255
+    next
+    edit "192.168.150.51/32"
+        set uuid ef59f02a-f5b2-51e7-5932-e0eedf0be3c8
+        set associated-interface "Trust"
+        set subnet 192.168.150.51 255.255.255.255
+    next
+    edit "192.168.150.55/32"
+        set uuid 01674506-f5b3-51e7-2e7b-9c26b7f751b1
+        set associated-interface "Trust"
+        set subnet 192.168.150.55 255.255.255.255
+    next
+    edit "192.168.176.29/32"
+        set uuid 10ef09dc-f5b3-51e7-606c-defb9bc6ce4e
+        set associated-interface "Trust"
+        set subnet 192.168.176.29 255.255.255.255
+    next
+    edit "192.168.176.33/32"
+        set uuid 22fac3e6-f5b3-51e7-af6e-65867124e807
+        set associated-interface "Trust"
+        set subnet 192.168.176.33 255.255.255.255
+    next
+    edit "192.168.180.0/24"
+        set uuid 2f061c08-f5b3-51e7-f87f-b657c1bb3d07
+        set associated-interface "Trust"
+        set subnet 192.168.180.0 255.255.255.0
+    next
+    edit "192.168.180.0/255.255.255.0"
+        set uuid 3b1cd7ca-f5b3-51e7-2618-0c5d9c35ee50
+        set associated-interface "Trust"
+        set subnet 192.168.180.0 255.255.255.0
+    next
+    edit "192.168.180.151/32"
+        set uuid 4a17f7b4-f5b3-51e7-b38c-e85b5754cd8b
+        set associated-interface "Trust"
+        set subnet 192.168.180.151 255.255.255.255
+    next
+    edit "192.168.30.0/24"
+        set uuid 575a25e6-f5b3-51e7-6202-774415183472
+        set associated-interface "Trust"
+        set subnet 192.168.30.0 255.255.255.0
+    next
+    edit "192.168.30.0/255.255.255.0"
+        set uuid 6346d278-f5b3-51e7-1c34-fea3287bd973
+        set associated-interface "Trust"
+        set subnet 192.168.30.0 255.255.255.0
+    next
+    edit "192.168.30.250 - sthmail13"
+        set uuid 78b97c64-f5b3-51e7-2835-4599b96b0257
+        set comment "STHMAIL13 Virtual IP"
+        set associated-interface "Trust"
+        set subnet 192.168.30.250 255.255.255.255
+    next
+    edit "192.168.36.151/32"
+        set uuid 935801da-f5b3-51e7-ca66-26a3769cc891
+        set associated-interface "Trust"
+        set subnet 192.168.36.151 255.255.255.255
+    next
+    edit "192.168.46.82/255.255.255.255"
+        set uuid b5bf96d4-f5b3-51e7-67c4-6963f0b1e1e2
+        set associated-interface "Trust"
+        set subnet 192.168.46.82 255.255.255.255
+    next
+    edit "192.168.55.0/24"
+        set uuid c393a688-f5b3-51e7-7c4f-4cffcfa56c83
+        set associated-interface "Trust"
+        set subnet 192.168.55.0 255.255.255.0
+    next
+    edit "192.168.55.0/32"
+        set uuid ce78077e-f5b3-51e7-a001-dd720b115c86
+        set associated-interface "Trust"
+        set subnet 192.168.55.0 255.255.255.255
+    next
+    edit "192.168.55.132/32"
+        set uuid e87577ce-f5b3-51e7-5c16-f23f88e0f4f6
+        set associated-interface "Trust"
+        set subnet 192.168.55.132 255.255.255.255
+    next
+    edit "192.168.55.139/32"
+        set uuid f25f1876-f5b3-51e7-10e4-d14dbe6b2980
+        set associated-interface "Trust"
+        set subnet 192.168.55.139 255.255.255.255
+    next
+    edit "192.168.55.15/255.255.255.255"
+        set uuid fea114c2-f5b3-51e7-581a-dcdf52fd44e8
+        set associated-interface "Trust"
+        set subnet 192.168.55.15 255.255.255.255
+    next
+    edit "192.168.55.15/32"
+        set uuid 0b2785dc-f5b4-51e7-dc09-2b4e3306ba7b
+        set associated-interface "Trust"
+        set subnet 192.168.55.15 255.255.255.255
+    next
+    edit "192.168.55.220/255.255.255.255"
+        set uuid 161d1092-f5b4-51e7-2d68-36427e6c9d2b
+        set associated-interface "Trust"
+        set subnet 192.168.55.220 255.255.255.255
+    next
+    edit "192.168.75.0/24"
+        set uuid 29613c64-f5b4-51e7-eb23-1e8f19972a43
+        set associated-interface "Trust"
+        set subnet 192.168.75.0 255.255.255.0
+    next
+    edit "192.168.75.0/24 - ITSD network farm"
+        set uuid 3e56ca3a-f5b4-51e7-a89d-b8e480b1db73
+        set comment "Vpn connection to SPH"
+        set associated-interface "Trust"
+        set subnet 192.168.75.0 255.255.255.0
+    next
+    edit "192.168.75.20/32"
+        set uuid 52c6ff1c-f5b4-51e7-b385-86ec4b49b872
+        set associated-interface "Trust"
+        set subnet 192.168.75.20 255.255.255.255
+    next
+    edit "192.168.75.201/32"
+        set uuid 5df5fbb8-f5b4-51e7-27d9-6b50c3d78b88
+        set associated-interface "Trust"
+        set subnet 192.168.75.201 255.255.255.255
+    next
+    edit "192.168.75.210/32"
+        set uuid 6942828e-f5b4-51e7-c758-72d233da8f87
+        set associated-interface "Trust"
+        set subnet 192.168.75.210 255.255.255.255
+    next
+    edit "192.168.75.254/32"
+        set uuid 73f6e67a-f5b4-51e7-181b-dfefcdf21601
+        set associated-interface "Trust"
+        set subnet 192.168.75.254 255.255.255.255
+    next
+    edit "192.168.75.29/32"
+        set uuid 7fd7c9dc-f5b4-51e7-d633-5fb7bc0b382d
+        set associated-interface "Trust"
+        set subnet 192.168.75.29 255.255.255.255
+    next
+    edit "192_168_8_106 Suspected PC"
+        set uuid 95a2b826-f5b4-51e7-7303-1bdbea8cd4c8
+        set associated-interface "Trust"
+        set subnet 192.168.8.106 255.255.255.255
+    next
+    edit "Agfa - STHAP01"
+        set uuid a763f796-f5b4-51e7-0619-72691eaef257
+        set associated-interface "Trust"
+        set subnet 192.168.176.31 255.255.255.255
+    next
+    edit "Agfa - STHAP02"
+        set uuid b1a11fa4-f5b4-51e7-41d8-d91e7c8cb43a
+        set associated-interface "Trust"
+        set subnet 192.168.176.20 255.255.255.255
+    next
+    edit "Agfa - STHCM01"
+        set uuid e1c691dc-f5b4-51e7-9223-345c32b82113
+        set associated-interface "Trust"
+        set subnet 192.168.173.33 255.255.255.255
+    next
+    edit "Agfa - STHCU01"
+        set uuid f1703af2-f5b4-51e7-5cc6-c755b1852f49
+        set associated-interface "Trust"
+        set subnet 192.168.173.33 255.255.255.255
+    next
+    edit "Backup Server"
+        set uuid fe15643a-f5b4-51e7-c9d6-25c163f48a72
+        set associated-interface "Trust"
+        set subnet 192.168.10.135 255.255.255.255
+    next
+    edit "Bryan PC"
+        set uuid 0e7cd22c-f5b5-51e7-1e18-667ced788ab6
+        set associated-interface "Trust"
+        set subnet 192.168.75.23 255.255.255.255
+    next
+    edit "Cancer Centre"
+        set uuid 1fbd00d4-f5b5-51e7-5297-eb6b24156efa
+        set associated-interface "Trust"
+        set subnet 192.168.16.0 255.255.255.0
+    next
+    edit "Cath Lab - ESTENSAPACS"
+        set uuid 305ca6f6-f5b5-51e7-8432-e610bc9c602a
+        set associated-interface "Trust"
+        set subnet 192.168.21.8 255.255.255.255
+    next
+    edit "CyberArk -eHR_STHSVR162"
+        set uuid 426ad516-f5b5-51e7-57ab-3150c1e5f807
+        set associated-interface "Trust"
+        set subnet 192.168.10.0 255.255.255.0
+    next
+    edit "Desktop Central Server"
+        set uuid 72d6ddda-f5b5-51e7-0fba-dfb682b3044f
+        set associated-interface "Trust"
+        set subnet 192.168.10.129 255.255.255.255
+    next
+    edit "DICOM Gateway -Scanning - 192.168.17.41"
+        set uuid 862c013a-f5b5-51e7-ce7d-b0fe63b9b86c
+        set associated-interface "Trust"
+        set subnet 192.168.17.41 255.255.255.255
+    next
+    edit "Dr Loke - 192.168.18.254"
+        set uuid 94bad1d6-f5b5-51e7-7bcd-5d06e990a2a7
+        set associated-interface "Trust"
+        set subnet 192.168.18.254 255.255.255.255
+    next
+    edit "Eye_Centre_PC81"
+        set uuid a3b7e8c2-f5b5-51e7-c215-4b5942bf504f
+        set associated-interface "Trust"
+        set subnet 192.168.46.81 255.255.255.255
+    next
+    edit "Eye_Centre_PC82"
+        set uuid adcfc122-f5b5-51e7-f72a-656c9c8b90a3
+        set associated-interface "Trust"
+        set subnet 192.168.46.82 255.255.255.255
+    next
+    edit "Eye_Centre_PC83"
+        set uuid b78d7696-f5b5-51e7-934a-16a0358664e0
+        set associated-interface "Trust"
+        set subnet 192.168.46.83 255.255.255.255
+    next
+    edit "HDS - 192.168.176.9"
+        set uuid daad7e32-f5b5-51e7-8ce0-8f699a3eac06
+        set associated-interface "Trust"
+        set subnet 192.168.176.9 255.255.255.255
+    next
+    edit "HDS - Citrix"
+        set uuid 0bc41b5c-f5b6-51e7-5bce-5a91d8ae2f6b
+        set associated-interface "Trust"
+        set subnet 192.168.110.33 255.255.255.255
+    next
+    edit "HDS - CTXSVR01"
+        set uuid 1a828804-f5b6-51e7-b7e6-055ffb0f5713
+        set associated-interface "Trust"
+        set subnet 192.168.110.31 255.255.255.255
+    next
+    edit "HDS - SNSVR"
+        set uuid 27a2c9f4-f5b6-51e7-d44a-39aeaa049f75
+        set associated-interface "Trust"
+        set subnet 192.168.110.32 255.255.255.255
+    next
+    edit "Histo_Gateway_PC"
+        set uuid 374121a8-f5b6-51e7-21e3-ad544c421724
+        set associated-interface "Trust"
+        set subnet 192.168.18.20 255.255.255.255
+    next
+    edit "HL7 Gateway Svr"
+        set uuid 45f7ff50-f5b6-51e7-92c3-f75755b08031
+        set associated-interface "Trust"
+        set subnet 192.168.10.107 255.255.255.255
+    next
+    edit "Infrasys - 192.168.9.21"
+        set uuid 54bd3a28-f5b6-51e7-88e8-84b18368d803
+        set associated-interface "Trust"
+        set subnet 192.168.9.21 255.255.255.255
+    next
+    edit "Infrasys - 192.168.9.22"
+        set uuid 6159f8c0-f5b6-51e7-0da0-8b5ef5c0f176
+        set associated-interface "Trust"
+        set subnet 192.168.9.22 255.255.255.255
+    next
+    edit "InternetUser_MainBlock_w_Int_WiFi - 192.168.15.0"
+        set uuid 762b425e-f5b6-51e7-f086-9df5d7121699
+        set associated-interface "Trust"
+        set subnet 192.168.15.0 255.255.255.0
+    next
+    edit "InternetUser_OldBlock - 192.168.55.0"
+        set uuid 9ae0e798-f5b6-51e7-334a-981deac9a175
+        set associated-interface "Trust"
+        set subnet 192.168.55.0 255.255.255.0
+    next
+    edit "IT Support"
+        set uuid ace9ac40-f5b6-51e7-d9a1-457932a61c19
+        set associated-interface "Trust"
+        set subnet 192.168.11.0 255.255.255.0
+    next
+    edit "IT_VPNTestPC"
+        set uuid bbe630f6-f5b6-51e7-125c-85bbcce16889
+        set associated-interface "Trust"
+        set subnet 192.168.18.19 255.255.255.255
+    next
+    edit "ITSD"
+        set uuid c92a5616-f5b6-51e7-5029-3eb47d5faccb
+        set associated-interface "Trust"
+        set subnet 192.168.75.0 255.255.255.0
+    next
+    edit "itws04"
+        set uuid df8b491a-f5b6-51e7-a9ba-f6d85a5d9b58
+        set associated-interface "Trust"
+        set subnet 192.168.15.28 255.255.255.255
+    next
+    edit "ITWS20 - KeithChow"
+        set uuid ecb54e4c-f5b6-51e7-a4d2-2625737bbcde
+        set associated-interface "Trust"
+        set subnet 192.168.75.20 255.255.255.255
+    next
+    edit "LBWS21"
+        set uuid 02b3aed2-f5b7-51e7-5cab-f4424f1f2f1e
+        set associated-interface "Trust"
+        set subnet 192.168.18.82 255.255.255.255
+    next
+    edit "MailGate Appliance 1-192.168.10.132"
+        set uuid 1859dfb8-f5b7-51e7-3c73-7ff3664a1e99
+        set associated-interface "Trust"
+        set subnet 192.168.10.132 255.255.255.255
+    next
+    edit "MailGate Appliance 2-192.168.10.134"
+        set uuid 33be9cf8-f5b7-51e7-6609-53ac51ffbb04
+        set associated-interface "Trust"
+        set subnet 192.168.10.134 255.255.255.255
+    next
+    edit "MailGate Appliance-192.168.10.50"
+        set uuid 42f4e09c-f5b7-51e7-b5de-c594991b21b5
+        set associated-interface "Trust"
+        set subnet 192.168.10.50 255.255.255.255
+    next
+    edit "MetaVista Server"
+        set uuid 598040b8-f5b7-51e7-cd35-414ce15c7510
+        set associated-interface "Trust"
+        set subnet 192.168.150.51 255.255.255.255
+    next
+    edit "new MetaVista Server"
+        set uuid 775cefd2-f5b7-51e7-9881-451335ed61eb
+        set associated-interface "Trust"
+        set subnet 192.168.150.53 255.255.255.255
+    next
+    edit "Omnicell - 192.168.10.72"
+        set uuid 85c259cc-f5b7-51e7-8fe7-f135f107b221
+        set associated-interface "Trust"
+        set subnet 192.168.10.72 255.255.255.255
+    next
+    edit "Omnicell - 192.168.10.73"
+        set uuid 9509b1b4-f5b7-51e7-a147-99643b699329
+        set associated-interface "Trust"
+        set subnet 192.168.10.73 255.255.255.255
+    next
+    edit "Omnicell - 192.168.10.78"
+        set uuid 9fad1fac-f5b7-51e7-9876-3c414d508bbe
+        set associated-interface "Trust"
+        set subnet 192.168.10.78 255.255.255.255
+    next
+    edit "Omnicell - 192.168.10.79"
+        set uuid aa521f2a-f5b7-51e7-8cf9-80345ad75bb0
+        set associated-interface "Trust"
+        set subnet 192.168.10.79 255.255.255.255
+    next
+    edit "PACS network of STH-192.168.176.0"
+        set uuid bc4c8eae-f5b7-51e7-b254-5bb09ec94b67
+        set associated-interface "Trust"
+        set subnet 192.168.176.0 255.255.255.0
+    next
+    edit "Pascal Old_PC"
+        set uuid cc6de440-f5b7-51e7-b259-676a7dfda10f
+        set associated-interface "Trust"
+        set subnet 192.168.75.6 255.255.255.255
+    next
+    edit "Pascal PC"
+        set uuid dcb91d24-f5b7-51e7-ce03-aa03553ff812
+        set associated-interface "Trust"
+        set subnet 192.168.75.236 255.255.255.255
+    next
+    edit "PHWS07"
+        set uuid ef2dd058-f5b7-51e7-27b1-aaeb73c51b18
+        set associated-interface "Trust"
+        set subnet 192.168.15.150 255.255.255.255
+    next
+    edit "PHWS17"
+        set uuid fa8bd594-f5b7-51e7-db9b-28b84ee0fba5
+        set associated-interface "Trust"
+        set subnet 192.168.15.151 255.255.255.255
+    next
+    edit "PHWS23"
+        set uuid 083b370c-f5b8-51e7-f3c4-6aaca7387497
+        set associated-interface "Trust"
+        set subnet 192.168.11.76 255.255.255.255
+    next
+    edit "PHWS30"
+        set uuid 141735b2-f5b8-51e7-fc57-8118ff281e43
+        set associated-interface "Trust"
+        set subnet 192.168.15.153 255.255.255.255
+    next
+    edit "PHWS60"
+        set uuid 20c95236-f5b8-51e7-9c21-ec0b81b767e1
+        set associated-interface "Trust"
+        set subnet 192.168.15.154 255.255.255.255
+    next
+    edit "PHWS61"
+        set uuid 2e3bb706-f5b8-51e7-d42c-bf75312809b5
+        set associated-interface "Trust"
+        set subnet 192.168.15.155 255.255.255.255
+    next
+    edit "PHWS62"
+        set uuid 47b13e2c-f5b8-51e7-ad8a-06168343cb41
+        set associated-interface "Trust"
+        set subnet 192.168.15.156 255.255.255.255
+    next
+    edit "PHWS66"
+        set uuid 530d8a46-f5b8-51e7-1456-843ad46f5ff8
+        set associated-interface "Trust"
+        set subnet 192.168.131.52 255.255.255.255
+    next
+    edit "Physio_PC50"
+        set uuid 6626d1c8-f5b8-51e7-559d-1dade3cfab26
+        set associated-interface "Trust"
+        set subnet 192.168.35.50 255.255.255.255
+    next
+    edit "Record Room RRWS01"
+        set uuid 7cbf7ca0-f5b8-51e7-af1b-38470efee00d
+        set associated-interface "Trust"
+        set subnet 192.168.55.201 255.255.255.255
+    next
+    edit "Record Room RRWS04"
+        set uuid 899b6074-f5b8-51e7-f3ff-fc334274c6da
+        set associated-interface "Trust"
+        set subnet 192.168.140.68 255.255.255.255
+    next
+    edit "Record Room RRWS06"
+        set uuid 99b21f7a-f5b8-51e7-3542-8fccd1821d12
+        set associated-interface "Trust"
+        set subnet 192.168.15.163 255.255.255.255
+    next
+    edit "Record Room RRWS07"
+        set uuid ae8ec0ec-f5b8-51e7-1f0c-a06a800578ee
+        set associated-interface "Trust"
+        set subnet 192.168.140.61 255.255.255.255
+    next
+    edit "Record Room RRWS09"
+        set uuid bd8ea03a-f5b8-51e7-b79b-18d14b7c5708
+        set associated-interface "Trust"
+        set subnet 192.168.140.152 255.255.255.255
+    next
+    edit "Record Room RRWS14"
+        set uuid cab8f8fa-f5b8-51e7-af66-c8d00794d950
+        set associated-interface "Trust"
+        set subnet 192.168.140.62 255.255.255.255
+    next
+    edit "Record Room RRWS15"
+        set uuid d6157c96-f5b8-51e7-4fdc-7417edd8c119
+        set associated-interface "Trust"
+        set subnet 192.168.140.59 255.255.255.255
+    next
+    edit "Scanning_server 192.168.30.203"
+        set uuid e6246462-f5b8-51e7-51c0-c0f34a4040a7
+        set comment "Scanning_server(192.168.30.203)"
+        set associated-interface "Trust"
+        set subnet 192.168.30.203 255.255.255.255
+    next
+    edit "Scanning_server 192.168.30.204"
+        set uuid 0a687f34-f5b9-51e7-aed3-869f566ea8ac
+        set comment "Scanning_server(192.168.30.204)"
+        set associated-interface "Trust"
+        set subnet 192.168.30.204 255.255.255.255
+    next
+    edit "SDWS41 Scanning Dept"
+        set uuid 2fc76c4a-f5b9-51e7-2786-8b1cf05b9657
+        set associated-interface "Trust"
+        set subnet 192.168.17.41 255.255.255.255
+    next
+    edit "Senthil PC"
+        set uuid 3efaf3c6-f5b9-51e7-2e56-0203fc848ef5
+        set associated-interface "Trust"
+        set subnet 192.168.75.4 255.255.255.255
+    next
+    edit "ServerNetwork_MainBlock"
+        set uuid 4dfd7bb4-f5b9-51e7-6d2c-8d5a8fc83f04
+        set associated-interface "Trust"
+        set subnet 192.168.10.0 255.255.255.0
+    next
+    edit "ServerNetwork_OldBlock"
+        set uuid 885249b6-f5b9-51e7-dc1a-a4b76231e589
+        set associated-interface "Trust"
+        set subnet 192.168.30.0 255.255.255.0
+    next
+    edit "Simen Access Control"
+        set uuid 99116b4c-f5b9-51e7-110d-02ae2f836ec9
+        set associated-interface "Trust"
+        set subnet 192.168.10.42 255.255.255.255
+    next
+    edit "Site-to-site Workstation"
+        set uuid a9571e84-f5b9-51e7-1e81-729f30b071f6
+        set associated-interface "Trust"
+        set subnet 192.168.18.16 255.255.255.255
+    next
+    edit "STH"
+        set uuid ba0203d4-f5b9-51e7-bbed-8da17ce9dcba
+        set associated-interface "Trust"
+        set subnet 192.168.0.0 255.255.0.0
+    next
+    edit "STH control room PC"
+        set uuid c77dc520-f5b9-51e7-166e-5b43ef17ade4
+        set associated-interface "Trust"
+        set subnet 192.168.12.51 255.255.255.255
+    next
+    edit "STH Server VLAN75"
+        set uuid d6435962-f5b9-51e7-d76b-daa6eb3aa747
+        set associated-interface "Trust"
+        set subnet 192.168.75.0 255.255.255.0
+    next
+    edit "STH Symantec Endpoint server"
+        set uuid e44939f0-f5b9-51e7-a179-eb8973d57b19
+        set associated-interface "Trust"
+        set subnet 192.168.10.130 255.255.255.255
+    next
+    edit "STH_DC1"
+        set uuid f06475d8-f5b9-51e7-b0dc-08023c674450
+        set associated-interface "Trust"
+        set subnet 192.168.10.22 255.255.255.255
+    next
+    edit "STH_DC2"
+        set uuid fc9e36e0-f5b9-51e7-151c-3ffc1f3306b5
+        set associated-interface "Trust"
+        set subnet 192.168.30.22 255.255.255.255
+    next
+    edit "STH_DC3"
+        set uuid 0469d5fa-f5ba-51e7-eed6-5d692ee3be8f
+        set associated-interface "Trust"
+        set subnet 192.168.30.11 255.255.255.255
+    next
+    edit "STH_EmailServer"
+        set uuid 1149b010-f5ba-51e7-ddfe-c9724cb3ac4b
+        set comment "STHMAIL"
+        set associated-interface "Trust"
+        set subnet 192.168.10.31 255.255.255.255
+    next
+    edit "STH_TrendMicroServer"
+        set uuid 33f6b1b2-f5ba-51e7-03ab-c06601085a1e
+        set comment "STHSVR63"
+        set associated-interface "Trust"
+        set subnet 192.168.10.63 255.255.255.255
+    next
+    edit "STHAS01"
+        set uuid 4acff52e-f5ba-51e7-9096-5a898b9afe02
+        set associated-interface "Trust"
+        set subnet 192.168.176.25 255.255.255.255
+    next
+    edit "STHFM01"
+        set uuid 591327b4-f5ba-51e7-8e41-725dac7a178b
+        set associated-interface "Trust"
+        set subnet 192.168.176.27 255.255.255.255
+    next
+    edit "STHFM02"
+        set uuid 657d949e-f5ba-51e7-f050-557a435e749d
+        set associated-interface "Trust"
+        set subnet 192.168.176.29 255.255.255.255
+    next
+    edit "STHMAIL1"
+        set uuid 724b4cfc-f5ba-51e7-3685-0eaba1055a86
+        set associated-interface "Trust"
+        set subnet 192.168.10.32 255.255.255.255
+    next
+    edit "STHMAIL13 - 192.168.30.250"
+        set uuid 8a7ceed4-f5ba-51e7-3359-efd54baf1bf4
+        set comment "Exchange 2013 Virtual IP"
+        set associated-interface "Trust"
+        set subnet 192.168.30.250 255.255.255.255
+    next
+    edit "STHSVR83"
+        set uuid 9a2d8762-f5ba-51e7-a336-b7510d61cfcb
+        set associated-interface "Trust"
+        set subnet 192.168.10.83 255.255.255.255
+    next
+    edit "sthsvr94"
+        set uuid a7433154-f5ba-51e7-fd9c-e185cf284e85
+        set associated-interface "Trust"
+        set subnet 192.168.10.94 255.255.255.255
+    next
+    edit "STHSVR97"
+        set uuid b4c4c482-f5ba-51e7-93eb-0c475af750b8
+        set associated-interface "Trust"
+        set subnet 192.168.10.97 255.255.255.255
+    next
+    edit "STHWEB"
+        set uuid c2f2fb5a-f5ba-51e7-55af-ba836d3ceb1e
+        set associated-interface "Trust"
+        set subnet 192.168.10.232 255.255.255.255
+    next
+    edit "Suspected PC By So"
+        set uuid d6f42700-f5ba-51e7-a907-5e4cfcd10362
+        set associated-interface "Trust"
+        set subnet 192.168.15.253 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.61 Windows"
+        set uuid e610c842-f5ba-51e7-3808-c2913c760c3a
+        set associated-interface "Trust"
+        set subnet 192.168.150.61 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.62 Windows"
+        set uuid f737a19a-f5ba-51e7-504b-71d9b6898c97
+        set associated-interface "Trust"
+        set subnet 192.168.150.62 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.65 Windows"
+        set uuid 06549368-f5bb-51e7-c701-f9bb298c29c4
+        set associated-interface "Trust"
+        set subnet 192.168.150.65 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.66 Windows"
+        set uuid 154c05e0-f5bb-51e7-1dec-7488d8cb49d4
+        set associated-interface "Trust"
+        set subnet 192.168.150.66 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.67 Windows"
+        set uuid 2c765f54-f5bb-51e7-b467-061c04e9b425
+        set associated-interface "Trust"
+        set subnet 192.168.150.67 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.68 Linux"
+        set uuid 3af5c4f2-f5bb-51e7-4b4d-af0406cf585e
+        set associated-interface "Trust"
+        set subnet 192.168.150.68 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.68 Windows"
+        set uuid 4949cdaa-f5bb-51e7-ee2b-9681568350a4
+        set associated-interface "Trust"
+        set subnet 192.168.150.68 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.69 Linux"
+        set uuid 5ecfcc9c-f5bb-51e7-a53b-831c8dcc96cf
+        set associated-interface "Trust"
+        set subnet 192.168.150.69 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.69 Windows"
+        set uuid 6e272456-f5bb-51e7-c0e9-bb3e5d53e539
+        set associated-interface "Trust"
+        set subnet 192.168.150.69 255.255.255.255
+    next
+    edit "Weltek - 192.168.150.71 Windows"
+        set uuid 88708e1a-f5bb-51e7-dbd1-72288872db60
+        set associated-interface "Trust"
+        set subnet 192.168.150.71 255.255.255.255
+    next
+    edit "*.ehr.gov.hk"
+        set uuid a90f8806-f5bb-51e7-9b5c-847563ae40e6
+        set type wildcard-fqdn
+        set associated-interface "Untrust"
+        set wildcard-fqdn "*.ehr.gov.hk"
+    next
+    edit "0.0.0.0/0 Untrust"
+        set uuid db963a54-f5bb-51e7-32b9-bca663fe2303
+        set associated-interface "Untrust"
+        set subnet 0.0.0.0 255.255.255.0
+    next
+    edit "1.1.1.0/30"
+        set uuid ebe61b36-f5bb-51e7-a084-c563dfb34053
+        set associated-interface "Untrust"
+        set subnet 1.1.1.0 255.255.255.252
+    next
+    edit "1.2.1.0/30"
+        set uuid 594b09c0-f5cb-51e7-6ef9-81d1ecaf83f0
+        set associated-interface "Untrust"
+        set subnet 1.2.1.0 255.255.255.252
+    next
+    edit "10.10.10.0/24"
+        set uuid 7f24f8e0-f5cb-51e7-95bd-f987319160ea
+        set associated-interface "Untrust"
+        set subnet 10.10.10.0 255.255.255.0
+    next
+    edit "10.10.10.50/32"
+        set uuid 9290a62c-f5cb-51e7-85fc-0ecaf70122e7
+        set associated-interface "Untrust"
+        set subnet 10.10.10.50 255.255.255.255
+    next
+    edit "10.22.0.0/16"
+        set uuid a042f6c6-f5cb-51e7-b497-21f025726910
+        set associated-interface "Untrust"
+        set subnet 10.22.0.0 255.255.0.0
+    next
+    edit "10.22.0.27/32"
+        set uuid aadd2106-f5cb-51e7-f907-f00b51b113b0
+        set associated-interface "Untrust"
+        set subnet 10.22.0.27 255.255.255.255
+    next
+    edit "10.66.0.0/16 - HDS"
+        set uuid b9ebf55a-f5cb-51e7-0d01-112bf6b9ad9d
+        set associated-interface "Untrust"
+        set subnet 10.66.0.0 255.255.0.0
+    next
+    edit "104.130.255.20/32"
+        set uuid d9f05396-f5cb-51e7-1cc0-f57beb92a5c3
+        set associated-interface "Untrust"
+        set subnet 104.130.255.20 255.255.255.255
+    next
+    edit "118.143.72.250/32"
+        set uuid e63519d4-f5cb-51e7-5012-cc740fb92a3d
+        set associated-interface "Untrust"
+        set subnet 118.143.72.250 255.255.255.255
+    next
+    edit "172.16.0.0/15-SPH_HIS_Network"
+        set uuid f81b5622-f5cb-51e7-ee0b-362ebf700f5f
+        set associated-interface "Untrust"
+        set subnet 172.16.0.0 255.254.0.0
+    next
+    edit "172.16.0.0/16 - SPH Block A Network"
+        set uuid 073f2b2e-f5cc-51e7-9eef-e8f273f85d91
+        set associated-interface "Untrust"
+        set subnet 172.16.0.0 255.255.0.0
+    next
+    edit "172.16.80.0 - SPH remote network"
+        set uuid 1aaae0cc-f5cc-51e7-922a-4a9b9bbdccdf
+        set comment "SPH remote vlan"
+        set associated-interface "Untrust"
+        set subnet 172.16.80.0 255.255.255.0
+    next
+    edit "172.16.80.1/32"
+        set uuid 4c26bab8-f5cc-51e7-b688-f840dbe7269a
+        set associated-interface "Untrust"
+        set subnet 172.16.80.1 255.255.255.255
+    next
+    edit "172.16.90.1/32"
+        set uuid 9a1e8f34-f5cc-51e7-e51a-d45bb17319a3
+        set associated-interface "Untrust"
+        set subnet 172.16.90.1 255.255.255.255
+    next
+    edit "172.17.0.0/16 -SPH- Block B Network"
+        set uuid a7006fc4-f5cc-51e7-c4fd-f4cb8e2115cf
+        set associated-interface "Untrust"
+        set subnet 172.17.0.0 255.255.0.0
+    next
+    edit "172.21.205.0/24"
+        set uuid b6536080-f5cc-51e7-28d9-db2205c41969
+        set associated-interface "Untrust"
+        set subnet 172.21.205.0 255.255.255.0
+    next
+    edit "172.21.205.6/32 Untrust"
+        set uuid e26f6fba-f5cc-51e7-de71-c45b09086978
+        set associated-interface "Untrust"
+        set subnet 172.21.205.6 255.255.255.255
+    next
+    edit "172.21.206.0/24 Untrust"
+        set uuid 0e3f3350-f5cd-51e7-57f4-4da961b0a030
+        set associated-interface "Untrust"
+        set subnet 172.21.206.0 255.255.255.0
+    next
+    edit "172.21.212.0/24"
+        set uuid 4e6e834a-f5cd-51e7-ce31-d02baed3e04b
+        set associated-interface "Untrust"
+        set subnet 172.21.212.0 255.255.255.0
+    next
+    edit "172.21.212.0/25"
+        set uuid 63a2a7aa-f5cd-51e7-a9d3-13c7b9620581
+        set associated-interface "Untrust"
+        set subnet 172.21.212.0 255.255.255.128
+    next
+    edit "172.21.212.120/32"
+        set uuid 6dff6d6e-f5cd-51e7-1c39-3202faee21f2
+        set associated-interface "Untrust"
+        set subnet 172.21.212.120 255.255.255.255
+    next
+    edit "172.22.93.32/28"
+        set uuid 7c311720-f5cd-51e7-ae7f-34ac5e7d2c17
+        set associated-interface "DMZ"
+        set subnet 172.22.93.32 255.255.255.240
+    next
+    edit "172.22.95.72/32"
+        set uuid 878a7ed6-f5cd-51e7-31db-0b2ac44e9599
+        set associated-interface "Untrust"
+        set subnet 172.22.95.72 255.255.255.255
+    next
+    edit "172.22.96.32/28"
+        set uuid 9370f6b2-f5cd-51e7-d932-5a461a36b202
+        set associated-interface "Untrust"
+        set subnet 172.22.96.32 255.255.255.240
+    next
+    edit "172.30.193.32/28"
+        set uuid 9feb7066-f5cd-51e7-9f0d-c8fe4fa589b4
+        set associated-interface "Untrust"
+        set subnet 172.30.193.32 255.255.255.240
+    next
+    edit "172.30.196.32/28"
+        set uuid bdc28d9a-f5cd-51e7-e7fc-b2d368886700
+        set associated-interface "Untrust"
+        set subnet 172.30.196.32 255.255.255.240
+    next
+    edit "192.168.0.0/24 Untrust"
+        set uuid d33f938e-f5cd-51e7-de3b-08c75464f9e6
+        set associated-interface "Untrust"
+        set subnet 192.168.0.0 255.255.255.0
+    next
+    edit "192.168.0.100/32"
+        set uuid ddaa5a48-f5cd-51e7-b663-ed02ddd53faa
+        set associated-interface "Untrust"
+        set subnet 192.168.0.100 255.255.255.255
+    next
+    edit "192.168.0.13/32"
+        set uuid e95a894e-f5cd-51e7-4e9d-6f624772dd49
+        set associated-interface "Untrust"
+        set subnet 192.168.0.13 255.255.255.255
+    next
+    edit "192.168.0.150/32"
+        set uuid fd8cfe9c-f5cd-51e7-51c4-3d8da1689399
+        set associated-interface "Untrust"
+        set subnet 192.168.0.150 255.255.255.255
+    next
+    edit "192.168.0.170/32"
+        set uuid 175d2e00-f5ce-51e7-75ce-cbc39ba98f3d
+        set associated-interface "Untrust"
+        set subnet 192.168.0.170 255.255.255.255
+    next
+    edit "192.168.0.173/32"
+        set uuid 2235deee-f5ce-51e7-30d5-dbdafdcae643
+        set associated-interface "Untrust"
+        set subnet 192.168.0.173 255.255.255.255
+    next
+    edit "192.168.0.190/32"
+        set uuid 2bf94420-f5ce-51e7-0cbc-2380078404a6
+        set associated-interface "Untrust"
+        set subnet 192.168.0.190 255.255.255.255
+    next
+    edit "192.168.100.210"
+        set uuid 38e0c988-f5ce-51e7-d2e1-877e447cf3a9
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.210 255.255.255.255
+    next
+    edit "192.168.100.34/32"
+        set uuid 42f4f93a-f5ce-51e7-505a-f73b94e33a18
+        set associated-interface "Untrust"
+        set subnet 192.168.100.34 255.255.255.255
+    next
+    edit "192.168.101.86/32"
+        set uuid 4cde6d5a-f5ce-51e7-94e8-9a5ac95f9a10
+        set associated-interface "Untrust"
+        set subnet 192.168.101.86 255.255.255.255
+    next
+    edit "192.168.12.66-temp"
+        set uuid 57a151d0-f5ce-51e7-cb87-9d873b0c90fb
+        set associated-interface "Untrust"
+        set subnet 192.168.12.66 255.255.255.255
+    next
+    edit "192.168.201.1/32"
+        set uuid d3a4e288-f5ce-51e7-0b63-339e1fe79581
+        set associated-interface "Untrust"
+        set subnet 192.168.201.1 255.255.255.255
+    next
+    edit "192.168.201.14/32"
+        set uuid e26d47b0-f5ce-51e7-37c4-43c246b30c16
+        set associated-interface "Untrust"
+        set subnet 192.168.201.14 255.255.255.255
+    next
+    edit "192.168.202.1/32"
+        set uuid ecd5cfa6-f5ce-51e7-045c-237845ab68d5
+        set associated-interface "Untrust"
+        set subnet 192.168.202.1 255.255.255.255
+    next
+    edit "192.168.202.14/32"
+        set uuid f769c45e-f5ce-51e7-324c-eb104dd8e624
+        set associated-interface "Untrust"
+        set subnet 192.168.202.14 255.255.255.255
+    next
+    edit "192.168.30.250/32"
+        set uuid 017c7ed2-f5cf-51e7-9f26-00828beefedf
+        set associated-interface "Untrust"
+        set subnet 192.168.30.250 255.255.255.255
+    next
+    edit "192.168.75.0/24 Untrust"
+        set uuid 1ea6c09e-f5cf-51e7-6fd0-1a2ccee0214c
+        set associated-interface "Untrust"
+        set subnet 192.168.75.0 255.255.255.0
+    next
+    edit "192.168.99.0/255.255.255.0"
+        set uuid 29afa118-f5cf-51e7-9fb1-7b1761e94219
+        set associated-interface "Untrust"
+        set subnet 192.168.99.0 255.255.255.0
+    next
+    edit "198.41.202.157/32"
+        set uuid 346020ec-f5cf-51e7-2b41-a6c8c7363723
+        set associated-interface "Untrust"
+        set subnet 198.41.202.157 255.255.255.255
+    next
+    edit "202.130.114.235/32"
+        set uuid 568f5994-f5cf-51e7-17e7-194c346f4430
+        set associated-interface "Untrust"
+        set subnet 202.130.114.235 255.255.255.255
+    next
+    edit "202.77.34.35/32"
+        set uuid 63729482-f5cf-51e7-51fb-b92f5e1b6f5b
+        set associated-interface "Untrust"
+        set subnet 202.77.34.35 255.255.255.255
+    next
+    edit "203.198.62.62/32"
+        set uuid 739b4a8e-f5cf-51e7-4bf2-81d4d8bf2744
+        set associated-interface "Untrust"
+        set subnet 203.198.62.62 255.255.255.255
+    next
+    edit "210.0.229.154/32"
+        set uuid 85e7a6f6-f5cf-51e7-06e0-4814dc237d26
+        set associated-interface "Untrust"
+        set subnet 210.0.229.154 255.255.255.255
+    next
+    edit "210.0.229.156 DC6"
+        set uuid 948cead6-f5cf-51e7-b062-7c4161dbe244
+        set associated-interface "Untrust"
+        set subnet 210.0.229.156 255.255.255.255
+    next
+    edit "210.0.229.161 DC6"
+        set uuid a3abb4fc-f5cf-51e7-92fe-25c8ae441b87
+        set associated-interface "Untrust"
+        set subnet 210.0.229.161 255.255.255.255
+    next
+    edit "210.0.229.174 DC6"
+        set uuid ae0a4ada-f5cf-51e7-427e-f4a4d6372c0c
+        set associated-interface "Untrust"
+        set subnet 210.0.229.174 255.255.255.255
+    next
+    edit "210.0.229.176 DC6"
+        set uuid b8f2e2c2-f5cf-51e7-cf8a-cc19c8d23937
+        set associated-interface "Untrust"
+        set subnet 210.0.229.176 255.255.255.255
+    next
+    edit "210.0.229.97/32"
+        set uuid c27f72ce-f5cf-51e7-2a62-786f73caa632
+        set associated-interface "Untrust"
+        set subnet 210.0.229.97 255.255.255.255
+    next
+    edit "210.0.231.154"
+        set uuid cd2e1f2c-f5cf-51e7-124b-fd5e3be77981
+        set associated-interface "Untrust"
+        set subnet 210.0.231.154 255.255.255.255
+    next
+    edit "210.0.231.64 DC3"
+        set uuid da0db310-f5cf-51e7-de10-f8beb7a47b19
+        set associated-interface "Untrust"
+        set subnet 210.0.231.64 255.255.255.255
+    next
+    edit "210.0.231.65 DC3"
+        set uuid e83ba546-f5cf-51e7-74a3-9be7d1bb7ff9
+        set associated-interface "Untrust"
+        set subnet 210.0.231.65 255.255.255.255
+    next
+    edit "210.0.231.97/32"
+        set uuid f257c334-f5cf-51e7-0d9c-7b5a7df1621d
+        set associated-interface "Untrust"
+        set subnet 210.0.231.97 255.255.255.255
+    next
+    edit "210.245.191.38/255.255.255.255"
+        set uuid fb736c20-f5cf-51e7-8658-66178c087d46
+        set associated-interface "Untrust"
+        set subnet 210.245.191.38 255.255.255.255
+    next
+    edit "23.198.104.8/32"
+        set uuid 0699fc5e-f5d0-51e7-4e84-0bfdc562607d
+        set associated-interface "Untrust"
+        set subnet 23.198.104.8 255.255.255.255
+    next
+    edit "60.0.0.0/255.0.0.0"
+        set uuid 1a9f0384-f5d0-51e7-4e49-09205f623910
+        set associated-interface "Untrust"
+        set subnet 60.0.0.0 255.0.0.0
+    next
+    edit "60.190.114.123/32"
+        set uuid 244addd6-f5d0-51e7-e33d-3c01b59d9b39
+        set associated-interface "Untrust"
+        set subnet 60.190.114.123 255.255.255.255
+    next
+    edit "60.254.131.38/255.255.255.255"
+        set uuid 2f4f0cf2-f5d0-51e7-8b57-12f0e8772bef
+        set associated-interface "Untrust"
+        set subnet 60.254.131.38 255.255.255.255
+    next
+    edit "65.54.239.22/32"
+        set uuid 3b74bc16-f5d0-51e7-d945-612dc2c9e378
+        set associated-interface "Untrust"
+        set subnet 65.54.239.22 255.255.255.255
+    next
+    edit "Adventist VPN"
+        set uuid 4b6d4ba6-f5d0-51e7-f14c-b1d3c256befa
+        set associated-interface "Untrust"
+        set subnet 192.168.201.0 255.255.255.0
+    next
+    edit "ETU_Network"
+        set uuid 2c743d4e-f5d1-51e7-1ef0-aa24a882f8f7
+        set comment "\"https://ppi.core.ehr.gov.hk\""
+        set associated-interface "Untrust"
+        set subnet 220.246.70.74 255.255.255.255
+    next
+    edit "GE07-PC1  Scanning Dept"
+        set uuid 3ff6b50e-f5d1-51e7-3b94-9984d06f5a6f
+        set associated-interface "Untrust"
+        set subnet 192.168.0.13 255.255.255.255
+    next
+    edit "HA-eHrss-connection-192.168.201.0"
+        set uuid 53de467c-f5d1-51e7-6684-833995c3d8c2
+        set comment "\"connection interface fw\""
+        set associated-interface "Untrust"
+        set subnet 192.168.201.0 255.255.255.0
+    next
+    edit "HA-eHrss-connection-192.168.202.0"
+        set uuid 624c2076-f5d1-51e7-34e6-65cb69ac23e9
+        set comment "\"eth 6 for HGC\""
+        set associated-interface "Untrust"
+        set subnet 192.168.202.0 255.255.255.0
+    next
+    edit "HA-eHRSS-vlan01-192.168.171.0"
+        set uuid 86573f3c-f5d1-51e7-b664-1b79e2842e8e
+        set comment "\"HGC-eHrss vlan\""
+        set associated-interface "Untrust"
+        set subnet 192.168.171.0 255.255.255.0
+    next
+    edit "HA-eHRSS-vlan01-192.168.71.0"
+        set uuid 96d33f32-f5d1-51e7-9234-aeb39190c95b
+        set comment "\"dHRss-HKT vlan\""
+        set associated-interface "Untrust"
+        set subnet 192.168.71.0 255.255.255.0
+    next
+    edit "KC_WareHouse_Net"
+        set uuid a9bea438-f5d1-51e7-e317-ab0e9493a926
+        set comment "\"Kwai Chung WareHouse LAN Side\""
+        set subnet 10.255.52.0 255.255.255.0
+    next
+    edit "LEO06462  Scanning Dept"
+        set uuid bbf857ac-f5d1-51e7-74fd-132cc2edef64
+        set associated-interface "Untrust"
+        set subnet 192.168.0.113 255.255.255.255
+    next
+    edit "LEON2736  Scanning Dept"
+        set uuid c9d52198-f5d1-51e7-aa98-0f5748855038
+        set associated-interface "Untrust"
+        set subnet 192.168.0.10 255.255.255.255
+    next
+    edit "MSN"
+        set uuid ea84d71c-f5d1-51e7-04d8-81aa3d348a85
+        set associated-interface "Untrust"
+        set subnet 207.46.110.252 255.255.255.255
+    next
+    edit "MSN1"
+        set uuid f81554ba-f5d1-51e7-1d57-4ea58d767c9c
+        set associated-interface "Untrust"
+        set subnet 207.46.106.0 255.255.255.0
+    next
+    edit "Omnicell Outside - 173.254.187.35"
+        set uuid 1798cc68-f5d2-51e7-e199-6618c76002be
+        set associated-interface "Untrust"
+        set subnet 173.254.187.35 255.255.255.255
+    next
+    edit "Omnicell Outside - 206.142.244.63"
+        set uuid 231b829c-f5d2-51e7-e76e-8f13fa016d84
+        set associated-interface "Untrust"
+        set subnet 206.142.244.63 255.255.255.255
+    next
+    edit "PACS network of Scanning Dept MBB1"
+        set uuid 308e1084-f5d2-51e7-a048-a14deb1cd9b7
+        set associated-interface "Untrust"
+        set subnet 192.168.0.190 255.255.255.255
+    next
+    edit "PerfectForms - 23.253.114.156"
+        set uuid 40db92fe-f5d2-51e7-87a5-1cfe671fb372
+        set comment "\"PerfectForms Server address\""
+        set subnet 23.253.114.156 255.255.255.255
+    next
+    edit "PerfectForms - 67.192.109.138"
+        set uuid 533d46e0-f5d2-51e7-ff91-1099864fbf2f
+        set comment "\"PerfectForms Server address 1/4\""
+        set associated-interface "Untrust"
+        set subnet 67.192.109.138 255.255.255.255
+    next
+    edit "PerfectForms - 67.192.80.122"
+        set uuid 65d0633c-f5d2-51e7-1535-eb41c7cbac01
+        set comment "\"PerfectForm Server Address 2/4\""
+        set associated-interface "Untrust"
+        set subnet 67.192.80.122 255.255.255.255
+    next
+    edit "Perfectfroms - 50.56.161.216"
+        set uuid 75cc5994-f5d2-51e7-b426-755b0d53c5dd
+        set comment "\"PerfectForms Server address\""
+        set associated-interface "Untrust"
+        set subnet 50.56.161.216 255.255.255.255
+    next
+    edit "PPI-ePR - ppi.core.ehr.gov.hk"
+        set uuid 8a945980-f5d2-51e7-c77b-a4cf34c20c55
+        set comment "\"https://ppi.core.ehr.gov.hk\""
+        set associated-interface "Untrust"
+        set subnet 118.143.119.43 255.255.255.255
+    next
+    edit "SPH office network - 172.16.0.0/16"
+        set uuid 9b82cf74-f5d2-51e7-3312-6e290db87678
+        set associated-interface "Untrust"
+        set subnet 172.16.0.0 255.255.0.0
+    next
+    edit "SPH_BLK_B_Server_Network"
+        set uuid ab9cfb82-f5d2-51e7-a6da-fd43d62517c2
+        set comment "\"SPH Block B Server Network\""
+        set subnet 172.17.10.0 255.255.255.0
+    next
+    edit "St. Paul VPN Gateway"
+        set uuid b946e806-f5d2-51e7-1b3e-31079b6f15f2
+        set associated-interface "Untrust"
+        set subnet 202.85.47.115 255.255.255.255
+    next
+    edit "St.Paul Management"
+        set uuid c61a9014-f5d2-51e7-9e6c-f40a23485974
+        set associated-interface "Untrust"
+        set subnet 172.17.1.0 255.255.255.0
+    next
+    edit "ST_PAUL_VPN_POOL"
+        set uuid d9854b94-f5d2-51e7-3cf6-66c3ea048a97
+        set associated-interface "Untrust"
+        set subnet 172.16.255.128 255.255.255.128
+    next
+    edit "STH FW"
+        set uuid e50bde42-f5d2-51e7-a32b-e6861557d743
+        set associated-interface "Untrust"
+        set subnet 202.130.114.234 255.255.255.255
+    next
+    edit "Uptodate -wd3.gslb"
+        set uuid f7bcf2ec-f5d2-51e7-afb0-c3f53bef24ab
+        set type wildcard-fqdn
+        set associated-interface "Untrust"
+        set wildcard-fqdn "*wd3.gslb.uptodate.com"
+    next
+    edit "Warehouse CAM"
+        set uuid 3767672e-f5d3-51e7-5baa-7840239974a2
+        set associated-interface "Untrust"
+        set subnet 118.140.61.82 255.255.255.255
+    next
+    edit "Web spark 104.130.255.59"
+        set uuid 53637274-f5d3-51e7-e0f5-42d2e8724da5
+        set associated-interface "Untrust"
+        set subnet 104.130.255.59 255.255.255.255
+    next
+    edit "Web spark 148.62.1.46"
+        set uuid 5ebedfc8-f5d3-51e7-2d2e-5387b947917f
+        set associated-interface "Untrust"
+        set subnet 148.62.1.46 255.255.255.255
+    next
+    edit "Web spark 148.62.2.142"
+        set uuid 69aa2370-f5d3-51e7-9576-0640b7ab1dd0
+        set associated-interface "Untrust"
+        set subnet 148.62.2.142 255.255.255.255
+    next
+    edit "Web spark 172.99.100.80"
+        set uuid 766ea720-f5d3-51e7-a010-b0d2aa88afee
+        set associated-interface "Untrust"
+        set subnet 172.99.100.80 255.255.255.255
+    next
+    edit "Web spark 182.50.136.237"
+        set uuid 81148f14-f5d3-51e7-6525-750b8869e9eb
+        set associated-interface "Untrust"
+        set subnet 182.50.136.237 255.255.255.255
+    next
+    edit "Web spark 192.237.193.205"
+        set uuid 8bca21f8-f5d3-51e7-b269-02e325767d64
+        set associated-interface "Untrust"
+        set subnet 192.237.193.205 255.255.255.255
+    next
+    edit "Web spark 23.49.25.184"
+        set uuid 97d6889c-f5d3-51e7-c1cf-7d028d59b932
+        set associated-interface "Untrust"
+        set subnet 23.49.25.184 255.255.255.255
+    next
+    edit "Web spark 23.51.135.113"
+        set uuid a208b10a-f5d3-51e7-1373-ddcb989e0e58
+        set associated-interface "Untrust"
+        set subnet 23.51.135.113 255.255.255.255
+    next
+    edit "Web spark Cisco Spark  Squared"
+        set uuid b35157be-f5d3-51e7-66d8-424c7503c3a9
+        set type wildcard-fqdn
+        set associated-interface "Untrust"
+        set wildcard-fqdn "*.ciscospark.com"
+    next
+    edit "Web spark localytics.com"
+        set uuid c1c11b9a-f5d3-51e7-d483-f2956c5c8ec4
+        set type wildcard-fqdn
+        set associated-interface "Untrust"
+        set wildcard-fqdn "*.localytics.com"
+    next
+    edit "Web spark rackcdn.com"
+        set uuid ceea3306-f5d3-51e7-8f45-4163abcaa2c0
+        set type wildcard-fqdn
+        set associated-interface "Untrust"
+        set wildcard-fqdn "*.rackcdn.com"
+    next
+    edit "Web spark wbx2.com"
+        set uuid ddd49fd2-f5d3-51e7-f0f2-37818775d28f
+        set type wildcard-fqdn
+        set associated-interface "Untrust"
+        set wildcard-fqdn "*.wbx2.com"
+    next
+    edit "Web spark www.webex"
+        set uuid f6e48262-f5d3-51e7-4b39-817777d6d28f
+        set type wildcard-fqdn
+        set associated-interface "Untrust"
+        set wildcard-fqdn "*.webex.com"
+    next
+    edit "172.30.193.32/28 DMZ"
+        set uuid cb5d0118-f5d4-51e7-13c4-a23d2ee8e741
+        set associated-interface "DMZ"
+        set subnet 172.30.193.32 255.255.255.240
+    next
+    edit "192.168.0.140"
+        set uuid e7f26b88-f5d4-51e7-d596-2e2c3a3c3d12
+        set comment "Scanning testing ip host"
+        set associated-interface "DMZ"
+        set subnet 192.168.0.140 255.255.255.255
+    next
+    edit "192.168.100.0/24"
+        set uuid f4fb2252-f5d4-51e7-c609-a1cc87dba153
+        set associated-interface "DMZ"
+        set subnet 192.168.100.0 255.255.255.0
+    next
+    edit "192.168.100.123/32"
+        set uuid 1a606a7a-f5d5-51e7-ccfa-2a1890197ab7
+        set associated-interface "DMZ"
+        set subnet 92.168.100.123 255.255.255.255
+    next
+    edit "192.168.100.134"
+        set uuid 252ea250-f5d5-51e7-3367-b7d8bb25739a
+        set associated-interface "DMZ"
+        set subnet 192.168.100.134 255.255.255.255
+    next
+    edit "192.168.100.165/32"
+        set uuid 2f237bb4-f5d5-51e7-6ab3-3491c8e60847
+        set associated-interface "DMZ"
+        set subnet 192.168.100.165 255.255.255.255
+    next
+    edit "192.168.100.202/255.255.255.255"
+        set uuid 3ac278c6-f5d5-51e7-7f6c-8de773bfb856
+        set associated-interface "DMZ"
+        set subnet 192.168.100.202 255.255.255.255
+    next
+    edit "192.168.100.209/255.255.255.255"
+        set uuid 4722e204-f5d5-51e7-3e77-4a939798eb36
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.209 255.255.255.255
+    next
+    edit "192.168.100.210/32"
+        set uuid f7475964-f5d8-51e7-a568-335497c0e812
+        set associated-interface "DMZ"
+        set subnet 192.168.100.210 255.255.255.255
+    next
+    edit "192.168.100.211/255.255.255.255"
+        set uuid 07199ed8-f5d9-51e7-bb81-dcdfe3b4b184
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.211 255.255.255.255
+    next
+    edit "192.168.100.212/255.255.255.255"
+        set uuid 1ce975e4-f5d9-51e7-4cd9-5d19fc16ca84
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.212 255.255.255.255
+    next
+    edit "192.168.100.213/255.255.255.255"
+        set uuid 64ed908c-f5d9-51e7-d351-048e6d4f19e5
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.213 255.255.255.255
+    next
+    edit "192.168.100.214/255.255.255.255"
+        set uuid 72f9dbae-f5d9-51e7-1a3c-5d4195199975
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.214 255.255.255.255
+    next
+    edit "192.168.100.215/255.255.255.255"
+        set uuid 80aba516-f5d9-51e7-90a8-fb3f45f065d3
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.215 255.255.255.255
+    next
+    edit "192.168.100.216/255.255.255.255"
+        set uuid 953a5ac2-f5d9-51e7-c07e-64fcb87139ad
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.216 255.255.255.255
+    next
+    edit "192.168.100.217/255.255.255.255"
+        set uuid e3fe6a72-f5d9-51e7-401f-7fe872d56098
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.217 255.255.255.255
+    next
+    edit "192.168.100.218/255.255.255.255"
+        set uuid efd2d96e-f5d9-51e7-a5cd-cd326f783006
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.218 255.255.255.255
+    next
+    edit "192.168.100.219/255.255.255.255"
+        set uuid fc68e114-f5d9-51e7-fdd8-93d28ac33163
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.219 255.255.255.255
+    next
+    edit "192.168.100.220/255.255.255.255"
+        set uuid 089e1332-f5da-51e7-e4f5-7c388346e537
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.220 255.255.255.255
+    next
+    edit "192.168.100.221/255.255.255.255"
+        set uuid 1364b51e-f5da-51e7-5aa6-aeb61e651fbc
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.221 255.255.255.255
+    next
+    edit "192.168.100.222/255.255.255.255"
+        set uuid 1d8fe9a0-f5da-51e7-021b-b1ead500ea91
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.222 255.255.255.255
+    next
+    edit "192.168.100.223/255.255.255.255"
+        set uuid 29472592-f5da-51e7-1f02-63cd04efbbba
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.223 255.255.255.255
+    next
+    edit "192.168.100.223/255.255.255.255 DMZ"
+        set uuid 4048ce6c-f5da-51e7-ba12-f2113993ffc8
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.223 255.255.255.255
+    next
+    edit "192.168.100.224/255.255.255.255"
+        set uuid 5c203166-f5da-51e7-b685-6c1f610f0445
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.224 255.255.255.255
+    next
+    edit "192.168.100.225/255.255.255.255"
+        set uuid 649c9028-f5da-51e7-877e-0f54b4c47457
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.225 255.255.255.255
+    next
+    edit "192.168.100.226/255.255.255.255"
+        set uuid 6e801cea-f5da-51e7-a626-6daa3caf5155
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.226 255.255.255.255
+    next
+    edit "192.168.100.227/255.255.255.255"
+        set uuid 78d02c62-f5da-51e7-6c1c-727f5b9a506e
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.227 255.255.255.255
+    next
+    edit "192.168.100.228/255.255.255.255"
+        set uuid 819bd6ac-f5da-51e7-6bf4-6e00bfa0b587
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.228 255.255.255.255
+    next
+    edit "192.168.100.229/255.255.255.255"
+        set uuid 8e2a4e58-f5da-51e7-2165-1709e60038eb
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.229 255.255.255.255
+    next
+    edit "192.168.100.230/255.255.255.255"
+        set uuid 986ccc9c-f5da-51e7-78d7-8bd38880f6a7
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.230 255.255.255.255
+    next
+    edit "192.168.100.231/255.255.255.255"
+        set uuid a62fd4be-f5da-51e7-8ada-627dab26c7a2
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.231 255.255.255.255
+    next
+    edit "192.168.100.232/255.255.255.255"
+        set uuid adc98d50-f5da-51e7-27a6-8e82d4f24062
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.232 255.255.255.255
+    next
+    edit "192.168.100.233/255.255.255.255"
+        set uuid c21bd33a-f5da-51e7-fb1d-0237cbc13e6b
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.233 255.255.255.255
+    next
+    edit "192.168.100.234/255.255.255.255"
+        set uuid cb35da06-f5da-51e7-677e-214e97514d8a
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.234 255.255.255.255
+    next
+    edit "192.168.100.235/255.255.255.255"
+        set uuid d69ceed4-f5da-51e7-b407-c8fef5f9dad4
+        set comment "\"for internal-2 access\""
+        set associated-interface "DMZ"
+        set subnet 192.168.100.235 255.255.255.255
+    next
+    edit "192.168.100.254/32"
+        set uuid e818930c-f5da-51e7-96b9-fe419f36f09f
+        set associated-interface "DMZ"
+        set subnet 192.168.100.254 255.255.255.255
+    next
+    edit "192.168.100.34/32 DMZ"
+        set uuid f648f8ea-f5da-51e7-2f25-cb39f36a4efc
+        set associated-interface "DMZ"
+        set subnet 192.168.100.34 255.255.255.255
+    next
+    edit "192.168.100.42/32"
+        set uuid 02888634-f5db-51e7-4ce3-eec39f1ba766
+        set associated-interface "DMZ"
+        set subnet 192.168.100.42 255.255.255.255
+    next
+    edit "192.168.100.50/32"
+        set uuid 0bd3157e-f5db-51e7-35ba-1b92693cff64
+        set associated-interface "DMZ"
+        set subnet 192.168.100.50 255.255.255.255
+    next
+    edit "192.168.100.51/32"
+        set uuid 13970720-f5db-51e7-187d-5d5728647e47
+        set associated-interface "DMZ"
+        set subnet 192.168.100.51 255.255.255.255
+    next
+    edit "192.168.100.52/32"
+        set uuid 195a9e92-f5db-51e7-ae72-5df26dbf296f
+        set associated-interface "DMZ"
+        set subnet 192.168.100.52 255.255.255.255
+    next
+    edit "192.168.100.65/32"
+        set uuid 1fa7a2cc-f5db-51e7-5972-969a4c236b7b
+        set associated-interface "DMZ"
+        set subnet 192.168.100.65 255.255.255.255
+    next
+    edit "192.168.100.71/32"
+        set uuid 2800b468-f5db-51e7-1f2c-d549eed7fa44
+        set associated-interface "DMZ"
+        set subnet 192.168.100.71 255.255.255.255
+    next
+    edit "CathLabPC1"
+        set uuid 3afa6d3e-f5db-51e7-1041-a7edd99bee26
+        set associated-interface "DMZ"
+        set subnet 192.168.100.215 255.255.255.255
+    next
+    edit "CathLabPC2"
+        set uuid 478cb390-f5db-51e7-9f84-77505f3fcfba
+        set associated-interface "DMZ"
+        set subnet 192.168.100.216 255.255.255.255
+    next
+    edit "CathLabPC3"
+        set uuid 521a1d98-f5db-51e7-71a4-409039cb58e1
+        set associated-interface "DMZ"
+        set subnet 192.168.100.217 255.255.255.255
+    next
+    edit "CyberArk Vault DR"
+        set uuid 5f3a793c-f5db-51e7-7d6f-7e09820eca6e
+        set associated-interface "DMZ"
+        set subnet 192.168.100.195 255.255.255.255
+    next
+    edit "CyberArk Vault PRD"
+        set uuid 6c2276f4-f5db-51e7-1da3-ae3ffd59ad8a
+        set associated-interface "DMZ"
+        set subnet 192.168.100.194 255.255.255.255
+    next
+    edit "CyberArk-CPM DR"
+        set uuid 9165207e-f5db-51e7-fed2-fd9fd51f8841
+        set associated-interface "DMZ"
+        set subnet 192.168.100.193 255.255.255.255
+    next
+    edit "CyberArk-CPM PROD"
+        set uuid 9e2a971c-f5db-51e7-92c4-e667e66cf5c8
+        set associated-interface "DMZ"
+        set subnet 192.168.100.192 255.255.255.255
+    next
+    edit "CyberArkDC"
+        set uuid a879f5a0-f5db-51e7-9081-e81483de9264
+        set associated-interface "DMZ"
+        set subnet 192.168.100.190 255.255.255.255
+    next
+    edit "CyberArkDC2"
+        set uuid b6649a80-f5db-51e7-284d-e115ab03235c
+        set associated-interface "DMZ"
+        set subnet 192.168.100.191 255.255.255.255
+    next
+    edit "Inet100_dmz"
+        set uuid c40266a4-f5db-51e7-cab5-7af2fb46db44
+        set associated-interface "DMZ"
+        set subnet 192.168.100.0 255.255.255.0
+    next
+    edit "STHSVR34  Image Sharing"
+        set uuid d11c2d70-f5db-51e7-f100-a2f4a2198e6c
+        set associated-interface "DMZ"
+        set subnet 192.168.100.34 255.255.255.255
+    next
+    edit "VM-STHSVR86A"
+        set uuid dcf77334-f5db-51e7-3062-df5ce94748c7
+        set associated-interface "DMZ"
+        set subnet 192.168.100.87 255.255.255.255
+    next
+    edit "VM-STHSVR86B"
+        set uuid e827cea2-f5db-51e7-be7c-fb46ff5f0c92
+        set associated-interface "DMZ"
+        set subnet 192.168.100.88 255.255.255.255
+    next
+    edit "Drugoffice.gov.hk"
+        set uuid 716205d4-f5dc-51e7-a8e5-6648cd500128
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "www.drugoffice.gov.hk"
+    next
+    edit "ehr.gov.hk"
+        set uuid 8aeedb9e-f5dc-51e7-4206-be080640add4
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "ehr.gov.hk"
+    next
+    edit "eHR Link - apps.core.ehr.gov.hk"
+        set uuid a136088c-f5dc-51e7-c732-a922526b6937
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "apps.core.ehr.gov.hk"
+    next
+    edit "eHR Mode C Web Service-118.143.72.13"
+        set uuid b40bc23a-f5dc-51e7-24f1-aaab6db4c73f
+        set comment "\"ehr web apps.uat.ehr.gov.hk \""
+        set associated-interface "Untrust"
+        set subnet 118.143.72.13 255.255.255.255
+    next
+    edit "eHR Mode C Web Service-118.143.72.23"
+        set uuid c89cb66e-f5dc-51e7-7b55-818f58a9c709
+        set comment "\"ehr web ds.uat.ehr.gov.hk\""
+        set associated-interface "Untrust"
+        set subnet 118.143.72.23 255.255.255.255
+    next
+    edit "eHR Mode C Web Service-118.143.72.24"
+        set uuid dc092502-f5dc-51e7-335a-a2a49c73ce4a
+        set comment "\"ehr web ds.uat.ehr.gov.hk\""
+        set associated-interface "Untrust"
+        set subnet 118.143.72.24 255.255.255.255
+    next
+    edit "eHR Mode C Web Service-119.143.72.11"
+        set uuid eb721260-f5dc-51e7-81b0-7633f5f8d885
+        set comment "\"ehr web apps.uat.ehr.gov.hk\""
+        set associated-interface "Untrust"
+        set subnet 119.143.72.11 255.255.255.255
+    next
+    edit "ePR link - ppi.core.ehr.gov.hk"
+        set uuid 0915cc62-f5dd-51e7-7248-7170d9d0549f
+        set comment "https://ppi.core.ehr.gov.hk"
+        set associated-interface "Untrust"
+        set subnet 118.143.119.44 255.255.255.255
+    next
+    edit "Moodlerooms_SFTP"
+        set uuid 26fbb1ce-f5dd-51e7-3c2f-0024181ade78
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "sftp01-ap.moodlerooms.com"
+    next
+    edit "Uptodate -www"
+        set uuid 39c83ca0-f5dd-51e7-fe79-9c447be9c0f8
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "www.uptodate.com"
+    next
+    edit "Web spark web.ciscospark.com"
+        set uuid 5838b17e-f5dd-51e7-0632-27475daaff17
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "web.ciscospark.com"
+    next
+    edit "Web spark Webex idbroker"
+        set uuid 652defac-f5dd-51e7-291e-039a234aeb25
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "idbroker.webex.com"
+    next
+    edit "Web spark Webex identity"
+        set uuid 72c0fcfe-f5dd-51e7-90b1-c0894c1bf717
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "identity.webex.com"
+    next
+    edit "web spark www.webex.com.cn"
+        set uuid 7ff927ac-f5dd-51e7-e045-c6ec64647025
+        set type fqdn
+        set associated-interface "Untrust"
+        set fqdn "www.webex.com.cn"
+    next
+    edit "192.168.10.232 - STHWEB"
+        set uuid 301ecd3e-f5df-51e7-f185-a9d8ac61a4f2
+        set comment "\"STHWEB\""
+        set associated-interface "Trust"
+        set subnet 192.168.10.232 255.255.255.255
+    next
+    edit "192.168.11.87/24"
+        set uuid 47821490-f5df-51e7-bc2a-da0aeff3f095
+        set associated-interface "Trust"
+        set subnet 192.168.11.87 255.255.255.255
+    next
+    edit "192.168.150.0/255.255.0.0"
+        set uuid 63ac64a4-f5df-51e7-ac4c-a40841fcc92e
+        set associated-interface "Trust"
+        set subnet 192.168.150.0 255.255.255.0
+    next
+    edit "HA Gateway PC"
+        set uuid 797f9c88-f5df-51e7-8c44-30d6c715778b
+        set associated-interface "Trust"
+        set subnet 172.22.91.34 255.255.255.255
+    next
+    edit "MetaVista Network-192.168.150.1"
+        set uuid 8b0238e4-f5df-51e7-2203-038fe782e919
+        set associated-interface "Trust"
+        set subnet 192.168.150.1 255.255.255.255
+    next
+    edit "10.66.0.101/24"
+        set uuid a6d7b4cc-f5df-51e7-4f0f-c3841a33ebe1
+        set associated-interface "Untrust"
+        set subnet 10.66.0.101 255.255.255.255
+    next
+    edit "10.66.0.102/24"
+        set uuid b091fde2-f5df-51e7-9e9a-7780c1807520
+        set associated-interface "Untrust"
+        set subnet 10.66.0.102 255.255.255.255
+    next
+    edit "202.130.114.235/27"
+        set uuid e3477320-f5df-51e7-f371-3d0b50a283a0
+        set associated-interface "Untrust"
+        set subnet 202.130.114.235 255.255.255.255
+    next
+    edit "Web"
+        set uuid 017a8b3e-f5e0-51e7-893a-7e31134e8a77
+        set associated-interface "Untrust"
+        set subnet 162.155.20.218 255.255.255.255
+    next
+    edit "192.168.100.123/255.255.255.0"
+        set uuid 2bcc8bc6-f5e0-51e7-d67a-4bf6549a68a0
+        set associated-interface "DMZ"
+        set subnet 192.168.100.123 255.255.255.255
+    next
+    edit "172.16.90.0/24"
+        set uuid 6f2c7be2-f5e0-51e7-9cb5-d097e9dc5a43
+        set associated-interface "Untrust"
+        set subnet 172.16.90.0 255.255.255.0
+    next
+    edit "172.16.90.0 - SPH remote network"
+        set uuid 89af604c-f5e0-51e7-97f2-ef70e77c8535
+        set comment "\"SPH remote vlan \""
+        set associated-interface "Untrust"
+        set subnet 172.16.90.0 255.255.255.0
+    next
+    edit "STHSVR172_192.168.10.172"
+        set uuid 585e47fc-21db-51e8-0f4d-72baaf171106
+        set type iprange
+        set comment "Log_Server"
+        set start-ip 192.168.10.172
+        set end-ip 192.168.10.172
+    next
+end
+config firewall multicast-address
+    edit "all"
+        set start-ip 224.0.0.0
+        set end-ip 239.255.255.255
+    next
+    edit "all_hosts"
+        set start-ip 224.0.0.1
+        set end-ip 224.0.0.1
+    next
+    edit "all_routers"
+        set start-ip 224.0.0.2
+        set end-ip 224.0.0.2
+    next
+    edit "Bonjour"
+        set start-ip 224.0.0.251
+        set end-ip 224.0.0.251
+    next
+    edit "EIGRP"
+        set start-ip 224.0.0.10
+        set end-ip 224.0.0.10
+    next
+    edit "OSPF"
+        set start-ip 224.0.0.5
+        set end-ip 224.0.0.6
+    next
+end
+config firewall address6
+    edit "all"
+        set uuid f06e295c-c571-51e7-8354-e69cebfee8db
+    next
+    edit "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set uuid edf63336-c571-51e7-d26a-4a715b746e76
+        set ip6 fdff:ffff::/120
+    next
+    edit "none"
+        set uuid f06e3096-c571-51e7-5b38-90b3ec047658
+        set ip6 ::/128
+    next
+end
+config firewall multicast-address6
+    edit "all"
+        set ip6 ff00::/8
+    next
+end
+config firewall service category
+    edit "General"
+        set comment "General services."
+    next
+    edit "Web Access"
+        set comment "Web access."
+    next
+    edit "File Access"
+        set comment "File access."
+    next
+    edit "Email"
+        set comment "Email services."
+    next
+    edit "Network Services"
+        set comment "Network services."
+    next
+    edit "Authentication"
+        set comment "Authentication service."
+    next
+    edit "Remote Access"
+        set comment "Remote access."
+    next
+    edit "Tunneling"
+        set comment "Tunneling service."
+    next
+    edit "VoIP, Messaging & Other Applications"
+        set comment "VoIP, messaging, and other applications."
+    next
+    edit "Web Proxy"
+        set comment "Explicit web proxy."
+    next
+end
+config firewall service custom
+    edit "ALL"
+        set category "General"
+        set protocol IP
+    next
+    edit "ALL_TCP"
+        set category "General"
+        set tcp-portrange 1-65535
+    next
+    edit "ALL_UDP"
+        set category "General"
+        set udp-portrange 1-65535
+    next
+    edit "ALL_ICMP"
+        set category "General"
+        set protocol ICMP
+        unset icmptype
+    next
+    edit "ALL_ICMP6"
+        set category "General"
+        set protocol ICMP6
+        unset icmptype
+    next
+    edit "GRE"
+        set category "Tunneling"
+        set protocol IP
+        set protocol-number 47
+    next
+    edit "AH"
+        set category "Tunneling"
+        set protocol IP
+        set protocol-number 51
+    next
+    edit "ESP"
+        set category "Tunneling"
+        set protocol IP
+        set protocol-number 50
+    next
+    edit "AOL"
+        set visibility disable
+        set tcp-portrange 5190-5194
+    next
+    edit "BGP"
+        set category "Network Services"
+        set tcp-portrange 179
+    next
+    edit "DHCP"
+        set category "Network Services"
+        set udp-portrange 67-68
+    next
+    edit "DNS"
+        set category "Network Services"
+        set tcp-portrange 53
+        set udp-portrange 53
+    next
+    edit "FINGER"
+        set visibility disable
+        set tcp-portrange 79
+    next
+    edit "FTP"
+        set category "File Access"
+        set tcp-portrange 21
+    next
+    edit "FTP_GET"
+        set category "File Access"
+        set tcp-portrange 21
+    next
+    edit "FTP_PUT"
+        set category "File Access"
+        set tcp-portrange 21
+    next
+    edit "GOPHER"
+        set visibility disable
+        set tcp-portrange 70
+    next
+    edit "H323"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 1720 1503
+        set udp-portrange 1719
+    next
+    edit "HTTP"
+        set category "Web Access"
+        set tcp-portrange 80
+    next
+    edit "HTTPS"
+        set category "Web Access"
+        set tcp-portrange 443
+    next
+    edit "IKE"
+        set category "Tunneling"
+        set udp-portrange 500 4500
+    next
+    edit "IMAP"
+        set category "Email"
+        set tcp-portrange 143
+    next
+    edit "IMAPS"
+        set category "Email"
+        set tcp-portrange 993
+    next
+    edit "Internet-Locator-Service"
+        set visibility disable
+        set tcp-portrange 389
+    next
+    edit "IRC"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 6660-6669
+    next
+    edit "L2TP"
+        set category "Tunneling"
+        set tcp-portrange 1701
+        set udp-portrange 1701
+    next
+    edit "LDAP"
+        set category "Authentication"
+        set tcp-portrange 389
+    next
+    edit "NetMeeting"
+        set visibility disable
+        set tcp-portrange 1720
+    next
+    edit "NFS"
+        set category "File Access"
+        set tcp-portrange 111 2049
+        set udp-portrange 111 2049
+    next
+    edit "NNTP"
+        set visibility disable
+        set tcp-portrange 119
+    next
+    edit "NTP"
+        set category "Network Services"
+        set tcp-portrange 123
+        set udp-portrange 123
+    next
+    edit "OSPF"
+        set category "Network Services"
+        set protocol IP
+        set protocol-number 89
+    next
+    edit "PC-Anywhere"
+        set category "Remote Access"
+        set tcp-portrange 5631
+        set udp-portrange 5632
+    next
+    edit "PING"
+        set category "Network Services"
+        set protocol ICMP
+        set icmptype 8
+        unset icmpcode
+    next
+    edit "TIMESTAMP"
+        set protocol ICMP
+        set visibility disable
+        set icmptype 13
+        unset icmpcode
+    next
+    edit "INFO_REQUEST"
+        set protocol ICMP
+        set visibility disable
+        set icmptype 15
+        unset icmpcode
+    next
+    edit "INFO_ADDRESS"
+        set protocol ICMP
+        set visibility disable
+        set icmptype 17
+        unset icmpcode
+    next
+    edit "ONC-RPC"
+        set category "Remote Access"
+        set tcp-portrange 111
+        set udp-portrange 111
+    next
+    edit "DCE-RPC"
+        set category "Remote Access"
+        set tcp-portrange 135
+        set udp-portrange 135
+    next
+    edit "POP3"
+        set category "Email"
+        set tcp-portrange 110
+    next
+    edit "POP3S"
+        set category "Email"
+        set tcp-portrange 995
+    next
+    edit "PPTP"
+        set category "Tunneling"
+        set tcp-portrange 1723
+    next
+    edit "QUAKE"
+        set visibility disable
+        set udp-portrange 26000 27000 27910 27960
+    next
+    edit "RAUDIO"
+        set visibility disable
+        set udp-portrange 7070
+    next
+    edit "REXEC"
+        set visibility disable
+        set tcp-portrange 512
+    next
+    edit "RIP"
+        set category "Network Services"
+        set udp-portrange 520
+    next
+    edit "RLOGIN"
+        set visibility disable
+        set tcp-portrange 513:512-1023
+    next
+    edit "RSH"
+        set visibility disable
+        set tcp-portrange 514:512-1023
+    next
+    edit "SCCP"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 2000
+    next
+    edit "SIP"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 5060
+        set udp-portrange 5060
+    next
+    edit "SIP-MSNmessenger"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 1863
+    next
+    edit "SAMBA"
+        set category "File Access"
+        set tcp-portrange 139
+    next
+    edit "SMTP"
+        set category "Email"
+        set tcp-portrange 25
+    next
+    edit "SMTPS"
+        set category "Email"
+        set tcp-portrange 465
+    next
+    edit "SNMP"
+        set category "Network Services"
+        set tcp-portrange 161-162
+        set udp-portrange 161-162
+    next
+    edit "SSH"
+        set category "Remote Access"
+        set tcp-portrange 22
+    next
+    edit "SYSLOG"
+        set category "Network Services"
+        set udp-portrange 514
+    next
+    edit "TALK"
+        set visibility disable
+        set udp-portrange 517-518
+    next
+    edit "TELNET"
+        set category "Remote Access"
+        set tcp-portrange 23
+    next
+    edit "TFTP"
+        set category "File Access"
+        set udp-portrange 69
+    next
+    edit "MGCP"
+        set visibility disable
+        set udp-portrange 2427 2727
+    next
+    edit "UUCP"
+        set visibility disable
+        set tcp-portrange 540
+    next
+    edit "VDOLIVE"
+        set visibility disable
+        set tcp-portrange 7000-7010
+    next
+    edit "WAIS"
+        set visibility disable
+        set tcp-portrange 210
+    next
+    edit "WINFRAME"
+        set visibility disable
+        set tcp-portrange 1494 2598
+    next
+    edit "X-WINDOWS"
+        set category "Remote Access"
+        set tcp-portrange 6000-6063
+    next
+    edit "PING6"
+        set protocol ICMP6
+        set visibility disable
+        set icmptype 128
+        unset icmpcode
+    next
+    edit "MS-SQL"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 1433 1434
+    next
+    edit "MYSQL"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 3306
+    next
+    edit "RDP"
+        set category "Remote Access"
+        set tcp-portrange 3389
+    next
+    edit "VNC"
+        set category "Remote Access"
+        set tcp-portrange 5900
+    next
+    edit "DHCP6"
+        set category "Network Services"
+        set udp-portrange 546 547
+    next
+    edit "SQUID"
+        set category "Tunneling"
+        set tcp-portrange 3128
+    next
+    edit "SOCKS"
+        set category "Tunneling"
+        set tcp-portrange 1080
+        set udp-portrange 1080
+    next
+    edit "WINS"
+        set category "Remote Access"
+        set tcp-portrange 1512
+        set udp-portrange 1512
+    next
+    edit "RADIUS"
+        set category "Authentication"
+        set udp-portrange 1812 1813
+    next
+    edit "RADIUS-OLD"
+        set visibility disable
+        set udp-portrange 1645 1646
+    next
+    edit "CVSPSERVER"
+        set visibility disable
+        set tcp-portrange 2401
+        set udp-portrange 2401
+    next
+    edit "AFS3"
+        set category "File Access"
+        set tcp-portrange 7000-7009
+        set udp-portrange 7000-7009
+    next
+    edit "TRACEROUTE"
+        set category "Network Services"
+        set udp-portrange 33434-33535
+    next
+    edit "RTSP"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 554 7070 8554
+        set udp-portrange 554
+    next
+    edit "MMS"
+        set visibility disable
+        set tcp-portrange 1755
+        set udp-portrange 1024-5000
+    next
+    edit "KERBEROS"
+        set category "Authentication"
+        set tcp-portrange 88 464
+        set udp-portrange 88 464
+    next
+    edit "LDAP_UDP"
+        set category "Authentication"
+        set udp-portrange 389
+    next
+    edit "SMB"
+        set category "File Access"
+        set tcp-portrange 445
+    next
+    edit "NONE"
+        set visibility disable
+        set tcp-portrange 0
+    next
+    edit "webproxy"
+        set proxy enable
+        set category "Web Proxy"
+        set protocol ALL
+        set tcp-portrange 0-65535:0-65535
+    next
+    edit "Termainal Service"
+        set category "General"
+        set tcp-portrange 3389:0-65535
+    next
+    edit "Test DB connect"
+        set category "General"
+        set tcp-portrange 1433:0-65535
+    next
+    edit "Ms_service"
+        set category "General"
+        set tcp-portrange 445:0-65535 139:0-65535
+        set udp-portrange 137:0-65535 138:0-65535
+    next
+    edit "Video Conferencing"
+        set category "General"
+        set tcp-portrange 0-1720:0-65535 3230-3243:0-65535
+        set udp-portrange 3230-3285:0-65535
+    next
+    edit "EKG port1"
+        set tcp-portrange 7077-7078:0-65535
+    next
+    edit "DICOM Port 104"
+        set category "General"
+        set tcp-portrange 104:0-65535
+    next
+    edit "DICOM Port 4444"
+        set category "General"
+        set tcp-portrange 4444:0-65535
+    next
+    edit "DICOM Port 43000"
+        set category "General"
+        set tcp-portrange 43000:0-65535
+    next
+    edit "RemotePort_UAT"
+        set category "General"
+        set tcp-portrange 8550:0-65535
+    next
+    edit "PACS TCP 3320"
+        set category "General"
+        set tcp-portrange 3320:0-65535
+    next
+    edit "Citrix 5444"
+        set category "General"
+        set tcp-portrange 5444:0-65535
+    next
+    edit "DICOM Port 5555"
+        set category "General"
+        set tcp-portrange 5555:0-65535
+    next
+    edit "VitalTest"
+        set category "General"
+        set tcp-portrange 25004:0-65535 25006:0-65535
+    next
+    edit "TCP 8991"
+        set category "General"
+        set tcp-portrange 8991:0-65535
+    next
+    edit "TCP 90"
+        set category "General"
+        set tcp-portrange 90:0-65535
+    next
+    edit "HA Port 34291"
+        set category "General"
+        set tcp-portrange 34921:0-65535
+    next
+    edit "GMAIL IMAP"
+        set category "General"
+        set tcp-portrange 993:0-65535
+    next
+    edit "GMAIL SMTP"
+        set category "General"
+        set tcp-portrange 465:0-65535 587:0-65535
+    next
+    edit "HTTP 32100 for a/c"
+        set category "General"
+        set tcp-portrange 32100:0-65535
+    next
+    edit "23262"
+        set category "General"
+        set tcp-portrange 23262:0-65535
+    next
+    edit "TCP 8001"
+        set category "General"
+        set tcp-portrange 8001:0-65535
+    next
+    edit "TCP 8080"
+        set category "General"
+        set tcp-portrange 8080:0-65535
+    next
+    edit "FTP 38021 for mylene"
+        set category "General"
+        set tcp-portrange 38021:0-65535
+    next
+    edit "TCP-22-SFTP"
+        set category "General"
+        set tcp-portrange 22:0-65535
+    next
+    edit "TCP 6622-eHR-SFTP"
+        set category "General"
+        set tcp-portrange 6622:0-65535
+    next
+    edit "Whatapp_TCP"
+        set category "General"
+        set tcp-portrange 4244:0-65535 5222:0-65535 5223:0-65535 5228:0-65535 5242:0-65535 59234:0-65535 50318:0-65535
+        set udp-portrange 3478:0-65535 45395:0-65535
+    next
+    edit "SIEMENS_app"
+        set category "General"
+        set tcp-portrange 8081:0-65535
+    next
+    edit "WINS CUSTOMER"
+        set tcp-portrange 137:0-65535 135:0-65535 138:0-65535 139:0-65535
+        set udp-portrange 137:0-65535 135:0-65535 138:0-65535 139:0-65535
+    next
+    edit "Symantec_Endpoint"
+        set category "General"
+        set tcp-portrange 8014:0-65535
+        set udp-portrange 8014:0-65535
+    next
+    edit "Kerberos customer"
+        set category "General"
+        set tcp-portrange 88:0-65535
+        set udp-portrange 88:0-65535
+    next
+    edit "HA-IMAGE-104"
+        set category "General"
+        set tcp-portrange 104:0-65535
+    next
+    edit "KC_WareHouse_CCTV_9080"
+        set tcp-portrange 9080:0-65535
+    next
+    edit "DesktopCentral_MDM_P2195"
+        set category "General"
+        set tcp-portrange 2195:0-65535
+    next
+    edit "STHLTH_APP"
+        set category "General"
+        set tcp-portrange 2195:0-65535 2196:0-65535 5223:0-65535
+    next
+    edit "Spark"
+        set category "General"
+        set tcp-portrange 443:0-65535 80:0-65535 5004:0-65535 33434:0-65535 33434-33598:0-65535
+        set udp-portrange 5004-33434:0-65535 33434-33598:0-65535
+    next
+    edit "3389-port"
+        set category "General"
+        set tcp-portrange 3389
+    next
+    edit "Chrome_Desktop"
+        set category "General"
+        set tcp-portrange 5222:1024-65535 65535:1024-65535
+    next
+    edit "Moodlerooms FTP"
+        set category "General"
+        set tcp-portrange 22222:0-65535
+    next
+    edit "SFTP_Moodlerooms"
+        set category "General"
+        set tcp-portrange 22222:0-65535
+    next
+    edit "PowerApp"
+        set category "General"
+        set tcp-portrange 443:0-65535 5671-5672:0-65535 9350-9354:0-65535
+    next
+    edit "TrendMicroPort"
+        set category "General"
+        set tcp-portrange 4343:0-65535
+    next
+    edit "32262"
+        set category "General"
+        set tcp-portrange 32262:0-65535
+    next
+end
+config firewall service group
+    edit "Email Access"
+        set member "DNS"
+    next
+    edit "Web Access"
+        set member "DNS"
+    next
+    edit "Windows AD"
+        set member "DCE-RPC"
+    next
+    edit "Exchange Server"
+        set member "DCE-RPC"
+    next
+end
+config webfilter ftgd-local-cat
+    edit "custom1"
+        set id 140
+    next
+    edit "custom2"
+        set id 141
+    next
+end
+config ips sensor
+    edit "default"
+        set comment "Prevent critical attacks."
+        config entries
+            edit 1
+                set severity medium high critical 
+            next
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Monitor IPS attacks."
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+    edit "all_default"
+        set comment "All predefined signatures with default setting."
+        config entries
+            edit 1
+            next
+        end
+    next
+    edit "all_default_pass"
+        set comment "All predefined signatures with PASS action."
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+    edit "protect_http_server"
+        set comment "Protect against HTTP server-side vulnerabilities."
+        config entries
+            edit 1
+                set location server 
+                set protocol HTTP 
+            next
+        end
+    next
+    edit "protect_email_server"
+        set comment "Protect against email server-side vulnerabilities."
+        config entries
+            edit 1
+                set location server 
+                set protocol SMTP POP3 IMAP 
+            next
+        end
+    next
+    edit "protect_client"
+        set comment "Protect against client-side vulnerabilities."
+        config entries
+            edit 1
+                set location client 
+            next
+        end
+    next
+    edit "high_security"
+        set comment "Blocks all Critical/High/Medium and some Low severity vulnerabilities"
+        set block-malicious-url enable
+        config entries
+            edit 1
+                set severity medium high critical 
+                set status enable
+                set action block
+            next
+            edit 2
+                set severity low 
+            next
+        end
+    next
+end
+config firewall shaper traffic-shaper
+    edit "high-priority"
+        set maximum-bandwidth 1048576
+        set per-policy enable
+    next
+    edit "medium-priority"
+        set maximum-bandwidth 1048576
+        set priority medium
+        set per-policy enable
+    next
+    edit "low-priority"
+        set maximum-bandwidth 1048576
+        set priority low
+        set per-policy enable
+    next
+    edit "guarantee-100kbps"
+        set guaranteed-bandwidth 100
+        set maximum-bandwidth 1048576
+        set per-policy enable
+    next
+    edit "shared-1M-pipe"
+        set maximum-bandwidth 1024
+    next
+end
+config web-proxy global
+    set proxy-fqdn "default.fqdn"
+end
+config application list
+    edit "default"
+        set comment "Monitor all applications."
+        config entries
+            edit 1
+                set application 1 2 4 6 7 8 9 10 11 10357 10854 11203 11414 11421 11726 11767 11768 11836 11933 12183 12290 12634 13128 13586 13624 14481 14522 14576 14797 14904 14969 15510 15511 15565 15722 15815 15816 15817 15819 15832 15837 15839 15843 15849 15851 15853 15856 15859 15861 15862 15864 15867 15878 15879 15880 15886 15887 15888 15890 15891 15892 15893 15894 15895 15896 15897 15921 15924 15930 15951 15962 15963 15964 15968 15969 15970 15973 15985 15987 15997 15999 16001 16003 16007 16009 16013 16018 16025 16027 16029 16031 16035 16040 16041 16042 16049 16050 16051 16053 16055 16056 16058 16060 16062 16067 16068 16071 16072 16073 16074 16075 16078 16080 16083 16086 16089 16091 16092 16094 16095 16097 16100 16102 16103 16104 16105 16107 16108 16114 16116 16129 16131 16132 16133 16134 16135 16136 16137 16142 16148 16150 16151 16152 16153 16162 16163 16164 16167 16169 16170 16171 16172 16173 16174 16175 16177 16178 16180 16182 16184 16186 16187 16189 16190 16191 16192 16195 16196 16197 16198 16201 16202 16204 16205 16206 16208 16209 16210 16211 16212 16213 16214 16215 16216 16217 16219 16220 16222 16225 16229 16232 16234 16235 16236 16237 16238 16239 16240 16241 16242 16243 16245 16246 16247 16250 16252 16253 16254 16255 16256 16257 16258 16259 16260 16261 16262 16264 16265 16267 16268 16269 16270 16273 16274 16275 16276 16277 16278 16279 16280 16281 16282 16283 16284 16285 16286 16287 16288 16289 16290 16291 16292 16293 16294 16295 16296 16297 16299 16300 16302 16303 16304 16305 16307 16308 16309 16310 16311 16312 16313 16314 16315 16316 16317 16319 16320 16321 16322 16329 16331 16333 16338 16342 16345 16348 16349 16350 16351 16354 16355 16356 16362 16363 16364 16365 16366 16367 16368 16369 16370 16371 16372 16373 16374 16375 16376 16377 16378 16379 16380 16381 16382 16383 16384 16385 16386 16387 16388 16389 16390 16391 16392 16393 16394 16395 16397 16398 16399 16400 16401 16402 16403 16404 16405 16406 16407 16408 16410 16411 16412 16413 16414 16415 16416 16417 16418 16419 16420 16421 16423 16424 16425 16426 16427 16429 16431 16434 16435 16436 16437 16438 16439 16440 16441 16442 16443 16444 16445 16446 16447 16450 16451 16452 16453 16454 16455 16456 16457 16458 16460 16461 16462 16463 16464 16465 16467 16469 16470 16474 16475 16477 16478 16481 16483 16484 16485 16486 16487 16488 16490 16491 16492 16497 16499 16500 16503 16507 16513 16514 16515 16517 16518 16519 16523 16526 16528 16530 16531 16533 16535 16537 16538 16539 16541 16546 16549 16550 16553 16554 16555 16556 16557 16571 16573 16579 16588 16590 16593 16594 16595 16596 16604 16607 16608 16610 16612 16613 16614 16616 16618 16619 16620 16623 16624 16625 16626 16627 16630 16631 16632 16633 16635 16636 16637 16638 16640 16641 16642 16643 16646 16647 16648 16649 16652 16653 16654 16655 16657 16659 16660 16661 16662 16663 16664 16665 16666 16667 16669 16670 16675 16676 16677 16679 16680 16681 16683 16684 16686 16687 16688 16690 16691 16692 16694 16695 16698 16700 16701 16702 16704 16706 16707 16709 16711 16714 16719 16723 16725 16727 16730 16759 16761 16763 16766 16767 16771 16772 16774 16775 16777 16778 16779 16780 16783 16784 16785 16786 16787 16788 16789 16791 16792 16793 16795 16796 16799 16800 16802 16803 16804 16805 16806 16807 16808 16811 16814 16825 16827 16829 16830 16831 16832 16837 16838 16841 16847 16852 16855 16856 16858 16862 16896 16899 16906 16907 16908 16909 16911 16912 16915 16919 16920 16922 16923 16926 16927 16928 16929 16932 16935 16936 16939 16940 16941 16942 16945 16946 16955 16958 16960 16966 16967 16968 16973 16983 16985 16986 16992 16993 16994 16996 16997 16999 17000 17004 17006 17007 17008 17009 17010 17011 17012 17017 17019 17020 17031 17033 17038 17039 17040 17041 17042 17045 17048 17049 17057 17070 17087 17094 17109 17113 17136 17141 17143 17144 17145 17146 17147 17148 17149 17153 17154 17159 17160 17162 17163 17164 17165 17168 17172 17174 17177 17179 17182 17185 17186 17188 17191 17193 17194 17195 17196 17197 17198 17199 17204 17206 17208 17209 17210 17212 17236 17244 17247 17273 17324 17333 17334 17338 17352 17354 17372 17396 17399 17405 17409 17419 17428 17429 17458 17459 17466 17476 17482 17498 17521 17534 17535 17538 17540 17550 17567 17573 17584 17588 17599 17601 17603 17613 17678 17693 17727 17731 17735 17740 17763 17779 17840 17850 17869 17896 17901 17917 17945 17953 17954 17956 17957 18007 18025 18033 18075 18082 18090 18095 18096 18119 18123 18139 18148 18155 18167 18175 18181 18215 18216 18218 18288 19796 20806 20910 20922 20923 20942 21114 21668 22922 22933 23094 23117 23184 23217 23257 23260 23345 23352 23382 23397 23398 23399 23432 23638 23662 23689 23697 23698 23756 23757 23759 23763 23765 23813 23829 23919 23947 23971 23973 24006 24009 24218 24256 24258 24265 24284 24305 24307 24318 24387 24408 24409 24410 24411 24412 24424 24426 24429 24466 24467 24468 24469 24471 24473 24474 24478 24479 24483 24484 24530 24531 24532 24533 24534 24559 24561 24623 24624 24626 24627 24628 24630 24646 24648 24703 24710 24727 24730 24731 24734 24735 24739 24740 24741 24744 24747 24748 24750 24755 24756 24767 24800 24804 24809 24810 24817 24818 24882 24887 24888 24889 24891 24897 24912 24922 24923 24924 24937 24939 24968 24969 24970 24977 25039 25048 25056 25058 25069 25076 25077 25078 25089 25143 25147 25172 25174 25192 25195 25196 25198 25238 25239 25241 25242 25282 25305 25360 25363 25376 25378 25379 25380 25388 25426 25434 25437 25439 25441 25447 25452 25453 25455 25456 25457 25458 25459 25461 25467 25470 25471 25529 25559 25561 25562 25564 25565 25566 25622 25627 25636 25644 25649 25654 25670 25677 25704 25798 25833 25843 25853 25875 25877 25878 25879 25886 25887 25903 25906 25907 25936 25939 25945 25950 25952 25953 25957 25958 25959 25960 26013 26035 26043 26054 26061 26178 26179 26180 26181 26182 26185 26193 26277 26281 26282 26283 26286 26320 26327 26340 26345 26346 26352 26363 26376 26377 26378 26380 26394 26399 26470 26486 26487 26519 26525 26563 26566 26582 26583 26617 26628 26630 26631 26633 26683 26723 26728 26733 26789 26793 26806 26821 26848 26873 26875 26886 26914 26936 26951 26966 27009 27025 27048 27081 27082 27084 27103 27104 27147 27209 27210 27218 27238 27302 27304 27312 27314 27348 27410 27414 27415 27457 27459 27505 27506 27507 27508 27509 27510 27528 27538 27559 27561 27581 27604 27609 27700 27728 27750 27751 27754 27775 27776 27783 27808 27810 27811 27821 27839 27843 27922 27937 27946 27947 27948 27977 28046 28049 28057 28076 28100 28106 28125 28129 28189 28198 28247 28283 28323 28325 28374 28378 28386 28387 28389 28391 28426 28428 28469 28492 28493 28511 28554 28570 28571 28572 28587 28588 28595 28597 28605 28608 28622 28631 28632 28638 28695 28696 28697 28752 28754 28843 28844 28845 28846 28850 28851 28875 28877 28885 28887 28889 28936 28938 28940 28944 28991 28992 29025 29081 29143 29193 29210 29248 29255 29265 29307 29309 29350 29355 29410 29432 29525 29526 29600 29604 29610 29765 29810 29843 29845 29858 29867 29880 29902 30004 30028 30032 30036 30055 30059 30061 30063 30068 30069 30073 30074 30075 30076 30079 30086 30090 30093 30094 30097 30098 30120 30121 30123 30124 30127 30134 30136 30138 30139 30141 30144 30147 30156 30158 30159 30161 30164 30165 30167 30169 30175 30176 30184 30185 30188 30191 30192 30200 30201 30203 30207 30209 30210 30212 30213 30217 30220 30222 30224 30233 30238 30244 30250 30251 30253 30254 30256 30264 30267 30269 30273 30274 30295 30340 30341 30366 30370 30373 30376 30415 30447 30452 30530 30531 30536 30707 30708 30709 30712 30719 30728 30731 30734 30746 30795 30796 30953 30955 30958 30966 31013 31019 31021 31030 31037 31073 31074 31076 31077 31078 31079 31104 31158 31160 31161 31167 31175 31182 31183 31184 31197 31200 31201 31205 31208 31229 31232 31236 31237 31251 31252 31253 31255 31256 31257 31263 31277 31279 31281 31287 31290 31291 31295 31306 31349 31364 31372 31374 31379 31380 31402 31438 31458 31485 31486 31487 31489 31496 31498 31529 31531 31532 31554 31563 31594 31605 31608 31613 31614 31615 31617 31618 31635 31645 31667 31753 31755 31824 31832 31833 31834 31843 31844 31845 31846 31847 31848 31857 31858 31870 31871 31884 31885 31895 31908 31910 31913 31929 31933 31935 31936 31942 31943 31944 31983 31984 31985 31986 31988 31989 31990 32003 32007 32014 32021 32075 32121 32122 32123 32149 32165 32166 32171 32239 32242 32246 32257 32258 32259 32261 32262 32280 32282 32285 32295 32304 32311 32313 32317 32318 32342 32343 32355 32357 32384 32417 32442 32443 32479 32559 32609 32640 32641 32642 32650 32734 32752 32793 32816 32817 32818 32822 32836 32842 32843 32844 32927 32948 33000 33002 33048 33053 33104 33112 33133 33136 33178 33182 33224 33238 33284 33292 33308 33309 33311 33312 33313 33321 33487 33494 33561 33571 33607 33661 33684 33704 33709 33728 33758 33759 33760 33764 33826 33866 33881 33900 33907 33912 33917 33918 33919 33940 33988 34004 34038 34039 34040 34041 34050 34051 34060 34067 34081 34111 34112 34114 34164 34165 34201 34205 34236 34244 34256 34257 34291 34301 34305 34339 34391 34397 34405 34421 34425 34426 34435 34455 34491 34492 34499 34500 34503 34505 34506 34507 34512 34514 34515 34516 34517 34527 34552 34554 34558 34560 34575 34613 34616 34638 34640 34641 34646 34647 34736 34742 34757 34789 34791 34793 34795 34797 34815 34816 34858 34859 34860 34880 34881 34922 34927 34938 34950 34951 34962 34964 34970 34973 34993 34998 35003 35013 35014 35031 35033 35047 35079 35096 35106 35112 35116 35119 35133 35135 35136 35137 35141 35149 35151 35163 35169 35170 35172 35175 35191 35196 35197 35202 35214 35218 35229 35244 35246 35263 35269 35284 35285 35297 35298 35305 35325 35348 35360 35361 35366 35367 35418 35419 35420 35421 35432 35433 35434 35444 35459 35517 35523 35534 35539 35540 35541 35563 35583 35584 35585 35586 35587 35588 35598 35599 35600 35614 35615 35617 35635 35641 35642 35656 35657 35658 35659 35678 35679 35682 35692 35698 35699 35702 35703 35704 35705 35707 35708 35710 35712 35723 35725 35726 35728 35729 35730 35733 35736 35737 35738 35739 35740 35741 35742 35746 35748 35757 35758 35759 35760 35762 35763 35764 35767 35768 35770 35771 35787 35788 35789 35790 35791 35792 35793 35796 35797 35798 35799 35800 35801 35812 35813 35814 35815 35817 35818 35819 35820 35821 35822 35824 35825 35826 35828 35835 35836 35894 35913 35916 35928 35936 35937 35938 35939 35940 35941 35942 35943 35944 35960 35961 35962 35963 35964 35965 35966 35967 35968 35969 35970 35971 35972 35973 35975 35976 35977 35978 35979 35980 35981 35982 35983 35984 36002 36005 36006 36007 36008 36023 36024 36025 36027 36028 36029 36031 36033 36034 36035 36045 36048 36049 36050 36051 36052 36053 36054 36055 36056 36072 36075 36077 36078 36079 36080 36081 36082 36083 36084 36098 36109 36110 36111 36112 36113 36114 36115 36116 36117 36118 36119 36134 36135 36136 36137 36139 36150 36151 36153 36167 36168 36170 36171 36172 36173 36185 36186 36189 36190 36191 36192 36193 36194 36195 36196 36202 36203 36204 36205 36206 36207 36208 36209 36217 36218 36219 36222 36232 36233 36236 36237 36238 36240 36244 36249 36286 36287 36289 36290 36293 36295 36296 36297 36298 36299 36300 36301 36302 36313 36315 36316 36318 36319 36322 36323 36324 36326 36327 36328 36342 36343 36344 36346 36347 36351 36352 36353 36354 36356 36370 36371 36373 36374 36375 36376 36381 36382 36384 36387 36390 36410 36418 36420 36421 36423 36431 36442 36443 36445 36446 36448 36449 36458 36459 36460 36462 36463 36467 36468 36481 36482 36483 36484 36485 36486 36487 36488 36489 36504 36506 36508 36509 36510 36511 36531 36533 36534 36535 36536 36557 36572 36574 36575 36576 36577 36578 36591 36593 36596 36613 36614 36615 36628 36629 36635 36648 36653 36654 36656 36660 36664 36666 36713 36718 36720 36721 36722 36723 36730 36740 36741 36742 36743 36774 36790 36792 36807 36814 36816 36817 36818 36823 36830 36853 36854 36869 36891 36900 36931 36933 36935 36953 36960 36963 36968 36974 36975 36983 36998 36999 37000 37050 37052 37053 37054 37055 37056 37057 37064 37065 37084 37085 37095 37166 37172 37186 37197 37200 37206 37209 37212 37253 37261 37272 37276 37299 37305 37306 37323 37332 37364 37371 37382 37401 37402 37403 37454 37455 37464 37481 37485 37493 37499 37500 37518 37535 37536 37537 37543 37585 37591 37602 37606 37619 37644 37659 37676 37695 37701 37706 37718 37721 37722 37737 37738 37749 37762 37763 37845 37846 37915 37934 37952 37958 37985 37994 38003 38005 38016 38037 38038 38042 38044 38049 38051 38063 38064 38073 38075 38098 38100 38104 38107 38108 38109 38130 38131 38150 38163 38164 38174 38223 38247 38249 38258 38259 38266 38269 38274 38281 38291 38314 38321 38324 38327 38332 38336 38337 38338 38340 38343 38344 38346 38350 38351 38366 38380 38382 38386 38387 38394 38419 38463 38466 38467 38468 38471 38472 38473 38474 38483 38500 38507 38509 38512 38514 38517 38520 38521 38522 38540 38542 38547 38550 38561 38569 38570 38574 38575 38614 38645 38653 38654 38670 38683 38685 38690 38693 38708 38709 38725 38726 38732 38734 38759 38766 38768 38778 38782 38783 38797 38798 38822 38834 38845 38846 38848 38849 38853 38854 38855 38857 38860 38861 38862 38878 38879 38883 38885 38900 38902 38903 38904 38905 38908 38910 38923 38924 38929 38938 38942 38943 38944 38952 38953 38958 38959 38960 38964 38965 38966 38974 38975 38976 38981 38990 38991 38992 38993 38994 38995 38996 38997 38999 39002 39004 39005 39017 39018 39019 39020 39021 39022 39026 39029 39053 39057 39062 39071 39072 39073 39074 39077 39079 39083 39100 39101 39102 39107 39108 39109 39111 39112 39113 39119 39157 39158 39159 39164 39171 39172 39174 39187 39188 39190 39191 39194 39201 39203 39207 39210 39211 39212 39213 39233 39243 39244 39280 39283 39284 39304 39309 39340 39344 39350 39380 39381 39393 39395 39396 39431 39435 39449 39454 39458 39467 39481 39482 39483 39484 39485 39491 39492 39505 39506 39523 39537 39541 39546 39547 39549 39550 39590 39591 39592 39621 39624 39630 39632 39637 39651 39676 39684 39696 39712 39771 39945 39999 40012 40123 40169 40175 40194 40248 40269 40304 40316 40317 40318 40319 40389 40417 40424 40469 40470 40471 40489 40494 40503 40565 40568 40642 40661 40698 40702 40766 40768 40776 40791 40793 40796 40818 40821 40823 40842 40858 40866 40933 40934 40935 41392 41468 41469 41470 41471 41474 41475 41516 41536 41540 41541 41542 41543 41598 41600 41601 41612 41614 41644 41660 41678 41680 41681 41683 41689 41691 41692 41694 41698 41701 41702 41703 41716 41717 41718 107347980 108855300 109051910 109051912 152305666 152305667 152305668 152305669 152305670 152305671 152305672 152305673 152305677 152305678
+            next
+            edit 2
+                set action pass
+            next
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Monitor all applications."
+        set other-application-log enable
+        set unknown-application-log enable
+        unset options
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+    edit "block-high-risk"
+        config entries
+            edit 1
+                set category 2 6
+            next
+            edit 2
+                set action pass
+            next
+        end
+    next
+end
+config dlp filepattern
+    edit 1
+        set name "builtin-patterns"
+        config entries
+            edit "*.bat"
+            next
+            edit "*.com"
+            next
+            edit "*.dll"
+            next
+            edit "*.doc"
+            next
+            edit "*.exe"
+            next
+            edit "*.gz"
+            next
+            edit "*.hta"
+            next
+            edit "*.ppt"
+            next
+            edit "*.rar"
+            next
+            edit "*.scr"
+            next
+            edit "*.tar"
+            next
+            edit "*.tgz"
+            next
+            edit "*.vb?"
+            next
+            edit "*.wps"
+            next
+            edit "*.xl?"
+            next
+            edit "*.zip"
+            next
+            edit "*.pif"
+            next
+            edit "*.cpl"
+            next
+        end
+    next
+    edit 2
+        set name "all_executables"
+        config entries
+            edit "bat"
+                set filter-type type
+                set file-type bat
+            next
+            edit "exe"
+                set filter-type type
+                set file-type exe
+            next
+            edit "elf"
+                set filter-type type
+                set file-type elf
+            next
+            edit "hta"
+                set filter-type type
+                set file-type hta
+            next
+        end
+    next
+end
+config dlp fp-sensitivity
+    edit "Private"
+    next
+    edit "Critical"
+    next
+    edit "Warning"
+    next
+end
+config dlp sensor
+    edit "default"
+        set comment "Default sensor."
+    next
+    edit "sniffer-profile"
+        set comment "Log a summary of email and web traffic."
+        set flow-based enable
+        set summary-proto smtp pop3 imap http-get http-post
+    next
+    edit "Content_Summary"
+        set summary-proto smtp pop3 imap http-get http-post ftp nntp mapi
+    next
+    edit "Content_Archive"
+        set full-archive-proto smtp pop3 imap http-get http-post ftp nntp mapi
+        set summary-proto smtp pop3 imap http-get http-post ftp nntp mapi
+    next
+    edit "Large-File"
+        config filter
+            edit 1
+                set name "Large-File-Filter"
+                set proto smtp pop3 imap http-get http-post mapi
+                set filter-by file-size
+                set file-size 5120
+                set action log-only
+            next
+        end
+    next
+    edit "Credit-Card"
+        config filter
+            edit 1
+                set name "Credit-Card-Filter"
+                set severity high
+                set proto smtp pop3 imap http-get http-post mapi
+                set action log-only
+            next
+            edit 2
+                set name "Credit-Card-Filter"
+                set severity high
+                set type message
+                set proto smtp pop3 imap http-post mapi
+                set action log-only
+            next
+        end
+    next
+    edit "SSN-Sensor"
+        set comment "Match SSN numbers but NOT WebEx invite emails."
+        config filter
+            edit 1
+                set name "SSN-Sensor-Filter"
+                set severity high
+                set type message
+                set proto smtp pop3 imap mapi
+                set filter-by regexp
+                set regexp "WebEx"
+            next
+            edit 2
+                set name "SSN-Sensor-Filter"
+                set severity high
+                set type message
+                set proto smtp pop3 imap mapi
+                set filter-by ssn
+                set action log-only
+            next
+            edit 3
+                set name "SSN-Sensor-Filter"
+                set severity high
+                set proto smtp pop3 imap http-get http-post ftp mapi
+                set filter-by ssn
+                set action log-only
+            next
+        end
+    next
+end
+config log threat-weight
+    config web
+        edit 1
+            set category 26
+            set level high
+        next
+        edit 2
+            set category 61
+            set level high
+        next
+        edit 3
+            set category 86
+            set level high
+        next
+        edit 4
+            set category 1
+            set level medium
+        next
+        edit 5
+            set category 3
+            set level medium
+        next
+        edit 6
+            set category 4
+            set level medium
+        next
+        edit 7
+            set category 5
+            set level medium
+        next
+        edit 8
+            set category 6
+            set level medium
+        next
+        edit 9
+            set category 12
+            set level medium
+        next
+        edit 10
+            set category 59
+            set level medium
+        next
+        edit 11
+            set category 62
+            set level medium
+        next
+        edit 12
+            set category 83
+            set level medium
+        next
+        edit 13
+            set category 72
+        next
+        edit 14
+            set category 14
+        next
+    end
+    config application
+        edit 1
+            set category 2
+        next
+        edit 2
+            set category 6
+            set level medium
+        next
+    end
+end
+config icap profile
+    edit "default"
+    next
+end
+config vpn certificate ca
+    edit "G_CA_Cert_2"
+        set range global
+    next
+    edit "G_CA_Cert_3"
+        set range global
+    next
+end
+config vpn certificate local
+    edit "Fortinet_CA_SSL"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+        set source factory
+        set last-updated 1515143755
+    next
+    edit "Fortinet_CA_Untrusted"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+        set source factory
+        set last-updated 1515143755
+    next
+    edit "Fortinet_SSL"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1515143755
+    next
+    edit "Fortinet_SSL_RSA1024"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1515143755
+    next
+    edit "Fortinet_SSL_RSA2048"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1515143755
+    next
+    edit "Fortinet_SSL_DSA1024"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1515143756
+    next
+    edit "Fortinet_SSL_DSA2048"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1515143756
+    next
+    edit "Fortinet_SSL_ECDSA256"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1515143756
+    next
+    edit "Fortinet_SSL_ECDSA384"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1515143756
+    next
+    edit "HA Test Cert"
+        set range global
+        set last-updated 1532673833
+    next
+    edit "HA Prod Cert"
+        set range global
+        set last-updated 1540877459
+    next
+end
+config user fortitoken
+    edit "FTKMOB823A219699"
+        set license "FTMTRIAL02052097"
+    next
+    edit "FTKMOB82E599B486"
+        set license "FTMTRIAL02052097"
+    next
+end
+config user local
+    edit "guest"
+        set type password
+        set passwd-time 2018-01-30 11:16:23
+        set passwd ENC hUiyBUy3kMp0946mGt3+JcJHx2eeH5LxpD9E+KDUhgmPUv2wm0BaKdwgTC9sa/rhf9+ItdfvmtgkhCU6sSqNDpZMMlv9dkK4EnGH17dDmNMJDo/99xIRarHcWEGT0j2rq+aDDdkEi0x162waaUNKv3nYeCI9itEVOajjTXp0wm9BWCt7ZDF76uepk/XyUNuoAyBqYQ==
+    next
+end
+config user setting
+    set auth-cert "Fortinet_Factory"
+end
+config user group
+    edit "SSO_Guest_Users"
+    next
+    edit "Guest-group"
+        set member "guest"
+    next
+end
+config user device-group
+    edit "Mobile Devices"
+        set member "android-phone" "android-tablet" "blackberry-phone" "blackberry-playbook" "ipad" "iphone" "windows-phone" "windows-tablet"
+        set comment "Phones, tablets, etc."
+    next
+    edit "Network Devices"
+        set member "fortinet-device" "other-network-device" "router-nat-device"
+        set comment "Routers, firewalls, gateways, etc."
+    next
+    edit "Others"
+        set member "gaming-console" "media-streaming"
+        set comment "Other devices."
+    next
+end
+config vpn ssl web host-check-software
+    edit "FortiClient-AV"
+        set guid "C86EC76D-5A4C-40E7-BD94-59358E544D81"
+    next
+    edit "FortiClient-AV-Vista-Win7"
+        set guid "385618A6-2256-708E-3FB9-7E98B93F91F9"
+    next
+    edit "FortiClient-AV-Win7"
+        set guid "71629DC5-BE6F-CCD3-C5A5-014980643264"
+    next
+    edit "AVG-Internet-Security-AV"
+        set guid "17DDD097-36FF-435F-9E1B-52D74245D6BF"
+    next
+    edit "AVG-Internet-Security-FW"
+        set type fw
+        set guid "8DECF618-9569-4340-B34A-D78D28969B66"
+    next
+    edit "AVG-Internet-Security-AV-Vista-Win7"
+        set guid "0C939084-9E57-CBDB-EA61-0B0C7F62AF82"
+    next
+    edit "AVG-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "34A811A1-D438-CA83-C13E-A23981B1E8F9"
+    next
+    edit "CA-Anti-Virus"
+        set guid "17CFD1EA-56CF-40B5-A06B-BD3A27397C93"
+    next
+    edit "CA-Internet-Security-AV"
+        set guid "6B98D35F-BB76-41C0-876B-A50645ED099A"
+    next
+    edit "CA-Internet-Security-FW"
+        set type fw
+        set guid "38102F93-1B6E-4922-90E1-A35D8DC6DAA3"
+    next
+    edit "CA-Internet-Security-AV-Vista-Win7"
+        set guid "3EED0195-0A4B-4EF3-CC4F-4F401BDC245F"
+    next
+    edit "CA-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "06D680B0-4024-4FAB-E710-E675E50F6324"
+    next
+    edit "CA-Personal-Firewall"
+        set type fw
+        set guid "14CB4B80-8E52-45EA-905E-67C1267B4160"
+    next
+    edit "F-Secure-Internet-Security-AV"
+        set guid "E7512ED5-4245-4B4D-AF3A-382D3F313F15"
+    next
+    edit "F-Secure-Internet-Security-FW"
+        set type fw
+        set guid "D4747503-0346-49EB-9262-997542F79BF4"
+    next
+    edit "F-Secure-Internet-Security-AV-Vista-Win7"
+        set guid "15414183-282E-D62C-CA37-EF24860A2F17"
+    next
+    edit "F-Secure-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "2D7AC0A6-6241-D774-E168-461178D9686C"
+    next
+    edit "Kaspersky-AV"
+        set guid "2C4D4BC6-0793-4956-A9F9-E252435469C0"
+    next
+    edit "Kaspersky-FW"
+        set type fw
+        set guid "2C4D4BC6-0793-4956-A9F9-E252435469C0"
+    next
+    edit "Kaspersky-AV-Vista-Win7"
+        set guid "AE1D740B-8F0F-D137-211D-873D44B3F4AE"
+    next
+    edit "Kaspersky-FW-Vista-Win7"
+        set type fw
+        set guid "9626F52E-C560-D06F-0A42-2E08BA60B3D5"
+    next
+    edit "McAfee-Internet-Security-Suite-AV"
+        set guid "84B5EE75-6421-4CDE-A33A-DD43BA9FAD83"
+    next
+    edit "McAfee-Internet-Security-Suite-FW"
+        set type fw
+        set guid "94894B63-8C7F-4050-BDA4-813CA00DA3E8"
+    next
+    edit "McAfee-Internet-Security-Suite-AV-Vista-Win7"
+        set guid "86355677-4064-3EA7-ABB3-1B136EB04637"
+    next
+    edit "McAfee-Internet-Security-Suite-FW-Vista-Win7"
+        set type fw
+        set guid "BE0ED752-0A0B-3FFF-80EC-B2269063014C"
+    next
+    edit "McAfee-Virus-Scan-Enterprise"
+        set guid "918A2B0B-2C60-4016-A4AB-E868DEABF7F0"
+    next
+    edit "Norton-360-2.0-AV"
+        set guid "A5F1BC7C-EA33-4247-961C-0217208396C4"
+    next
+    edit "Norton-360-2.0-FW"
+        set type fw
+        set guid "371C0A40-5A0C-4AD2-A6E5-69C02037FBF3"
+    next
+    edit "Norton-360-3.0-AV"
+        set guid "E10A9785-9598-4754-B552-92431C1C35F8"
+    next
+    edit "Norton-360-3.0-FW"
+        set type fw
+        set guid "7C21A4C9-F61F-4AC4-B722-A6E19C16F220"
+    next
+    edit "Norton-Internet-Security-AV"
+        set guid "E10A9785-9598-4754-B552-92431C1C35F8"
+    next
+    edit "Norton-Internet-Security-FW"
+        set type fw
+        set guid "7C21A4C9-F61F-4AC4-B722-A6E19C16F220"
+    next
+    edit "Norton-Internet-Security-AV-Vista-Win7"
+        set guid "88C95A36-8C3B-2F2C-1B8B-30FCCFDC4855"
+    next
+    edit "Norton-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "B0F2DB13-C654-2E74-30D4-99C9310F0F2E"
+    next
+    edit "Symantec-Endpoint-Protection-AV"
+        set guid "FB06448E-52B8-493A-90F3-E43226D3305C"
+    next
+    edit "Symantec-Endpoint-Protection-FW"
+        set type fw
+        set guid "BE898FE3-CD0B-4014-85A9-03DB9923DDB6"
+    next
+    edit "Symantec-Endpoint-Protection-AV-Vista-Win7"
+        set guid "88C95A36-8C3B-2F2C-1B8B-30FCCFDC4855"
+    next
+    edit "Symantec-Endpoint-Protection-FW-Vista-Win7"
+        set type fw
+        set guid "B0F2DB13-C654-2E74-30D4-99C9310F0F2E"
+    next
+    edit "Panda-Antivirus+Firewall-2008-AV"
+        set guid "EEE2D94A-D4C1-421A-AB2C-2CE8FE51747A"
+    next
+    edit "Panda-Antivirus+Firewall-2008-FW"
+        set type fw
+        set guid "7B090DC0-8905-4BAF-8040-FD98A41C8FB8"
+    next
+    edit "Panda-Internet-Security-AV"
+        set guid "4570FB70-5C9E-47E9-B16C-A3A6A06C4BF0"
+    next
+    edit "Panda-Internet-Security-2006~2007-FW"
+        set type fw
+        set guid "4570FB70-5C9E-47E9-B16C-A3A6A06C4BF0"
+    next
+    edit "Panda-Internet-Security-2008~2009-FW"
+        set type fw
+        set guid "7B090DC0-8905-4BAF-8040-FD98A41C8FB8"
+    next
+    edit "Sophos-Anti-Virus"
+        set guid "3F13C776-3CBE-4DE9-8BF6-09E5183CA2BD"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-FW"
+        set type fw
+        set guid "0786E95E-326A-4524-9691-41EF88FB52EA"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-AV-Vista-Win7"
+        set guid "479CCF92-4960-B3E0-7373-BF453B467D2C"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-FW-Vista-Win7"
+        set type fw
+        set guid "7FA74EB7-030F-B2B8-582C-1670C5953A57"
+    next
+    edit "Trend-Micro-AV"
+        set guid "7D2296BC-32CC-4519-917E-52E652474AF5"
+    next
+    edit "Trend-Micro-FW"
+        set type fw
+        set guid "3E790E9E-6A5D-4303-A7F9-185EC20F3EB6"
+    next
+    edit "Trend-Micro-AV-Vista-Win7"
+        set guid "48929DFC-7A52-A34F-8351-C4DBEDBD9C50"
+    next
+    edit "Trend-Micro-FW-Vista-Win7"
+        set type fw
+        set guid "70A91CD9-303D-A217-A80E-6DEE136EDB2B"
+    next
+    edit "ZoneAlarm-AV"
+        set guid "5D467B10-818C-4CAB-9FF7-6893B5B8F3CF"
+    next
+    edit "ZoneAlarm-FW"
+        set type fw
+        set guid "829BDA32-94B3-44F4-8446-F8FCFF809F8B"
+    next
+    edit "ZoneAlarm-AV-Vista-Win7"
+        set guid "D61596DF-D219-341C-49B3-AD30538CBC5B"
+    next
+    edit "ZoneAlarm-FW-Vista-Win7"
+        set type fw
+        set guid "EE2E17FA-9876-3544-62EC-0405AD5FFB20"
+    next
+    edit "ESET-Smart-Security-AV"
+        set guid "19259FAE-8396-A113-46DB-15B0E7DFA289"
+    next
+    edit "ESET-Smart-Security-FW"
+        set type fw
+        set guid "211E1E8B-C9F9-A04B-6D84-BC85190CE5F2"
+    next
+end
+config vpn ssl web portal
+    edit "full-access"
+        set tunnel-mode enable
+        set ipv6-tunnel-mode enable
+        set web-mode enable
+        set ip-pools "SSLVPN_TUNNEL_ADDR1"
+        set ipv6-pools "SSLVPN_TUNNEL_IPv6_ADDR1"
+    next
+    edit "web-access"
+        set web-mode enable
+    next
+    edit "tunnel-access"
+        set tunnel-mode enable
+        set ipv6-tunnel-mode enable
+        set ip-pools "SSLVPN_TUNNEL_ADDR1"
+        set ipv6-pools "SSLVPN_TUNNEL_IPv6_ADDR1"
+    next
+end
+config vpn ssl settings
+    set servercert "Fortinet_Factory"
+    set port 443
+end
+config voip profile
+    edit "default"
+        set comment "Default VoIP profile."
+    next
+    edit "strict"
+        config sip
+            set malformed-request-line discard
+            set malformed-header-via discard
+            set malformed-header-from discard
+            set malformed-header-to discard
+            set malformed-header-call-id discard
+            set malformed-header-cseq discard
+            set malformed-header-rack discard
+            set malformed-header-rseq discard
+            set malformed-header-contact discard
+            set malformed-header-record-route discard
+            set malformed-header-route discard
+            set malformed-header-expires discard
+            set malformed-header-content-type discard
+            set malformed-header-content-length discard
+            set malformed-header-max-forwards discard
+            set malformed-header-allow discard
+            set malformed-header-p-asserted-identity discard
+            set malformed-header-sdp-v discard
+            set malformed-header-sdp-o discard
+            set malformed-header-sdp-s discard
+            set malformed-header-sdp-i discard
+            set malformed-header-sdp-c discard
+            set malformed-header-sdp-b discard
+            set malformed-header-sdp-z discard
+            set malformed-header-sdp-k discard
+            set malformed-header-sdp-a discard
+            set malformed-header-sdp-t discard
+            set malformed-header-sdp-r discard
+            set malformed-header-sdp-m discard
+        end
+    next
+end
+config webfilter profile
+    edit "default"
+        set comment "Default web filtering."
+        set inspection-mode flow-based
+        config ftgd-wf
+            unset options
+            config filters
+                edit 1
+                    set category 2
+                    set action block
+                next
+                edit 2
+                    set category 7
+                    set action block
+                next
+                edit 3
+                    set category 8
+                    set action block
+                next
+                edit 4
+                    set category 9
+                    set action block
+                next
+                edit 5
+                    set category 11
+                    set action block
+                next
+                edit 6
+                    set category 12
+                    set action block
+                next
+                edit 7
+                    set category 13
+                    set action block
+                next
+                edit 8
+                    set category 14
+                    set action block
+                next
+                edit 9
+                    set category 15
+                    set action block
+                next
+                edit 10
+                    set category 16
+                    set action block
+                next
+                edit 11
+                    set action block
+                next
+                edit 12
+                    set category 57
+                    set action block
+                next
+                edit 13
+                    set category 63
+                    set action block
+                next
+                edit 14
+                    set category 64
+                    set action block
+                next
+                edit 15
+                    set category 65
+                    set action block
+                next
+                edit 16
+                    set category 66
+                    set action block
+                next
+                edit 17
+                    set category 67
+                    set action block
+                next
+                edit 18
+                    set category 26
+                    set action block
+                next
+                edit 19
+                    set category 61
+                    set action block
+                next
+                edit 20
+                    set category 86
+                    set action block
+                next
+                edit 21
+                    set category 88
+                    set action block
+                next
+                edit 22
+                    set category 90
+                    set action block
+                next
+                edit 23
+                    set category 91
+                    set action block
+                next
+            end
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Monitor web traffic."
+        set inspection-mode flow-based
+        config ftgd-wf
+            unset options
+            config filters
+                edit 1
+                    set category 1
+                next
+                edit 2
+                    set category 3
+                next
+                edit 3
+                    set category 4
+                next
+                edit 4
+                    set category 5
+                next
+                edit 5
+                    set category 6
+                next
+                edit 6
+                    set category 12
+                next
+                edit 7
+                    set category 59
+                next
+                edit 8
+                    set category 62
+                next
+                edit 9
+                    set category 83
+                next
+                edit 10
+                    set category 2
+                next
+                edit 11
+                    set category 7
+                next
+                edit 12
+                    set category 8
+                next
+                edit 13
+                    set category 9
+                next
+                edit 14
+                    set category 11
+                next
+                edit 15
+                    set category 13
+                next
+                edit 16
+                    set category 14
+                next
+                edit 17
+                    set category 15
+                next
+                edit 18
+                    set category 16
+                next
+                edit 19
+                    set category 57
+                next
+                edit 20
+                    set category 63
+                next
+                edit 21
+                    set category 64
+                next
+                edit 22
+                    set category 65
+                next
+                edit 23
+                    set category 66
+                next
+                edit 24
+                    set category 67
+                next
+                edit 25
+                    set category 19
+                next
+                edit 26
+                    set category 24
+                next
+                edit 27
+                    set category 25
+                next
+                edit 28
+                    set category 72
+                next
+                edit 29
+                    set category 75
+                next
+                edit 30
+                    set category 76
+                next
+                edit 31
+                    set category 26
+                next
+                edit 32
+                    set category 61
+                next
+                edit 33
+                    set category 86
+                next
+                edit 34
+                    set category 17
+                next
+                edit 35
+                    set category 18
+                next
+                edit 36
+                    set category 20
+                next
+                edit 37
+                    set category 23
+                next
+                edit 38
+                    set category 28
+                next
+                edit 39
+                    set category 29
+                next
+                edit 40
+                    set category 30
+                next
+                edit 41
+                    set category 33
+                next
+                edit 42
+                    set category 34
+                next
+                edit 43
+                    set category 35
+                next
+                edit 44
+                    set category 36
+                next
+                edit 45
+                    set category 37
+                next
+                edit 46
+                    set category 38
+                next
+                edit 47
+                    set category 39
+                next
+                edit 48
+                    set category 40
+                next
+                edit 49
+                    set category 42
+                next
+                edit 50
+                    set category 44
+                next
+                edit 51
+                    set category 46
+                next
+                edit 52
+                    set category 47
+                next
+                edit 53
+                    set category 48
+                next
+                edit 54
+                    set category 54
+                next
+                edit 55
+                    set category 55
+                next
+                edit 56
+                    set category 58
+                next
+                edit 57
+                    set category 68
+                next
+                edit 58
+                    set category 69
+                next
+                edit 59
+                    set category 70
+                next
+                edit 60
+                    set category 71
+                next
+                edit 61
+                    set category 77
+                next
+                edit 62
+                    set category 78
+                next
+                edit 63
+                    set category 79
+                next
+                edit 64
+                    set category 80
+                next
+                edit 65
+                    set category 82
+                next
+                edit 66
+                    set category 85
+                next
+                edit 67
+                    set category 87
+                next
+                edit 68
+                    set category 31
+                next
+                edit 69
+                    set category 41
+                next
+                edit 70
+                    set category 43
+                next
+                edit 71
+                    set category 49
+                next
+                edit 72
+                    set category 50
+                next
+                edit 73
+                    set category 51
+                next
+                edit 74
+                    set category 52
+                next
+                edit 75
+                    set category 53
+                next
+                edit 76
+                    set category 56
+                next
+                edit 77
+                    set category 81
+                next
+                edit 78
+                    set category 84
+                next
+                edit 79
+                    set category 88
+                next
+                edit 80
+                    set category 89
+                next
+                edit 81
+                    set category 90
+                next
+                edit 82
+                    set category 91
+                next
+                edit 83
+                    set category 92
+                next
+                edit 84
+                    set category 93
+                next
+                edit 85
+                    set category 94
+                next
+                edit 86
+                    set category 95
+                next
+            end
+        end
+        set log-all-url enable
+        set web-content-log disable
+        set web-filter-activex-log disable
+        set web-filter-command-block-log disable
+        set web-filter-cookie-log disable
+        set web-filter-applet-log disable
+        set web-filter-jscript-log disable
+        set web-filter-js-log disable
+        set web-filter-vbs-log disable
+        set web-filter-unknown-log disable
+        set web-filter-referer-log disable
+        set web-filter-cookie-removal-log disable
+        set web-url-log disable
+        set web-invalid-domain-log disable
+        set web-ftgd-err-log disable
+        set web-ftgd-quota-usage disable
+    next
+    edit "monitor-all"
+        set comment "Monitor and log all visited URLs, flow-based."
+        set inspection-mode flow-based
+        config ftgd-wf
+            unset options
+            config filters
+                edit 1
+                    set category 1
+                next
+                edit 2
+                    set category 3
+                next
+                edit 3
+                    set category 4
+                next
+                edit 4
+                    set category 5
+                next
+                edit 5
+                    set category 6
+                next
+                edit 6
+                    set category 12
+                next
+                edit 7
+                    set category 59
+                next
+                edit 8
+                    set category 62
+                next
+                edit 9
+                    set category 83
+                next
+                edit 10
+                    set category 2
+                next
+                edit 11
+                    set category 7
+                next
+                edit 12
+                    set category 8
+                next
+                edit 13
+                    set category 9
+                next
+                edit 14
+                    set category 11
+                next
+                edit 15
+                    set category 13
+                next
+                edit 16
+                    set category 14
+                next
+                edit 17
+                    set category 15
+                next
+                edit 18
+                    set category 16
+                next
+                edit 19
+                    set category 57
+                next
+                edit 20
+                    set category 63
+                next
+                edit 21
+                    set category 64
+                next
+                edit 22
+                    set category 65
+                next
+                edit 23
+                    set category 66
+                next
+                edit 24
+                    set category 67
+                next
+                edit 25
+                    set category 19
+                next
+                edit 26
+                    set category 24
+                next
+                edit 27
+                    set category 25
+                next
+                edit 28
+                    set category 72
+                next
+                edit 29
+                    set category 75
+                next
+                edit 30
+                    set category 76
+                next
+                edit 31
+                    set category 26
+                next
+                edit 32
+                    set category 61
+                next
+                edit 33
+                    set category 86
+                next
+                edit 34
+                    set category 17
+                next
+                edit 35
+                    set category 18
+                next
+                edit 36
+                    set category 20
+                next
+                edit 37
+                    set category 23
+                next
+                edit 38
+                    set category 28
+                next
+                edit 39
+                    set category 29
+                next
+                edit 40
+                    set category 30
+                next
+                edit 41
+                    set category 33
+                next
+                edit 42
+                    set category 34
+                next
+                edit 43
+                    set category 35
+                next
+                edit 44
+                    set category 36
+                next
+                edit 45
+                    set category 37
+                next
+                edit 46
+                    set category 38
+                next
+                edit 47
+                    set category 39
+                next
+                edit 48
+                    set category 40
+                next
+                edit 49
+                    set category 42
+                next
+                edit 50
+                    set category 44
+                next
+                edit 51
+                    set category 46
+                next
+                edit 52
+                    set category 47
+                next
+                edit 53
+                    set category 48
+                next
+                edit 54
+                    set category 54
+                next
+                edit 55
+                    set category 55
+                next
+                edit 56
+                    set category 58
+                next
+                edit 57
+                    set category 68
+                next
+                edit 58
+                    set category 69
+                next
+                edit 59
+                    set category 70
+                next
+                edit 60
+                    set category 71
+                next
+                edit 61
+                    set category 77
+                next
+                edit 62
+                    set category 78
+                next
+                edit 63
+                    set category 79
+                next
+                edit 64
+                    set category 80
+                next
+                edit 65
+                    set category 82
+                next
+                edit 66
+                    set category 85
+                next
+                edit 67
+                    set category 87
+                next
+                edit 68
+                    set category 31
+                next
+                edit 69
+                    set category 41
+                next
+                edit 70
+                    set category 43
+                next
+                edit 71
+                    set category 49
+                next
+                edit 72
+                    set category 50
+                next
+                edit 73
+                    set category 51
+                next
+                edit 74
+                    set category 52
+                next
+                edit 75
+                    set category 53
+                next
+                edit 76
+                    set category 56
+                next
+                edit 77
+                    set category 81
+                next
+                edit 78
+                    set category 84
+                next
+                edit 79
+                next
+                edit 80
+                    set category 88
+                next
+                edit 81
+                    set category 89
+                next
+                edit 82
+                    set category 90
+                next
+                edit 83
+                    set category 91
+                next
+                edit 84
+                    set category 92
+                next
+                edit 85
+                    set category 93
+                next
+                edit 86
+                    set category 94
+                next
+                edit 87
+                    set category 95
+                next
+            end
+        end
+        set log-all-url enable
+        set web-content-log disable
+        set web-filter-activex-log disable
+        set web-filter-command-block-log disable
+        set web-filter-cookie-log disable
+        set web-filter-applet-log disable
+        set web-filter-jscript-log disable
+        set web-filter-js-log disable
+        set web-filter-vbs-log disable
+        set web-filter-unknown-log disable
+        set web-filter-referer-log disable
+        set web-filter-cookie-removal-log disable
+        set web-url-log disable
+        set web-invalid-domain-log disable
+        set web-ftgd-err-log disable
+        set web-ftgd-quota-usage disable
+    next
+end
+config webfilter search-engine
+    edit "google"
+        set hostname ".*\\.google\\..*"
+        set url "^\\/((custom|search|images|videosearch|webhp)\\?)"
+        set query "q="
+        set safesearch url
+        set safesearch-str "&safe=active"
+    next
+    edit "yahoo"
+        set hostname ".*\\.yahoo\\..*"
+        set url "^\\/search(\\/video|\\/images){0,1}(\\?|;)"
+        set query "p="
+        set safesearch url
+        set safesearch-str "&vm=r"
+    next
+    edit "bing"
+        set hostname ".*\\.bing\\..*"
+        set url "^(\\/images|\\/videos)?(\\/search|\\/async|\\/asyncv2)\\?"
+        set query "q="
+        set safesearch header
+    next
+    edit "yandex"
+        set hostname "yandex\\..*"
+        set url "^\\/((yand|images\\/|video\\/)(search)|search\\/)\\?"
+        set query "text="
+        set safesearch url
+        set safesearch-str "&family=yes"
+    next
+    edit "youtube"
+        set hostname ".*\\.youtube\\..*"
+        set safesearch header
+    next
+    edit "baidu"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/s?\\?"
+        set query "wd="
+    next
+    edit "baidu2"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/(ns|q|m|i|v)\\?"
+        set query "word="
+    next
+    edit "baidu3"
+        set hostname "tieba\\.baidu\\.com"
+        set url "^\\/f\\?"
+        set query "kw="
+    next
+end
+config dnsfilter profile
+    edit "default"
+        set comment "Default dns filtering."
+        config ftgd-dns
+            config filters
+                edit 1
+                    set category 2
+                next
+                edit 2
+                    set category 7
+                next
+                edit 3
+                    set category 8
+                next
+                edit 4
+                    set category 9
+                next
+                edit 5
+                    set category 11
+                next
+                edit 6
+                    set category 12
+                next
+                edit 7
+                    set category 13
+                next
+                edit 8
+                    set category 14
+                next
+                edit 9
+                    set category 15
+                next
+                edit 10
+                    set category 16
+                next
+                edit 11
+                next
+                edit 12
+                    set category 57
+                next
+                edit 13
+                    set category 63
+                next
+                edit 14
+                    set category 64
+                next
+                edit 15
+                    set category 65
+                next
+                edit 16
+                    set category 66
+                next
+                edit 17
+                    set category 67
+                next
+                edit 18
+                    set category 26
+                    set action block
+                next
+                edit 19
+                    set category 61
+                    set action block
+                next
+                edit 20
+                    set category 86
+                    set action block
+                next
+                edit 21
+                    set category 88
+                    set action block
+                next
+                edit 22
+                    set category 90
+                    set action block
+                next
+                edit 23
+                    set category 91
+                    set action block
+                next
+            end
+        end
+        set block-botnet enable
+    next
+end
+config antivirus settings
+    set grayware enable
+end
+config antivirus profile
+    edit "default"
+        set comment "Scan files and block viruses."
+        config http
+            set options scan
+        end
+        config ftp
+            set options scan
+        end
+        config imap
+            set options scan
+            set executables virus
+        end
+        config pop3
+            set options scan
+            set executables virus
+        end
+        config smtp
+            set options scan
+            set executables virus
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Scan files and monitor viruses."
+        config http
+            set options scan avmonitor
+        end
+        config ftp
+            set options scan avmonitor
+        end
+        config imap
+            set options scan avmonitor
+        end
+        config pop3
+            set options scan avmonitor
+        end
+        config smtp
+            set options scan avmonitor
+        end
+    next
+end
+config spamfilter profile
+    edit "default"
+        set comment "Malware and phishing URL filtering."
+    next
+    edit "sniffer-profile"
+        set comment "Malware and phishing URL monitoring."
+        set flow-based enable
+    next
+end
+config report layout
+    edit "default"
+        set title "FortiGate System Analysis Report"
+        set style-theme "default-report"
+        set options include-table-of-content view-chart-as-heading
+        config page
+            set paper letter
+            set page-break-before heading1
+            config header
+                config header-item
+                    edit 1
+                        set type image
+                        set style "header-image"
+                        set img-src "fortinet_logo_small.png"
+                    next
+                end
+            end
+            config footer
+                config footer-item
+                    edit 1
+                        set style "footer-text"
+                        set content "FortiGate ${schedule_type} Security Report - Host Name: ${hostname}"
+                    next
+                    edit 2
+                        set style "footer-pageno"
+                    next
+                end
+            end
+        end
+        config body-item
+            edit 101
+                set type image
+                set style "report-cover1"
+                set img-src "fortigate_log.png"
+            next
+            edit 103
+                set style "report-cover2"
+                set content "FortiGate ${schedule_type} Security Report"
+            next
+            edit 105
+                set style "report-cover3"
+                set content "Report Date: ${started_time}"
+            next
+            edit 107
+                set style "report-cover3"
+                set content "Data Range: ${report_data_range}  (${hostname})"
+            next
+            edit 109
+                set style "report-cover3"
+                set content "${vdom}"
+            next
+            edit 111
+                set type image
+                set style "report-cover4"
+                set img-src "fortinet_logo_small.png"
+            next
+            edit 121
+                set type misc
+                set misc-component page-break
+            next
+            edit 301
+                set text-component heading1
+                set content "Bandwidth and Applications"
+            next
+            edit 311
+                set type chart
+                set chart "traffic.bandwidth.history_c"
+            next
+            edit 321
+                set type chart
+                set chart "traffic.sessions.history_c"
+            next
+            edit 331
+                set type chart
+                set chart "traffic.statistics"
+            next
+            edit 411
+                set type chart
+                set chart "traffic.bandwidth.apps_c"
+            next
+            edit 421
+                set type chart
+                set chart "traffic.bandwidth.cats_c"
+            next
+            edit 511
+                set type chart
+                set chart "traffic.bandwidth.users_c"
+            next
+            edit 521
+                set type chart
+                set chart "traffic.users.history.hour_c"
+            next
+            edit 611
+                set type chart
+                set chart "traffic.bandwidth.destinations_tab"
+            next
+            edit 1001
+                set text-component heading1
+                set content "Web Usage"
+            next
+            edit 1011
+                set type chart
+                set chart "web.allowed-request.sites_c"
+            next
+            edit 1021
+                set type chart
+                set chart "web.bandwidth.sites_c"
+            next
+            edit 1031
+                set type chart
+                set chart "web.blocked-request.sites_c"
+            next
+            edit 1041
+                set type chart
+                set chart "web.blocked-request.users_c"
+            next
+            edit 1051
+                set type chart
+                set chart "web.requests.users_c"
+            next
+            edit 1061
+                set type chart
+                set chart "web.bandwidth.users_c"
+            next
+            edit 1071
+                set type chart
+                set chart "web.bandwidth.stream-sites_c"
+            next
+            edit 1301
+                set text-component heading1
+                set content "Emails"
+            next
+            edit 1311
+                set type chart
+                set chart "email.request.senders_c"
+            next
+            edit 1321
+                set type chart
+                set chart "email.bandwidth.senders_c"
+            next
+            edit 1331
+                set type chart
+                set chart "email.request.recipients_c"
+            next
+            edit 1341
+                set type chart
+                set chart "email.bandwidth.recipients_c"
+            next
+            edit 1501
+                set text-component heading1
+                set content "Threats"
+            next
+            edit 1511
+                set type chart
+                set top-n 80
+                set chart "virus.count.viruses_c"
+            next
+            edit 1531
+                set type chart
+                set top-n 80
+                set chart "virus.count.users_c"
+            next
+            edit 1541
+                set type chart
+                set top-n 80
+                set chart "virus.count.sources_c"
+            next
+            edit 1551
+                set type chart
+                set chart "virus.count.history_c"
+            next
+            edit 1561
+                set type chart
+                set top-n 80
+                set chart "botnet.count_c"
+            next
+            edit 1571
+                set type chart
+                set top-n 80
+                set chart "botnet.count.users_c"
+            next
+            edit 1581
+                set type chart
+                set top-n 80
+                set chart "botnet.count.sources_c"
+            next
+            edit 1591
+                set type chart
+                set chart "botnet.count.history_c"
+            next
+            edit 1601
+                set type chart
+                set top-n 80
+                set chart "attack.count.attacks_c"
+            next
+            edit 1611
+                set type chart
+                set top-n 80
+                set chart "attack.count.victims_c"
+            next
+            edit 1621
+                set type chart
+                set top-n 80
+                set chart "attack.count.source_bar_c"
+            next
+            edit 1631
+                set type chart
+                set chart "attack.count.blocked_attacks_c"
+            next
+            edit 1641
+                set type chart
+                set chart "attack.count.severity_c"
+            next
+            edit 1651
+                set type chart
+                set chart "attack.count.history_c"
+            next
+            edit 1701
+                set text-component heading1
+                set content "VPN Usage"
+            next
+            edit 1711
+                set type chart
+                set top-n 80
+                set chart "vpn.bandwidth.static-tunnels_c"
+            next
+            edit 1721
+                set type chart
+                set top-n 80
+                set chart "vpn.bandwidth.dynamic-tunnels_c"
+            next
+            edit 1731
+                set type chart
+                set top-n 80
+                set chart "vpn.bandwidth.ssl-tunnel.users_c"
+            next
+            edit 1741
+                set type chart
+                set top-n 80
+                set chart "vpn.bandwidth.ssl-web.users_c"
+            next
+            edit 1901
+                set text-component heading1
+                set content "Admin Login and System Events"
+            next
+            edit 1911
+                set type chart
+                set top-n 80
+                set chart "event.login.summary_c"
+            next
+            edit 1931
+                set type chart
+                set top-n 80
+                set chart "event.failed.login_c"
+            next
+            edit 1961
+                set type chart
+                set top-n 80
+                set chart "event.system.group_events_c"
+            next
+        end
+    next
+end
+config report setting
+    set report-source forward-traffic sniffer-traffic
+end
+config wanopt settings
+    set host-id "default-id"
+end
+config wanopt profile
+    edit "default"
+        set comments "Default WANopt profile."
+    next
+end
+config firewall schedule recurring
+    edit "always"
+        set day sunday monday tuesday wednesday thursday friday saturday
+    next
+    edit "none"
+    next
+end
+config firewall profile-protocol-options
+    edit "default"
+        set comment "All default services."
+        config http
+            set ports 80
+            unset options
+            unset post-lang
+        end
+        config ftp
+            set ports 21
+            set options splice
+        end
+        config imap
+            set ports 143
+            set options fragmail
+        end
+        config mapi
+            set ports 135
+            set options fragmail
+        end
+        config pop3
+            set ports 110
+            set options fragmail
+        end
+        config smtp
+            set ports 25
+            set options fragmail splice
+        end
+        config nntp
+            set ports 119
+            set options splice
+        end
+        config dns
+            set ports 53
+        end
+    next
+end
+config firewall ssl-ssh-profile
+    edit "deep-inspection"
+        set comment "Read-only deep inspection profile."
+        config https
+            set ports 443
+        end
+        config ftps
+            set ports 990
+        end
+        config imaps
+            set ports 993
+        end
+        config pop3s
+            set ports 995
+        end
+        config smtps
+            set ports 465
+        end
+        config ssh
+            set ports 22
+        end
+        config ssl-exempt
+            edit 1
+                set fortiguard-category 31
+            next
+            edit 2
+                set fortiguard-category 33
+            next
+            edit 3
+                set type address
+                set address "android"
+            next
+            edit 4
+                set type address
+                set address "apple"
+            next
+            edit 5
+                set type address
+                set address "appstore"
+            next
+            edit 6
+                set type address
+                set address "citrix"
+            next
+            edit 7
+                set type address
+                set address "eease"
+            next
+            edit 8
+                set type address
+                set address "google-drive"
+            next
+            edit 9
+                set type address
+                set address "google-play"
+            next
+            edit 10
+                set type address
+                set address "google-play2"
+            next
+            edit 11
+                set type address
+                set address "google-play3"
+            next
+            edit 12
+                set type address
+                set address "Gotomeeting"
+            next
+            edit 13
+                set type address
+                set address "microsoft"
+            next
+            edit 14
+                set type address
+                set address "update.microsoft.com"
+            next
+            edit 15
+                set type address
+                set address "adobe"
+            next
+            edit 16
+                set type address
+                set address "Adobe Login"
+            next
+            edit 17
+                set type address
+                set address "dropbox.com"
+            next
+            edit 18
+                set type address
+                set address "fortinet"
+            next
+            edit 19
+                set type address
+                set address "googleapis.com"
+            next
+            edit 20
+                set type address
+                set address "icloud"
+            next
+            edit 21
+                set type address
+                set address "itunes"
+            next
+            edit 22
+                set type address
+                set address "skype"
+            next
+            edit 23
+                set type address
+                set address "swscan.apple.com"
+            next
+            edit 24
+                set type address
+                set address "verisign"
+            next
+            edit 25
+                set type address
+                set address "Windows update 2"
+            next
+            edit 26
+                set type address
+                set address "auth.gfx.ms"
+            next
+            edit 27
+                set type address
+                set address "autoupdate.opera.com"
+            next
+            edit 28
+                set type address
+                set address "softwareupdate.vmware.com"
+            next
+            edit 29
+                set type address
+                set address "firefox update server"
+            next
+        end
+    next
+    edit "certificate-inspection"
+        set comment "Read-only SSL handshake inspection profile."
+        config https
+            set ports 443
+            set status certificate-inspection
+        end
+        config ftps
+            set ports 990
+            set status disable
+        end
+        config imaps
+            set ports 993
+            set status disable
+        end
+        config pop3s
+            set ports 995
+            set status disable
+        end
+        config smtps
+            set ports 465
+            set status disable
+        end
+        config ssh
+            set ports 22
+            set status disable
+        end
+    next
+    edit "custom-deep-inspection"
+        set comment "Customizable deep inspection profile."
+        config https
+            set ports 443
+        end
+        config ftps
+            set ports 990
+        end
+        config imaps
+            set ports 993
+        end
+        config pop3s
+            set ports 995
+        end
+        config smtps
+            set ports 465
+        end
+        config ssh
+            set ports 22
+        end
+        config ssl-exempt
+            edit 1
+                set fortiguard-category 31
+            next
+            edit 2
+                set fortiguard-category 33
+            next
+            edit 3
+                set type address
+                set address "android"
+            next
+            edit 4
+                set type address
+                set address "apple"
+            next
+            edit 5
+                set type address
+                set address "appstore"
+            next
+            edit 6
+                set type address
+                set address "citrix"
+            next
+            edit 7
+                set type address
+                set address "eease"
+            next
+            edit 8
+                set type address
+                set address "google-drive"
+            next
+            edit 9
+                set type address
+                set address "google-play"
+            next
+            edit 10
+                set type address
+                set address "google-play2"
+            next
+            edit 11
+                set type address
+                set address "google-play3"
+            next
+            edit 12
+                set type address
+                set address "Gotomeeting"
+            next
+            edit 13
+                set type address
+                set address "microsoft"
+            next
+            edit 14
+                set type address
+                set address "update.microsoft.com"
+            next
+            edit 15
+                set type address
+                set address "adobe"
+            next
+            edit 16
+                set type address
+                set address "Adobe Login"
+            next
+            edit 17
+                set type address
+                set address "dropbox.com"
+            next
+            edit 18
+                set type address
+                set address "fortinet"
+            next
+            edit 19
+                set type address
+                set address "googleapis.com"
+            next
+            edit 20
+                set type address
+                set address "icloud"
+            next
+            edit 21
+                set type address
+                set address "itunes"
+            next
+            edit 22
+                set type address
+                set address "skype"
+            next
+            edit 23
+                set type address
+                set address "swscan.apple.com"
+            next
+            edit 24
+                set type address
+                set address "verisign"
+            next
+            edit 25
+                set type address
+                set address "Windows update 2"
+            next
+            edit 26
+                set type address
+                set address "auth.gfx.ms"
+            next
+            edit 27
+                set type address
+                set address "autoupdate.opera.com"
+            next
+            edit 28
+                set type address
+                set address "softwareupdate.vmware.com"
+            next
+            edit 29
+                set type address
+                set address "firefox update server"
+            next
+        end
+    next
+end
+config waf profile
+    edit "default"
+        config signature
+            config main-class 100000000
+                set action block
+                set severity high
+            end
+            config main-class 20000000
+            end
+            config main-class 30000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 40000000
+            end
+            config main-class 50000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 60000000
+            end
+            config main-class 70000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 80000000
+                set status enable
+                set severity low
+            end
+            config main-class 110000000
+                set status enable
+                set severity high
+            end
+            config main-class 90000000
+                set status enable
+                set action block
+                set severity high
+            end
+            set disabled-signature 80080005 80200001 60030001 60120001 80080003 90410001 90410002
+        end
+        config constraint
+            config header-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config content-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config line-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config url-param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config version
+                set log enable
+            end
+            config method
+                set action block
+                set log enable
+            end
+            config hostname
+                set action block
+                set log enable
+            end
+            config malformed
+                set log enable
+            end
+            config max-cookie
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-header-line
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-url-param
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-range-segment
+                set status enable
+                set log enable
+                set severity high
+            end
+        end
+    next
+end
+config switch-controller security-policy 802-1X
+    edit "802-1X-policy-default"
+        set mac-auth-bypass disable
+        set eap-passthru enable
+        set guest-vlan disable
+        set auth-fail-vlan disable
+        set radius-timeout-overwrite disable
+    next
+end
+config switch-controller lldp-profile
+    edit "default"
+        set med-tlvs inventory-management network-policy
+        set auto-isl disable
+        config med-network-policy
+            edit "voice"
+            next
+            edit "voice-signaling"
+            next
+            edit "guest-voice"
+            next
+            edit "guest-voice-signaling"
+            next
+            edit "softphone-voice"
+            next
+            edit "video-conferencing"
+            next
+            edit "streaming-video"
+            next
+            edit "video-signaling"
+            next
+        end
+    next
+    edit "default-auto-isl"
+    next
+end
+config switch-controller qos queue-policy
+    edit "default"
+        set schedule round-robin
+        config cos-queue
+            edit "queue-0"
+            next
+            edit "queue-1"
+            next
+            edit "queue-2"
+            next
+            edit "queue-3"
+            next
+            edit "queue-4"
+            next
+            edit "queue-5"
+            next
+            edit "queue-6"
+            next
+            edit "queue-7"
+            next
+        end
+    next
+end
+config switch-controller qos qos-policy
+    edit "default"
+    next
+end
+config switch-controller switch-profile
+    edit "default"
+    next
+end
+config endpoint-control profile
+    edit "default"
+        config forticlient-winmac-settings
+        end
+        config forticlient-android-settings
+        end
+        config forticlient-ios-settings
+        end
+    next
+end
+config wireless-controller wids-profile
+    edit "default"
+        set comment "Default WIDS profile."
+        set ap-scan enable
+        set wireless-bridge enable
+        set deauth-broadcast enable
+        set null-ssid-probe-resp enable
+        set long-duration-attack enable
+        set invalid-mac-oui enable
+        set weak-wep-iv enable
+        set auth-frame-flood enable
+        set assoc-frame-flood enable
+        set spoofed-deauth enable
+        set asleap-attack enable
+        set eapol-start-flood enable
+        set eapol-logoff-flood enable
+        set eapol-succ-flood enable
+        set eapol-fail-flood enable
+        set eapol-pre-succ-flood enable
+        set eapol-pre-fail-flood enable
+    next
+    edit "default-wids-apscan-enabled"
+        set ap-scan enable
+    next
+end
+config wireless-controller wtp-profile
+    edit "FAPU323EV-default"
+        config platform
+            set type U323EV
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU321EV-default"
+        config platform
+            set type U321EV
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU24JEV-default"
+        config platform
+            set type U24JEV
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU223EV-default"
+        config platform
+            set type U223EV
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU221EV-default"
+        config platform
+            set type U221EV
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU423E-default"
+        config platform
+            set type U423E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU422EV-default"
+        config platform
+            set type U422EV
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU421E-default"
+        config platform
+            set type U421E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS223E-default"
+        config platform
+            set type S223E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS221E-default"
+        config platform
+            set type S221E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP224E-default"
+        config platform
+            set type 224E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP223E-default"
+        config platform
+            set type 223E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP222E-default"
+        config platform
+            set type 222E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP221E-default"
+        config platform
+            set type 221E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP423E-default"
+        config platform
+            set type 423E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP421E-default"
+        config platform
+            set type 421E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS423E-default"
+        config platform
+            set type S423E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS422E-default"
+        config platform
+            set type S422E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS421E-default"
+        config platform
+            set type S421E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS323CR-default"
+        config platform
+            set type S323CR
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS322CR-default"
+        config platform
+            set type S322CR
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS321CR-default"
+        config platform
+            set type S321CR
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS313C-default"
+        config platform
+            set type S313C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11ac
+        end
+    next
+    edit "FAPS311C-default"
+        config platform
+            set type S311C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11ac
+        end
+    next
+    edit "FAPS323C-default"
+        config platform
+            set type S323C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS322C-default"
+        config platform
+            set type S322C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS321C-default"
+        config platform
+            set type S321C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP321C-default"
+        config platform
+            set type 321C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP223C-default"
+        config platform
+            set type 223C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP112D-default"
+        config platform
+            set type 112D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP24D-default"
+        config platform
+            set type 24D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP21D-default"
+        config platform
+            set type 21D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FK214B-default"
+        config platform
+            set type 214B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP224D-default"
+        config platform
+            set type 224D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n
+        end
+    next
+    edit "FAP222C-default"
+        config platform
+            set type 222C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP25D-default"
+        config platform
+            set type 25D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP221C-default"
+        config platform
+            set type 221C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP320C-default"
+        config platform
+            set type 320C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP28C-default"
+        config platform
+            set type 28C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP223B-default"
+        config platform
+            set type 223B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n
+        end
+    next
+    edit "FAP14C-default"
+        config platform
+            set type 14C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP11C-default"
+        config platform
+            set type 11C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP320B-default"
+        config platform
+            set type 320B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n
+        end
+    next
+    edit "FAP112B-default"
+        config platform
+            set type 112B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP222B-default"
+        config platform
+            set type 222B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11n-5G
+        end
+    next
+    edit "FAP210B-default"
+        config platform
+            set type 210B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+    edit "FAP220B-default"
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n
+        end
+    next
+    edit "AP-11N-default"
+        config platform
+            set type AP-11N
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+    next
+end
+config log memory setting
+    set status disable
+end
+config log disk setting
+    set status enable
+end
+config log null-device setting
+    set status disable
+end
+config router rip
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ripng
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router static
+    edit 1
+        set gateway 172.20.0.1
+        set device "mgmt2"
+    next
+end
+config router ospf
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ospf6
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router bgp
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "static"
+    end
+    config redistribute "isis"
+    end
+    config redistribute6 "connected"
+    end
+    config redistribute6 "rip"
+    end
+    config redistribute6 "ospf"
+    end
+    config redistribute6 "static"
+    end
+    config redistribute6 "isis"
+    end
+end
+config router isis
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "static"
+    end
+end
+config router multicast
+end
+end

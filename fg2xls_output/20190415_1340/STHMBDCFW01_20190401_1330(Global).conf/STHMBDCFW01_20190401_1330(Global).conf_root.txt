@@ -1,0 +1,2143 @@
+config vdom
+edit root
+next
+edit InternalFW
+next
+edit INTER_WIFI
+next
+edit inter_wifi
+next
+end
+
+config global
+config system global
+    set admintimeout 30
+    set alias "STHNWDCFW01"
+    set disk-usage log
+    set hostname "STHMBDCFW01"
+    set switch-controller enable
+    set timezone 55
+    set vdom-admin enable
+end
+config system accprofile
+    edit "prof_admin"
+        set mntgrp read-write
+        set admingrp read-write
+        set updategrp read-write
+        set authgrp read-write
+        set sysgrp read-write
+        set netgrp read-write
+        set loggrp read-write
+        set routegrp read-write
+        set fwgrp read-write
+        set vpngrp read-write
+        set utmgrp read-write
+        set wanoptgrp read-write
+        set endpoint-control-grp read-write
+        set wifi read-write
+    next
+end
+config system np6
+    edit "np6_0"
+    next
+end
+config system interface
+    edit "mgmt1"
+        set vdom "root"
+        set ip 172.20.0.252 255.255.255.0
+        set allowaccess ping https snmp
+        set type physical
+        set dedicated-to management
+        set role lan
+        set snmp-index 1
+    next
+    edit "mgmt2"
+        set vdom "root"
+        set ip 172.20.0.254 255.255.255.0
+        set allowaccess ping https ssh snmp http fgfm
+        set type physical
+        set alias "STH_MgmtNetworkInterface"
+        set role lan
+        set snmp-index 2
+    next
+    edit "port1"
+        set vdom "root"
+        set ip 192.168.3.99 255.255.255.0
+        set allowaccess ping fgfm
+        set type physical
+        set description "connected to SPSD22 - Port 7"
+        set alias "Heartbeat"
+        set snmp-index 3
+    next
+    edit "port2"
+        set vdom "root"
+        set type physical
+        set description "connected to LPSD01 - Port 5"
+        set alias "Heartbeat"
+        set role lan
+        set snmp-index 4
+    next
+    edit "port3"
+        set vdom "InternalFW"
+        set type physical
+        set snmp-index 5
+    next
+    edit "port4"
+        set vdom "InternalFW"
+        set type physical
+        set snmp-index 6
+    next
+    edit "port5"
+        set vdom "InternalFW"
+        set type physical
+        set snmp-index 7
+    next
+    edit "port6"
+        set vdom "InternalFW"
+        set type physical
+        set snmp-index 8
+    next
+    edit "port7"
+        set vdom "InternalFW"
+        set type physical
+        set role lan
+        set snmp-index 9
+    next
+    edit "port8"
+        set vdom "INTER_WIFI"
+        set allowaccess ping https ssh http
+        set status down
+        set type physical
+        set description "Trunk to 6509-1 and 2 Gi 3/2"
+        set alias "LAN interface"
+        set role lan
+        set snmp-index 10
+    next
+    edit "port9"
+        set vdom "InternalFW"
+        set allowaccess ping https ssh http
+        set type physical
+        set role lan
+        set snmp-index 11
+    next
+    edit "port10"
+        set vdom "InternalFW"
+        set allowaccess ping https ssh http
+        set type physical
+        set snmp-index 12
+    next
+    edit "port11"
+        set vdom "InternalFW"
+        set allowaccess ping https ssh http
+        set type physical
+        set snmp-index 13
+    next
+    edit "port12"
+        set vdom "InternalFW"
+        set ip 192.168.100.254 255.255.255.0
+        set allowaccess ping
+        set type physical
+        set alias "DMZ"
+        set snmp-index 14
+    next
+    edit "port13"
+        set vdom "InternalFW"
+        set type physical
+        set snmp-index 15
+    next
+    edit "port14"
+        set vdom "InternalFW"
+        set type physical
+        set snmp-index 16
+    next
+    edit "port15"
+        set vdom "InternalFW"
+        set ip 202.130.114.234 255.255.255.224
+        set allowaccess ping
+        set type physical
+        set description "Connected to WAN-SW port14"
+        set alias "WTT Internet"
+        set role wan
+        set snmp-index 17
+    next
+    edit "port16"
+        set vdom "INTER_WIFI"
+        set ip 118.140.100.42 255.255.255.252
+        set allowaccess ping
+        set type physical
+        set description "WAN Interface Connected to STHMBUZSW01 & STHNWUZSW01 - port0/13"
+        set alias "HGC WAN"
+        set role wan
+        set snmp-index 18
+    next
+    edit "port17"
+        set vdom "InternalFW"
+        set type physical
+        set alias "Trust_LAN"
+        set snmp-index 19
+    next
+    edit "port18"
+        set vdom "root"
+        set type physical
+        set snmp-index 20
+    next
+    edit "modem"
+        set vdom "root"
+        set mode pppoe
+        set type physical
+        set snmp-index 21
+    next
+    edit "ssl.root"
+        set vdom "root"
+        set type tunnel
+        set alias "SSL VPN interface"
+        set snmp-index 22
+    next
+    edit "ssl.InternalFW"
+        set vdom "InternalFW"
+        set type tunnel
+        set alias "SSL VPN interface"
+        set snmp-index 29
+    next
+    edit "ssl.INTER_WIFI"
+        set vdom "INTER_WIFI"
+        set type tunnel
+        set alias "SSL VPN interface"
+        set snmp-index 25
+    next
+    edit "npu0_vlink0"
+        set vdom "root"
+        set type physical
+        set snmp-index 23
+    next
+    edit "npu0_vlink1"
+        set vdom "root"
+        set type physical
+        set snmp-index 24
+    next
+    edit "SoftSw-Vl199"
+        set vdom "root"
+        set allowaccess ping https ssh http
+        set type switch
+        set role lan
+        set snmp-index 28
+    next
+    edit "VlanInt102"
+        set vdom "INTER_WIFI"
+        set allowaccess ping
+        set device-identification enable
+        set role lan
+        set snmp-index 26
+        set interface "port8"
+        set vlanid 102
+    next
+    edit "VlanInt202"
+        set vdom "INTER_WIFI"
+        set allowaccess ping
+        set device-identification enable
+        set role lan
+        set snmp-index 27
+        set interface "port8"
+        set vlanid 202
+    next
+    edit "VlanInt205"
+        set vdom "INTER_WIFI"
+        set allowaccess ping
+        set device-identification enable
+        set role lan
+        set snmp-index 30
+        set interface "port8"
+        set vlanid 205
+    next
+    edit "VlanInt14"
+        set vdom "InternalFW"
+        set ip 10.10.10.254 255.255.255.0
+        set allowaccess ping
+        set status down
+        set device-identification enable
+        set role lan
+        set snmp-index 32
+        set interface "port8"
+        set vlanid 14
+    next
+    edit "HA_eHR_Test"
+        set vdom "InternalFW"
+        set ip 172.21.205.6 255.255.255.255
+        set allowaccess ping
+        set type tunnel
+        set remote-ip 172.21.205.1 255.255.255.248
+        set snmp-index 31
+        set interface "port15"
+    next
+    edit "Untrust_Metro"
+        set vdom "InternalFW"
+        set allowaccess ping
+        set type aggregate
+        set member "port13" "port14"
+        set device-identification enable
+        set snmp-index 34
+    next
+    edit "HGC_910042237"
+        set vdom "InternalFW"
+        set ip 192.168.202.1 255.255.255.240
+        set allowaccess ping
+        set alias "To_HA_VPN@HGC"
+        set device-identification enable
+        set role lan
+        set snmp-index 35
+        set interface "Untrust_Metro"
+        set vlanid 4090
+    next
+    edit "HGC_910037377"
+        set vdom "InternalFW"
+        set ip 172.22.92.10 255.255.255.252
+        set allowaccess ping
+        set alias "HGC_VPN"
+        set device-identification enable
+        set role lan
+        set snmp-index 36
+        set interface "Untrust_Metro"
+        set vlanid 4089
+    next
+    edit "HGC_910037378"
+        set vdom "InternalFW"
+        set ip 172.30.192.10 255.255.255.252
+        set allowaccess ping
+        set alias "HGC_VPN"
+        set device-identification enable
+        set role lan
+        set snmp-index 37
+        set interface "Untrust_Metro"
+        set vlanid 4088
+    next
+    edit "PCCW_CE551187"
+        set vdom "InternalFW"
+        set ip 192.168.201.1 255.255.255.240
+        set allowaccess ping
+        set alias "To_HA_VPN@PCCW"
+        set device-identification enable
+        set role lan
+        set snmp-index 38
+        set interface "Untrust_Metro"
+        set vlanid 4091
+    next
+    edit "Scanning"
+        set vdom "InternalFW"
+        set ip 192.168.0.254 255.255.255.0
+        set allowaccess ping
+        set device-identification enable
+        set role lan
+        set snmp-index 39
+        set interface "Untrust_Metro"
+        set vlanid 4087
+    next
+    edit "HA_eHR_HKT"
+        set vdom "InternalFW"
+        set ip 192.168.211.1 255.255.255.255
+        set allowaccess ping
+        set type tunnel
+        set remote-ip 192.168.211.2 255.255.255.240
+        set snmp-index 40
+        set interface "PCCW_CE551187"
+    next
+    edit "HA_eHR_HGC"
+        set vdom "InternalFW"
+        set ip 192.168.212.1 255.255.255.255
+        set allowaccess ping
+        set type tunnel
+        set remote-ip 192.168.212.2 255.255.255.240
+        set snmp-index 41
+        set interface "HGC_910042237"
+    next
+    edit "HA_MetroIP_DC4"
+        set vdom "InternalFW"
+        set ip 1.2.1.1 255.255.255.255
+        set type tunnel
+        set remote-ip 1.2.1.2 255.255.255.252
+        set snmp-index 42
+        set interface "HGC_910037377"
+    next
+    edit "LomondRDBLD_vpn"
+        set vdom "InternalFW"
+        set ip 172.16.0.1 255.255.255.255
+        set allowaccess ping
+        set type tunnel
+        set remote-ip 172.16.0.2 255.255.255.252
+        set snmp-index 43
+        set interface "port15"
+    next
+    edit "WTT_test_int"
+        set vdom "InternalFW"
+        set status down
+        set device-identification enable
+        set role lan
+        set snmp-index 44
+        set interface "port8"
+        set vlanid 1234
+    next
+    edit "HA_MetroIP_DC3"
+        set vdom "InternalFW"
+        set ip 1.1.1.1 255.255.255.255
+        set type tunnel
+        set remote-ip 1.1.1.2 255.255.255.252
+        set snmp-index 45
+        set interface "HGC_910037378"
+    next
+    edit "VlanInt10"
+        set vdom "InternalFW"
+        set ip 192.168.10.254 255.255.255.0
+        set allowaccess ping
+        set alias "Trust_transit"
+        set device-identification enable
+        set role lan
+        set snmp-index 33
+        set interface "port17"
+        set vlanid 10
+    next
+    edit "VlanInt102_new"
+        set vdom "INTER_WIFI"
+        set dhcp-relay-service enable
+        set ip 192.168.103.254 255.255.254.0
+        set alias "sth_quest Wifi Subnet-old"
+        set device-identification enable
+        set role lan
+        set snmp-index 46
+        set dhcp-relay-ip "192.168.30.22" "192.168.30.11" 
+        set interface "port17"
+        set vlanid 102
+    next
+    edit "VlanInt202_new"
+        set vdom "INTER_WIFI"
+        set ip 172.20.11.254 255.255.252.0
+        set alias "ward_wifi_network"
+        set device-identification enable
+        set role lan
+        set snmp-index 47
+        set interface "port17"
+        set vlanid 202
+    next
+    edit "VlanInt205_new"
+        set vdom "INTER_WIFI"
+        set ip 172.20.23.254 255.255.248.0
+        set alias "sth_guest Wifi Subnet "
+        set device-identification enable
+        set role lan
+        set snmp-index 48
+        set interface "port17"
+        set vlanid 205
+    next
+    edit "ssl.inter_wifi"
+        set vdom "inter_wifi"
+        set type tunnel
+        set alias "SSL VPN interface"
+        set snmp-index 49
+    next
+end
+config system custom-language
+    edit "en"
+        set filename "en"
+    next
+    edit "fr"
+        set filename "fr"
+    next
+    edit "sp"
+        set filename "sp"
+    next
+    edit "pg"
+        set filename "pg"
+    next
+    edit "x-sjis"
+        set filename "x-sjis"
+    next
+    edit "big5"
+        set filename "big5"
+    next
+    edit "GB2312"
+        set filename "GB2312"
+    next
+    edit "euc-kr"
+        set filename "euc-kr"
+    next
+end
+config system admin
+    edit "admin"
+        set accprofile "super_admin"
+        set vdom "root"
+        config gui-dashboard
+            edit 1
+                set name "Main"
+                config widget
+                    edit 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 2
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type admins
+                        set x-pos 3
+                        set width 1
+                        set height 1
+                    next
+                    edit 6
+                        set type cpu-usage
+                        set x-pos 4
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type memory-usage
+                        set x-pos 5
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type sessions
+                        set x-pos 6
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+            edit 2
+                set name "Main"
+                set scope vdom
+                config widget
+                    edit 1
+                        set type cpu-usage
+                        set x-pos 1
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 2
+                        set type memory-usage
+                        set x-pos 2
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 3
+                        set type sessions
+                        set x-pos 3
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+        end
+        set password ENC SH2yzAemI6WtMTzyytT9ZAE9AekmGbzz+6U7fqgh5gMICUNJobfpgCHEioGKuo=
+    next
+    edit "wharftt"
+        set accprofile "super_admin"
+        set vdom "root"
+        config gui-dashboard
+            edit 1
+                set name "Main"
+                config widget
+                    edit 1
+                        set x-pos 1
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 2
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 3
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type ha-status
+                        set x-pos 7
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type admins
+                        set x-pos 5
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 6
+                        set type cpu-usage
+                        set x-pos 6
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type memory-usage
+                        set x-pos 7
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type sessions
+                        set x-pos 8
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+            edit 2
+                set name "Main"
+                set scope vdom
+                config widget
+                    edit 1
+                        set type cpu-usage
+                        set x-pos 1
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 2
+                        set type memory-usage
+                        set x-pos 2
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 3
+                        set type sessions
+                        set x-pos 3
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+        end
+        set password ENC SH2c7ldyx7I687/f9xLeIUlekRb23WVFahixTtCJsADxCt4K/lkVUq7nIeCVZ4=
+    next
+    edit "sthitsd"
+        set accprofile "super_admin"
+        set vdom "root"
+        config gui-dashboard
+            edit 1
+                set name "Main"
+                config widget
+                    edit 1
+                        set x-pos 1
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 2
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 3
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type admins
+                        set x-pos 4
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type cpu-usage
+                        set x-pos 5
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 6
+                        set type memory-usage
+                        set x-pos 6
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type sessions
+                        set x-pos 7
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type tr-history
+                        set x-pos 7
+                        set width 2
+                        set height 1
+                        set interface "port16"
+                    next
+                    edit 9
+                        set type tr-history
+                        set x-pos 8
+                        set width 2
+                        set height 1
+                        set interface "port15"
+                    next
+                end
+            next
+            edit 2
+                set name "Main"
+                set scope vdom
+                config widget
+                    edit 1
+                        set type cpu-usage
+                        set x-pos 1
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 2
+                        set type memory-usage
+                        set x-pos 2
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 3
+                        set type sessions
+                        set x-pos 3
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+        end
+        set gui-global-menu-favorites "interface"
+        set password ENC SH2Pv4QWIrZ5/E+kjKbbfET3Z6yoUvyFjtxpNYVKj9guj2j271VhWdz0wDARQU=
+    next
+    edit "kenneth"
+        set accprofile "super_admin"
+        set vdom "INTER_WIFI"
+        config gui-dashboard
+            edit 1
+                set name "Main"
+                config widget
+                    edit 1
+                        set x-pos 1
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 2
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 3
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type admins
+                        set x-pos 4
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type cpu-usage
+                        set x-pos 5
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 6
+                        set type memory-usage
+                        set x-pos 6
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type sessions
+                        set x-pos 7
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 8
+                        set type tr-history
+                        set x-pos 7
+                        set width 2
+                        set height 1
+                        set interface "port16"
+                    next
+                    edit 9
+                        set type disk-usage
+                        set x-pos 8
+                        set width 2
+                        set height 1
+                    next
+                    edit 13
+                        set type sensor-info
+                        set x-pos 12
+                        set width 1
+                        set height 1
+                    next
+                    edit 16
+                        set type ha-status
+                        set x-pos 15
+                        set width 1
+                        set height 1
+                    next
+                    edit 14
+                        set type tr-history
+                        set x-pos 14
+                        set width 2
+                        set height 1
+                        set interface "port15"
+                    next
+                    edit 15
+                        set type tr-history
+                        set x-pos 15
+                        set width 2
+                        set height 1
+                        set interface "VlanInt10"
+                    next
+                    edit 10
+                        set type tr-history
+                        set x-pos 13
+                        set width 2
+                        set height 1
+                        set interface "port17"
+                    next
+                    edit 17
+                        set type tr-history
+                        set x-pos 16
+                        set width 2
+                        set height 1
+                        set interface "VlanInt202_new"
+                    next
+                    edit 18
+                        set type tr-history
+                        set x-pos 17
+                        set width 2
+                        set height 1
+                        set interface "VlanInt205_new"
+                    next
+                end
+            next
+            edit 2
+                set name "Main"
+                set scope vdom
+                config widget
+                    edit 1
+                        set type cpu-usage
+                        set x-pos 1
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 2
+                        set type memory-usage
+                        set x-pos 2
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 3
+                        set type sessions
+                        set x-pos 3
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+        end
+        set password ENC SH2UmsVdWeeS654UuCY7nR2siR7U+822Cm3ioS/vjzrwv7eMDvR3T/kXqtJLhw=
+    next
+    edit "keithhuang"
+        set accprofile "super_admin"
+        set vdom "root"
+        config gui-dashboard
+            edit 1
+                set name "Main"
+                config widget
+                    edit 1
+                        set x-pos 1
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 2
+                        set type licinfo
+                        set x-pos 2
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 3
+                        set type forticloud
+                        set x-pos 3
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 4
+                        set type admins
+                        set x-pos 4
+                        set y-pos 1
+                        set width 1
+                        set height 1
+                    next
+                    edit 5
+                        set type cpu-usage
+                        set x-pos 5
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 6
+                        set type memory-usage
+                        set x-pos 6
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                    edit 7
+                        set type sessions
+                        set x-pos 7
+                        set y-pos 1
+                        set width 2
+                        set height 1
+                    next
+                end
+            next
+        end
+        set password ENC SH2Y+JSbAO48RVMptpAi5AE0Je1yGB5go7h0Ri80qe0paXffkUcHJnDLqmPERE=
+    next
+end
+config system ha
+    set group-name "STH-HA"
+    set mode a-p
+    set password ENC hsWh/kcume8TcAMJy/3AjmklscSqDJhnxD1ZFrqain9QyfBnZTcPD5meKhzn5Jj0cm89+Bc0/6c7p2nYMID7sBNoAItuZX6hZlBgofSh+6ICxvaJji9GmhLKQuaBH1HfuNYNfUI8OfMmmvgcKNYpVZR5zHSTH2ESaEFR3mHY5XFYcAXFI+wtcIdQG/R7i8MVxxF22Q==
+    set hbdev "port1" 100 "port2" 50 
+    set session-pickup enable
+    set ha-mgmt-status enable
+    config ha-mgmt-interfaces
+        edit 1
+            set interface "mgmt1"
+            set gateway 172.20.0.1
+        next
+    end
+    set vcluster2 enable
+    set override enable
+    set priority 200
+    set monitor "mgmt2" "port15" "port16" "port17" 
+    config secondary-vcluster
+        set override enable
+        set priority 100
+        set monitor "mgmt2" 
+        set vdom "InternalFW" 
+    end
+end
+config system storage
+    edit "HDD"
+        set partition "LOGUSEDXF4C24E8F"
+        set media-type "scsi"
+        set device "/dev/sdb1"
+        set size 112672
+    next
+end
+config system dns
+    set primary 8.8.8.8
+    set secondary 1.1.1.1
+end
+config system replacemsg-image
+    edit "logo_fnet"
+        set image-type gif
+        set image-base64 ''
+    next
+    edit "logo_fguard_wf"
+        set image-type gif
+        set image-base64 ''
+    next
+    edit "logo_fw_auth"
+        set image-base64 ''
+    next
+    edit "logo_v2_fnet"
+        set image-base64 ''
+    next
+    edit "logo_v2_fguard_wf"
+        set image-base64 ''
+    next
+    edit "logo_v2_fguard_app"
+        set image-base64 ''
+    next
+end
+config system replacemsg mail "email-av-fail"
+end
+config system replacemsg mail "email-block"
+end
+config system replacemsg mail "email-dlp-subject"
+end
+config system replacemsg mail "email-dlp-ban"
+end
+config system replacemsg mail "email-filesize"
+end
+config system replacemsg mail "partial"
+end
+config system replacemsg mail "smtp-block"
+end
+config system replacemsg mail "smtp-filesize"
+end
+config system replacemsg http "bannedword"
+end
+config system replacemsg http "url-block"
+end
+config system replacemsg http "urlfilter-err"
+end
+config system replacemsg http "infcache-block"
+end
+config system replacemsg http "http-block"
+end
+config system replacemsg http "http-filesize"
+end
+config system replacemsg http "http-dlp-ban"
+end
+config system replacemsg http "http-archive-block"
+end
+config system replacemsg http "http-contenttypeblock"
+end
+config system replacemsg http "https-invalid-cert-block"
+end
+config system replacemsg http "http-client-block"
+end
+config system replacemsg http "http-client-filesize"
+end
+config system replacemsg http "http-client-bannedword"
+end
+config system replacemsg http "http-post-block"
+end
+config system replacemsg http "http-client-archive-block"
+end
+config system replacemsg http "switching-protocols-block"
+end
+config system replacemsg webproxy "deny"
+end
+config system replacemsg webproxy "user-limit"
+end
+config system replacemsg webproxy "auth-challenge"
+end
+config system replacemsg webproxy "auth-login-fail"
+end
+config system replacemsg webproxy "auth-authorization-fail"
+end
+config system replacemsg webproxy "http-err"
+end
+config system replacemsg webproxy "auth-ip-blackout"
+end
+config system replacemsg ftp "ftp-av-fail"
+end
+config system replacemsg ftp "ftp-dl-blocked"
+end
+config system replacemsg ftp "ftp-dl-filesize"
+end
+config system replacemsg ftp "ftp-dl-dlp-ban"
+end
+config system replacemsg ftp "ftp-explicit-banner"
+end
+config system replacemsg ftp "ftp-dl-archive-block"
+end
+config system replacemsg nntp "nntp-av-fail"
+end
+config system replacemsg nntp "nntp-dl-blocked"
+end
+config system replacemsg nntp "nntp-dl-filesize"
+end
+config system replacemsg nntp "nntp-dlp-subject"
+end
+config system replacemsg nntp "nntp-dlp-ban"
+end
+config system replacemsg fortiguard-wf "ftgd-block"
+end
+config system replacemsg fortiguard-wf "http-err"
+end
+config system replacemsg fortiguard-wf "ftgd-ovrd"
+end
+config system replacemsg fortiguard-wf "ftgd-quota"
+end
+config system replacemsg fortiguard-wf "ftgd-warning"
+end
+config system replacemsg spam "ipblocklist"
+end
+config system replacemsg spam "smtp-spam-dnsbl"
+end
+config system replacemsg spam "smtp-spam-feip"
+end
+config system replacemsg spam "smtp-spam-helo"
+end
+config system replacemsg spam "smtp-spam-emailblack"
+end
+config system replacemsg spam "smtp-spam-mimeheader"
+end
+config system replacemsg spam "reversedns"
+end
+config system replacemsg spam "smtp-spam-bannedword"
+end
+config system replacemsg spam "smtp-spam-ase"
+end
+config system replacemsg spam "submit"
+end
+config system replacemsg alertmail "alertmail-virus"
+end
+config system replacemsg alertmail "alertmail-block"
+end
+config system replacemsg alertmail "alertmail-nids-event"
+end
+config system replacemsg alertmail "alertmail-crit-event"
+end
+config system replacemsg alertmail "alertmail-disk-full"
+end
+config system replacemsg admin "pre_admin-disclaimer-text"
+end
+config system replacemsg admin "post_admin-disclaimer-text"
+end
+config system replacemsg auth "auth-disclaimer-page-1"
+end
+config system replacemsg auth "auth-disclaimer-page-2"
+end
+config system replacemsg auth "auth-disclaimer-page-3"
+end
+config system replacemsg auth "auth-reject-page"
+end
+config system replacemsg auth "auth-login-page"
+end
+config system replacemsg auth "auth-login-failed-page"
+end
+config system replacemsg auth "auth-token-login-page"
+end
+config system replacemsg auth "auth-token-login-failed-page"
+end
+config system replacemsg auth "auth-success-msg"
+end
+config system replacemsg auth "auth-challenge-page"
+end
+config system replacemsg auth "auth-keepalive-page"
+end
+config system replacemsg auth "auth-portal-page"
+end
+config system replacemsg auth "auth-password-page"
+end
+config system replacemsg auth "auth-fortitoken-page"
+end
+config system replacemsg auth "auth-next-fortitoken-page"
+end
+config system replacemsg auth "auth-email-token-page"
+end
+config system replacemsg auth "auth-sms-token-page"
+end
+config system replacemsg auth "auth-email-harvesting-page"
+end
+config system replacemsg auth "auth-email-failed-page"
+end
+config system replacemsg auth "auth-cert-passwd-page"
+end
+config system replacemsg auth "auth-guest-print-page"
+end
+config system replacemsg auth "auth-guest-email-page"
+end
+config system replacemsg auth "auth-success-page"
+end
+config system replacemsg auth "auth-block-notification-page"
+end
+config system replacemsg auth "auth-quarantine-page"
+end
+config system replacemsg auth "auth-qtn-reject-page"
+end
+config system replacemsg sslvpn "sslvpn-login"
+end
+config system replacemsg sslvpn "sslvpn-header"
+end
+config system replacemsg sslvpn "sslvpn-limit"
+end
+config system replacemsg sslvpn "hostcheck-error"
+end
+config system replacemsg ec "endpt-download-portal"
+end
+config system replacemsg ec "endpt-download-portal-mac"
+end
+config system replacemsg ec "endpt-download-portal-ios"
+end
+config system replacemsg ec "endpt-download-portal-aos"
+end
+config system replacemsg ec "endpt-download-portal-other"
+end
+config system replacemsg ec "endpt-warning-portal"
+end
+config system replacemsg ec "endpt-warning-portal-mac"
+end
+config system replacemsg ec "endpt-remedy-inst"
+end
+config system replacemsg ec "endpt-remedy-reg"
+end
+config system replacemsg ec "endpt-remedy-ftcl-autofix"
+end
+config system replacemsg ec "endpt-remedy-av-3rdp"
+end
+config system replacemsg ec "endpt-remedy-ver"
+end
+config system replacemsg ec "endpt-remedy-os-ver"
+end
+config system replacemsg ec "endpt-remedy-vuln"
+end
+config system replacemsg ec "endpt-remedy-sig-ids"
+end
+config system replacemsg ec "endpt-ftcl-incompat"
+end
+config system replacemsg ec "endpt-download-ftcl"
+end
+config system replacemsg ec "endpt-quarantine-portal"
+end
+config system replacemsg device-detection-portal "device-detection-failure"
+end
+config system replacemsg nac-quar "nac-quar-virus"
+end
+config system replacemsg nac-quar "nac-quar-dos"
+end
+config system replacemsg nac-quar "nac-quar-ips"
+end
+config system replacemsg nac-quar "nac-quar-dlp"
+end
+config system replacemsg nac-quar "nac-quar-admin"
+end
+config system replacemsg nac-quar "nac-quar-app"
+end
+config system replacemsg traffic-quota "per-ip-shaper-block"
+end
+config system replacemsg utm "virus-html"
+end
+config system replacemsg utm "client-virus-html"
+end
+config system replacemsg utm "virus-text"
+end
+config system replacemsg utm "dlp-html"
+end
+config system replacemsg utm "dlp-text"
+end
+config system replacemsg utm "appblk-html"
+end
+config system replacemsg utm "ipsblk-html"
+end
+config system replacemsg utm "ipsfail-html"
+end
+config system replacemsg utm "exe-text"
+end
+config system replacemsg utm "waf-html"
+end
+config system snmp sysinfo
+    set description "123"
+    set contact-info "1"
+    set location "321"
+end
+config system snmp community
+    edit 1
+        set name "public"
+        config hosts
+            edit 1
+                set ip 192.168.10.172 255.255.255.255
+                set ha-direct enable
+            next
+        end
+    next
+end
+config system snmp user
+    edit "snmp3user"
+        set notify-hosts 192.168.10.172
+        set ha-direct enable
+        set security-level auth-no-priv
+        set auth-pwd ENC wkAbk7juBC6tSBv0VAmfpvneXXLfA6HUxfgE5CoydkRLyQ7SKt4uAEyND+8nH64+ZSAgmUbdoSCNn/SmXhhCU3B+Rcqam6M5V/BcHZ9r3C9antsnwYWACYLvNK/0Lo7JjmjedXEC8LdczpEW+weAVfqz8b/EXsqe6l9SFGs9BUITDi/aA3slZL+gHOshUm6/uHVWBQ==
+    next
+end
+config system central-management
+    set type fortiguard
+end
+config certificate ca
+    edit "G_CA_Cert_2"
+        set ca "-----BEGIN CERTIFICATE-----
+MIIE/TCCA+WgAwIBAgICbogwDQYJKoZIhvcNAQELBQAwTTELMAkGA1UEBhMCSEsx
+FjAUBgNVBAoTDUhvbmdrb25nIFBvc3QxJjAkBgNVBAMTHUhvbmdrb25nIFBvc3Qg
+VHJpYWwgUm9vdCBDQSAxMB4XDTE1MDUyOTAzMTIyMloXDTIzMDQwODA1MDAxOVow
+fDELMAkGA1UEBhMCSEsxEjAQBgNVBAgTCUhvbmcgS29uZzESMBAGA1UEBxMJSG9u
+ZyBLb25nMRYwFAYDVQQKEw1Ib25na29uZyBQb3N0MS0wKwYDVQQDEyRIb25na29u
+ZyBQb3N0IFRyaWFsIGUtQ2VydCBDQSAxIC0gMTUwggEiMA0GCSqGSIb3DQEBAQUA
+A4IBDwAwggEKAoIBAQDdrGSNh3L3rH4hhoGjij/hpwKcyA1lMhXzvzbNLmZy8rj7
+oHVPSeF4WW6ij+Qjd7fMxfBF8wnRwH9yQzVq84kUHh4+dnmB53/v9bTpD8OOuZaJ
+U4hYlVuYIIkSk731x58ZNUiYYU+ZALXVtzbTfvK2qvskDignuIUhb++Qj4pZiu7S
+oL2CWnxuPmynfvv2L62iipGL4adOoLd2+oMcnHB5TWlc5oy0Gvce6ni543g2/MYU
+Fy2llww0kz58U72Gfhse28fLD/bl5lh9q4y2uT0pG+ckke3pj1JwX9vorfSFIsUH
+b3c6wZUmpFzYqLkFSLVAtpXIllYEWoqfWZ9IJLNdAgMBAAGjggG2MIIBsjASBgNV
+HRMBAf8ECDAGAQH/AgEAMIGGBggrBgEFBQcBAQR6MHgwQwYIKwYBBQUHMAKGN2h0
+dHA6Ly90cmlhbHd3dzEuaG9uZ2tvbmdwb3N0Lmdvdi5oay9yb290L3Jvb3RfY2Ff
+MS5jcnQwMQYIKwYBBQUHMAGGJWh0dHA6Ly90cmlhbG9jc3AxLmhvbmdrb25ncG9z
+dC5nb3YuaGswOAYDVR0gBDEwLzAtBgRVHSAAMCUwIwYIKwYBBQUHAgEWF3d3dy5o
+b25na29uZ3Bvc3QuZ292LmhrMA4GA1UdDwEB/wQEAwIBxjBgBgNVHSMEWTBXoVGk
+TzBNMQswCQYDVQQGEwJISzEWMBQGA1UEChMNSG9uZ2tvbmcgUG9zdDEmMCQGA1UE
+AxMdSG9uZ2tvbmcgUG9zdCBUcmlhbCBSb290IENBIDGCAhOIMEgGA1UdHwRBMD8w
+PaA7oDmGN2h0dHA6Ly90cmlhbGNybDEuaG9uZ2tvbmdwb3N0Lmdvdi5oay9jcmwv
+Um9vdENBMUFSTC5jcmwwHQYDVR0OBBYEFI+FymNhxjBuZFGA79U+S6YdDccbMA0G
+CSqGSIb3DQEBCwUAA4IBAQCNVYk+HswKpXrS6ERJZf1CfVIi06/Ohry4XM8pJ1Dx
+MOHS4h2p+cI1EAEBstoChQuF5yTgUcmlOHNuCr57rMhDUjoq2B+vhhA1b2gRkjXX
+KIQSmWaGNG14VwtX0ejkVviQdy0NWI3O/UgUDP4XSYzeoCACqVuIvu34eCFhkz1B
+buB23tMcNl4zYHV14w/qWQNwzk1s1LlPEy2z/vdMZKtaCgSdI2r49baPSG/aTZcB
+nYZHjBEilIjLeyjpdxgAezyAmXFdoigZnPzQ3P21SrmE18Oa+QrFxF3uUEl0oj1k
+1m8nFPrrnD6fC+zjaDmc85vIURkFh4OulgNEMeg7XjTV
+-----END CERTIFICATE-----"
+    next
+    edit "G_CA_Cert_3"
+        set ca "-----BEGIN CERTIFICATE-----
+MIIE2zCCA8OgAwIBAgICBQUwDQYJKoZIhvcNAQELBQAwRzELMAkGA1UEBhMCSEsx
+FjAUBgNVBAoTDUhvbmdrb25nIFBvc3QxIDAeBgNVBAMTF0hvbmdrb25nIFBvc3Qg
+Um9vdCBDQSAxMB4XDTE1MDcwNDAyNTM0OFoXDTIzMDUxNTA0NTIyOVowdjELMAkG
+A1UEBhMCSEsxEjAQBgNVBAgTCUhvbmcgS29uZzESMBAGA1UEBxMJSG9uZyBLb25n
+MRYwFAYDVQQKEw1Ib25na29uZyBQb3N0MScwJQYDVQQDEx5Ib25na29uZyBQb3N0
+IGUtQ2VydCBDQSAxIC0gMTUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQDZg1SLDPcrEPCNofZXrcUExEVs+zUacwDQz10y21V1vUdYrxdGT7uHd+R4op+T
+LvHdO5XN2ZOrRToJGJm6eZ9NatySMIro+qk7+D1m5eWckWKff4yelYiRjEzp61nx
+A0zNMrSc2ZGISNAA5azMk3qGTOFh/3VWMq3PuavOTaEsN26rUeqXK5XhCI4UOxul
+tUFSTqBYDNL/L57R/Txaj1expbJRttCwN2uK3Nw4lnPF3D4uznJrmkFP/YhhjIU/
+KhSJueYUCvZaucrAxrf1aQj6+XDGCbo1iJ+1xsKH1kwtQqWHH/23t44tabr6YLT1
+NREv+pcGk0S1yQ4EDmVQaxYtAgMBAAGjggGgMIIBnDASBgNVHRMBAf8ECDAGAQH/
+AgEAMHwGCCsGAQUFBwEBBHAwbjA+BggrBgEFBQcwAoYyaHR0cDovL3d3dzEuaG9u
+Z2tvbmdwb3N0Lmdvdi5oay9yb290L3Jvb3RfY2FfMS5jcnQwLAYIKwYBBQUHMAGG
+IGh0dHA6Ly9vY3NwMS5ob25na29uZ3Bvc3QuZ292LmhrMDgGA1UdIAQxMC8wLQYE
+VR0gADAlMCMGCCsGAQUFBwIBFhd3d3cuaG9uZ2tvbmdwb3N0Lmdvdi5oazAOBgNV
+HQ8BAf8EBAMCAcYwWgYDVR0jBFMwUaFLpEkwRzELMAkGA1UEBhMCSEsxFjAUBgNV
+BAoTDUhvbmdrb25nIFBvc3QxIDAeBgNVBAMTF0hvbmdrb25nIFBvc3QgUm9vdCBD
+QSAxggID6DBDBgNVHR8EPDA6MDigNqA0hjJodHRwOi8vY3JsMS5ob25na29uZ3Bv
+c3QuZ292LmhrL2NybC9Sb290Q0ExQVJMLmNybDAdBgNVHQ4EFgQUTO93rSNK1kVI
+KNeYLP4hGmX0Sh0wDQYJKoZIhvcNAQELBQADggEBAG/nEjQMPvW/Vyzp6/ETG20H
+Ks8J/G0hdgstQDNEoF7bNuT4P4E83xWqhvBmGBZiMSs7/XGUGlAO2hYqiR8B71bj
++Db9NjCybYcbKO7bn2PzQU08cdp/UpruIAbpLTJMf92fjZn+LskCujCULNWN7y16
+gqR16pBYIfsa151eo2sDC+OU/d3xqldsVWZGKnAJNVWsjI1fIexA7ICkezfberZh
+j0XyoDMjgTl9vAe18kz28dED8PJcs2SVECO3DEBUWdEJdPzb7cl3ipSXqlJqsWbu
+0GNdXkQ4bZtsimLO37yMmvJ8CZBDgBFjmXJ2M/daFnC9FuwkNd+FyMvwJLokF8A=
+-----END CERTIFICATE-----"
+    next
+end
+config certificate local
+    edit "Fortinet_CA_SSL"
+        set password ENC RsKPT35AuZwYL1rwBpXeSwZEwE2IULWqYYs1aEZS5i6BV1j/g/ZfiZTu3Xr7NR6E7FRK0J0YFBaS7sFrHcVULJ65OgJCIHLfi2Zwq70iU72SsT5WzdKyMrVzWksWMDfP0tbW+9uz96fEyKcFSY10c78kB4B0ZLPGFAxrec30l7fO9DTYMvnF/7+YXRMoDInq//s0EA==
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIj3NaJdI0ITECAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECCMilCJApeqaBIIEyMDaQ3iHCmdc
+6UhppKnpyaA5lQOn4AqEHcMuUNWGku9gHuaQFHP35auvGOnh0y96S5uSvJAWrwof
+5DV1aiGYhcDiUsUk6kflZNByFj+7k+Lf9KdJBETIcwUvqAdMGdCJ68hndLEWOaJr
+hSyyN1ad4+yJkHMpQXSwSorp1pP/EF0+QOBc4LD7ytHKLr04ezD5wsn4tAQ0+fdV
+gCOJCnsQa5U2dUFjAMiM+NyBPRFmkIG86mOztsjvoItzjCJRPq1ltZ9wBdoS7g8I
+NisogUWQ+4FsUqQq2yDqGKKKs3boSO+nyCWd6UFvpXJi3ntMxLwDtjGCFm9YlxJ7
+Vn8Pw4OYUh+l9Im9puhkKSCJYFHUMgNVzFeliM8zacxtr+9LxvwQ1O+/EtXzlN2x
+4UlUS5saj4+M1Zx6fgYIgHW4+ND/9oHPkPSM8Mxd7xzUmlhu53MGCY0Nb857FRuE
+MxI8c0HEOqjdrxsvsDuG4GF7ehJ02C6r1BurNj5vhskcy/luTGmrUIsWiIvcgopZ
+MGMeIJeSgx8pH6W/Yfdmy7m1XR3yN8n65Cn9pI/nfcqBXgj1bYARCDRhjcnmoSv4
+yfXsLpo/kCmoq/ke2qEu1DW4bBQnF7IHTRyMJHT1/xa1Zy8t/TtYGgRzpMcLAogP
+jIW6YsTx6cVtQjBOmqvkGkFhTaWupLNO+KYooGmlmBFXN+KTVyz2t35phGwu5RjW
+gwTM87znxi+vI4ny3EgpQ4wpTvcPqTpUKm6IQtZbegpiwiEe+d5HQ6F2eOLp2ANq
+ShFqS/1WWMU5248N183EVw+JDFJenwdzMOpPWcNPcHj4P5ctjP4B3ZCdxf/gAEGo
+i6senl++GTsAj56QrcCAe6dPvVKblhaWr2bIaLMK6LCLTJ0i34XlZby1cVSvmZMe
+NM9lz2N94ujuPBxxtZ06C4Vdo873VAtd1xMmAG2IhXXtrmk1Jtzuq4SutKH/gGEw
+qgKrYJ9rhahK3tj5akh5fIMaj2xalVCUE5zhB+ea6ckVubbKmZMEHRvi1t8cy9D7
+SRQtPE8v0wfC7pgaLldJuz1gqigCwfYLOasaqUYj9FENP9HF9fCklvb+s/0JwvAy
+6uDv7Smdn0s/2jq+GYbYLbnfaCAi/vA2JDxTozGQpQAniycIBKzqVMBycCWqIBTw
+cG79yIQxtSIBz+lO8lfZtebKRoHHuFcNr3gTR+YQkOlWTDRzfaT3PRen1c2k62j0
+Os5+GKnip7gCuKv754w5Ugikv+nc/oYA3V3p6nly4C/TuvMu6eZfL7+Mn4FWRHVR
+f3uptz0KglWsvZrZizDh61ACEQjQcNPkXGHFCCPFy+euEab/BDArHJH1LIEwIKCc
+Qq5f5ztvNmo00SCNy5sroMSq8gR4KakIadCclfiCTFT2HAt8WckXT87EonVr0sSo
+bUs5Y/T1cbhKxockpRHAJdkVlIBTn6vvw2ZiX400JQ84j8POuCDVRvXpag97GQcB
+JO6MyPn8Aq8yAVCaEMvbmydaF6XO/cozUUJwgrCiM3Fif8aOHNfNyIM+hEHdP23t
+pqNqtezg73sgQA5PKtITanFOKdy/jWE8lZXXX8A/pviLK5D3YQMZA/aHItI0Sv4a
+q8/z/8YitLFAW2aitmd+jQ==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIID5jCCAs6gAwIBAgIIbjoFDXJpbuMwDQYJKoZIhvcNAQELBQAwgakxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZpY2F0ZSBBdXRob3Jp
+dHkxGTAXBgNVBAMMEEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1
+cHBvcnRAZm9ydGluZXQuY29tMB4XDTE3MTEwOTE3MTc1NFoXDTI3MTExMDE3MTc1
+NFowgakxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQH
+DAlTdW5ueXZhbGUxETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZp
+Y2F0ZSBBdXRob3JpdHkxGTAXBgNVBAMMEEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkq
+hkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQuY29tMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEA3ypAtTHM6Q1U7FR4Moj3yoPPytZpikY4wkWGyEDfYd6O
+oXgeCUfyAqPBGSInRxzYIXZKx7XB6GB4PUDgfo64i+LrmlPUJ2hqg6GAQ3MtFAgn
+kYHfcFcNxzprXvJ7QXaqEm6vYU3JOdgPYIGtsytlNPN1ryP8hPwi/SjZtBEghUSN
+D7mJ2mPAKztT8k8AG/ALyPyI/KEcZuakv308REe+LrD20DNo05H3txmkGKKqBn/+
+IPW7J9IlhvMbUINTaPQC+/XDnwPG4wi5DMvbqxFcjpW+gugIpuQPY13HoxG6YshT
+zZJJIl+pEcfACxupzgYexTQkmZFxuA+CAS52r0kRFwIDAQABoxAwDjAMBgNVHRME
+BTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQA9BlAAf0HeHsO//tM45zHtseiHBiX8
+5YaNYw84JcNQz6YJCjOmz0sV5zq7dxcUOULBXXbYs+O7/CnsnuGEX9sx/Kf1lK5T
+tXCc+qAmFc2fU7eJ09qVFelnS0u+gLaIxpv7AQ9yFTui8bn/2D2xiWEuMz/xWig6
+Z0qjuCeGwDQTlho+v+2ClqWNZWzbkRMcsu1TkWs2PXE0NwQsL0H6ufXTHn8ZBb0B
+WbjWoDMaMScljDNYKdcuZq1V67xHNZHNq+YYiGgA+7hCqk6RngB+NfPdo3e+2mfL
+Dg2kuZ7hrcquzGKuGgJPX7GNkKwQg9n+nGY+jTsGq8tB+/yCZqkG4ZK0
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_CA_Untrusted"
+        set password ENC VgAvFnAWG2OyIBCQdjAbKfd3/spkn00urY5R2uKiZQ5Y2l4yaGimZ5tICTgDJOAmYiysA6uz62a892l3K9FNtiMoyp3iDCKdUDN4ptm6i4MPW1SSCfcz74MT7xHqmvlBsqzk+AoflrWN81qL/0d7RPcAmN759aW0larTfIfNY4dDGEI/y0fXtsj13bSOGUQ91k9ghQ==
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIq9TYGEUaaZcCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECM88ha6fV9zRBIIEyFc+CH3+e/UM
+adAOVCdE6Lzf944j8IeOZ+39NFYH0Yb3hIlyogALWKQ6ozJ1HoPw6s0+3UOkKzs9
+ZpJbMVmS6k65/T0m/NSYfWjMeZ6rdLy+R8m55Ymet6eXPiDZBQBHO4wiSm20ZKAh
+v068dgZf8mYBfzJvVo+Rcu64UT5idFRJLYIP3RiYWB7cib+v3ORilcAf1+LI4CNi
+K4hjnaqgca4d/zDXl24FzF7AK1jZKfTwF3NUBuBlVHEKS8cQYK+Hh5IwcV/DyDnw
+jAR8Ft81A104bKveQG7y1v+uZ8LPOGRTGHd7EyS2PNL1jwX4g0z61MhWzyFCFLHt
+gy2jsL4w/n2q/rCz8lBY/1mIYg/gtwsxT9SiatTzZBjZ1spcHuOKvY9GQWMVKZH+
+ZgZw7//HpNrSgJ2zoayabfgOfoSMwS9C+mRXutIZijxbsdxsXoVBtB5t46MaMJAD
+KdguYcyveLotRGVapUQzPUIX/bVTa8fc7fMT7PZkSd5Ik4F79vJ/Li0pC4+9FBju
+P5MlEaZ5QaJTi46tv/1lwgR6KwIg/hDBsGz3zEQDQSvEUcCSY6p6xDogtbVvoad1
+lgbbp+J+otKaXO5ZRNPTnlBhQ3bOgKOchH+lM4Q9XCCP1r5KBS7p8CLhq+Q9c76X
+8xrWgw0GP+yaYOWCeT+P+rgI+pVW/clhFi21AzKm+BSfl8K6uBVnFX+H+GQewx1k
+kxjJWkIhnErjfyAReYa7el//gkbGYzLXp0wjq4bTbDxxPKCQRxEro9DTw9hoOO1k
+hvQil8H8Q/GAk2i9uR+00TkJhjrB0Xt+5KRydE+tTVQQbm1rR+8KKjpWN8AwHA0F
+IFZLx1eHZH4T1U+d3aMcB7OrpnGMkjPPkAoeGqR/KyrIP13VDhOeVymyIVs9auof
+1qxvnLdOXKvJL+rJVM4uG3B/q5AD6xZQskQTb/UG2If4O0fmDlHsvw2CLo8h9B/S
+AkVHUnprN+l5FmnLkS1LgpLvoe5RzaNio0qiein4+8IN/b1Ggr41mo+sNgwt6btB
+OmgXps6QBOCFC+aLZTHqw8jo571o0NZJdY1WCaghsHGGCoy6ZvS4bWtdPDjSr+Ns
+DEIskVamg1oNA2kZecBJ8N+IA4dhbSG69bU97SSmHWN36xUJAcVXg9EPpdItBRIe
+VVd1E36Qw2JOV7meyH3rg3xGUD6ntR2yZ+4Ppw9H9Mi0zFtu/QpgcwcoBnmzbc29
+il2z4l9KnnbfdzAX0+xkoxwhi29jBW5CWLiXpDsAs2HiT0o/41BjDkkLLYb5XY4a
+jWNHqt4zxpBjhoGjVWnW0ZIzdpjivqkGd1nq7ayvkK9f8omW4ClUGHz6oBnBuSnj
+UwzArNoBH3Ho75lmTd/rnLOHW0N5tNEwx1Mv6cyWHg4R/aaGzFOAdJBXznHCUTtv
+Uy2Bc0hbBzgNBJQjjdppP+bJMp6V9NbxBz0ZoJnK0CabTt+YvlgZfXS6V68D9uGL
+jonJm5paRcpntehPPfdqxVufKAjHNC1ytjjYaijHAqe/KCcrxHmW8scC8teFLKdK
+PqyLNYwOYJsR8CCdOPTcqJRcGLwKFqE+mtOmssk/CQ8r6aUHqhC0qbEqThKwLDcg
+tCv9SGM9L1VDkF58Batidw==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIID8DCCAtigAwIBAgIIXYYPfIgCOiYwDQYJKoZIhvcNAQELBQAwga4xCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MR4wHAYDVQQLDBVDZXJ0aWZpY2F0ZSBBdXRob3Jp
+dHkxHjAcBgNVBAMMFUZvcnRpbmV0IFVudHJ1c3RlZCBDQTEjMCEGCSqGSIb3DQEJ
+ARYUc3VwcG9ydEBmb3J0aW5ldC5jb20wHhcNMTcxMTA5MTcxNzU1WhcNMjcxMTEw
+MTcxNzU1WjCBrjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExEjAQ
+BgNVBAcMCVN1bm55dmFsZTERMA8GA1UECgwIRm9ydGluZXQxHjAcBgNVBAsMFUNl
+cnRpZmljYXRlIEF1dGhvcml0eTEeMBwGA1UEAwwVRm9ydGluZXQgVW50cnVzdGVk
+IENBMSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QGZvcnRpbmV0LmNvbTCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAMFccj6ggVXFXDQRd/2oyBzVlWqFYgdx
+pq0OObJdAgceWp4zWhtgHFBxaFTvDpf82BMNrhVImuHwGzya4cyWmRsuE/p15V0F
+Mu4gf/5wWRMR/XAu4g9WUnVKl5urqzlkBydYK+ViTWhksjMWK2Ydsm2nl8pK+ptQ
+AalRs7Gh/qO9MezKYehC1zGFvp3LE1PSrTa0qLEcYH/Jz+CHPn7n/ikuRcXMp1ki
+KalNsyFVoIOYo5elZ5dSQL8/BI9yO8wZ3uaFIDYzHvXC/gpeT6wQZ7qeYWq4FZtE
+b8RE787zK0qBfQvBSh5XOCfs5khVQCaf5IQhg1ziTpGgPW0r0aXO5VECAwEAAaMQ
+MA4wDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAG6+wZjHulx6ywMbn
+QlwC6AEghgiMIz+8UzxWAiivV/VWiQC7Y9nlFU4pJNEAkgnzxxSxv6OVx6J5yIXg
+q0VdQQF1epHcj2RWB0BrDNx2iCzFn7kw1fMxmK/AIpUn8i8Qj1XACsIqoTEVTNBu
++2idDXfmQmZwlbGaDnekvp+2zvJaqpcvUxqh6Ud12Xxp2UuHAuyKjJU5q6A2CMhN
+H2NiwwIlp0zXtveOxf8nSePJSP6tvLlOcHK3IInumUFnkJIktHAjKwQlRExmVmYj
+URTD/PzuxhL1XKGfCqA4EbevNVskn7dHfX0QeswR7OoXdxj9Efq24kwdMKhlRLUs
+g/SzEw==
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_SSL"
+        set password ENC 2Bi4oR0S9E2ebEcen361uqEr0me4+0h9A2KKS9Db1n8PWUsZh7dmTPaj9qLAGrBPg9NGrJCgtugVJsZyjqwTdk8anp6NZsCu8xQqvYcEj6s/AK46HS+1LQ6cfGRTpjLJN0tKfgYkiAOfaA4IWTVdKtnmL0gw21nlHtBIA/gzA7juwXt3NDwpRJqEAz0rp6mBIz/SJQ==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQII/rJlErY0/cCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECIqEebhUj2HHBIIEyDLUSGLgzim7
+j92ufQBVvrRqz1LPLjy5TryQb89R7n73bmWbFxtn1d/NzGOtZo84fLBTLfPY50bk
+l1S7sxQvsK8yLsxR97uK26PAsmF9t/bsIL8+O+163u0aPqugae63Ghr+3RnyhJMU
+/QE/rgFn/YbaxsBw+vyIa1mV5WxHpl6uJsXzIHEoqvWTzGKEvx53SVVzVUC7lkP/
+Tur0vSVI5ZY8ErXoKxosuvfw/1+Cqe4+8IFn1EmFdG4lQoMTBdGE5kLpYAA+knei
+1Ojmug70dVTaTtOAi1arJCDOAELAvjTP1m5Q0PG4aFpqwHJQLLfRBa4G08ftpYNE
+OMmse98Gf+HzoO9vQEMHALSUlzoZ3jaWhJNggSjsdO7j/gKL0I8TrVEfCbxcu2V2
+rhzoL18CPlSafFaDuH7ZkOOWxMbnR7GX/Pn9UJQ+KhCz4xARBq/qYSBZHlYMzaYd
+AxCWkcY9QRyT2uBBcIOq2l7F897piPws8zXa7wWD9V0ea37Iqa5hmOhCZza80inc
+aRxWS4oHTs0OnEZ5YX8a2UAHoaj9CX4sm8F0Mk2rDBOiOPdJynuY45PkEiA3zkiu
+3KtCu+QhKm1BO0lyHrVetzoGxO3HqSEr+P/9lc+3IFPD3n85m+wUy/Qskye1/7H6
+h8DtbJuJJh3Md7GfV4PNUazOE7IBIJZdJtwy5EdGxgrZUOLV8K5x0blmtRxbVczh
+2rPcMXrUKMjdWMqsTDNalW9INhJikHhmntEJV0D6CWwf/QK+UymzENgLh1WlN+YJ
+tCjEcoQnjZ9uyvPKnP/M1GOz0lDLviezjf2Rrv38tTSh1iOHJHNWHO9V/GGRMjs1
+DgbgEZeNLTD25k0RQtazAVSklpFvJ4OZLnj5sLtIAwDjpP4WIdI7m54gKZ7abd9Z
+X51GdnfjNronr9iw9F2uNTYIB3be7AifjdUOx0ufD8PSvteBocjY/sHcMl7IYg6/
+hnNaes57Y1H2oSUSD3LwUunl1o1Uq+KCYc6sJBLQqA1bf8b6uk6aUS4HHxn/FIlU
+ToOWERFY6GnYyuGKrSeJql6zOwMLOqZXhBk2j7DLZNkQqfpzDqhzx/GdxR/pTqzH
+ExbNjpqX31qk3vU+kMLqxyn9kRxn4CjD6h9IdlU/bLEn5C/4Y0hxvW1V0+/gXXUj
+8yt8M+WN9XwAURqoAOILjm/a46Flte49PBvABlc0FNLaUs8SLO3dRKnw61EtnCCU
+xHNdlmIuV30Q+tTwNhHI2sYdmIK0qDRB0UI9hY4UgCns12o6MtNQAjrRg7oODgML
+agbLrEIRDtMucpEL4AVydwLQwa7HnnX8Xio29gY/u+fpmanG2gBRz8PvMParEex7
+fY+95tPIyQXS0WjPPtg+gyiVjmuALCOev4fhAVMH9fvJuEyPIQKvj/kJZLmWC7GF
+UXrV5Nmjh6D4pUXLyTouf7C7MaxjxibkEuHTfYnwUDTcUgnXp6r2lN0G/DrwYzxi
+sMuYbCAnoApJh7FlXR1qeNUxPvuuc/wPAjXNVk4rVrrRom+dfX672qiF6zgQEDHb
+KloTAIk6uemVv1slLTm7mAt2qcKT5aNUOquEDWBmQBlSXB8cfkcJqnUbjfhwKlDt
+R2xk54XGlI5f0mTm9MZYMA==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIDyzCCArOgAwIBAgIIENv0iviH4JQwDQYJKoZIhvcNAQELBQAwgZ0xCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
+EEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
+ZXQuY29tMB4XDTE3MTEwOTE3MTc1NVoXDTI3MTExMDE3MTc1NVowgZ0xCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
+EEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
+ZXQuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtqeAhxY0W/HQ
+KV9qMLfR1luQxpSEF1j2El+/lyRTvkRpjEKnB+kCWsd2DLGCo7nh0GEf267s2JZ3
+RI3lNipnk/0u+b+VxmGHzUzOvvtsk+Pc6Xjf1j26YDGEQAU41Bxb/FIxtmHrxX6n
+y37B1+YxzdU5PQJRynsYwD0FE3YmwBR2pLFmTD7EMKjC9qnxApICLw81isqUAarV
+4hm4XL6EEM6eUbippJ8nR15TcGoFzW5I1bPOTlbupZ846Ebkzb4wLq1oYZ6a+t9T
+211LZ1rL+/BekLv7SRlfS/8jB0riiOvs65qiFMp7jtlBhhm0svfMgV0KenLBmOQE
+1blatvSjbQIDAQABow0wCzAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQCL
+rRUjAXV+qZv4ZxfRktgwwgkb4ir8xwgFnQe4c1I3UH2+Xa9uN0RiAaECKTL232BX
+OUyAnfQXNFdXeRkS53jHAN9EpxI3o1NMZcxYh0c0aV4szdFnryKydXuxYK6VuVw4
+Sm0y0xNCiEJJwKwi7PzJ6vsz2+/8miHvnURBvDnYfSFLW/K5z7mxDIu4CfuhRNrC
+rwaXAkWEOaTwgKY1lFSsxIOGKauuFxJ9aSQSHEnee3G6v+UWUoQlMwlG5I5mcPRR
+zjLXCuECgjXHgeyX39XMA4hruqq+NnPkMSpXNea/jF/hI1jnvDsr2YinBVrOlb29
++txsaL2SugtdDyE9LJT9
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_SSL_RSA1024"
+        set password ENC +GUwEnu1TehHZmOONK7HSJxJ8sV6Vv3o7oNlFuP0/sm0Ki5scAHMJZkQz9xhUONOvPy3Q4TuzRx55MY8+MmPM+4PnuP9QsT76lqN6A9PseSpoj1wjJzAWmBvZNGGz65KWLOZadjbROkZZADOdc/0r3JhSy0y/H+r/hlaGCY5m8Mu+YO8fMTYo+ocIpwvG6ukkwqAjA==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIC1DBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQICa4nAkUw3uoCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECLeY4OVF7KB0BIICgDrcrwY8Qcai
+/CFMVyR2lp7aa/4C+ubAf9qBGQgwJnf0MnZyOkweZThLNu2DosJ2P+NX5Yu8PhzJ
+YRgI1GAtEWeyBihYN+muvQlHf17fWtDclSbJoS79jgnj5Dv3G7iEc1LbueMj7nD1
+aHokWcN3WFfNT4UFtMqCIvPk2J/f7m5st71oVEWikMuvSewZqbV6kF6byuA8dm4R
+JPA69ZIpBneBllbwRgs62GsUDt+1obIXf40L+OZZPyR2i0HrCtnvGqJDgexJVwI6
+Vl2ogrZLATWJtEOqs28sR+dXjNc0R0ByAg+IaD+8l2McHucdeAFWlmSMlLmirgg8
+Zp4ZCIi5MwxoDqAUysAeZKDgS0VZArV9aPaPS6AewtEAHBIIW13TT3YfK3jwQINB
+pITH+veImVdW7IQ7tDaDCMxrI2o7lLUzpitwhIZmS72aWTB3sIg9JS9JhLza5fso
+wgmXm03i7n0eKVjwOkMu6U9hNBHYPQTvn9K0Ar5fyop00Nbbzn2KM6ZN002MwDQk
+Pe3jidsTAs1IZTyqjj8CBzmJD2iwCxBYAyUb413g0L9oUfGtZWt0R//3DQ+AhQd9
+aoQJzpl7tM3oQwpfrrtuAZOIr36wyZe485O+uU0cXoh4t9mjvMD0aomlzKSfcr6h
+CNfbBXvIahWtHOVU8Y2aF7umwP15dmW2SHTEcPcqizNc52+7hkSwsXJtwl2yrlqx
+2qgT/+3Zt7K8PyHgTjdlb6ewogwhD8vY7zaV2yBqDjLq9FfQSYnv7ZJEmr9FhocI
+rHcr+KJcHIZs1+wcNN9fMu7FIboFkFXwm2qCHo4PFMNA0WLohhJOGeLIwrnVdZ0c
+z5MuI1Tv+Hg=
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICxjCCAi+gAwIBAgIIEik+zaUwM3YwDQYJKoZIhvcNAQELBQAwgZ0xCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
+EEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
+ZXQuY29tMB4XDTE3MTEwOTE3MTc1NVoXDTI3MTExMDE3MTc1NVowgZ0xCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
+EEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
+ZXQuY29tMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDJgiae6P2cH0Dsdgc8
+3J/eON3KOdePSkX8LfKE57W1fx2E88VMuIM4zL4YALfquXypkrqh/62+yp3Bbg4Q
+UCT+7yFUiW4V8TtSl7vx6pxRBbBqozAtnawb3iiTh6H0q/ZdBtWiziRle1AMGZzS
+Bqj3cixcA3jMynTSS9lKZp/OGwIDAQABow0wCzAJBgNVHRMEAjAAMA0GCSqGSIb3
+DQEBCwUAA4GBAB/BpKETcAJMQqw/lMcaMOCoqbxf0SzGR2D55JU5c0AcxdVZ8M8K
+h3k/DoM7OOcdMyUhZFqWhMoxgaOdAfPQcQXhREuFC9hHEmjYUOz8kXZXrNo9Sv/2
+2kuJRwnwTL5ZeHSKCvQHqc4ZLCEgz/aURxV+8pe/lhlTKAMHFM7OPzut
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_SSL_RSA2048"
+        set password ENC sJNe/ZkO4eobbDK7Wo3kk0llbdP2/M4+o+Zb/4Pq9XwzRwWuYIp+3tJEKBukdri5/pd1XOfvwrVSAfwLAlGhEGcvEaJPSpDj76ppjIO8iwaJllys2cxnEXC0wvmYN90wdcyLh38eTPhnuE35FEdGiDb5sHxvezpO628iEDYCAEPsZfqDr4gN+Fw2G4mRcQ87pmzUGw==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIOhalLiiFScMCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECBj1kFl9rFntBIIEyD/gXRJUP6IJ
+x6fD3/omJNXz2SmM/aAIj2LhbAi5s7sRfHMCcaOY8t/aM+eCdovUgPZtx6+F7OEn
+IIPqJY9Ctu8FcuX4CovftTBuNnLzuqrKR1i71YqdCXgDCsNK7sAif5gjGPPHZL1A
+9kFp3U4dzLyzsD8HQx06mqwfJTFJsuI+ZYtyWoQnpnyHsLZpwdRHki7nx7KzmDB4
+Z0DXxK0SeTJwSzWoFe9t/ojCWyq52Ud7T/Sx9EG5BGxCN4fdKW8mg7Fw8jW2oxqH
+0wNorZtt6gBXjS5bA5wZC5urdOF4rKSEkxDEVcP0xzgVuT3ROP2W8nSwhrCq2LWY
+gXXGhjKzffMwBdsNHzzRbFXwjX8+3IZ/wclOQMk6JXMjPkN6ENvDb2gMvqscP/iA
+4CyW71Bw94ys/F4RAstppdnIOu+AH255EfBI33gw2gpg3AgL1o+VBn5rw+L2FPpV
+yFaMk8ZSoSu5GabsnOqB4Jj6OtFzLU/XEzEEIiCLfQSK1UAO42p7gnunRTljEkhC
+v6CLqv4+V6Sh4oQ1Zid1lhTKAiRzUXmPxHlDzc0DMHBVs8quNpjByduDdx+HeofB
+B8ofYGrxHl5HaN05fEOB1BybVKPh+bxDonA5OWVZ6ejZIRqcBlg5eUoFOZpEz7yi
+t6QvCYi68sQL3gki6pQMJVZsK3Q6wFYTQWjvE7bm4v13IJBRCwSE94sg5i/OyXdu
++s8ivRKR4stCOhTEKhUCq2qE5kTns4M2kADlpZwJ4D1UQYLfJSdwVJ009PVmrSXG
+3k3cMND4DwXhgiZHulONZjNVUDuMkw7vR/uhN7in7lTAt6SV+V6rMYSGcZczOuek
+Pra+KvTlxVUcYPCj9cBGB+kKP+BM3WGmbWo8OebDTfDCE+alZL1ZxmAb7YnaT147
+YWDUKd6pHB4iRavI2nOy/iQWH5C9h1jeDgYuLcm0F9mxudpcqhR7lTowWXGt7fCn
+YTN8FmustzWGy9hGojRtf0G/BcTE0NxLamqveVIkj4TS5gxi8BVk+oZzwM2MXT8W
+HCtVbynKOksoFsYWhZ5QQrjLHdGOhrIc3CHQNE2B8B5iJ1k47yrnsO4x34nZyGqF
+nrO2j50qAxxu5Z1kfbI9icOFA3+BYxHEwttlVP/ap02PFMe1I4iQ+wv9kVumBDhe
+olU/zZWnKqxojraGPx0jfMSv1SfKGHSA0l84dkz6bRR/4B3CoT7By/u/QbsXWk9P
+sOinJmnbEos0TEzYVgSBZJU7w96iP82VOCNseOu/dRh5wNgZSFlv6GMBF9PevG2E
+ds9YCvPIszzpMxEg+sQ1875ynNrOu2x3K8zzNBSmdnQftJUsoeMOibpU9ajBfih8
+nFIaKTWVLrQHDJx3aEkRMepwsL7b0fNVqg6MiEH1kzs3J+s3tOYsoIeViWM307tR
+KxAYbURRbYzosA697G9cxwENTRfCh0mfjmoGIqvQz2JZ6N3MHFuq1gsFuVC9uWm6
+pmpt7KZ2RkA21xinvAYZQFSv5Tg/KoXGTYQGpMHCetK8J/LYA+N8J7S0ZVOUM3M2
+ASIzIzJY5uyyUp97kr36bedv5oV9nznQ58FcYbGASF8fMD0f1gFrRTyLh2xmNaPa
+c08MkwXS/zcPva7zXWLjSw==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIDyzCCArOgAwIBAgIISKpBgU/rNIcwDQYJKoZIhvcNAQELBQAwgZ0xCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
+EEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
+ZXQuY29tMB4XDTE3MTEwOTE3MTc1NVoXDTI3MTExMDE3MTc1NVowgZ0xCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUx
+ETAPBgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMM
+EEZHVDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGlu
+ZXQuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr2rxbR8bvdaK
+F1zyzmczAFzgb9GXJsweAEO6KjX0YCGsNiIf4KxiVUwmmtxoqMaqcbvdo+TWx8ml
+z/0erQIgxBOteN4Jf2sdWi0OqQGCGSwxeQOcdwkFyokM/D6g+bmYKu3opRGvzrWm
+xQF0Lna4ftEuinT/y+JsBh75DGYJ6UdNjghGoKehUOwBOHm+pLiOCicKxJbfVNL5
+ZkOfFJOeiZEFTPFhr9b8fx7JdzmvW7tbgxREsIA31M+94kXFxLmnTBAdWZ6UtJWV
+U6VcQAKsNcWent8z1HgYKfBvNi+UknWh+VG5DC72yynmypgS96+4dRJtlgY9oueF
+M41rGfyKWwIDAQABow0wCzAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQBS
+hUFuG6Bd8+PtljfWVVIpX+mlNMqmy98/vdVUE93Oe3o8rO5uMBMIybDvnCeKdttu
+woCWeZ6k8EsmNKnd4dwAzpwN2JeJ1QwF3c7X51J6pwuQsU4yTUTXYyO/Mp8M6zJy
+RVwBWnLQUkApiP2O1mwJkDtWzNmrsLYOmUeB10cD8YjwF4uzI3hbXXhe0MzsErR5
+a9Jgz3M/bCS+FrUetAiGYRVNaeiqXCNXqrppQ21zMAmwjMsmIVrJadUUjIvLRryw
+dUO/8r8enCVTvAVjewlTt8GoQvuMKgEl1Z6F7kpUQNvo+VD+n4KQt30PxT6ZkfsQ
+4LEUkwjmq7N7Ha66q6OI
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_SSL_DSA1024"
+        set password ENC tiHjdiLT5NWtepPQiL9jSVP2R+WBuwTiccCYWxeawwmdrI8Y4L5Y5YViUCx0FmCqQmA4GyHkAtZbR5yMjfO6WTE0Va5JOOySodwVf9Uu0vkS01zP5wzdBVIF8Fii6g1r3VjoABPfkdb9zWP7n+ax0qwRtLzbN6ZKvzrj0TakhcjOVKAuKagSQScAmcD7x9k6oXJvrw==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIBrDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQI1cFS/DjlD3ICAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECF3iP/ZeOEBqBIIBWFFeI2Et2kiu
+jeQN/Twvi1VYFw/YBiahWRgSXYyWA4EPhK0oyahsmp0G5kq8f39j66t1DwF5bO0P
+xfhId5JptzRZSjgA5MHqilifY7Y51iGL7wU24d+h0JDpcFBpxVRm804HZ3iBmhiA
+JsxO5LWg+vJeLJXUGnB8cFgnlvQNdzr6LladeI58pgAiA5oZI962HYHXr5DlZR16
+qvlJuSL0ioBdrnynoPfzVjSKGV1Kj/5LIKkZPHR3dX4mSfF2Y6FLK3j8MNMIavXN
+Z6WDfe6nAPRZdFZVc5thD7EvtnsQ5YHDU/v+kFP4llgAljpM6/5rPmZWo042wx8r
+BVnSr/Ukh1GAToXSgJQZoMDpF/j1Yz304sYn36+lizjmXFmFuI44Ton1ciWq9lbz
+WF0OLnfv6sYiwTjCKePirCeS19XS4rPNm9SGxc1Dy8OqXRd+vopV4K9fHShylcxF
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIDiTCCA0egAwIBAgIIWh2IXQeioGAwCwYJYIZIAWUDBAMCMIGdMQswCQYDVQQG
+EwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UEBwwJU3Vubnl2YWxlMREw
+DwYDVQQKDAhGb3J0aW5ldDESMBAGA1UECwwJRm9ydGlHYXRlMRkwFwYDVQQDDBBG
+R1Q2SEQzOTE3ODAzNDY2MSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QGZvcnRpbmV0
+LmNvbTAeFw0xNzExMDkxNzE3NTVaFw0yNzExMTAxNzE3NTVaMIGdMQswCQYDVQQG
+EwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UEBwwJU3Vubnl2YWxlMREw
+DwYDVQQKDAhGb3J0aW5ldDESMBAGA1UECwwJRm9ydGlHYXRlMRkwFwYDVQQDDBBG
+R1Q2SEQzOTE3ODAzNDY2MSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QGZvcnRpbmV0
+LmNvbTCCAbgwggEsBgcqhkjOOAQBMIIBHwKBgQDh0iyy7GSbEyN0Ds1CP+Xfc9UO
+2ST5oJejjUel5eB0G4gkfUg7fHwGBB9Q6wti1vSEgEsjbpTh/uNqyZTnuTgQG/fJ
+hK+dvS/orkkP1d4DO5fxgN/0bSKTh0Jexm6AjKq1YQgQOZpUP7agQvy0K8HOY5OW
+wFkWQt6D19oGp8fYAwIVAKmzBFctr1zsID4Nl2gFPH6auKHXAoGBAKREOY2Qt3Jq
+Fb5Milb2H8dyssU6AxZXWPXRsCgQ60CX80WzDMFFns1RnJAW60tk2aX+XIj4ccCj
+nhTBlsDQssNbQd73z6EDOyMD3Um1asgazPXhWkUBKCa0OFMxbQbYJE6Ttw7YCreO
+ccKkEKON6kOeY2EIYVTrP4RjssX0m9JjA4GFAAKBgQCmqqUiSZ/Xi38hIV+5E0qh
+LGf7S4XAhwgoLWswJUy0Q2SNQI/YbCYmsq7ZU+Y442Dz+45JYJ60ryoJ3e+tcWW2
+ITVY7/jo9lpZGA21GwuTC39cS/bil5TLv0Ds2FKZkt8eSreBGJ7pzEuDbb5Apalg
+fTlwXJC5SE6IUjqg2tRqc6MNMAswCQYDVR0TBAIwADALBglghkgBZQMEAwIDLwAw
+LAIUe25KQpBfNMAPXcAQab1kjAzSZ6wCFGwRgsEgNf+WkGU67DMl9n5+dCHe
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_SSL_DSA2048"
+        set password ENC TKDzRuR55jnroFfr6gE6NtSC6LZfCuErlVRml4RitxmcdxNE5aP9w4REPpYVVkoSzDvtrIo5ckUdSJMY1yAe64isYhQOsaj0pZx/H605rMyOaTSyx2S7YnOjjMwLvsltWX1vA7jzutnSMAasi5OXMa5EL8QQ2uby2Ke3LKUZqGq6+kpZyfOX8uYKehHnCVicgfKEFg==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIICxDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIALmxYserTW0CAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECPAI3aYW1dN0BIICcCYvwd81Fc8o
+6TArp7ZaubepYy1gNsjokBdw6dAY1Ga5leDjyduxyVgvP8TCiLWuUtEZuOrJjmyX
+XVPtCB95w1PULjQeSdzfjTPvTYCE9Jqrc2lLX9kW4bO4q+3JIuBNTFBTX7/NICtK
+LKgb6WZlVeRopi2jEPy+7eTTb9HB5SPG2XnpAeiKV2tb8o4vtsSc128ao2Ru/AZu
+GvThMCWZbD6fttWnbC326P63u9OO4uqmaLCjM/qMkke95JaSZmcnnaWRV8OPb9QJ
+IVQ/cafyUc30QCufV3PK3gttipUoGNYYP+iAF9+VBTp/LD3BNYaHTE3m4wh2xpsS
+YEHGwUooFGjeojchsIt88sXoKdnzXdWdhd0Q0/YNC0xYnLj6+1sdc9ui7k6LgWzV
+xnLR9F+38jBR5SbAPCoClZAstEmsIHBpWUlPSikYS2AvRPuqS5IECiH0qgY7VWxk
+F5rnmMrGh4UUAY51rSnitLhObLiCXw7xqqVeWwKK0x7MG1f5kPPZth6k9UUCF3Oy
+N5gJMCvSF3Vmxug51JAs7azQ78MiPw3MdKop2aNIgk4getIotB23XqBbzJfLLbKh
+r+MrqrFNqZrUY7DkLGL/QEJxJlKfy1J1By9TUMoVGXDsg5FfbASGZkYRlDxFGUW4
+0vjBpAGsavCkxWe02gyVeKTfACH2RFCvAoTBC4jriXTc4luywP71RPWh24e8iilM
+1EAn22XumjEAVEAADTWvoR8nY1GxAvrE92495KHrv5ffqB9FUY6olMovxUZDawDG
+iFsgluHrws3leaYZpIcWvv/wWRz1gMfAZWeqyKiVwd/MXdGbyBEwQg==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIFMDCCBNagAwIBAgIIFm0PlS7MQeMwCwYJYIZIAWUDBAMCMIGdMQswCQYDVQQG
+EwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UEBwwJU3Vubnl2YWxlMREw
+DwYDVQQKDAhGb3J0aW5ldDESMBAGA1UECwwJRm9ydGlHYXRlMRkwFwYDVQQDDBBG
+R1Q2SEQzOTE3ODAzNDY2MSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QGZvcnRpbmV0
+LmNvbTAeFw0xNzExMDkxNzE3NTZaFw0yNzExMTAxNzE3NTZaMIGdMQswCQYDVQQG
+EwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTESMBAGA1UEBwwJU3Vubnl2YWxlMREw
+DwYDVQQKDAhGb3J0aW5ldDESMBAGA1UECwwJRm9ydGlHYXRlMRkwFwYDVQQDDBBG
+R1Q2SEQzOTE3ODAzNDY2MSMwIQYJKoZIhvcNAQkBFhRzdXBwb3J0QGZvcnRpbmV0
+LmNvbTCCA0cwggI6BgcqhkjOOAQBMIICLQKCAQEAxERj8rtT5xE2z/MoafJs+/mc
+HzBS9Uch2g+qCYr4sciLLDhPoRc7yFsfpdwmlNaBGyugc03bfzS6vfmZmo9jPO4B
+lU2L4sOVvpVT+mwCPyrECDaUlJgPwwZvlm37fkIrX8nL7Lh2URZztvaBnXsB5vId
+RkteXCHOmm5/CGn9pIHh8xVnJzrKN0+derhdqxxK0UcG7XwDrqr8gvZvVMRziQJj
+I85ncT9v4E41OEI5i2R9NQOvWLNFsaWR4Tk0qOaEq/q22/F5S+CIttVGjLj+UEFw
+VToJIEyCsP9N9BsLJmAoqYlr4qPr8b7I8Tj/pAU+8od7bUS02+PPDEabygAGQwIh
+APbSldF7q585cK72aH20RtW3Z4JnkyG0j7eFw0cRB5phAoIBAQCUyup1tv92oQ8r
+7RwEGYM2Z9SG/GyP1APu+3RP0pZDNopAZLZts0QldlnymziY3QtOwTChDIW6AkZx
+lbdnx7pD9myQMqVND2eXhTA1P3ThKebt2KT9++xSwwAMuDMiaL0dEte05GGym2vY
+pyWU5qo+UTB1CwJHlxjV4fIb8i9WOgoPmuXNJz/I30HYVPPYj8lZf7ntHaOh2/RX
+H/gWyJMrQyz6HL1ReYPx0TQ9ck4j6ylhYQw0nYhkkDkrN4x0QXOmzdneJ2PnTGdS
+CQ7Y1OUmFf09DiDx/RCKG9hzJDln24W4S0K3Vm2PmDdwAj8YPu2wppdyOIQuv4S8
+ipvARMqJA4IBBQACggEAUHh6ZUnXjAWrvwjp+LR2dfzYFLHldZVTN9QLCvHXac89
+HdqdktXSkg01ePm4D9IXDKKxrqe+FLuIKeDf4Do9uSZ4v5kMtDuq7Jejwb3UAh3F
+1uGKqmjQ9Y2b1onmlNIdtXpLVpH7CYa88YnTgrX2m+zV+LUP9RFRs74lMBDq+yaT
+BaVzmsFmkJYRO5ux6ZkboOCqNc0thiW148rv8wE7oncPoELGK9tCV37TRnBxijFd
+1GL9il5u9//NJcqB8gnzX++RooatW5El5WV3ExGi7pFKQZCxjBXp0FPB9d2A2s7N
+5YoxLKSNwFGAYF9mrVcZuDbSqBC+SoCeYtznKbvNyqMNMAswCQYDVR0TBAIwADAL
+BglghkgBZQMEAwIDRwAwRAIgedz94iFwfHgDNn/A4MWpuYf92ES7bpdiiCmblMk+
+GO8CIECwHblDAWyM6SFLeJeHgaheIiV0FVA4F0yxoE8DEfHl
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_SSL_ECDSA256"
+        set password ENC IQOxl73AvYuRiWo+pr4zrYzjiEEd/CRbrVN9Z9BhOGqS7VHta8VnNNs3xqZB+jMTRGd8KVHmRYXh8bUhyOK8Nwj34Te5Qqt4Ddc6KTDKgm1c2+Z4LrlNDi0OsD58piqj7ELc/WWZCKzKkX5ya5OrknCygYy9DlHizqPTxwYsCe35KQHF6Cr6WUfi9ov7H1cOSOXDqw==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIHjME4GCSqGSIb3DQEFDTBBMCkGCSqGSIb3DQEFDDAcBAh2uZ53PxoPhAICCAAw
+DAYIKoZIhvcNAgkFADAUBggqhkiG9w0DBwQIUE3mOnd/dOsEgZCMbNgniiwiqNsx
+Q2FhlQAVBZrbs3ruyH+MHSeCR3Y2wqtGJ7t9wgtpvkys/d3Wb9D2A/qz5kdhgbAk
+Sck/T8Dw2OqBmfmhT6meivLnPrqu9/tEO6K/Ym3518HIw5r02mCN3IoRTEeXb2SO
+0SrfpA1XvjkvkGkQlPjiOTbV0gFRWj8O7aTvcz7+lZ5NOD90j24=
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICPjCCAeWgAwIBAgIILCAsaVVr9GIwCgYIKoZIzj0EAwIwgZ0xCzAJBgNVBAYT
+AlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAP
+BgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZH
+VDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQu
+Y29tMB4XDTE3MTEwOTE3MTc1NloXDTI3MTExMDE3MTc1NlowgZ0xCzAJBgNVBAYT
+AlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAP
+BgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZH
+VDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQu
+Y29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEjRegcBwTA9UZM4h0U1iJYk2Y
+8s3zQCW28qa1EtotdtQQfJPtgbpej90B8zhDFkPLvVqOvqoRGAiEmR5st8XVaqMN
+MAswCQYDVR0TBAIwADAKBggqhkjOPQQDAgNHADBEAiBrFOl7w+qU6yfQW8Vtqkl5
+vaiY3VBPmGRkvlWdrnaf4gIgFX02iGIMZRMqj3iXWTm8iR6FdqgCsAp67rdFKkYq
+2iU=
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "Fortinet_SSL_ECDSA384"
+        set password ENC qR8xRhbpzOS/M1tITHes9lcV15F6Hd+mQMn5FWOILORFGAVowK0kgFD0jOFt6MMhOu+I3M+qOGOd+tWQqpnaHnkYFAq4yBLolcZchMMY+JG4PwOX/2g2ne2wIYXN+qun17ZjTWsgg9qOKN7cD5z1nqJf1t76cWFsle2zHyHTvbgBKPW0vvrjsbOMHBg4ZZSKhof75w==
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIBEzBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIZ35aq0hJOccCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECLTBc7dizDQ4BIHAFv41e7ewniEf
+kFqHo6SZkHKqEwkVxnsbntcioj35HK9AYVJ1AVRfymFBdTLZ29vdm6BDyb8wkseR
+bdzmFDSrKiV1FAz2zqMtUwSHonvJVBUVMLVYigFHxcgKABuhR+ZxBDQyBbAgQUlC
+W0uvRAjv3gc5UKOGWGrHh00bifshtKB6NxLlDtv6B6Hf6RzoE0jLb76Qmfv9SuVD
+rMtAJwpPo+bVR2reZlfwwfP2RwTZiN1nsNHgp9LPQBqSdZYiuotv
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIICfDCCAgKgAwIBAgIIEVvCEpBT3nUwCgYIKoZIzj0EAwIwgZ0xCzAJBgNVBAYT
+AlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAP
+BgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZH
+VDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQu
+Y29tMB4XDTE3MTEwOTE3MTc1NloXDTI3MTExMDE3MTc1NlowgZ0xCzAJBgNVBAYT
+AlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRIwEAYDVQQHDAlTdW5ueXZhbGUxETAP
+BgNVBAoMCEZvcnRpbmV0MRIwEAYDVQQLDAlGb3J0aUdhdGUxGTAXBgNVBAMMEEZH
+VDZIRDM5MTc4MDM0NjYxIzAhBgkqhkiG9w0BCQEWFHN1cHBvcnRAZm9ydGluZXQu
+Y29tMHYwEAYHKoZIzj0CAQYFK4EEACIDYgAEDRNSu1jcm/9yoEjXtsW+a8oLtTVQ
+7+Jdj+/+JDjoTV6GGUz4Ct2WPSSL5lOv7BgWonC/dfYLTzAMEXusgNqanhXdfndT
+qz7qdaYFBQg3PZ0LKyLSpJlL0wP1wWpTw+O+ow0wCzAJBgNVHRMEAjAAMAoGCCqG
+SM49BAMCA2gAMGUCMQC44abZk085WgdkakuRMSt+OIj0TvmIBcHEMU+XZ2JoG/fq
+2QvUN9W3n2MtIiHH3osCMDvcG9n0wIxzTQFkuUyxF3KYwaGZdLCzAK2hgTd3L6eB
+LRPtpLVZHtexmv339fsPmA==
+-----END CERTIFICATE-----"
+        set source factory
+        set last-updated 1516618041
+    next
+    edit "HA Test Cert"
+        set password ENC ZlTnweA3z3R83Ua46NY6BelnWdY8utSWnjR+CtYtiojAh1bho4Krwu01M3M1UTsnkxC1FAnm8qPvUN/KFYDx5vOQE0qS6iPjOiTThTSS1DwTSEjr1BZ1McGOv9dWEiHZn6xgL9nayUhG9KmWI2CjllOuhIe/NxmicxbPexi852r+36Ju9jqmfWPmxuUMFkGFdd96pQ==
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQILq/ZmaDDot8CAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECHj98+GzBOYwBIIEyHVQJBs+C3g1
+8Aia8ZqXuqegA3fz2JmaIX0MLLL8EVIflLTFgI1Qp6IOVSZ5zME64v6do5M/PiVw
+krNJLSDbk9+E7/1LAaR0nlsSNjKyxoq43UckU3KCQ4b1tAHra+hPjBFQWSSkyT3y
+BKHGbs5aZo9fJLJ8zAJ80v2+503EpyXLIo3acsyLZA+9Q/3L0ml7d+38wM54TxxS
+9Xdr8YAD0KjnpRrlFEZbMB0uN/8yEW7ff7+eQjMYMO8Q+aM/6nJtH+ajL2KpPRDr
+ltzR6XHoFvFecXeiNPm4vf2ZijaY7TnsTRyV6aA76OBt9OpEj72jy/kFp0Jr8fAV
+J7oUirchkWedAfDtrIePLi0t7wfWp4kRMrvOpsebtbjt1l07XvfQTmdy8ZN15Bwz
+uZBYYMMNvv8u74hQvBWVYrNQ7caoTUnYdSggYEo9GxUR9Y7tlMgKbdiT81v8hdOf
+zDXZHnrWbOhbJxwcW68RRSMVQ9o0ZsO04HKVCCVLRunSN+Jak7fzzj/bZ8nAvHOE
+aGa7KLA4T6McJM99gCY6FwpYXkM2AB4BZhUdliQUMLqT6WPB+KShtWf3OWwP2Yy+
+GGOR7T9W+hTsRR/TpJFLT5mKcBAmcka0Y5mdJ/yHIk7TXEK7H2toUsmkZ26dCfgG
+NHZMUAyRRcu5TvbbXp7dwwOUn+I6cPz/uRjQBM/3lmp/WMvUKgh/fq3fPBPsWAYu
+/KyaAi3evfNeoHlcxdgdc/CVFNGEQmo+h+RaGh9YfLDeMTVdShNuH60HmNXoocv6
+QXIGJ5hIY28oqcfU975Yh9hCfO98VM+3FB3DZ8kr7rCnpAvLXix3ONP+/4Ijqgg2
+5h/bs9wULd5Y9z/l49y63sZ2S9AksRn8xrF4+j0xD+1sQCxNol/zvW4wV4MHyEBE
+v6G5deKQlK/7hOMe46SeMrHqrz5VsKnKVhQ/0lClobgFumjBGXTBJuxjqibw7+Ac
+yYAvjxNP43ewPlf6yg6mMw7fTjG40lOchqU16ichVWyJNAqFikaHMveHEww5bKpw
+DTVrHOx+anxDKvYuWK4+ZfoHTosnNvZ5Q/U1ceYYh0fFZdwXbbR8Cmx3yP8OEspb
+oJAEMKmNBNvP4wwPXG7IXuCQTjqcgfx+ITUF6+EtMyfy2/PGGsUSbkX74oBKHnJA
+jDc/e+k066EMLRilIq2nj484CsKBcO89XOwvStG2hEOt3dyn8YcZL+oa4l3nMzMw
+w7j6249e2JaFx+74BNfCj9sLBU3KF2NjWHSYMDI6o4s6eY2GWeyHCxSXw3pwH4xz
+RIJs0T0BpUvXLJCqz4HZv/Wimv/5ZQytKqTQTM7l4LIaeFfhE9TunPtOEi5VEqEw
+FoBlTbaPxotzieUq4JROP2NmE3XIdR/eeLpFOKrHKWtD1cLpedVvAGNwcX1dL/hR
+ERgREUfAZWw0rX3vQArHBcoQoGQhOX+7PJBdPE3M8Gxa1aLa6teEwMBl1n/1XB6p
+gt2QbK0V4GcYETALcVY52MYUuC+yANqEk0vQGlWzHp8KcCjYPYdL520HKDN3OLaZ
+i1K96SlWRlhcRs9YpPoTSd3ZqL8FrqXOSsoYeB/9Vin4Op7ll6w4QcQtqnj6WXKH
+EnC7/nU4Ol5ETNFC1X7dYA==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIGaDCCBVCgAwIBAgIUAkD6tE1zugI24Ipe54fHwooGqsEwDQYJKoZIhvcNAQEL
+BQAwfDELMAkGA1UEBhMCSEsxEjAQBgNVBAgTCUhvbmcgS29uZzESMBAGA1UEBxMJ
+SG9uZyBLb25nMRYwFAYDVQQKEw1Ib25na29uZyBQb3N0MS0wKwYDVQQDEyRIb25n
+a29uZyBQb3N0IFRyaWFsIGUtQ2VydCBDQSAxIC0gMTUwHhcNMTgwNjA1MDIxMTQ0
+WhcNMTkwNjA1MDIxMTQ0WjCB3jELMAkGA1UEBhMCSEsxEjAQBgNVBAgTCUhvbmcg
+S29uZzESMBAGA1UEBxMJSG9uZyBLb25nMR4wHAYDVQQKExVTVC4gVEVSRVNBJ1Mg
+SE9TUElUQUwxEzARBgNVBAsTCjAwMDEzMDY3NTAxITAfBgNVBAsTGDAwMDAwMDAw
+MDAwMDAwMDAwMDYwOTEyNjEsMCoGA1UECxMjSG9uZ2tvbmcgUG9zdCBUcmlhbCBl
+LUNlcnQgKFNlcnZlcikxITAfBgNVBAMTGHN0aGZ3LXRlc3QtaGEuc3RoLm9yZy5o
+azCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANVzvLqgr1m+/EFaoBpo
+yq0gNPDFaq2rckYucDAVqffolLfCoq7zjzdp7OAHaUWsMw4lMECN6yYMjYXpdkw5
+ywiWyIC/Wly1XjdCRsp4pOlUGl7zKWHIyrDfE2Ud5p4iP4Duc6KJqhPKkQ8cyZHI
+sUkXVCyBelsh6GOKHV97nzL/U+HduB7N6LNiwnOzVHqW42KXYOGnSrZPgU0FbHzm
+54P5RMg9+yvCpr8dQ4VMMljd0zk4ZAinhBLhx/tKNvyvCSZwQY9mp2RmH9rnzsQW
+Em5s3TFM4t1xyrHZ+4O/pWeynBUXvlQXQmaYJaL60ciYmvGpQHRQxcOer4cFpiru
+Pd0CAwEAAaOCAn0wggJ5MG8GA1UdIARoMGYwMwYKKwYBBAH9HgEHATAlMCMGCCsG
+AQUFBwIBFhd3d3cuaG9uZ2tvbmdwb3N0Lmdvdi5oazAvBgZngQwBAgIwJTAjBggr
+BgEFBQcCARYXd3d3Lmhvbmdrb25ncG9zdC5nb3YuaGswIwYDVR0RBBwwGoIYc3Ro
+ZnctdGVzdC1oYS5zdGgub3JnLmhrMAkGA1UdEwQCMAAwgYoGCCsGAQUFBwEBBH4w
+fDBHBggrBgEFBQcwAoY7aHR0cDovL3RyaWFsd3d3MS5ob25na29uZ3Bvc3QuZ292
+LmhrL3Jvb3QvZWNlcnRfY2FfMS0xNS5jcnQwMQYIKwYBBQUHMAGGJWh0dHA6Ly90
+cmlhbG9jc3AxLmhvbmdrb25ncG9zdC5nb3YuaGswDgYDVR0PAQH/BAQDAgWgMB0G
+A1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAfBgNVHSMEGDAWgBSPhcpjYcYw
+bmRRgO/VPkumHQ3HGzBNBgNVHR8ERjBEMEKgQKA+hjxodHRwOi8vdHJpYWxjcmwx
+Lmhvbmdrb25ncG9zdC5nb3YuaGsvY3JsL2VDZXJ0Q0ExLTE1Q1JMMS5jcmwwHQYD
+VR0OBBYEFCHvwbebRMIZc8br67Asabi/rabLMIGKBgorBgEEAdZ5AgQCBHwEegB4
+AHYAsMyD5aX5fWuvfAnMKEkEhyrH6IsTLGNQt8b9JuFsbHcAAAFjzbJb+wAABAMA
+RzBFAiBrvGztI5t8mhtoXtKhcyXwyfUrukcMhtH9qRrkh4b3OAIhAM6Jo9INXj7I
+E7KKhbbirmyUmk1TvNQC3IAC108Z9QryMA0GCSqGSIb3DQEBCwUAA4IBAQBLRc4j
+563wg2yLIHmyevbWthULykLRJAtvfq4wFtDhhBC8/K/uRXjv4JelxIBhtEJg352W
+HWVu3M/BEy7ugfZhy7H29Yr/J2S4OmGUx1DUlVxYozDeuD7NLIezRxuI7Zt7DMmB
+H3i1w2OUvTyJZlkFVwc/2smO3ZCRw9pVP5FWvohLHC92rW3q36I9Q3VS3y5+x3K4
+wougcyRHLjOO5hw/IDdNqoqRK+zscQae7La19ZFQ8KopYJxnU5dDXKxUs2Yk2V/j
+XS5qtehtLun0m57mXjuZY22uq5cyoGSp8YzaoWprE4k2RU/Gj2waSCRJ4j13TTZ8
+by9+VpCskNSVWh10
+-----END CERTIFICATE-----"
+        set last-updated 1532673833
+    next
+    edit "HA Prod Cert"
+        set password ENC yk13wXuO5tiN3VdXDJ5/bSElHdOsKEFShkInsy9XcgnSQapezefeTaPx3TxOTdP/bbMG4iE25HGPPbZRFrX8Cw+xTdOWPLuhp0BtJgY2gynroCsGwZHKfRhudQSDrOo73Q5U15WIO81jzZvF+xdKdzkpqEKNjvX0daKFF6olFCCpCN/NetYjz43fhvjnAwFKpD6aNg==
+        set private-key "-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQIO+TGEFd+vAECAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECGmjq5xfqtX6BIIEyHd4BUPjPHvJ
+GNMt7TNsEJPfDs4FXThaZQ0A23h+hwh6JhhRu1srEpC/eU+gMbhG7GjGrotTT/mk
+bTeLYe4T3IgpuuulVhYyk800m5OcoRCgBF+JJGfThcKeIO35rZ4IhIFXIYXxLMY0
+Sq2DGZTQ0aJzQzg1KKUp54ounnnyjwwiLK2Q8VfnpUaBOAHj2oPOYhor+mvBRoXn
+Fdjd34q5x+tPd/rkcoIRRaUnU55LMS9b/xddB/xq3+206erXh5ZRFQs5uoNRIoIF
+YBULTGsUducieCascf2V5OFWTHFoOFh+JnrThyCTZbEmZLGJCf/QWo6FdKhwIL1H
+Q7ZbxPBUUxDGbjiK2Oag2TQ02+qwGy1omtgdPOZ7pNH3wKrVv38lCDp9wJfc+qRW
+taIrv0u0alJZkqgvWujCenYBQM/UWd4tc7hpN3ObPLxvEwgFLF3bqtcZ5hIltz8M
+s3iwMTCXACxksZPJhMU4UWLzFBXrG2iDQkHzt0j6sqO7vjmuiVSw2hQa4UDjibwy
+d64CdBMZCZHdBsC/amFr7sjeXOwfWvqKTC3YjE1y8+Pm1LxeknTOmGci/WZ3jKoK
+zoRc4/3ejAacG9X8ipd36fowleSMAzmrcuPS6hX2hT4LbDoBgbc5puvctzIC6M54
+6usOwn4K/F7+4wYCHasj0CQiO4SVdvb7/OEVqBorfPcguJTvhBnI0U6/01iR5MM3
+aiij/Y49s/EdqWUn8NTWx0z38iGXbb6/ylZy7XCiYLEFeycMuUwndkSgLsW/877O
+7vUGZOv5x2d2wzzhCWO/lbDlT2s+nThPvvL+k8G3R6YcetHP1dmiYQagfY8Mp8cV
+gviUK/YRpJcZDGDuu3edCC8Sq1sWTeUp6CtQgtBNnHN0hBCOLTgVsBBZumacagIR
+pM7S5G//zxxrtDTksn+MbIaVV/+hnFL2tQyRfirJFtUvH2Yazjwl19EsP9dFIaHl
+y3Fgbf6RB/iPmZZO9/vkbM40isc5ay0KOWAuTd6J8dWT164ydhwZ82m7cET1xZEj
+9AQieUHvvZMCfp+r9QEAbOtSVYKwLneR/0yaIFbqXN0uYyLrEd7cc7ClSIWJM2Za
+hwBUD0cufXn3C0Vh3kOwGAb0b2XpnflIu5esJpaEZG1b80K1+YKxEUAiD3jIyzN4
+G13Jeb0eQHp+y5sTSAVxZFbHCo3bea3TpEXhfdryemdl4X36HtfraLAdeTbDJ8CH
+2LxeXW3A26VSimxDX7y9xzElTMOWJuFypnB29kmwFvoHNAxh9ie4VnNJMAY7JxNS
+DEuCwQbfivkUIF28UcWUKd55JQchGSL/W810XkAuBQOQQc0o6ztVXzed+CyZsc82
+CubQ37vmyMcqWYwpYZn+yLL3qsJJgre2mmPaf8dyMsnsKBJz7DrdtMd+zOAWlh2S
+n8yElriskw1sF4Dp9xdXvnpNiMzvWcS/3TdPPYhi0MoAjhMVSoxFdsMyifcXnNpM
+qrPKVLTCe52IebBNgTrmZmMGAUCrvBov8REVEr8jTgyhMc7pu+8ZX1ViDr05Hmfd
+zJQTsSuoCbloh1EDye/Xuq2i9SXkO5A0ib7drRJntf+BYt611kQXTBY8illAQryd
+kxtoG8nl7tDCMRS1soOgGg==
+-----END ENCRYPTED PRIVATE KEY-----"
+        set certificate "-----BEGIN CERTIFICATE-----
+MIIJIjCCCAqgAwIBAgIUCOSf1cweVEHq8eGvysexoqS75GUwDQYJKoZIhvcNAQEL
+BQAwdjELMAkGA1UEBhMCSEsxEjAQBgNVBAgTCUhvbmcgS29uZzESMBAGA1UEBxMJ
+SG9uZyBLb25nMRYwFAYDVQQKEw1Ib25na29uZyBQb3N0MScwJQYDVQQDEx5Ib25n
+a29uZyBQb3N0IGUtQ2VydCBDQSAxIC0gMTUwHhcNMTgwNzI2MDYxNjMxWhcNMjAw
+NzI2MDYxNjMxWjCB2DELMAkGA1UEBhMCSEsxEjAQBgNVBAgTCUhvbmcgS29uZzES
+MBAGA1UEBxMJSG9uZyBLb25nMR4wHAYDVQQKExVTVC4gVEVSRVNBJ1MgSE9TUElU
+QUwxEzARBgNVBAsTCjAwMDIxNDkwODcxITAfBgNVBAsTGDAwMDAwMDAwMDAwMDAw
+MDAwMDYwOTEyNjEmMCQGA1UECxMdSG9uZ2tvbmcgUG9zdCBlLUNlcnQgKFNlcnZl
+cikxITAfBgNVBAMTGHN0aGZ3LXByb2QtaGEuc3RoLm9yZy5oazCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAO521/mupwYPllqEPKqp8lmUe37z6X3lpSqi
++DvQ6jrS4fvNCexCkYNRDVW0GNpIx+o3xKlDkvOTZRMVSukCJBTHHZWa8TEZsNon
+miIXGW5OSikUBGerriASOSBBm+XbCAARxdEi5KgZ9k8YNaq9c4LnoGP0FFSbJBXr
+qpEJy72K4H66j1bc/h4Hn6FPj9s+lnRKHt/WuA9DOiT0liTrj+D7RZc1el3/caCz
+RQOEgnxft10puv4OLUAUdk2zNDrXyfECuPgc1dPSVfF4Q883Fc2NYwql+P9wA8my
+iSKVRnP98PZDs1jHFn+l6zIYUciveNsxWOZRJOGY72ET/WgA5R8CAwEAAaOCBUMw
+ggU/MG8GA1UdIARoMGYwMwYKKwYBBAH9HgEHATAlMCMGCCsGAQUFBwIBFhd3d3cu
+aG9uZ2tvbmdwb3N0Lmdvdi5oazAvBgZngQwBAgIwJTAjBggrBgEFBQcCARYXd3d3
+Lmhvbmdrb25ncG9zdC5nb3YuaGswIwYDVR0RBBwwGoIYc3RoZnctcHJvZC1oYS5z
+dGgub3JnLmhrMAkGA1UdEwQCMAAwgYAGCCsGAQUFBwEBBHQwcjBCBggrBgEFBQcw
+AoY2aHR0cDovL3d3dzEuaG9uZ2tvbmdwb3N0Lmdvdi5oay9yb290L2VjZXJ0X2Nh
+XzEtMTUuY3J0MCwGCCsGAQUFBzABhiBodHRwOi8vb2NzcDEuaG9uZ2tvbmdwb3N0
+Lmdvdi5oazAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsG
+AQUFBwMCMB8GA1UdIwQYMBaAFEzvd60jStZFSCjXmCz+IRpl9EodMEgGA1UdHwRB
+MD8wPaA7oDmGN2h0dHA6Ly9jcmwxLmhvbmdrb25ncG9zdC5nb3YuaGsvY3JsL2VD
+ZXJ0Q0ExLTE1Q1JMMS5jcmwwHQYDVR0OBBYEFBh1RgL6Z/BEGzezurUU1XMsK8KB
+MIIDXgYKKwYBBAHWeQIEAgSCA04EggNKA0gAdQCkuQmQtBhYFIe7E6LMZ3AKPDWY
+BPkb37jjd80OyA3cEAAAAWTVNsW4AAAEAwBGMEQCIGf6XWUQS23VKR3G+PBfqzUn
+O8hdfFJgOCsj57+5CdueAiAD9pFTANC+VEIam+HK9IJ00b7Dnupnox1Nhnu0ZeO2
+hQB1AO5Lvbd1zmC64UJpH6vhnmajD35fsHLYgwDEe4l6qP3LAAABZNU2yJ4AAAQD
+AEYwRAIgXpOfKiCBJgOCgQtAiCEidh/8nahIHEQC2bW1UcHIXEICIDyNqrCYCSnL
+QYTuk6xBQiHqpcn9xYtPIJXIIQJU4LsPAHcAu9nfvB+KcbWTlCOXqpJ7RzhXlQqr
+UugakJZkNo4e0YUAAAFk1TbKigAABAMASDBGAiEA6lqn3AmwHSDEr3lDDomnbaxL
+3UF+vgHTEyMtZ3tui/wCIQCASnEYD0yJTH+FiME02uiMqo1MPjcvWwsXUkoKiD5a
+bQB1AId1v+dZfPiMQ5lfvfNu/1aNR1Y2/0q1YMG06v9eoIMPAAABZNU206kAAAQD
+AEYwRAIgJO/4dFH3eLnhPe+PSWk3f8bfPKcH91zMYt4Ts/rM2cUCIAdrCac5bBgv
+nkVTEAoOKvonU+FnEbhLyzuydMhl7d4xAHcAb1N2rDHwMRnYmQCkURX/dxUcEdkC
+wQApBo2yCJo32RMAAAFk1TbUsAAABAMASDBGAiEA8Gjcyb2zwpBOqMu3iI5NLrfB
+rAa/vUJF6nK/TVv9+lgCIQD+W9krqu3maMtGDIpY+R0qY2SZszmQl3nTEKp6avz7
+ywB3AFWB1MIWkDYBSuoLm1c8U/DA5Dh4cCUIFy+jqh0HE9MMAAABZNU21ZYAAAQD
+AEgwRgIhAJpugJCP9zzISZ8fTuAOuvSiNQaxCs8NJrvjX00ekn04AiEAzZ/AIFzR
+Dm2gXmFrwBbdCGXAgTJN1eW3KbB1Q+XcwCgAdgBep3P531bA57U2SH3QSeAyepGa
+DIShEhKEGHWWgXFFWAAAAWTVNtofAAAEAwBHMEUCIQDLU/hdllmcRsjLqNtQF06J
+zw7XuKdx2KX2BU2iTG9F4gIgckpTuqnmkf5L+4IfLTFmekYfkD+9F4GTSjiibdez
+inkwDQYJKoZIhvcNAQELBQADggEBAFhr+4u11O3F5PhtMhqMM1O41Vq7AjtrT8e7
+/RNJH0QFx4dnSOPWvdGyUplEpYfKWY4rkBqIlTFhJFJh7vz5wCGMpgH+osXqdONr
+Hw9WyisKuEwff5hHGZRitaSPNUFM7Zh+F7sCr8uHnBe4ThMM8ck9UFEje4c3xmZU
+eogpS0X0o3L7kefgT3owtVDZI42Is8fkeZN9bmv5XuYrCMHp3mloeSZcTc6gwVMc
+7Z/whmTKZ8sQ422T3inckkobU7PC9M7FamH4/4o5aEUTKhjbzce2/z5q8mL4ilu6
+zPcpAtW5+2pIiPqcREBxZrGxslE6HRIi8xq9vWP1VsegdOKcBW0=
+-----END CERTIFICATE-----"
+        set last-updated 1540877459
+    next
+end
+config user device-category
+    edit "android-phone"
+    next
+    edit "android-tablet"
+    next
+    edit "blackberry-phone"
+    next
+    edit "blackberry-playbook"
+    next
+    edit "forticam"
+    next
+    edit "fortifone"
+    next
+    edit "fortinet-device"
+    next
+    edit "gaming-console"
+    next
+    edit "ip-phone"
+    next
+    edit "ipad"
+    next
+    edit "iphone"
+    next
+    edit "linux-pc"
+    next
+    edit "mac"
+    next
+    edit "media-streaming"
+    next
+    edit "printer"
+    next
+    edit "router-nat-device"
+    next
+    edit "windows-pc"
+    next
+    edit "windows-phone"
+    next
+    edit "windows-tablet"
+    next
+    edit "other-network-device"
+    next
+    edit "collected-emails"
+    next
+    edit "all"
+    next
+end
+config system resource-limits
+end
+config system vdom-property
+    edit "root"
+        set description "property limits for vdom root"
+        set snmp-index 1
+    next
+    edit "InternalFW"
+        set description "property limits for vdom InternalFW"
+        set snmp-index 3
+    next
+    edit "INTER_WIFI"
+        set description "property limits for vdom INTER_WIFI"
+        set snmp-index 2
+    next
+    edit "inter_wifi"
+        set description "property limits for vdom inter_wifi"
+        set snmp-index 4
+    next
+end
+config system cluster-sync
+end
+config system fortiguard
+    set port 53
+    set sdns-server-ip "208.91.112.220" 
+end
+config ips global
+end
+config log syslogd setting
+    set status enable
+    set server "192.168.10.56"
+    set facility local1
+end
+config log syslogd2 setting
+    set status enable
+    set server "192.168.10.172"
+    set facility local4
+end
+config log fortianalyzer setting
+    set status enable
+    set server "172.20.0.250"
+    set upload-option realtime
+    set reliable enable
+end
+config system email-server
+    set server "notification.fortinet.net"
+    set port 465
+    set security smtps
+end
+config system session-helper
+    edit 1
+        set name pptp
+        set protocol 6
+        set port 1723
+    next
+    edit 2
+        set name h323
+        set protocol 6
+        set port 1720
+    next
+    edit 3
+        set name ras
+        set protocol 17
+        set port 1719
+    next
+    edit 4
+        set name tns
+        set protocol 6
+        set port 1521
+    next
+    edit 5
+        set name tftp
+        set protocol 17
+        set port 69
+    next
+    edit 6
+        set name rtsp
+        set protocol 6
+        set port 554
+    next
+    edit 7
+        set name rtsp
+        set protocol 6
+        set port 7070
+    next
+    edit 8
+        set name rtsp
+        set protocol 6
+        set port 8554
+    next
+    edit 9
+        set name ftp
+        set protocol 6
+        set port 21
+    next
+    edit 10
+        set name mms
+        set protocol 6
+        set port 1863
+    next
+    edit 11
+        set name pmap
+        set protocol 6
+        set port 111
+    next
+    edit 12
+        set name pmap
+        set protocol 17
+        set port 111
+    next
+    edit 13
+        set name sip
+        set protocol 17
+        set port 5060
+    next
+    edit 14
+        set name dns-udp
+        set protocol 17
+        set port 53
+    next
+    edit 15
+        set name rsh
+        set protocol 6
+        set port 514
+    next
+    edit 16
+        set name rsh
+        set protocol 6
+        set port 512
+    next
+    edit 17
+        set name dcerpc
+        set protocol 6
+        set port 135
+    next
+    edit 18
+        set name dcerpc
+        set protocol 17
+        set port 135
+    next
+    edit 19
+        set name mgcp
+        set protocol 17
+        set port 2427
+    next
+    edit 20
+        set name mgcp
+        set protocol 17
+        set port 2727
+    next
+end
+config system auto-install
+    set auto-install-config enable
+    set auto-install-image enable
+end
+config system ntp
+    set ntpsync enable
+    set syncinterval 60
+end
+end
