@@ -1,0 +1,26 @@
+config vdom
+edit CT901CASH1
+config firewall address
+
+edit "Range_10.163.247.201-202"
+set associated-interface "I.DEV.CASHMGT"
+set type iprange
+set start-ip 10.163.247.201
+set end-ip 10.163.247.202
+next
+
+edit "Range_192.168.176.51-55"
+set associated-interface "E.UCN"
+set type iprange
+set start-ip 192.168.176.51
+set end-ip 192.168.176.55
+next
+
+edit "Range_192.168.35.21-24"
+set associated-interface "E.UCN"
+set type iprange
+set start-ip 192.168.35.21
+set end-ip 192.168.35.24
+next
+
+end

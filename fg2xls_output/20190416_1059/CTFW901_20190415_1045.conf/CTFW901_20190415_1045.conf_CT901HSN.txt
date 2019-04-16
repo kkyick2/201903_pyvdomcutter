@@ -1,0 +1,2559 @@
+config vdom
+edit CT901HSN
+config system settings
+    set sip-helper disable
+    set sip-nat-trace disable
+    set default-voip-alg-mode kernel-helper-based
+    set gui-dynamic-routing disable
+    set gui-application-control disable
+    set gui-casi disable
+    set gui-endpoint-control disable
+    set gui-vpn disable
+    set gui-wireless-controller disable
+    set gui-traffic-shaping disable
+    set gui-wan-load-balancing disable
+    set gui-antivirus disable
+    set gui-webfilter disable
+    set gui-dnsfilter disable
+    set gui-policy-learning disable
+end
+config system replacemsg-group
+    edit "default"
+        set comment "Default"
+    next
+end
+config system zone
+    edit "HSN"
+        set interface "E_HSN.3001"
+    next
+    edit "I.CASH"
+        set interface "I_CASH.3110"
+    next
+    edit "I.DEV.EMFTProxy"
+        set interface "I.DEV.EMFTP3138"
+    next
+    edit "I.CASH.CPSP901.HSN"
+        set interface "I_C.SP901.3172"
+    next
+    edit "E.EMFTProxy.HSN"
+        set interface "E_EMFTP.HSN3221"
+    next
+    edit "I.CCCG"
+        set interface "I_CCCG.3123"
+    next
+end
+config firewall address
+    edit "apple"
+        set uuid f15c7806-69c8-51e6-4a55-6010f1d2ab27
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.apple.com"
+    next
+    edit "dropbox.com"
+        set uuid f15c9e44-69c8-51e6-ada7-2a5b62202f4e
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.dropbox.com"
+    next
+    edit "Gotomeeting"
+        set uuid f15ce8fe-69c8-51e6-ba71-d6902aea8b75
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.gotomeeting.com"
+    next
+    edit "icloud"
+        set uuid f15cf196-69c8-51e6-bb99-6f98c24bc9e3
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.icloud.com"
+    next
+    edit "itunes"
+        set uuid f15cf93e-69c8-51e6-791d-a41329073d31
+        set type wildcard-fqdn
+        set wildcard-fqdn "*itunes.apple.com"
+    next
+    edit "android"
+        set uuid f15c7068-69c8-51e6-8fb1-b6166ae37b40
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.android.com"
+    next
+    edit "skype"
+        set uuid f15d08b6-69c8-51e6-a18e-8a5fd36f732a
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.messenger.live.com"
+    next
+    edit "swscan.apple.com"
+        set uuid f15d1798-69c8-51e6-0d79-855ca6149d41
+        set type fqdn
+        set fqdn "swscan.apple.com"
+    next
+    edit "update.microsoft.com"
+        set uuid f15d1f36-69c8-51e6-c2a2-4da5eaba5360
+        set type fqdn
+        set fqdn "update.microsoft.com"
+    next
+    edit "appstore"
+        set uuid f15c7fcc-69c8-51e6-820b-7de9b804eb69
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.appstore.com"
+    next
+    edit "eease"
+        set uuid f15ca5c4-69c8-51e6-edc4-3dcfc1e12f9c
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.eease.com"
+    next
+    edit "google-drive"
+        set uuid f15cc2fc-69c8-51e6-4728-9e0f54055b78
+        set type wildcard-fqdn
+        set wildcard-fqdn "*drive.google.com"
+    next
+    edit "google-play"
+        set uuid f15cca36-69c8-51e6-2e3a-6150b689cce9
+        set type fqdn
+        set fqdn "play.google.com"
+    next
+    edit "google-play2"
+        set uuid f15cd1b6-69c8-51e6-e882-c153700afb47
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.ggpht.com"
+    next
+    edit "google-play3"
+        set uuid f15cd922-69c8-51e6-4122-031c934879f7
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.books.google.com"
+    next
+    edit "microsoft"
+        set uuid f15d0122-69c8-51e6-efd9-c4d9759d8d34
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.microsoft.com"
+    next
+    edit "adobe"
+        set uuid f15c6190-69c8-51e6-ac24-a8946b870739
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.adobe.com"
+    next
+    edit "Adobe Login"
+        set uuid f15c68e8-69c8-51e6-7454-f634f2d5fe02
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.adobelogin.com"
+    next
+    edit "fortinet"
+        set uuid f15cb44c-69c8-51e6-9463-c41c0c7a5a85
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.fortinet.com"
+    next
+    edit "googleapis.com"
+        set uuid f15cbb9a-69c8-51e6-379c-77293429d52b
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.googleapis.com"
+    next
+    edit "citrix"
+        set uuid f15c96ba-69c8-51e6-e41e-b52c3f7a3730
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.citrixonline.com"
+    next
+    edit "verisign"
+        set uuid f15d26c0-69c8-51e6-64b2-55433a0321a4
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.verisign.com"
+    next
+    edit "Windows update 2"
+        set uuid f15d2f76-69c8-51e6-884e-b726919a8c97
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.windowsupdate.com"
+    next
+    edit "*.live.com"
+        set uuid 10c3ff8c-4ccf-51e6-ff29-fd99390de258
+        set type wildcard-fqdn
+        set wildcard-fqdn "*.live.com"
+    next
+    edit "auth.gfx.ms"
+        set uuid f15c8738-69c8-51e6-c61e-b32f699062ac
+        set type fqdn
+        set fqdn "auth.gfx.ms"
+    next
+    edit "autoupdate.opera.com"
+        set uuid f15c8f4e-69c8-51e6-312b-1b4cdb850a84
+        set type fqdn
+        set fqdn "autoupdate.opera.com"
+    next
+    edit "softwareupdate.vmware.com"
+        set uuid f15d1022-69c8-51e6-3c2c-4c20d60aae2e
+        set type fqdn
+        set fqdn "softwareupdate.vmware.com"
+    next
+    edit "firefox update server"
+        set uuid f15cad08-69c8-51e6-d1de-04638bd98f7f
+        set type wildcard-fqdn
+        set wildcard-fqdn "aus*.mozilla.org"
+    next
+    edit "SSLVPN_TUNNEL_ADDR1"
+        set uuid 3533f5bc-4cce-51e6-b862-64ca3aec4964
+        set type iprange
+        set start-ip 10.212.134.200
+        set end-ip 10.212.134.210
+    next
+    edit "all"
+        set uuid f15c10f0-69c8-51e6-ef57-0ffb518a9525
+    next
+    edit "NET_10.1.93.0"
+        set uuid 129d4eb8-f818-51e6-5ea9-fec0ad7a7b4d
+        set comment "OTPC OCG-EP subnet, VL101"
+        set associated-interface "I.CASH"
+        set subnet 10.1.93.0 255.255.255.0
+    next
+    edit "NET_10.1.90.0"
+        set uuid 36fab1d8-f818-51e6-e9c7-cb9b75d87a8d
+        set comment "OTPC OMDC-RTS subnet, VL102"
+        set associated-interface "I.CASH"
+        set subnet 10.1.90.0 255.255.255.0
+    next
+    edit "NET_10.186.0.0/16"
+        set uuid c49c4044-35f1-51e7-8b55-fa0391e1f251
+        set comment "HSN OCG remote host subnet"
+        set associated-interface "HSN"
+        set subnet 10.186.0.0 255.255.0.0
+    next
+    edit "NET_10.187.0.0/16"
+        set uuid e2f48024-35f1-51e7-bc0c-898802eac29b
+        set comment "HSN OCG remote host subnet"
+        set associated-interface "HSN"
+        set subnet 10.187.0.0 255.255.0.0
+    next
+    edit "NET_10.121.0.0/16"
+        set uuid ef75cb64-35f1-51e7-f72c-e54c7eda6462
+        set comment "HSN OMDC remote host subnet"
+        set associated-interface "HSN"
+        set subnet 10.121.0.0 255.255.0.0
+    next
+    edit "NET_10.134.0.0/16"
+        set uuid fb524b24-35f1-51e7-8038-29c33dd99737
+        set comment "HSN OMDC remote host subnet"
+        set associated-interface "HSN"
+        set subnet 10.134.0.0 255.255.0.0
+    next
+    edit "NET_10.185.0.0/16"
+        set uuid 06e71384-35f2-51e7-0d48-a4d28266c874
+        set comment "HSN OMDC remote host subnet"
+        set associated-interface "HSN"
+        set subnet 10.185.0.0 255.255.0.0
+    next
+    edit "Net_10.90.1.128/28"
+        set uuid eae0b9a4-9e80-51e7-28d5-0bd7d471e0fd
+        set associated-interface "HSN"
+        set subnet 10.90.1.128 255.255.255.240
+    next
+    edit "RANGE_10.163.211.211-212"
+        set uuid 3d800326-242e-51e8-fb33-b0d6faf9c47d
+        set type iprange
+        set associated-interface "I.DEV.EMFTProxy"
+        set start-ip 10.163.211.211
+        set end-ip 10.163.211.212
+    next
+    edit "NET_10.2.90.0"
+        set uuid 1f823434-59a8-51e8-8906-17aee4df8bac
+        set comment "PCCWT-OMDC-RTS subnet, VL172"
+        set associated-interface "I.CASH.CPSP901.HSN"
+        set subnet 10.2.90.0 255.255.255.0
+    next
+    edit "Net_10.1.145.0"
+        set uuid ced30ee4-2fa0-51e9-3f6c-5194bb74cbc9
+        set associated-interface "I.CCCG"
+        set subnet 10.1.145.0 255.255.255.0
+    next
+end
+config firewall multicast-address
+    edit "all"
+        set start-ip 224.0.0.0
+        set end-ip 239.255.255.255
+    next
+end
+config firewall address6
+    edit "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set uuid f15d995c-69c8-51e6-8057-4bf7d0da40eb
+        set ip6 fdff:ffff::/120
+    next
+    edit "all"
+        set uuid f15dbfb8-69c8-51e6-a2d9-44a525b85ce9
+    next
+end
+config firewall multicast-address6
+    edit "all"
+        set ip6 ff00::/8
+        set visibility disable
+    next
+end
+config firewall service category
+    edit "HKEX_USE"
+    next
+    edit "General"
+        set comment "General services."
+    next
+    edit "Web Access"
+        set comment "Web access."
+    next
+    edit "File Access"
+        set comment "File access."
+    next
+    edit "Email"
+        set comment "Email services."
+    next
+    edit "Network Services"
+        set comment "Network services."
+    next
+    edit "Authentication"
+        set comment "Authentication service."
+    next
+    edit "Remote Access"
+        set comment "Remote access."
+    next
+    edit "Web Proxy"
+        set comment "Explicit web proxy."
+    next
+end
+config firewall service custom
+    edit "webproxy"
+        set explicit-proxy enable
+        set category "Web Proxy"
+        set protocol ALL
+        set tcp-portrange 0-65535:0-65535
+    next
+    edit "SMB"
+        set category "File Access"
+        set tcp-portrange 445
+    next
+    edit "LDAP_UDP"
+        set category "Authentication"
+        set udp-portrange 389
+    next
+    edit "KERBEROS"
+        set category "Authentication"
+        set tcp-portrange 88 464
+        set udp-portrange 88 464
+    next
+    edit "SMTPS"
+        set category "Email"
+        set tcp-portrange 465
+    next
+    edit "SMTP"
+        set category "Email"
+        set tcp-portrange 25
+    next
+    edit "SAMBA"
+        set category "File Access"
+        set tcp-portrange 139
+    next
+    edit "POP3S"
+        set category "Email"
+        set tcp-portrange 995
+    next
+    edit "POP3"
+        set category "Email"
+        set tcp-portrange 110
+    next
+    edit "DCE-RPC"
+        set category "Remote Access"
+        set tcp-portrange 135
+        set udp-portrange 135
+    next
+    edit "LDAP"
+        set category "Authentication"
+        set tcp-portrange 389
+    next
+    edit "IMAPS"
+        set category "Email"
+        set tcp-portrange 993
+    next
+    edit "IMAP"
+        set category "Email"
+        set tcp-portrange 143
+    next
+    edit "HTTPS"
+        set category "Web Access"
+        set tcp-portrange 443
+    next
+    edit "HTTP"
+        set category "Web Access"
+        set tcp-portrange 80
+    next
+    edit "DNS"
+        set category "Network Services"
+        set tcp-portrange 53
+        set udp-portrange 53
+    next
+    edit "ALL"
+        set category "General"
+        set protocol IP
+    next
+    edit "TCP/22"
+        set category "HKEX_USE"
+        set tcp-portrange 22
+    next
+    edit "TCP/80,443"
+        set category "HKEX_USE"
+        set tcp-portrange 80 443
+    next
+    edit "TCP/80"
+        set category "HKEX_USE"
+        set tcp-portrange 80
+    next
+    edit "PORT_OCG_WAN"
+        set category "HKEX_USE"
+        set tcp-portrange 23000-24000 50001-50100
+    next
+    edit "ALL_ICMP"
+        set category "General"
+        set protocol ICMP
+        unset icmptype
+    next
+    edit "TCP/21"
+        set category "HKEX_USE"
+        set tcp-portrange 21
+    next
+    edit "PORT_OMDC_WAN"
+        set category "HKEX_USE"
+        set tcp-portrange 55455-55655
+    next
+    edit "TCP/10022"
+        set category "HKEX_USE"
+        set tcp-portrange 10022
+    next
+    edit "PING"
+        set category "HKEX_USE"
+        set protocol ICMP
+        set icmptype 8
+        unset icmpcode
+    next
+    edit "TCP/33100-33400"
+        set category "HKEX_USE"
+        set tcp-portrange 33100-33400
+    next
+end
+config firewall service group
+    edit "Email Access"
+        set member "DNS" "IMAP" "IMAPS" "POP3" "POP3S" "SMTP" "SMTPS"
+    next
+    edit "Web Access"
+        set member "DNS" "HTTP" "HTTPS"
+    next
+    edit "Windows AD"
+        set member "DCE-RPC" "DNS" "KERBEROS" "LDAP" "LDAP_UDP" "SAMBA" "SMB"
+    next
+    edit "Exchange Server"
+        set member "DCE-RPC" "DNS" "HTTPS"
+    next
+end
+config ips sensor
+    edit "sniffer-profile"
+        set comment "Monitor IPS attacks."
+        config entries
+            edit 1
+                set severity high critical 
+            next
+        end
+    next
+    edit "default"
+        set comment "Prevent critical attacks."
+        config entries
+            edit 1
+                set severity medium high critical 
+            next
+        end
+    next
+    edit "otpc-all"
+        set comment "otpc all signatures"
+        config entries
+            edit 1
+                set severity info low medium high critical 
+                set status enable
+                set action pass
+            next
+        end
+    next
+end
+config web-proxy global
+    set proxy-fqdn "default.fqdn"
+end
+config application list
+    edit "sniffer-profile"
+        set comment "Monitor all applications."
+        unset options
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+    edit "default"
+        set comment "Monitor all applications."
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+end
+config application casi profile
+    edit "default"
+        set comment "Monitor all applications."
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Monitor all applications."
+        config entries
+            edit 1
+                set action pass
+            next
+        end
+    next
+end
+config dlp sensor
+    edit "sniffer-profile"
+        set comment "Log a summary of email and web traffic."
+        set flow-based enable
+        set summary-proto smtp pop3 imap http-get http-post
+    next
+    edit "default"
+        set comment "Log a summary of email and web traffic."
+        set summary-proto smtp pop3 imap http-get http-post
+    next
+end
+config log threat-weight
+    config web
+        edit 1
+            set category 26
+            set level high
+        next
+        edit 2
+            set category 61
+            set level high
+        next
+        edit 3
+            set category 86
+            set level high
+        next
+        edit 4
+            set category 1
+            set level medium
+        next
+        edit 5
+            set category 3
+            set level medium
+        next
+        edit 6
+            set category 4
+            set level medium
+        next
+        edit 7
+            set category 5
+            set level medium
+        next
+        edit 8
+            set category 6
+            set level medium
+        next
+        edit 9
+            set category 12
+            set level medium
+        next
+        edit 10
+            set category 59
+            set level medium
+        next
+        edit 11
+            set category 62
+            set level medium
+        next
+        edit 12
+            set category 83
+            set level medium
+        next
+        edit 13
+            set category 72
+        next
+        edit 14
+            set category 14
+        next
+    end
+    config application
+        edit 1
+            set category 2
+        next
+        edit 2
+            set category 6
+            set level medium
+        next
+        edit 3
+            set category 19
+            set level critical
+        next
+    end
+end
+config icap profile
+    edit "default"
+    next
+end
+config vpn certificate ca
+    edit "CASH_Internal_CA"
+        set ca "-----BEGIN CERTIFICATE-----
+MIIC7jCCAdagAwIBAgIgNTNDMkYxRTQ0RTBFMjYzOEY2RDgwM0M4MzBCMjE4ODgw
+DQYJKoZIhvcNAQEFBQAwKzEWMBQGA1UEChMNRm9ydGluZXQgTHRkLjERMA8GA1UE
+AxMIRm9ydGluZXQwHhcNMTYwODE3MDcwNDA1WhcNMjYwODIyMDcwNDA1WjArMRYw
+FAYDVQQKEw1Gb3J0aW5ldCBMdGQuMREwDwYDVQQDEwhGb3J0aW5ldDCCASIwDQYJ
+KoZIhvcNAQEBBQADggEPADCCAQoCggEBAOAU8ct4rnMBiJejoL2Zb8I1SP4HMSfq
+Bl9dNFWVVWIiN9lI/Nx4iIrKwWSYkVTjNp4LQ2msR+s1IQwEp03v8xB6eiLura0N
+bZfZtELT16kvljGO4/Huv/OrrPHm6h9Pk+LJ7qyZffKdWa1qEvbv1BFrLc6uL1M1
+u+2BmA4XNZ8FVRSyO/ROT4l471Gkyn1430+uxtgV2/R89hLnMH86XoFqAdQ66GxM
+x7zDIYW9W2SdP5gyop01o9/+Mmx2gEWrYwedWxcdM5ge0iXEATJCcZXx/DYUfbMa
+u5yheVb2yO3LJny9m8078Va+WdILOqpNu6WgPgebMkiB0kjRw6lB7qECAwEAATAN
+BgkqhkiG9w0BAQUFAAOCAQEALYYq+7rX1w9Wz4Zqo8dHk2sC7bE9FJF7xTzfVGKp
+aB8vJwZ0BS0zGnMR8zB4eFDdzJ7EP0I/dcMS9Q76MDhRTeoWjZtv3RQFIs0UBSGP
+ANDb/7pB9PpuRIKSS523gal99hACKJOEUIGy8vI8JmIWUJE7AVbhi/FZ1lK248pu
+Mju8Bh8sEd9xcKIdZ9xCsCUdC5J1gA6HJdxWP117y79014gSEfJIRV8ZID/czAMN
+CmWJ+sMnpdxKsqq0lkkauiEI+zfcQIFoZoD6/jEk1bx4GbYwvt+hKyOA9+Q28z0f
+PsLv8zRThr0OjcssZGxbQIAqfNJrcFeghVjTJBgYxRpxug==
+-----END CERTIFICATE-----"
+    next
+end
+config vpn certificate local
+    edit "Fortinet_CA_SSL"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+        set source factory
+    next
+    edit "Fortinet_CA_Untrusted"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+        set source factory
+    next
+    edit "Fortinet_SSL"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+    next
+    edit "Fortinet_CA_SSLProxy"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+    next
+    edit "Fortinet_SSLProxy"
+        set range global
+    next
+end
+config user setting
+    set auth-cert "Fortinet_Factory"
+end
+config user group
+    edit "SSO_Guest_Users"
+    next
+end
+config vpn ssl settings
+    set servercert "Fortinet_Factory"
+    set port 443
+end
+config voip profile
+    edit "default"
+        set comment "Default VoIP profile."
+        config sip
+            set rtp disable
+        end
+    next
+end
+config webfilter profile
+    edit "sniffer-profile"
+        set comment "Monitor web traffic."
+        set inspection-mode flow-based
+        config ftgd-wf
+            config filters
+                edit 1
+                next
+                edit 2
+                    set category 1
+                next
+                edit 3
+                    set category 2
+                next
+                edit 4
+                    set category 3
+                next
+                edit 5
+                    set category 4
+                next
+                edit 6
+                    set category 5
+                next
+                edit 7
+                    set category 6
+                next
+                edit 8
+                    set category 7
+                next
+                edit 9
+                    set category 8
+                next
+                edit 10
+                    set category 9
+                next
+                edit 11
+                    set category 11
+                next
+                edit 12
+                    set category 12
+                next
+                edit 13
+                    set category 13
+                next
+                edit 14
+                    set category 14
+                next
+                edit 15
+                    set category 15
+                next
+                edit 16
+                    set category 16
+                next
+                edit 17
+                    set category 17
+                next
+                edit 18
+                    set category 18
+                next
+                edit 19
+                    set category 19
+                next
+                edit 20
+                    set category 20
+                next
+                edit 21
+                    set category 23
+                next
+                edit 22
+                    set category 24
+                next
+                edit 23
+                    set category 25
+                next
+                edit 24
+                    set category 26
+                next
+                edit 25
+                    set category 28
+                next
+                edit 26
+                    set category 29
+                next
+                edit 27
+                    set category 30
+                next
+                edit 28
+                    set category 31
+                next
+                edit 29
+                    set category 33
+                next
+                edit 30
+                    set category 34
+                next
+                edit 31
+                    set category 35
+                next
+                edit 32
+                    set category 36
+                next
+                edit 33
+                    set category 37
+                next
+                edit 34
+                    set category 38
+                next
+                edit 35
+                    set category 39
+                next
+                edit 36
+                    set category 40
+                next
+                edit 37
+                    set category 41
+                next
+                edit 38
+                    set category 42
+                next
+                edit 39
+                    set category 43
+                next
+                edit 40
+                    set category 44
+                next
+                edit 41
+                    set category 46
+                next
+                edit 42
+                    set category 47
+                next
+                edit 43
+                    set category 48
+                next
+                edit 44
+                    set category 49
+                next
+                edit 45
+                    set category 50
+                next
+                edit 46
+                    set category 51
+                next
+                edit 47
+                    set category 52
+                next
+                edit 48
+                    set category 53
+                next
+                edit 49
+                    set category 54
+                next
+                edit 50
+                    set category 55
+                next
+                edit 51
+                    set category 56
+                next
+                edit 52
+                    set category 57
+                next
+                edit 53
+                    set category 58
+                next
+                edit 54
+                    set category 59
+                next
+                edit 55
+                    set category 61
+                next
+                edit 56
+                    set category 62
+                next
+                edit 57
+                    set category 63
+                next
+                edit 58
+                    set category 64
+                next
+                edit 59
+                    set category 65
+                next
+                edit 60
+                    set category 66
+                next
+                edit 61
+                    set category 67
+                next
+                edit 62
+                    set category 68
+                next
+                edit 63
+                    set category 69
+                next
+                edit 64
+                    set category 70
+                next
+                edit 65
+                    set category 71
+                next
+                edit 66
+                    set category 72
+                next
+                edit 67
+                    set category 75
+                next
+                edit 68
+                    set category 76
+                next
+                edit 69
+                    set category 77
+                next
+                edit 70
+                    set category 78
+                next
+                edit 71
+                    set category 79
+                next
+                edit 72
+                    set category 80
+                next
+                edit 73
+                    set category 81
+                next
+                edit 74
+                    set category 82
+                next
+                edit 75
+                    set category 83
+                next
+                edit 76
+                    set category 84
+                next
+                edit 77
+                    set category 85
+                next
+                edit 78
+                    set category 86
+                next
+                edit 79
+                    set category 87
+                next
+                edit 80
+                    set category 88
+                next
+                edit 81
+                    set category 89
+                next
+            end
+        end
+    next
+    edit "default"
+        set comment "Default web filtering."
+        config ftgd-wf
+            config filters
+                edit 1
+                    set category 2
+                    set action warning
+                next
+                edit 2
+                    set category 7
+                    set action warning
+                next
+                edit 3
+                    set category 8
+                    set action warning
+                next
+                edit 4
+                    set category 9
+                    set action warning
+                next
+                edit 5
+                    set category 11
+                    set action warning
+                next
+                edit 6
+                    set category 12
+                    set action warning
+                next
+                edit 7
+                    set category 13
+                    set action warning
+                next
+                edit 8
+                    set category 14
+                    set action warning
+                next
+                edit 9
+                    set category 15
+                    set action warning
+                next
+                edit 10
+                    set category 16
+                    set action warning
+                next
+                edit 11
+                    set action warning
+                next
+                edit 12
+                    set category 57
+                    set action warning
+                next
+                edit 13
+                    set category 63
+                    set action warning
+                next
+                edit 14
+                    set category 64
+                    set action warning
+                next
+                edit 15
+                    set category 65
+                    set action warning
+                next
+                edit 16
+                    set category 66
+                    set action warning
+                next
+                edit 17
+                    set category 67
+                    set action warning
+                next
+                edit 18
+                    set category 26
+                    set action block
+                next
+            end
+        end
+    next
+end
+config webfilter search-engine
+    edit "google"
+        set hostname ".*\\.google\\..*"
+        set url "^\\/((custom|search|images|videosearch|webhp)\\?)"
+        set query "q="
+        set safesearch url
+        set safesearch-str "&safe=active"
+    next
+    edit "yahoo"
+        set hostname ".*\\.yahoo\\..*"
+        set url "^\\/search(\\/video|\\/images){0,1}(\\?|;)"
+        set query "p="
+        set safesearch url
+        set safesearch-str "&vm=r"
+    next
+    edit "bing"
+        set hostname ".*\\.bing\\..*"
+        set url "^(\\/images|\\/videos)?(\\/search|\\/async|\\/asyncv2)\\?"
+        set query "q="
+        set safesearch header
+    next
+    edit "yandex"
+        set hostname ".*\\.yandex\\..*"
+        set url "^\\/((yand|images\\/|video\\/)(search)|search\\/)\\?"
+        set query "text="
+        set safesearch url
+        set safesearch-str "&family=yes"
+    next
+    edit "youtube"
+        set hostname ".*\\.youtube\\..*"
+        set safesearch header
+    next
+    edit "baidu"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/s?\\?"
+        set query "wd="
+    next
+    edit "baidu2"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/(ns|q|m|i|v)\\?"
+        set query "word="
+    next
+    edit "baidu3"
+        set hostname "tieba\\.baidu\\.com"
+        set url "^\\/f\\?"
+        set query "kw="
+    next
+end
+config antivirus profile
+    edit "sniffer-profile"
+        set comment "Scan files and monitor viruses."
+        config http
+            set options scan
+        end
+        config ftp
+            set options scan
+        end
+        config imap
+            set options scan
+            set executables virus
+        end
+        config pop3
+            set options scan
+            set executables virus
+        end
+        config smtp
+            set options scan
+            set executables virus
+        end
+    next
+    edit "default"
+        set comment "Scan files and block viruses."
+        config http
+            set options scan
+        end
+        config ftp
+            set options scan
+        end
+        config imap
+            set options scan
+        end
+        config pop3
+            set options scan
+        end
+        config smtp
+            set options scan
+        end
+    next
+end
+config spamfilter profile
+    edit "sniffer-profile"
+        set comment "Malware and phishing URL monitoring."
+        set flow-based enable
+    next
+    edit "default"
+        set comment "Malware and phishing URL filtering."
+    next
+end
+config wanopt settings
+    set host-id "default-id"
+end
+config wanopt profile
+    edit "default"
+        set comments "Default WANopt profile."
+    next
+end
+config firewall schedule recurring
+    edit "always"
+        set day sunday monday tuesday wednesday thursday friday saturday
+    next
+end
+config firewall vip
+    edit "Dstnat_10.1.93.238-10.163.211.201"
+        set uuid 667bab1a-240e-51e8-cd42-1f88d6ebf892
+        set extip 10.1.93.238
+        set extintf "any"
+        set mappedip "10.163.211.201"
+    next
+    edit "Dstnat_10.1.93.239-10.163.211.202"
+        set uuid 668b21da-240e-51e8-3b82-29832b564d26
+        set extip 10.1.93.239
+        set extintf "any"
+        set mappedip "10.163.211.202"
+    next
+    edit "Dstnat_10.1.93.121-10.241.50.21"
+        set uuid f181aca8-5ca5-51e8-efab-6ffb7912cae0
+        set extip 10.1.93.121
+        set extintf "any"
+        set mappedip "10.241.50.21"
+    next
+    edit "Dstnat_10.1.93.122-10.241.50.22"
+        set uuid f18d90b8-5ca5-51e8-7dc2-05e78376fbd5
+        set extip 10.1.93.122
+        set extintf "any"
+        set mappedip "10.241.50.22"
+    next
+    edit "Dstnat_10.1.145.238-10.163.211.211"
+        set uuid 32755d9a-2e88-51e9-1100-9f4251584552
+        set extip 10.1.145.238
+        set extintf "any"
+        set mappedip "10.163.211.211"
+    next
+    edit "Dstnat_10.1.145.239-10.163.211.212"
+        set uuid 3280a880-2e88-51e9-5104-a603ac3533b7
+        set extip 10.1.145.239
+        set extintf "any"
+        set mappedip "10.163.211.212"
+    next
+end
+config firewall profile-protocol-options
+    edit "default"
+        set comment "All default services."
+        config http
+            set ports 80
+            unset options
+            unset post-lang
+        end
+        config ftp
+            set ports 21
+            set options splice
+        end
+        config imap
+            set ports 143
+            set options fragmail
+        end
+        config mapi
+            set ports 135
+            set options fragmail
+        end
+        config pop3
+            set ports 110
+            set options fragmail
+        end
+        config smtp
+            set ports 25
+            set options fragmail splice
+        end
+        config nntp
+            set ports 119
+            set options splice
+        end
+        config dns
+            set ports 53
+        end
+    next
+end
+config firewall ssl-ssh-profile
+    edit "deep-inspection"
+        set comment "Deep inspection."
+        config https
+            set ports 443
+        end
+        config ftps
+            set ports 990
+        end
+        config imaps
+            set ports 993
+        end
+        config pop3s
+            set ports 995
+        end
+        config smtps
+            set ports 465
+        end
+        config ssh
+            set ports 22
+        end
+        config ssl-exempt
+            edit 1
+                set fortiguard-category 31
+            next
+            edit 2
+                set fortiguard-category 33
+            next
+            edit 3
+                set fortiguard-category 87
+            next
+            edit 4
+                set type address
+                set address "apple"
+            next
+            edit 5
+                set type address
+                set address "appstore"
+            next
+            edit 6
+                set type address
+                set address "dropbox.com"
+            next
+            edit 7
+                set type address
+                set address "Gotomeeting"
+            next
+            edit 8
+                set type address
+                set address "icloud"
+            next
+            edit 9
+                set type address
+                set address "itunes"
+            next
+            edit 10
+                set type address
+                set address "android"
+            next
+            edit 11
+                set type address
+                set address "skype"
+            next
+            edit 12
+                set type address
+                set address "swscan.apple.com"
+            next
+            edit 13
+                set type address
+                set address "update.microsoft.com"
+            next
+            edit 14
+                set type address
+                set address "eease"
+            next
+            edit 15
+                set type address
+                set address "google-drive"
+            next
+            edit 16
+                set type address
+                set address "google-play"
+            next
+            edit 17
+                set type address
+                set address "google-play2"
+            next
+            edit 18
+                set type address
+                set address "google-play3"
+            next
+            edit 19
+                set type address
+                set address "microsoft"
+            next
+            edit 20
+                set type address
+                set address "adobe"
+            next
+            edit 21
+                set type address
+                set address "Adobe Login"
+            next
+            edit 22
+                set type address
+                set address "fortinet"
+            next
+            edit 23
+                set type address
+                set address "googleapis.com"
+            next
+            edit 24
+                set type address
+                set address "citrix"
+            next
+            edit 25
+                set type address
+                set address "verisign"
+            next
+            edit 26
+                set type address
+                set address "Windows update 2"
+            next
+            edit 27
+                set type address
+                set address "*.live.com"
+            next
+            edit 28
+                set type address
+                set address "auth.gfx.ms"
+            next
+            edit 29
+                set type address
+                set address "autoupdate.opera.com"
+            next
+            edit 30
+                set type address
+                set address "softwareupdate.vmware.com"
+            next
+            edit 31
+                set type address
+                set address "firefox update server"
+            next
+        end
+        set caname "Fortinet_CA_SSLProxy"
+        set certname "Fortinet_SSLProxy"
+    next
+    edit "certificate-inspection"
+        set comment "SSL handshake inspection."
+        config https
+            set ports 443
+            set status certificate-inspection
+        end
+        config ftps
+            set ports 990
+            set status disable
+        end
+        config imaps
+            set ports 993
+            set status disable
+        end
+        config pop3s
+            set ports 995
+            set status disable
+        end
+        config smtps
+            set ports 465
+            set status disable
+        end
+        config ssh
+            set ports 22
+            set status disable
+        end
+        set caname "Fortinet_CA_SSLProxy"
+        set certname "Fortinet_SSLProxy"
+    next
+end
+config waf profile
+    edit "default"
+        config signature
+            config main-class 100000000
+                set action block
+                set severity high
+            end
+            config main-class 20000000
+            end
+            config main-class 30000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 40000000
+            end
+            config main-class 50000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 60000000
+            end
+            config main-class 70000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 80000000
+                set status enable
+                set severity low
+            end
+            config main-class 110000000
+                set status enable
+                set severity high
+            end
+            config main-class 90000000
+                set status enable
+                set action block
+                set severity high
+            end
+            set disabled-signature 80080005 80200001 60030001 60120001 80080003 90410001 90410002
+        end
+        config constraint
+            config header-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config content-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config line-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config url-param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config version
+                set log enable
+            end
+            config method
+                set action block
+                set log enable
+            end
+            config hostname
+                set action block
+                set log enable
+            end
+            config malformed
+                set log enable
+            end
+            config max-cookie
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-header-line
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-url-param
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-range-segment
+                set status enable
+                set log enable
+                set severity high
+            end
+        end
+    next
+end
+config firewall policy
+    edit 2
+        set name "OCG-EP to HSN"
+        set uuid d114e384-35f2-51e7-b9e1-0faf14cbc7fc
+        set srcintf "I.CASH"
+        set dstintf "HSN"
+        set srcaddr "NET_10.1.93.0"
+        set dstaddr "NET_10.186.0.0/16"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "TCP/22" "TCP/21"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 3
+        set name "HSN to OMDC-RTS"
+        set uuid 5ad70504-36fa-51e7-c5ce-3345d0ba0876
+        set srcintf "HSN"
+        set dstintf "I.CASH"
+        set srcaddr "NET_10.185.0.0/16" "NET_10.121.0.0/16" "NET_10.134.0.0/16"
+        set dstaddr "NET_10.1.90.0"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "PORT_OMDC_WAN"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 4
+        set name "OMDC-RTS to HSN"
+        set uuid 64f46fa4-36fa-51e7-63cd-2f12d3f013ed
+        set srcintf "I.CASH"
+        set dstintf "HSN"
+        set srcaddr "NET_10.1.90.0"
+        set dstaddr "NET_10.185.0.0/16" "NET_10.121.0.0/16" "NET_10.134.0.0/16"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP"
+        set utm-status enable
+        set logtraffic all
+        set comments "Reverse of HSN to OMDC-RTS"
+        set ips-sensor "otpc-all"
+    next
+    edit 5
+        set name "Security Scanning"
+        set uuid 0b9ef7e6-9e81-51e7-2643-2aaca07af713
+        set srcintf "HSN"
+        set dstintf "I.CASH"
+        set srcaddr "Net_10.90.1.128/28"
+        set dstaddr "NET_10.1.93.0"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "PORT_OCG_WAN"
+        set utm-status enable
+        set logtraffic all
+        set comments "Clone of HSN to OCG-EP"
+        set ips-sensor "otpc-all"
+    next
+    edit 6
+        set name "Security Scanning 2"
+        set uuid 0f464124-9e81-51e7-0832-0433aa590827
+        set srcintf "I.CASH"
+        set dstintf "HSN"
+        set srcaddr "NET_10.1.93.0"
+        set dstaddr "Net_10.90.1.128/28"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "TCP/22" "TCP/21"
+        set utm-status enable
+        set logtraffic all
+        set comments "Clone of OCG-EP to HSN"
+        set ips-sensor "otpc-all"
+    next
+    edit 7
+        set name "OCG to OCG HSN ping"
+        set uuid d8a9d642-b223-51e7-619c-1526f7377b0e
+        set srcintf "I.CASH"
+        set dstintf "HSN"
+        set srcaddr "NET_10.1.93.0"
+        set dstaddr "NET_10.186.0.0/16"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 8
+        set name "OCG HSN to E2E EMFT"
+        set uuid ce3eb6e8-240e-51e8-b6b1-4c6ceacf4257
+        set srcintf "HSN"
+        set dstintf "I.DEV.EMFTProxy"
+        set srcaddr "NET_10.186.0.0/16"
+        set dstaddr "Dstnat_10.1.93.238-10.163.211.201" "Dstnat_10.1.93.239-10.163.211.202"
+        set action accept
+        set schedule "always"
+        set service "TCP/10022"
+        set utm-status enable
+        set logtraffic all
+        set comments "IT-NCR-2018-[T]1283:54"
+        set ips-sensor "otpc-all"
+    next
+    edit 9
+        set name "HSN to DR OMDC-RTS"
+        set uuid 47c4db0e-59a8-51e8-86ad-815d879cd82b
+        set srcintf "HSN"
+        set dstintf "I.CASH.CPSP901.HSN"
+        set srcaddr "NET_10.185.0.0/16" "NET_10.121.0.0/16" "NET_10.134.0.0/16"
+        set dstaddr "NET_10.2.90.0"
+        set action accept
+        set schedule "always"
+        set service "PORT_OMDC_WAN" "PING"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 10
+        set name "OMDC-RTS to HSN PING"
+        set uuid 4bc410ee-59a8-51e8-3734-25ce70242e93
+        set srcintf "I.CASH.CPSP901.HSN"
+        set dstintf "HSN"
+        set srcaddr "NET_10.2.90.0"
+        set dstaddr "NET_10.185.0.0/16" "NET_10.121.0.0/16" "NET_10.134.0.0/16"
+        set action accept
+        set schedule "always"
+        set service "PING"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 11
+        set name " HSTN to EMFT PLike"
+        set uuid f4cac9c6-5ca5-51e8-41ff-678e826a98a4
+        set srcintf "HSN"
+        set dstintf "E.EMFTProxy.HSN"
+        set srcaddr "NET_10.186.0.0/16"
+        set dstaddr "Dstnat_10.1.93.121-10.241.50.21" "Dstnat_10.1.93.122-10.241.50.22"
+        set action accept
+        set schedule "always"
+        set service "TCP/10022" "PING"
+        set utm-status enable
+        set logtraffic all
+        set comments "IT-NCR-2018-[T]1454"
+        set ips-sensor "otpc-all"
+    next
+    edit 1
+        set name "HSN to OCG-EP"
+        set uuid e4a9c8e2-cd83-51e6-bb09-7e0b4e975bee
+        set srcintf "HSN"
+        set dstintf "I.CASH"
+        set srcaddr "NET_10.186.0.0/16"
+        set dstaddr "NET_10.1.93.0"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP" "PORT_OCG_WAN"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 12
+        set name "CCCG HSN to E2E EMFT"
+        set uuid 32eaeae8-2e78-51e9-cc82-62e351f02113
+        set srcintf "HSN"
+        set dstintf "I.DEV.EMFTProxy"
+        set srcaddr "NET_10.187.0.0/16"
+        set dstaddr "Dstnat_10.1.145.238-10.163.211.211" "Dstnat_10.1.145.239-10.163.211.212"
+        set action accept
+        set schedule "always"
+        set service "PING" "TCP/10022"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 13
+        set name "TBC"
+        set uuid fa9f6450-2fa0-51e9-2cd0-217af03e7f5e
+        set srcintf "HSN"
+        set dstintf "I.CCCG"
+        set srcaddr "NET_10.187.0.0/16"
+        set dstaddr "Net_10.1.145.0"
+        set action accept
+        set schedule "always"
+        set service "TCP/33100-33400"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "otpc-all"
+    next
+    edit 999
+        set name "Explicit Deny"
+        set uuid a32e1770-2e7a-51e8-2813-7168cf5fdedb
+        set srcintf "any"
+        set dstintf "any"
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set logtraffic all
+    next
+end
+config firewall DoS-policy
+    edit 1
+        set interface "HSN"
+        set srcaddr "all"
+        set dstaddr "NET_10.1.90.0"
+        set service "ALL"
+        config anomaly
+            edit "tcp_syn_flood"
+                set status enable
+                set log enable
+                set action block
+                set threshold 1000
+            next
+            edit "tcp_port_scan"
+                set status enable
+                set log enable
+                set action block
+                set threshold 10
+            next
+            edit "tcp_src_session"
+                set status enable
+                set log enable
+                set action block
+                set threshold 3000
+            next
+            edit "tcp_dst_session"
+                set log enable
+                set action block
+                set threshold 5000
+            next
+            edit "udp_flood"
+                set status enable
+                set log enable
+                set action block
+                set threshold 3000
+            next
+            edit "udp_scan"
+                set status enable
+                set log enable
+                set action block
+                set threshold 2000
+            next
+            edit "udp_src_session"
+                set log enable
+                set action block
+                set threshold 5000
+            next
+            edit "udp_dst_session"
+                set log enable
+                set action block
+                set threshold 5000
+            next
+            edit "icmp_flood"
+                set status enable
+                set log enable
+                set action block
+                set threshold 1000
+            next
+            edit "icmp_sweep"
+                set status enable
+                set log enable
+                set action block
+                set threshold 5000
+            next
+            edit "icmp_src_session"
+                set log enable
+                set action block
+                set threshold 300
+            next
+            edit "icmp_dst_session"
+                set log enable
+                set action block
+                set threshold 1000
+            next
+            edit "ip_src_session"
+                set status enable
+                set log enable
+                set action block
+                set threshold 200
+            next
+            edit "ip_dst_session"
+                set log enable
+                set action block
+                set threshold 5000
+            next
+            edit "sctp_flood"
+                set log enable
+                set threshold 2000
+            next
+            edit "sctp_scan"
+                set log enable
+                set threshold 1000
+            next
+            edit "sctp_src_session"
+                set log enable
+                set threshold 5000
+            next
+            edit "sctp_dst_session"
+                set log enable
+                set threshold 5000
+            next
+        end
+    next
+    edit 2
+        set interface "HSN"
+        set srcaddr "all"
+        set dstaddr "NET_10.1.93.0"
+        set service "ALL"
+        config anomaly
+            edit "tcp_syn_flood"
+                set status enable
+                set log enable
+                set action block
+                set threshold 2000
+            next
+            edit "tcp_port_scan"
+                set status enable
+                set log enable
+                set action block
+                set threshold 1000
+            next
+            edit "tcp_src_session"
+                set action block
+                set threshold 5000
+            next
+            edit "tcp_dst_session"
+                set action block
+                set threshold 5000
+            next
+            edit "udp_flood"
+                set status enable
+                set log enable
+                set action block
+                set threshold 2000
+            next
+            edit "udp_scan"
+                set action block
+                set threshold 2000
+            next
+            edit "udp_src_session"
+                set action block
+                set threshold 5000
+            next
+            edit "udp_dst_session"
+                set action block
+                set threshold 5000
+            next
+            edit "icmp_flood"
+                set status enable
+                set log enable
+                set action block
+                set threshold 250
+            next
+            edit "icmp_sweep"
+                set action block
+                set threshold 100
+            next
+            edit "icmp_src_session"
+                set action block
+                set threshold 300
+            next
+            edit "icmp_dst_session"
+                set action block
+                set threshold 1000
+            next
+            edit "ip_src_session"
+                set action block
+                set threshold 5000
+            next
+            edit "ip_dst_session"
+                set action block
+                set threshold 5000
+            next
+            edit "sctp_flood"
+                set action block
+                set threshold 2000
+            next
+            edit "sctp_scan"
+                set action block
+                set threshold 1000
+            next
+            edit "sctp_src_session"
+                set action block
+                set threshold 5000
+            next
+            edit "sctp_dst_session"
+                set action block
+                set threshold 5000
+            next
+        end
+    next
+end
+config endpoint-control profile
+    edit "default"
+        config forticlient-winmac-settings
+        end
+        config forticlient-android-settings
+        end
+        config forticlient-ios-settings
+        end
+    next
+end
+config wireless-controller wids-profile
+    edit "default"
+        set comment "Default WIDS profile."
+        set ap-scan enable
+        set wireless-bridge enable
+        set deauth-broadcast enable
+        set null-ssid-probe-resp enable
+        set long-duration-attack enable
+        set invalid-mac-oui enable
+        set weak-wep-iv enable
+        set auth-frame-flood enable
+        set assoc-frame-flood enable
+        set spoofed-deauth enable
+        set asleap-attack enable
+        set eapol-start-flood enable
+        set eapol-logoff-flood enable
+        set eapol-succ-flood enable
+        set eapol-fail-flood enable
+        set eapol-pre-succ-flood enable
+        set eapol-pre-fail-flood enable
+    next
+    edit "default-wids-apscan-enabled"
+        set ap-scan enable
+    next
+end
+config wireless-controller wtp-profile
+    edit "FAPU423E-default"
+        config platform
+            set type U423E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU421E-default"
+        config platform
+            set type U421E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP423E-default"
+        config platform
+            set type 423E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP421E-default"
+        config platform
+            set type 421E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS423E-default"
+        config platform
+            set type S423E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS422E-default"
+        config platform
+            set type S422E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS421E-default"
+        config platform
+            set type S421E
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS323CR-default"
+        config platform
+            set type S323CR
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS322CR-default"
+        config platform
+            set type S322CR
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS321CR-default"
+        config platform
+            set type S321CR
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS313C-default"
+        config platform
+            set type S313C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11ac
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAPS311C-default"
+        config platform
+            set type S311C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11ac
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAPS323C-default"
+        config platform
+            set type S323C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS322C-default"
+        config platform
+            set type S322C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS321C-default"
+        config platform
+            set type S321C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP321C-default"
+        config platform
+            set type 321C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11ac
+            set vap-all disable
+        end
+    next
+    edit "FAP223C-default"
+        config platform
+            set type 223C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11ac
+            set vap-all disable
+        end
+    next
+    edit "FAP112D-default"
+        config platform
+            set type 112D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP24D-default"
+        config platform
+            set type 24D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP21D-default"
+        config platform
+            set type 21D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FK214B-default"
+        config platform
+            set type 214B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP224D-default"
+        config platform
+            set type 224D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11n
+            set vap-all disable
+        end
+    next
+    edit "FAP222C-default"
+        config platform
+            set type 222C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11ac
+            set vap-all disable
+        end
+    next
+    edit "FAP25D-default"
+        config platform
+            set type 25D
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP221C-default"
+        config platform
+            set type 221C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11ac
+            set vap-all disable
+        end
+    next
+    edit "FAP320C-default"
+        config platform
+            set type 320C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11ac
+            set vap-all disable
+        end
+    next
+    edit "FAP28C-default"
+        config platform
+            set type 28C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP223B-default"
+        config platform
+            set type 223B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11n
+            set vap-all disable
+        end
+    next
+    edit "FAP14C-default"
+        config platform
+            set type 14C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP11C-default"
+        config platform
+            set type 11C
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP320B-default"
+        config platform
+            set type 320B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11n
+            set vap-all disable
+        end
+    next
+    edit "FAP112B-default"
+        config platform
+            set type 112B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP222B-default"
+        config platform
+            set type 222B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11n-5G
+            set vap-all disable
+        end
+    next
+    edit "FAP210B-default"
+        config platform
+            set type 210B
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+            set vap-all disable
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+    edit "FAP220B-default"
+        set ap-country US
+        config radio-1
+            set band 802.11n-5G
+            set vap-all disable
+        end
+        config radio-2
+            set band 802.11n
+            set vap-all disable
+        end
+    next
+    edit "AP-11N-default"
+        config platform
+            set type AP-11N
+        end
+        set ap-country US
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set mode disabled
+        end
+    next
+end
+config log memory setting
+    set status disable
+end
+config log disk setting
+    set status disable
+    set log-quota 100
+end
+config log eventfilter
+    set vpn disable
+    set wireless-activity disable
+    set wan-opt disable
+    set endpoint disable
+    set compliance-check disable
+end
+config log null-device setting
+    set status disable
+end
+config log setting
+    set fwpolicy-implicit-log enable
+    set log-invalid-packet enable
+    set local-in-allow enable
+    set local-in-deny-unicast enable
+    set local-in-deny-broadcast enable
+    set local-out enable
+end
+config log gui-display
+    set resolve-hosts disable
+    set resolve-apps disable
+    set fortiview-unscanned-apps enable
+    set fortiview-local-traffic enable
+end
+config router rip
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ripng
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router static
+    edit 1
+        set dst 10.1.93.0 255.255.255.0
+        set gateway 10.90.3.54
+        set device "I_CASH.3110"
+        set comment "Spine EVRCASH OCG-EP, VL101"
+    next
+    edit 2
+        set dst 10.1.90.0 255.255.255.0
+        set gateway 10.90.3.54
+        set device "I_CASH.3110"
+        set comment "Spine EVRCASH OMDC-RTS, VL102"
+    next
+    edit 3
+        set dst 10.1.89.0 255.255.255.0
+        set gateway 10.90.3.54
+        set device "I_CASH.3110"
+        set comment "Spine EVRCASH OMDC-SH, VL103"
+    next
+    edit 4
+        set dst 10.1.91.0 255.255.255.0
+        set gateway 10.90.3.54
+        set device "I_CASH.3110"
+        set comment "Spine EVRCASH OMDC-BP, VL104"
+    next
+    edit 5
+        set dst 10.2.93.0 255.255.255.0
+        set gateway 10.90.3.54
+        set device "I_CASH.3110"
+        set comment "Spine EVRCASH PCCWT-OCG-EP, VL171"
+    next
+    edit 6
+        set dst 10.2.90.0 255.255.255.0
+        set gateway 10.91.3.54
+        set device "I_C.SP901.3172"
+        set comment "Spine EVRCASH PCCWT-OMDC-RTS, VL172"
+    next
+    edit 7
+        set dst 10.2.89.0 255.255.255.0
+        set gateway 10.90.3.54
+        set device "I_CASH.3110"
+        set comment "Spine EVRCASH PCCWT-OMDC-SH, VL173"
+    next
+    edit 8
+        set dst 10.2.91.0 255.255.255.0
+        set gateway 10.90.3.54
+        set device "I_CASH.3110"
+        set comment "Spine EVRCASH PCCWT-OMDC-BP, VL174"
+    next
+    edit 9
+        set dst 10.186.0.0 255.255.0.0
+        set gateway 10.90.1.134
+        set device "E_HSN.3001"
+        set comment "HSN OCG remote host subnet"
+    next
+    edit 10
+        set dst 10.187.0.0 255.255.0.0
+        set gateway 10.90.1.134
+        set device "E_HSN.3001"
+        set comment "HSN CCCG remote host subnet"
+    next
+    edit 11
+        set dst 10.121.0.0 255.255.0.0
+        set gateway 10.90.1.134
+        set device "E_HSN.3001"
+        set comment "HSN OMDC remote host subnet"
+    next
+    edit 12
+        set dst 10.134.0.0 255.255.0.0
+        set gateway 10.90.1.134
+        set device "E_HSN.3001"
+        set comment "HSN OMDC remote host subnet"
+    next
+    edit 13
+        set dst 10.185.0.0 255.255.0.0
+        set gateway 10.90.1.134
+        set device "E_HSN.3001"
+        set comment "HSN OMDC remote host subnet"
+    next
+    edit 14
+        set dst 10.163.211.0 255.255.255.0
+        set gateway 10.90.1.94
+        set device "I.DEV.EMFTP3138"
+    next
+    edit 16
+        set dst 10.241.50.0 255.255.255.0
+        set gateway 10.90.2.102
+        set device "E_EMFTP.HSN3221"
+        set comment "EMFT Plike"
+    next
+    edit 17
+        set dst 10.1.145.0 255.255.255.0
+        set gateway 10.90.3.206
+        set device "I_CCCG.3123"
+    next
+end
+config router ospf
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ospf6
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router bgp
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "static"
+    end
+    config redistribute "isis"
+    end
+    config redistribute6 "connected"
+    end
+    config redistribute6 "rip"
+    end
+    config redistribute6 "ospf"
+    end
+    config redistribute6 "static"
+    end
+    config redistribute6 "isis"
+    end
+end
+config router isis
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "static"
+    end
+end
+config router multicast
+end
+end

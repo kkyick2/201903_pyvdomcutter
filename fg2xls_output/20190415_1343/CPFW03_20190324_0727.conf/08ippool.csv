@@ -1,6 +1,0 @@
-vdom,name,type,startip,endip,source-startip,source-endip
-CP03CASH2,Srcnat_10.2.90.241-10.170.16.241,fixed-port-range,10.170.16.241,10.170.16.241,10.2.90.241,10.2.90.241
-CP03CASH2,Srcnat_10.2.90.83-10.170.16.42,fixed-port-range,10.170.16.42,10.170.16.42,10.2.90.83,10.2.90.83
-CP03CASH2,Srcnat_10.2.90.82 -10.170.16.41,fixed-port-range,10.170.16.41,10.170.16.41,10.2.90.82,10.2.90.82
-CP03CASH2,Srcnat_10.2.94.114-10.2.93.10,one-to-one,10.2.93.10,10.2.93.10,,
-CP03CASH2,Srcnat_10.241.150.241-10.2.93.243,one-to-one,10.2.93.243,10.2.93.243,,

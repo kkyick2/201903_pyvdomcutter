@@ -387,6 +387,7 @@ def gen_conf_policy(dictList, keys, vdom):
                         # edit <id>
                         elif key == 'id':
                             write_row(outF, 'edit ' + str(policydict[key]) + NEXTLINE)
+
                         # <name> and <comments> line add ""
                         elif key == 'name' or key == 'comments':
                             # remove object's next line and space from xls
@@ -405,7 +406,19 @@ def gen_conf_policy(dictList, keys, vdom):
                                     string = '"' + obj + '"'
                                 else:
                                     string = string + ' "' + obj + '"'
-                            write_row(outF, 'set ' + str(key) + ' ' + string + ''+ NEXTLINE)
+                            write_row(outF, 'set ' + str(key) + ' "' + string + '"'+ NEXTLINE)
+                        elif key == 'schedule':
+                            string = "always"
+                            write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
+                        elif key == 'utm-status':
+                            string = "enable"
+                            write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
+                        elif key == 'logtraffic':
+                            string = "all"
+                            write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
+                        elif key == 'ips-sensor':
+                            string = "otpc-all"
+                            write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
                         else:
                             write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"' + NEXTLINE)
                 # End of each policy [next]
@@ -663,13 +676,13 @@ def start(bas, req, vdom):
 
 
 if __name__ == "__main__":
-    '''
-    bas_conf = 'CTFW03_20190324_0727.conf.xlsx'
-    req_conf = 'CT03CASH2_20190328a.xlsx'
-    vdom = 'CT03CASH2'
+
+    bas_conf = 'CTFW901_20190415_1045.conf.xlsx'
+    req_conf = 'OTPC_FWrule_Dev.CT901CASH1_20190416.xlsx'
+    vdom = 'CT901CASH1'
     '''
     bas_conf = 'CPFW03_20190324_0727.conf.xlsx'
     req_conf = 'CP03CASH2_20190328a.xlsx'
     vdom = 'CP03CASH2'
-
+    '''
     start(bas_conf, req_conf, vdom)
