@@ -406,7 +406,7 @@ def gen_conf_policy(dictList, keys, vdom):
                                     string = '"' + obj + '"'
                                 else:
                                     string = string + ' "' + obj + '"'
-                            write_row(outF, 'set ' + str(key) + ' "' + string + '"'+ NEXTLINE)
+                            write_row(outF, 'set ' + str(key) + ' ' + string + ''+ NEXTLINE)
                         elif key == 'schedule':
                             string = "always"
                             write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
