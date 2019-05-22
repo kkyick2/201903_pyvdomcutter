@@ -18,11 +18,71 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="931459323">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="py" value="1" />
+          <entry key="txt" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Python" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="646" />
+          <entry key="txt" value="32" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="32" />
+          <entry key="Python" value="646" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="201903_pyvdomcutter" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fgconfgen_main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="749" lean-forward="true" selection-start-line="749" selection-end-line="749" />
+              <folding>
+                <element signature="e#48#57#0" expanded="true" />
+                <element signature="e#245#506#0" />
+                <element signature="e#538#608#0" />
+                <element signature="e#645#943#0" />
+                <element signature="e#976#991#0" />
+                <element signature="e#1019#1097#0" />
+                <element signature="e#1522#4001#0" />
+                <element signature="e#4053#6359#0" />
+                <element signature="e#6437#9151#0" />
+                <element signature="e#13884#18285#0" />
+                <element signature="e#18326#20559#0" />
+                <element signature="e#20614#24391#0" />
+                <element signature="e#26839#31020#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,15 +148,18 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="width" value="960" />
-    <option name="height" value="1050" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="723" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -104,11 +167,15 @@
               <item name="201903_pyvdomcutter" type="b2602c69:ProjectViewProjectNode" />
               <item name="201903_pyvdomcutter" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="201903_pyvdomcutter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="201903_pyvdomcutter" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -453,10 +520,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="960" height="1050" extended-state="0" />
+    <frame x="-8" y="-8" width="1296" height="723" extended-state="6" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.1724512" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.1263911" />
       <window_info id="Structure" order="2" weight="0.018028846" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.50052685" side_tool="true" weight="0.17148982" />
       <window_info anchor="bottom" id="Application Servers" order="1" />
@@ -465,7 +532,7 @@
       <window_info anchor="bottom" id="Terminal" order="4" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32690248" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.43729553" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.4187279" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.39917696" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -483,6 +550,9 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/fgpoliciestocsv/README.md" />
@@ -677,26 +747,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="560">
           <caret line="102" selection-start-line="102" selection-end-line="102" />
-          <folding>
-            <element signature="e#48#57#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/update.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        <state relative-caret-position="90">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/fgconfgen_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="420" column="33" selection-start-line="420" selection-start-column="33" selection-end-line="420" selection-end-column="33" />
+        <state relative-caret-position="413">
+          <caret line="749" lean-forward="true" selection-start-line="749" selection-end-line="749" />
           <folding>
             <element signature="e#48#57#0" expanded="true" />
             <element signature="e#245#506#0" />
+            <element signature="e#538#608#0" />
+            <element signature="e#645#943#0" />
+            <element signature="e#976#991#0" />
+            <element signature="e#1019#1097#0" />
+            <element signature="e#1522#4001#0" />
+            <element signature="e#4053#6359#0" />
+            <element signature="e#6437#9151#0" />
+            <element signature="e#13884#18285#0" />
+            <element signature="e#18326#20559#0" />
+            <element signature="e#20614#24391#0" />
+            <element signature="e#26839#31020#0" />
           </folding>
         </state>
       </provider>

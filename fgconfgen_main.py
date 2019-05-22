@@ -62,6 +62,22 @@ def remove_dup_list(l):
     return returnList
 
 
+def get_dup_list(l):
+    """
+        return a List with all duplicate elements
+    """
+    returnList = []
+    duplicatelist = []
+    # Iterate over the original list and for each element
+    # add it to uniqueList, if its not already there.
+    for elem in l:
+        if elem not in returnList:
+            returnList.append(elem)
+        else:
+            duplicatelist.append(elem)
+    return duplicatelist
+
+
 # Functions for convent xls to List
 def xls2_policy_list(infile, sheet, vdom):
     """
@@ -199,29 +215,33 @@ def raw2_uniq_list(key, req_poli):
 
     # loop for each policy
     for dict in req_poli:
-        # temp list to hold the key element, eg, addr objects
-        temp = str(dict[key]).split()
-        # print 'temp: ' + str(temp)
-        for i in temp:
-            # print 'i: ' + str(i)
-            # Type1: append each element to the raw List
-            rawList.append(i)
-            # Type2: if the key is srcaddr/dstaddr, we have to map it's associated interface
-            if 'srcaddr' in key:
-                rawDict['addr'] = i
-                rawDict['asso_int'] = dict['srcintf']
-                rawDictList.append(rawDict)
-                rawDict = {}
-                #print 'ykkList: ' + str(ykk_List)
-                #print 'rawList: ' + str(req_rawList)
-            elif 'dstaddr' in key:
-                rawDict['addr'] = i
-                rawDict['asso_int'] = dict['dstintf']
-                rawDictList.append(rawDict)
-                rawDict = {}
-                #print 'ykkList: ' + str(ykk_List)
-                #print 'rawList: ' + str(req_rawList)
-
+        if 'name' in key:
+            temp = str(dict[key]) # there may space with the name, no need split
+            # print 'temp: ' + str(temp)
+        else:
+            # temp list to hold the key element, eg, addr objects
+            temp = str(dict[key]).split()
+            # print 'temp: ' + str(temp)
+            # There are multi-objects in 'srcaddr' and 'dstaddr', eg, 'Host_192.168.166.27', 'Host_192.168.166.42'
+            for i in temp:
+                # print 'i: ' + str(i)
+                # Type1: append each element to the raw List
+                rawList.append(i)
+                # Type2: if the key is srcaddr/dstaddr, we have to map it's associated interface
+                if 'srcaddr' in key:
+                    rawDict['addr'] = i
+                    rawDict['asso_int'] = dict['srcintf']
+                    rawDictList.append(rawDict)
+                    rawDict = {}
+                    #print 'ykkList: ' + str(ykk_List)
+                    #print 'rawList: ' + str(req_rawList)
+                elif 'dstaddr' in key:
+                    rawDict['addr'] = i
+                    rawDict['asso_int'] = dict['dstintf']
+                    rawDictList.append(rawDict)
+                    rawDict = {}
+                    #print 'ykkList: ' + str(ykk_List)
+                    #print 'rawList: ' + str(req_rawList)
 
     uniqDictList = remove_dup_list(rawDictList)
     uniqList = remove_dup_list(rawList)
@@ -231,6 +251,44 @@ def raw2_uniq_list(key, req_poli):
     # print('*****Dict: {}, b4 remove duplicate: {} in xls, after remove duplicate: {}'.format(key,len(rawDictList),len(uniqDictList)))
     logger1.info('end')
     return uniqList, uniqDictList
+
+
+def analyze_dup_policy_name(key, bas_l, req_l):
+    """
+        @param:
+                key: key of the operation string, eg,name
+                bas_l: baseline obj in List
+                req_l: requirement obj in List
+        @return
+                missingObjList: find the requirement missing obj in baseline, return in list
+    """
+    logger1 = logger.logger().get()
+    print('--- [' + key + '] ----------------------------------------------------------')
+    print('start: analyze_dup_policy_name: (key,bas_len,req_len) is ({},{},{})'.format(key,len(bas_l),len(req_l)))
+    logger1.info('start: analyze_dup_policy_name: (key,bas_len,req_len) is ({},{},{})'.format(key,len(bas_l),len(req_l)))
+
+    dupNameL = []
+    dupNameL = get_dup_list(bas_l + req_l)
+    dupNameL_wo_None = []
+    for i in dupNameL:
+        if i is None:
+            # print i
+            continue
+        else:
+            dupNameL_wo_None.append(i)
+            print '///// Found duplicate Policy Name: {}'.format(i)
+
+    # analyze result
+    # logger1.debug('baseline obj: {}'.format(bas_List))
+    # logger1.debug('reqiremt obj: {}'.format(req_uniqList))
+    logger1.info('*** No of obj in (key,baseline,req,duplicate) is ({},{},{},{})'.format(key,len(bas_l),len(req_l),len(dupNameL_wo_None)))
+    logger1.info('end')
+    # print('*** baseline obj: {}'.format(bas_List))
+    # print('*** reqiremt obj: {}'.format(req_uniqList))
+    print('*** No of obj in (key,baseline,req,duplicate) is ({},{},{},{})'.format(key,len(bas_l),len(req_l),len(dupNameL_wo_None)))
+    print('-------------------------------------------------------------------------------')
+    print('')
+    return dupNameL_wo_None
 
 
 def analyze_bas_mis_obj(key, bas_l, req_l):
@@ -253,7 +311,7 @@ def analyze_bas_mis_obj(key, bas_l, req_l):
             continue
         else:
             missingObjList.append(i)
-            print 'Item not in baseline: {}'.format(i)
+            print '///// Item not in baseline: {}'.format(i)
 
     # analyze result
     # logger1.debug('baseline obj: {}'.format(bas_List))
@@ -334,7 +392,7 @@ def analyze_bas_mis_route(key, bas_l, req_l):
             # print 'route in baseline: {} in {}'.format(str(req), str(routeitem))
             continue
         else:
-            print 'route not in baseline: {}'.format(str(req))
+            print '///// route not in baseline: {}'.format(str(req))
             mis_route.append(req)
 
     logger1.info('*** No of address missing route is ({})'.format(len(mis_route)))
@@ -609,6 +667,7 @@ def start(bas, req, vdom):
     bas_rout = xls2_obj_list(bas_conf_path, '03route', vdom, 'dst')
     bas_addr = xls2_obj_list(bas_conf_path, '04addr', vdom, 'name')
     bas_serv = xls2_obj_list(bas_conf_path, '06service', vdom, 'name')
+    bas_name = xls2_obj_list(bas_conf_path, '07policy', vdom, 'name')
     print('')
 
     # requirement, xls to List elements
@@ -616,9 +675,16 @@ def start(bas, req, vdom):
     req_poli, keys = xls2_policy_list(req_conf_path, req_conf_sheet, vdom)
     print('')
 
-    # B---analyze baseline missing obj
+    # B---analyze duplicate policy name / baseline missing obj
     print('==================================================================================')
-    print('=================== Task B1: Missing object in baseline ==========================')
+    print('=================== Task B1: Duplicate policy name ===============================')
+    # ---------- task for name
+    key = 'name'
+    l = xls2_obj_list(req_conf_path, req_conf_sheet, vdom, key)
+    dup_name = analyze_dup_policy_name(key, bas_name, l)
+
+    print('==================================================================================')
+    print('=================== Task B2: Missing object in baseline ==========================')
     # ---------- task for service
     key = 'service'
     l, d = raw2_uniq_list(key, req_poli)
@@ -651,7 +717,7 @@ def start(bas, req, vdom):
     print('')
 
     # analyze baseline missing route
-    print('=================== Task B2: Missing static route in baseline =====================')
+    print('=================== Task B3: Missing static route in baseline =====================')
     key = 'route'
     mis_rout = analyze_bas_mis_route(key, bas_rout, mis_addr)
     print('')
@@ -676,13 +742,10 @@ def start(bas, req, vdom):
 
 
 if __name__ == "__main__":
+    # readme: refer /example/CP03CASH2_20190328a.xlsx for the req xls first row
 
     bas_conf = 'CTFW901_20190415_1045.conf.xlsx'
     req_conf = 'OTPC_FWrule_Dev.CT901CASH1_20190416.xlsx'
     vdom = 'CT901CASH1'
-    '''
-    bas_conf = 'CPFW03_20190324_0727.conf.xlsx'
-    req_conf = 'CP03CASH2_20190328a.xlsx'
-    vdom = 'CP03CASH2'
-    '''
+
     start(bas_conf, req_conf, vdom)

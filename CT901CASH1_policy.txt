@@ -3,7 +3,7 @@ edit CT901CASH1
 config firewall policy
 
 edit new
-set name "vCenter to OTPC-env02 ESXI"
+set name "Yum Repository"
 set srcintf "E.UCN"
 set dstintf "I.DEV.CASHMGT"
 set srcaddr "Host_192.168.166.27" "Host_192.168.166.42" "Host_192.168.188.34" "Host_192.168.188.60"
@@ -18,7 +18,7 @@ set comments "IT-NCR-2019-[T]2891"
 next
 
 edit new
-set name "OTPC-env02 ESXI to vCenter"
+set name "Yum Repository"
 set srcintf "I.DEV.CASHMGT"
 set dstintf "E.UCN"
 set srcaddr "Range_10.163.247.201-202"
