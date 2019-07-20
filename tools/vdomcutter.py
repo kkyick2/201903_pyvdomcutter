@@ -6,7 +6,7 @@ import re
 from shutil import copy2
 # import 3rd parties pkg
 # import project pkg
-import logger
+from . import logger
 
 
 def vdomcutter(filename, infile, outdir):

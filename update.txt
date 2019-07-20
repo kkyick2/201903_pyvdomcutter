@@ -1,7 +1,9 @@
-20190325
-20190330
-20190409
-20190411
-20190416
-20190425
-20190523 add dup policy name check
+## update
+- 20190325
+- 20190330
+- 20190409
+- 20190411
+- 20190416
+- 20190425
+- 20190523 add duplicate policy name check
+- 20190720 testing python2.7 and python3.7 compatibility

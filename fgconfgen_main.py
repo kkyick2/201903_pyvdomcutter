@@ -276,7 +276,7 @@ def analyze_dup_policy_name(key, bas_l, req_l):
             continue
         else:
             dupNameL_wo_None.append(i)
-            print '///// Found duplicate Policy Name: {}'.format(i)
+            print('///// Found duplicate Policy Name: {}'.format(i))
 
     # analyze result
     # logger1.debug('baseline obj: {}'.format(bas_List))
@@ -311,7 +311,7 @@ def analyze_bas_mis_obj(key, bas_l, req_l):
             continue
         else:
             missingObjList.append(i)
-            print '///// Item not in baseline: {}'.format(i)
+            print('///// Item not in baseline: {}'.format(i))
 
     # analyze result
     # logger1.debug('baseline obj: {}'.format(bas_List))
@@ -392,7 +392,7 @@ def analyze_bas_mis_route(key, bas_l, req_l):
             # print 'route in baseline: {} in {}'.format(str(req), str(routeitem))
             continue
         else:
-            print '///// route not in baseline: {}'.format(str(req))
+            print('///// route not in baseline: {}'.format(str(req)))
             mis_route.append(req)
 
     logger1.info('*** No of address missing route is ({})'.format(len(mis_route)))
@@ -533,7 +533,7 @@ def gen_conf_service(list, vdom):
                 write_row(outF, 'set udp-portrange ' + item.split('/')[1] + NEXTLINE)
 
             else:
-                print item + ' <-- !! Not standard object, need manuel edit'
+                print(item + ' <-- !! Not standard object, need manuel edit')
                 write_row(outF, 'set !!!!! need manuel edit !!!!!!! ' + NEXTLINE)
 
             # End of each policy [next]
@@ -621,7 +621,7 @@ def gen_conf_address(list, vdom, addrDictList):
                 write_row(outF, 'set end-ip ' + endip + NEXTLINE)
 
             else:
-                print item + ' <-- !! Not standard object, need manuel edit'
+                print(item + ' <-- !! Not standard object, need manuel edit')
                 write_row(outF, 'set !!!!! need manuel edit !!!!!!! ' + NEXTLINE)
             # End of each policy [next]
             write_row(outF, "next" + NEXTLINE)
@@ -747,5 +747,4 @@ if __name__ == "__main__":
     bas_conf = 'CTFW901_20190415_1045.conf.xlsx'
     req_conf = 'OTPC_FWrule_Dev.CT901CASH1_20190416.xlsx'
     vdom = 'CT901CASH1'
-
     start(bas_conf, req_conf, vdom)

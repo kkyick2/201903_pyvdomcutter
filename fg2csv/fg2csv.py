@@ -1,15 +1,15 @@
 __author__ = 'ykk'
 
 import os
-import fg2csv_addr
-import fg2csv_addrgrp
-import fg2csv_interface
-import fg2csv_ippool
-import fg2csv_policy
-import fg2csv_route
-import fg2csv_service
-import fg2csv_vip
-import fg2csv_zone
+from . import fg2csv_addr
+from . import fg2csv_addrgrp
+from . import fg2csv_interface
+from . import fg2csv_ippool
+from . import fg2csv_policy
+from . import fg2csv_route
+from . import fg2csv_service
+from . import fg2csv_vip
+from . import fg2csv_zone
 
 
 def fg2csv(infile, outdir):

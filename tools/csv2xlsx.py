@@ -4,9 +4,17 @@ import csv, os
 import xlsxwriter
 
 # set encoding to utf8
+import importlib
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+
+
+if sys.version[0] == '2':
+    # if python2.7
+    reload(sys)
+    sys.setdefaultencoding("utf-8")
+elif sys.version[0] == '3':
+    # if python3
+    importlib.reload(sys)
 
 
 def csv2xlsx(filename, indir, outdir):

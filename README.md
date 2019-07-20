@@ -11,12 +11,12 @@ xlsxwriter
 {id,name,srcintf,dstintf,srcaddr,dstaddr,action,schedule,service,utm-status,logtraffic,ips-sensor,nat,ippool,poolname}
 4. Remark2: reqirement xlsx should have sheet name "Policy"
 
-## execute fg2xls.py -> this script will gen a baseline xlsx
+## fg2xls.py -> this script will gen a baseline xlsx
 1. execute fg2xls_main.py
 2. (csv,xlsx)  in folder "fg2xls_output"
 3. (xlsx) in folder "fgconfgen_baseline"
 
-## execute fg2confgen.py ->this script will find missing objects and gen conf
+## fg2confgen.py ->this script will find missing objects and gen conf
 1. set arg in main 1/baseline xlsx, 2/requirement xlsx, 3/vdom
 2. execute fgconfgen_main.py
 3. (txt) policy config in root folder
@@ -26,4 +26,14 @@ xlsxwriter
 
 ## 
 - kkyick2
-- update: 20190411
+
+
+## update
+- 20190325
+- 20190330
+- 20190409
+- 20190411
+- 20190416
+- 20190425
+- 20190523 add duplicate policy name check
+- 20190720 testing python2.7 and python3.7 compatibility
