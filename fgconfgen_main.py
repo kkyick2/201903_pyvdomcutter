@@ -23,6 +23,16 @@ def open_csv(filename, mode):
     return open(filename, mode=mode + 'b') if sys.version_info[0] == 2 else open(filename, mode=mode, newline='')
 
 
+# backwards compatibility for python3 and python2 csv writer
+def add_unicode(str):
+    """
+    depending on Python version.
+     # for python2: return unicode
+     # for python3:
+    """
+    return unicode(str) if sys.version_info[0] == 2 else str
+
+
 # Function for tools
 def cidr_to_netmask(cidr):
   cidr = int(cidr)
@@ -355,7 +365,7 @@ def analyze_bas_mis_route(key, bas_l, req_l):
     # --- task1: for base route table dst, prepare a list of route dst in ipv4addr type
     l_bas_route = []
     for item in bas_l:
-        bas_route = ipaddress.ip_network(unicode(ipmask_to_ipcidr(item)))
+        bas_route = ipaddress.ip_network(add_unicode(ipmask_to_ipcidr(item)))
         l_bas_route.append(bas_route)
     # print l_bas_route
 
@@ -367,25 +377,25 @@ def analyze_bas_mis_route(key, bas_l, req_l):
         if item_lw.startswith('host_'):
             subnet = item.split('_')[1]
             cidr = '32'
-            req_route = ipaddress.ip_network(unicode(subnet + '/' + cidr))
+            req_route = ipaddress.ip_network(add_unicode(subnet + '/' + cidr))
             l_req_route.append(req_route)
         elif item_lw.startswith('net_'):
             # if format is Net_10.1.0.0/16, get the mask
             if '/' in item:
                 cidr = item.split('_')[1].split('/')[1]
                 subnet = item.split('_')[1].split('/')[0]
-                req_route = ipaddress.ip_network(unicode(subnet + '/' + cidr))
+                req_route = ipaddress.ip_network(add_unicode(subnet + '/' + cidr))
                 l_req_route.append(req_route)
             # if format is Net_10.1.0.0, assume mask is /24
             else:
                 subnet = item.split('_')[1]
                 cidr = '24'
-                req_route = ipaddress.ip_network(unicode(subnet + '/' + cidr))
+                req_route = ipaddress.ip_network(add_unicode(subnet + '/' + cidr))
                 l_req_route.append(req_route)
         elif item_lw.startswith('range_'):
             cidr = '32'
             startip = item.split('_')[1].split('-')[0]
-            req_route = ipaddress.ip_network(unicode(startip + '/' + cidr))
+            req_route = ipaddress.ip_network(add_unicode(startip + '/' + cidr))
             l_req_route.append(req_route)
         else:
             continue

@@ -1,8 +1,9 @@
 # 201903_pyvdomcutter
 
 ## requirement:
-python2.7
-xlsxwriter
+-python2.7
+-python3.7
+-xlsxwriter
 
 ## usage - put xls to folder
 1. put "fgt conf" to folder "fg2xls_input"
@@ -36,4 +37,4 @@ xlsxwriter
 - 20190416
 - 20190425
 - 20190523 add duplicate policy name check
-- 20190720 testing python2.7 and python3.7 compatibility
+- 20190722 tested python2.7 and python3.7 compatibility

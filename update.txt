@@ -6,4 +6,4 @@
 - 20190416
 - 20190425
 - 20190523 add duplicate policy name check
-- 20190720 testing python2.7 and python3.7 compatibility
+- 20190722 tested python2.7 and python3.7 compatibility
