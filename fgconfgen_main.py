@@ -2,6 +2,7 @@
 # by kkyick2
 # import pkg
 import os
+import sys
 import ipaddress
 # import 3rd parties pkg
 import openpyxl
@@ -10,6 +11,16 @@ from tools import logger
 import conf
 
 NEXTLINE = '\r\n'
+
+
+# backwards compatibility for python3 and python2 csv writer
+def open_csv(filename, mode):
+    """
+    Open a csv file in proper mode depending on Python verion.
+    with open (outfilename, 'wb') as outF: 					# this code is for python2
+    with open (outfilename, 'w', newline='') as outF:	 	# this code is for python3
+    """
+    return open(filename, mode=mode + 'b') if sys.version_info[0] == 2 else open(filename, mode=mode, newline='')
 
 
 # Function for tools
@@ -23,7 +34,7 @@ def cidr_to_netmask(cidr):
 
 
 def netmask_to_cidr(mask):
-  return(sum([ bin(int(bits)).count("1") for bits in mask.split(".") ]))
+    return(sum([ bin(int(bits)).count("1") for bits in mask.split(".") ]))
 
 
 def ipmask_to_ipcidr(ipmask):
@@ -93,7 +104,8 @@ def xls2_policy_list(infile, sheet, vdom):
     logger1 = logger.logger().get()
     # workbook object is created
     wb_obj = openpyxl.load_workbook(infile)
-    sheet_obj = wb_obj.get_sheet_by_name(sheet)
+    #sheet_obj = wb_obj.get_sheet_by_name(sheet)
+    sheet_obj = wb_obj[sheet]
     max_col = sheet_obj.max_column
     max_row = sheet_obj.max_row
     print('start: p_xls2dictList: (vdom, sheet): {},{}'.format(vdom, sheet))
@@ -151,7 +163,8 @@ def xls2_obj_list(infile, sheet, vdom, key):
 
     # workbook object is created
     wb_obj = openpyxl.load_workbook(infile)
-    sheet_obj = wb_obj.get_sheet_by_name(sheet)
+    #sheet_obj = wb_obj.get_sheet_by_name(sheet)
+    sheet_obj = wb_obj[sheet]
     max_col = sheet_obj.max_column
     max_row = sheet_obj.max_row
 
@@ -424,7 +437,7 @@ def gen_conf_policy(dictList, keys, vdom):
 
     if dictList and keys:
         logger1.info('gen config to txt')
-        with open(outfile, 'wb') as outF:
+        with open_csv(outfile, 'w') as outF:
             # First section [config vdom, edit <vdom>, config firewall policy]
             write_row(outF, 'config vdom' + NEXTLINE)
             write_row(outF, 'edit ' + vdom + NEXTLINE)
@@ -502,7 +515,7 @@ def gen_conf_service(list, vdom):
     logger1.info('start: gen_conf_service: {}, Total item to gen is {}'.format(vdom,len(list)))
     print('***** output file {}'.format(outfile))
 
-    with open(outfile, 'wb') as outF:
+    with open_csv(outfile, 'w') as outF:
         # First section [config vdom, edit <vdom>]
         write_row(outF, 'config vdom' + NEXTLINE)
         write_row(outF, 'edit ' + vdom + NEXTLINE)
@@ -560,7 +573,7 @@ def gen_conf_address(list, vdom, addrDictList):
     logger1.info('start: gen_conf_address: {}, Total item to gen is {}'.format(vdom,len(list)))
     print('***** output file {}'.format(outfile))
 
-    with open(outfile, 'wb') as outF:
+    with open_csv(outfile, 'w') as outF:
         # First section [config vdom, edit <vdom>]
         write_row(outF, 'config vdom' + NEXTLINE)
         write_row(outF, 'edit ' + vdom + NEXTLINE)
