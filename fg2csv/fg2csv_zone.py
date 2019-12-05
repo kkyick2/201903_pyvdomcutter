@@ -28,6 +28,17 @@ import csv
 # OptionParser imports
 from optparse import OptionParser
 
+
+# backwards compatibility for python3 and python2 csv writer
+def open_csv(filename, mode):
+    """
+    Open a csv file in proper mode depending on Python verion.
+    with open (outfilename, 'wb') as outF: 					# this code is for python2
+    with open (outfilename, 'w', newline='') as outF:	 	# this code is for python3
+    """
+    return open(filename, mode=mode + 'b') if sys.version_info[0] == 2 else open(filename, mode=mode, newline='')
+
+
 # Options definition
 option_0 = { 'name' : ('-i', '--fg2xls_input-file'), 'help' : '<INPUT_FILE>: Fortigate configuration file. Ex: fgfw.cfg', 'nargs' : 1}
 option_1 = { 'name' : ('-o', '--fg2xls_output-file'), 'help' : '<OUTPUT_FILE>: fg2xls_output csv file (default \'./addresses-out.csv\')', 'default' : 'addresses-out.csv', 'nargs' : 1}
@@ -70,7 +81,7 @@ def parse(fd):
 	
 	order_keys = []
 	
-	with open(fd,'rb') as fd_input:
+	with open_csv(fd,'r') as fd_input:
 		for line in fd_input:
 			line = line.lstrip().rstrip().strip()
 			
@@ -114,7 +125,7 @@ def generate_csv(results, keys, fd, newline, skip_header):
 		@param fd : fg2xls_output file descriptor
 	"""
 	if results and keys:
-		with open(fd,'wb') as fd_output:
+		with open_csv(fd,'w') as fd_output:
 			spamwriter = csv.writer(fd_output)
 			
 			if not(skip_header):

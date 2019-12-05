@@ -33,7 +33,7 @@ def csv2xlsx(filename, indir, outdir):
     for sheet in os.listdir(csv_folder):
         if sheet.endswith('.csv'):
             worksheet = workbook.add_worksheet(sheet[:-4])
-            with open(csv_folder +"/" + sheet, 'rb') as f:
+            with open(csv_folder +"/" + sheet, 'r') as f:
                 reader = csv.reader(f)
                 for r, row in enumerate(reader):
                     for c, col in enumerate(row):
