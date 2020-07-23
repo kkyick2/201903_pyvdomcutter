@@ -62,4 +62,19 @@ set ips-sensor "otpc-all"
 set comments "IT-NCR-2019-[T]2891"
 next
 
+edit new
+set name "21231232131"
+set srcintf "I.DEV.CASHMGT"
+set dstintf "E.UCN"
+set srcaddr "Range_10.163.247.201-244"
+set dstaddr "Range_192.168.177.51-55" "Range_192.198.35.21-24"
+set action "accept"
+set schedule "always"
+set service "PORT_SDDC"
+set utm-status "enable"
+set logtraffic "all"
+set ips-sensor "otpc-all"
+set comments "IT-NCR-2019-[T]2891"
+next
+
 end

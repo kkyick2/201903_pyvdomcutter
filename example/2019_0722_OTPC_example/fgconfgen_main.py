@@ -498,7 +498,7 @@ def gen_conf_policy(dictList, keys, vdom):
                             string = "all"
                             write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
                         elif key == 'ips-sensor':
-                            string = "sdn3-all"
+                            string = "otpc-all"
                             write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
                         else:
                             write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"' + NEXTLINE)
@@ -602,7 +602,7 @@ def gen_conf_address(list, vdom, addrDictList):
             for i in addrDictList:
                 if item in i['addr']:
                     asso_int = i['asso_int']
-            #write_row(outF, 'set associated-interface ' + '"' + asso_int + '"' + NEXTLINE)
+            write_row(outF, 'set associated-interface ' + '"' + asso_int + '"' + NEXTLINE)
 
             # change to lower letter for checking, remarks: output is original letter
             item_lw = item.lower()
@@ -667,7 +667,7 @@ def start(bas, req, vdom):
 
     # arg2-4/gen conf, xls requirement, vdom name
     req_conf = req
-    req_conf_sheet = '07policy'
+    req_conf_sheet = 'Policy'
     vdom = vdom
 
     # define full path
@@ -767,7 +767,7 @@ def start(bas, req, vdom):
 if __name__ == "__main__":
     # readme: refer /example/CP03CASH2_20190328a.xlsx for the req xls first row
 
-    bas_conf = 'DTHFW01_20200723_2138.conf.xlsx'
-    req_conf = 'DTHFW01_20200722_1500.conf_edit.xlsx'
-    vdom = 'DTH1COMM'
+    bas_conf = 'CTFW901_20190415_1045.conf.xlsx'
+    req_conf = 'OTPC_FWrule_Dev.CT901CASH1_20190416.xlsx'
+    vdom = 'CT901CASH1'
     start(bas_conf, req_conf, vdom)

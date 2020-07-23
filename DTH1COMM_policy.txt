@@ -1,0 +1,21 @@
+config vdom
+edit DTH1COMM
+config firewall policy
+
+edit 0
+set name "TBC"
+set srcintf "I.COMM"
+set dstintf "I.HKATS"
+set srcaddr "host_10.63.142.209" "host_10.163.143.210"
+set dstaddr "net_10.1.153.0/24" "net_10.151.34.0/24" "net_10.151.52.0/24" "net_10.151.54.0/24" "net_10.151.58.0/24" "net_10.161.2.0/24" "net_10.161.4.0/24" "net_10.170.34.0/24" "net_10.170.54.0/24" "net_10.172.68.0/24" "net_10.172.69.0/24" "net_10.172.70.0/24"
+set action "accept"
+set schedule "always"
+set service "TCP/22" "TCP/139" "TCP/445" "TCP/3389"
+set utm-status "enable"
+set logtraffic "all"
+set ips-sensor "sdn3-all"
+set ssl-ssh-profile "certificate-inspection"
+set comments "NCR-5534:2020_0722"
+next
+
+end

@@ -8,3 +8,4 @@
 - 20190523 add duplicate policy name check
 - 20190722 tested python2.7 and python3.7 compatibility
 - 20191205 tested python2.7.13 and python3.7.5 compatibility
+- 20200723 tested sdn3 requirement, need edit ips profile, int-asso on addr obj comment out
