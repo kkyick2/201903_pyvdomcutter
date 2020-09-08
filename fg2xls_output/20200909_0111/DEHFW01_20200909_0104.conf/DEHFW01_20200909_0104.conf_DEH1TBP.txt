@@ -1,0 +1,6222 @@
+config vdom
+edit DEH1TBP
+config system object-tagging
+    edit "default"
+    next
+end
+config system settings
+    set sip-helper enable
+    set gui-dynamic-routing disable
+    set gui-application-control disable
+    set gui-endpoint-control disable
+    set gui-vpn disable
+    set gui-wireless-controller disable
+    set gui-traffic-shaping disable
+    set gui-wan-load-balancing disable
+    set gui-antivirus disable
+    set gui-webfilter disable
+    set gui-dnsfilter disable
+    set gui-multiple-interface-policy enable
+    set gui-policy-learning disable
+end
+config system replacemsg-group
+    edit "default"
+        set comment "Default replacement message group."
+    next
+end
+config system zone
+    edit "I.HTBP"
+        set interface "I.HTBP.2905"
+    next
+    edit "I.PWTBP"
+        set interface "I.PWTBP.2907"
+    next
+    edit "I.PTRMWO"
+        set interface "I.PTRMWO.1764"
+    next
+    edit "I.SMARTTBP"
+        set interface "I.SMARTTBP.2908"
+    next
+    edit "D.CCI"
+        set interface "D.CCI.2930"
+    next
+    edit "D.SDN2"
+        set interface "D.SDN2.2931"
+    next
+    edit "D.OTPC"
+        set interface "D.OTPC.2932"
+    next
+    edit "X.HTBP"
+        set interface "I.XHTBP.3112"
+    next
+end
+config firewall address
+    edit "none"
+        set uuid 6d2d5d6c-7198-51ea-3e1c-ddcc85dd00b0
+        set subnet 0.0.0.0 255.255.255.255
+    next
+    edit "SSLVPN_TUNNEL_ADDR1"
+        set uuid 6daee832-7198-51ea-4319-2f12f8920c0e
+        set type iprange
+        set associated-interface "ssl.DEH1TBP"
+        set start-ip 10.212.134.200
+        set end-ip 10.212.134.210
+    next
+    edit "all"
+        set uuid 6daf1078-7198-51ea-6633-92b736c667b8
+    next
+    edit "FIREWALL_AUTH_PORTAL_ADDRESS"
+        set uuid 6daf13ca-7198-51ea-5832-6093996c6dae
+        set visibility disable
+    next
+    edit "net_10.152.54.0/24"
+        set uuid 16982d3e-9681-51ea-98d0-b81d086ac0ed
+        set subnet 10.152.54.0 255.255.255.0
+    next
+    edit "net_10.164.1.0/24"
+        set uuid 1699c4dc-9681-51ea-aecb-2d8b7f30b603
+        set subnet 10.164.1.0 255.255.255.0
+    next
+    edit "net_10.164.129.0/24"
+        set uuid 16ae9f38-9681-51ea-9a47-55a00fafbad5
+        set subnet 10.164.129.0 255.255.255.0
+    next
+    edit "net_10.63.142.0/24"
+        set uuid 16af197c-9681-51ea-72a0-50d33695b9bb
+        set subnet 10.63.142.0 255.255.255.0
+    next
+    edit "net_10.163.142.0/24"
+        set uuid 16b9377c-9681-51ea-4bf3-588ba20457eb
+        set subnet 10.163.142.0 255.255.255.0
+    next
+    edit "net_10.163.143.0/24"
+        set uuid 16cf32ca-9681-51ea-3986-612ecc082761
+        set subnet 10.163.143.0 255.255.255.0
+    next
+    edit "net_10.245.127.0/24"
+        set uuid 16cfffb6-9681-51ea-9d0b-5fd385b26157
+        set subnet 10.245.127.0 255.255.255.0
+    next
+    edit "net_10.245.132.0/24"
+        set uuid 16d0ee30-9681-51ea-cf6a-39f94de18a18
+        set subnet 10.245.132.0 255.255.255.0
+    next
+    edit "net_10.249.127.0/24"
+        set uuid 16db9f74-9681-51ea-fdc2-869a164bab1f
+        set subnet 10.249.127.0 255.255.255.0
+    next
+    edit "net_10.249.132.0/24"
+        set uuid 16f60cce-9681-51ea-60ff-df936be161c2
+        set subnet 10.249.132.0 255.255.255.0
+    next
+    edit "range_10.244.64.68-70"
+        set uuid 16f7c10e-9681-51ea-faf4-8d3ac978af4e
+        set type iprange
+        set start-ip 10.244.64.68
+        set end-ip 10.244.64.70
+    next
+    edit "range_10.248.64.68-70"
+        set uuid 170bdb6c-9681-51ea-babd-76cc1c151a7a
+        set type iprange
+        set start-ip 10.248.64.68
+        set end-ip 10.248.64.70
+    next
+    edit "host_10.164.1.21"
+        set uuid 170d0316-9681-51ea-8b58-1b561ad96bd7
+        set subnet 10.164.1.21 255.255.255.255
+    next
+    edit "host_10.164.1.26"
+        set uuid 17194afe-9681-51ea-1a9f-515941c68874
+        set subnet 10.164.1.26 255.255.255.255
+    next
+    edit "host_10.164.1.27"
+        set uuid 171d04fa-9681-51ea-ed6f-3218c6f8d3c5
+        set subnet 10.164.1.27 255.255.255.255
+    next
+    edit "host_10.164.130.26"
+        set uuid 172fd904-9681-51ea-1e3a-bc3dc0c369f0
+        set subnet 10.164.130.26 255.255.255.255
+    next
+    edit "host_10.164.129.21"
+        set uuid 1731075c-9681-51ea-e068-b93347c95676
+        set subnet 10.164.129.21 255.255.255.255
+    next
+    edit "host_10.248.64.43"
+        set uuid 173ab6c6-9681-51ea-e75f-a9a57bdd3f97
+        set subnet 10.248.64.43 255.255.255.255
+    next
+    edit "host_10.244.130.6"
+        set uuid 1753c846-9681-51ea-68b3-39665038e4fb
+        set subnet 10.244.130.6 255.255.255.255
+    next
+    edit "host_10.244.64.88"
+        set uuid 1754a2d4-9681-51ea-d5ad-6f6b9ce343c7
+        set subnet 10.244.64.88 255.255.255.255
+    next
+    edit "net_10.151.54.0/24"
+        set uuid 17575916-9681-51ea-4ad8-e00a1e38df61
+        set subnet 10.151.54.0 255.255.255.0
+    next
+    edit "net_10.170.54.0/24"
+        set uuid 17607d3e-9681-51ea-f6ed-1536cafe1ee4
+        set subnet 10.170.54.0 255.255.255.0
+    next
+    edit "net_10.170.64.0/24"
+        set uuid 1769314a-9681-51ea-ffa9-a65f99530520
+        set subnet 10.170.64.0 255.255.255.0
+    next
+    edit "range_10.164.1.200-201"
+        set uuid 1773cf4c-9681-51ea-2b81-37c2afa99bf2
+        set type iprange
+        set start-ip 10.164.1.200
+        set end-ip 10.164.1.201
+    next
+    edit "range_10.164.129.200-201"
+        set uuid 17811562-9681-51ea-41f0-c92950bbb584
+        set type iprange
+        set start-ip 10.164.129.200
+        set end-ip 10.164.129.201
+    next
+    edit "net_10.151.58.0/24"
+        set uuid 178fbcfc-9681-51ea-eb76-e68fc6101028
+        set subnet 10.151.58.0 255.255.255.0
+    next
+    edit "net_10.152.58.0/24"
+        set uuid 179b062a-9681-51ea-70e1-b45dbff6d406
+        set subnet 10.152.58.0 255.255.255.0
+    next
+    edit "range_10.244.192.88-90"
+        set uuid 17a51b4c-9681-51ea-385a-c03bcfccf1b2
+        set type iprange
+        set start-ip 10.244.192.88
+        set end-ip 10.244.192.90
+    next
+    edit "host_10.245.95.100"
+        set uuid 17b63328-9681-51ea-5310-fb753aabfa4c
+        set subnet 10.245.95.100 255.255.255.255
+    next
+    edit "host_10.245.95.102"
+        set uuid 17bf3612-9681-51ea-fe47-8c95a836e501
+        set subnet 10.245.95.102 255.255.255.255
+    next
+    edit "host_10.245.95.111"
+        set uuid 17c8e356-9681-51ea-285b-aad1fa213029
+        set subnet 10.245.95.111 255.255.255.255
+    next
+    edit "range_10.248.192.88-90"
+        set uuid 17d370e6-9681-51ea-ebd3-580b11b8c588
+        set type iprange
+        set start-ip 10.248.192.88
+        set end-ip 10.248.192.90
+    next
+    edit "range_10.249.95.99-100"
+        set uuid 17e1918a-9681-51ea-ac87-eeb943e6a99e
+        set type iprange
+        set start-ip 10.249.95.99
+        set end-ip 10.249.95.100
+    next
+    edit "host_10.249.95.102"
+        set uuid 17ef5e0a-9681-51ea-602e-395e4f9d2d60
+        set subnet 10.249.95.102 255.255.255.255
+    next
+    edit "host_10.245.132.39"
+        set uuid 17f922f0-9681-51ea-3820-eb5340fb576f
+        set subnet 10.245.132.39 255.255.255.255
+    next
+    edit "host_10.245.132.51"
+        set uuid 1803e320-9681-51ea-ae30-57f23caee7e6
+        set subnet 10.245.132.51 255.255.255.255
+    next
+    edit "host_10.249.132.58"
+        set uuid 180d80ba-9681-51ea-c2d1-26d5a72b1634
+        set subnet 10.249.132.58 255.255.255.255
+    next
+    edit "host_10.249.132.60"
+        set uuid 181859b8-9681-51ea-58ac-9cd1056083a3
+        set subnet 10.249.132.60 255.255.255.255
+    next
+    edit "host_10.244.64.77"
+        set uuid 1821717e-9681-51ea-4c32-2572d6a8bf9e
+        set subnet 10.244.64.77 255.255.255.255
+    next
+    edit "host_10.248.64.77"
+        set uuid 182b5806-9681-51ea-f132-98b0eebdb97b
+        set subnet 10.248.64.77 255.255.255.255
+    next
+    edit "net_10.248.95.0"
+        set uuid 183457d0-9681-51ea-be08-161b13aa13df
+        set subnet 10.248.95.0 255.255.255.0
+    next
+    edit "host_10.245.79.24"
+        set uuid 183d0e20-9681-51ea-7a0c-c20ce9ec7486
+        set subnet 10.245.79.24 255.255.255.255
+    next
+    edit "host_10.249.79.24"
+        set uuid 1847d26a-9681-51ea-6f84-f36fd54c5f74
+        set subnet 10.249.79.24 255.255.255.255
+    next
+    edit "range_10.245.79.19-20"
+        set uuid 1851101e-9681-51ea-7d40-a6360e592f28
+        set type iprange
+        set start-ip 10.245.79.19
+        set end-ip 10.245.79.29
+    next
+    edit "host_10.245.95.19"
+        set uuid 185e7c90-9681-51ea-2652-006c21a01735
+        set subnet 10.245.95.19 255.255.255.255
+    next
+    edit "host_10.249.79.19"
+        set uuid 186818b8-9681-51ea-39b0-93313df1e77a
+        set subnet 10.249.79.19 255.255.255.255
+    next
+    edit "host_10.245.127.67"
+        set uuid 1871b7ce-9681-51ea-4e2f-6649feedbb9f
+        set subnet 10.245.127.67 255.255.255.255
+    next
+    edit "host_10.249.127.51"
+        set uuid 187af406-9681-51ea-65c2-c0ebcd694c65
+        set subnet 10.249.127.51 255.255.255.255
+    next
+    edit "range_10.245.132.73-75"
+        set uuid 1884bd42-9681-51ea-d348-26c7ffd1bc60
+        set type iprange
+        set start-ip 10.245.132.73
+        set end-ip 10.245.132.75
+    next
+    edit "range_10.245.127.38-46"
+        set uuid 1893602c-9681-51ea-10fc-fa7b2c7345eb
+        set type iprange
+        set start-ip 10.245.127.38
+        set end-ip 10.245.127.46
+    next
+    edit "range_10.249.132.49-50"
+        set uuid 18a1a452-9681-51ea-e34d-85d202b386dd
+        set type iprange
+        set start-ip 10.249.132.49
+        set end-ip 10.249.132.50
+    next
+    edit "host_10.249.132.59"
+        set uuid 18af63b2-9681-51ea-446f-95d5ce30192e
+        set subnet 10.249.132.59 255.255.255.255
+    next
+    edit "range_10.249.127.35-44"
+        set uuid 18ba27e8-9681-51ea-d5ee-27f6c79ffca9
+        set type iprange
+        set start-ip 10.249.127.35
+        set end-ip 10.249.127.44
+    next
+    edit "host_10.63.142.130"
+        set uuid 18c7f332-9681-51ea-c38d-00a7cf3b48b8
+        set subnet 10.63.142.130 255.255.255.255
+    next
+    edit "host_10.63.142.133"
+        set uuid 18d081fa-9681-51ea-173d-b8300fc0b712
+        set subnet 10.63.142.133 255.255.255.255
+    next
+    edit "range_10.163.142.23-24"
+        set uuid 18da488e-9681-51ea-8ff0-493cacb630bc
+        set type iprange
+        set start-ip 10.163.142.34
+        set end-ip 10.163.143.24
+    next
+    edit "net_10.2.153.0/24"
+        set uuid 18e876ac-9681-51ea-f9e2-7d5d12922dc3
+        set subnet 10.2.153.0 255.255.255.0
+    next
+    edit "host_10.245.79.99"
+        set uuid 18f328ea-9681-51ea-2cf9-dacf10750662
+        set subnet 10.245.79.99 255.255.255.255
+    next
+    edit "range_10.245.127.83-84"
+        set uuid 18fc04ce-9681-51ea-9bac-8c56c810e104
+        set type iprange
+        set start-ip 10.245.127.83
+        set end-ip 10.245.127.84
+    next
+    edit "net_10.152.52.0/24"
+        set uuid 1034d74a-9973-51ea-5106-67c2f2b7b8c1
+        set subnet 10.152.52.0 255.255.255.0
+    next
+    edit "net_10.151.52.0/24"
+        set uuid 1f83f51e-9973-51ea-2b85-faea742683a8
+        set subnet 10.151.52.0 255.255.255.0
+    next
+    edit "host_10.244.64.43"
+        set uuid c9fa2734-9cc5-51ea-5d36-d15ae0a2f288
+        set subnet 10.244.64.43 255.255.255.255
+    next
+    edit "net_10.1.85.0"
+        set uuid 688b8d88-aadc-51ea-c4b0-59b4b28ce21a
+        set subnet 10.1.85.0 255.255.255.0
+    next
+    edit "range_10.244.64.19-20"
+        set uuid 9e799e18-ac8e-51ea-518d-468729014f72
+        set type iprange
+        set start-ip 10.244.64.19
+        set end-ip 10.244.64.20
+    next
+    edit "net_10.152.34.0/24"
+        set uuid cf3ac3c4-ad2e-51ea-63ec-effeea6455a5
+        set subnet 10.152.34.0 255.255.255.0
+    next
+    edit "host_10.170.63.95"
+        set uuid e74f196e-aebf-51ea-f0c4-68aed9182532
+        set subnet 10.170.63.95 255.255.255.255
+    next
+    edit "net_10.161.5.0/24"
+        set uuid e75a095a-aebf-51ea-8168-3ccb62e972c7
+        set subnet 10.161.5.0 255.255.255.0
+    next
+    edit "net_10.162.5.0/24"
+        set uuid e76cf6a0-aebf-51ea-4875-a2ef381eba17
+        set subnet 10.162.5.0 255.255.255.0
+    next
+    edit "range_10.193.46.21-23"
+        set uuid 0547c054-afa3-51ea-c058-b6bdcd2e2ef1
+        set type iprange
+        set start-ip 10.193.46.21
+        set end-ip 10.193.46.23
+    next
+    edit "range_10.170.63.89-90"
+        set uuid 0b7b5bac-b2fa-51ea-a841-22fcae87275b
+        set type iprange
+        set start-ip 10.170.63.89
+        set end-ip 10.170.63.90
+    next
+    edit "range_10.152.25.11-12"
+        set uuid e687f106-bba6-51ea-36e8-85af5474e7f4
+        set type iprange
+        set start-ip 10.152.25.11
+        set end-ip 10.152.25.12
+    next
+    edit "host_10.161.5.199"
+        set uuid e69a4946-bba6-51ea-c840-a4cd749d69b9
+        set subnet 10.161.5.199 255.255.255.255
+    next
+    edit "net_10.152.5.0/24"
+        set uuid e6a4489c-bba6-51ea-482b-b29281a756fa
+        set subnet 10.152.5.0 255.255.255.0
+    next
+    edit "host_10.152.5.35"
+        set uuid e6abf81c-bba6-51ea-4101-6e7fbcceeda0
+        set subnet 10.152.5.35 255.255.255.255
+    next
+    edit "host_10.152.5.99"
+        set uuid e6b73132-bba6-51ea-9b7f-93d9e4585113
+        set subnet 10.152.5.99 255.255.255.255
+    next
+    edit "net_10.244.64.0/24"
+        set uuid e6bff7cc-bba6-51ea-7904-2a1ac5654ce1
+        set subnet 10.244.64.0 255.255.255.0
+    next
+    edit "net_10.248.64.0/24"
+        set uuid e6d1349c-bba6-51ea-50cd-8f724266558e
+        set subnet 10.248.64.0 255.255.255.0
+    next
+    edit "net_192.168.36.0/24"
+        set uuid e6d9ff0a-bba6-51ea-36da-71b4c1e2d8fe
+        set subnet 192.168.36.0 255.255.255.0
+    next
+    edit "net_192.168.80.0/24"
+        set uuid e6e86c2a-bba6-51ea-aba2-12457476f123
+        set subnet 192.168.80.0 255.255.255.0
+    next
+    edit "range_10.151.13.101-102"
+        set uuid e6f73944-bba6-51ea-51c1-10676da1ea19
+        set type iprange
+        set start-ip 10.151.13.101
+        set end-ip 10.151.13.102
+    next
+    edit "range_10.151.13.155-156"
+        set uuid e7052b94-bba6-51ea-0c35-1750131d7677
+        set type iprange
+        set start-ip 10.151.13.155
+        set end-ip 10.151.13.156
+    next
+    edit "range_10.152.14.101-102"
+        set uuid e714bcbc-bba6-51ea-e2e8-4cdf43a3d89f
+        set type iprange
+        set start-ip 10.152.14.101
+        set end-ip 10.152.14.102
+    next
+    edit "range_10.152.14.155-157"
+        set uuid e7248714-bba6-51ea-279c-c9fe7315d4bc
+        set type iprange
+        set start-ip 10.152.14.155
+        set end-ip 10.152.14.157
+    next
+    edit "range_10.152.13.101-102"
+        set uuid e7317f5a-bba6-51ea-38e5-91f6533f8af2
+        set type iprange
+        set start-ip 10.152.13.101
+        set end-ip 10.152.13.102
+    next
+    edit "range_10.152.13.155-156"
+        set uuid e741330a-bba6-51ea-f330-f0b90f808b16
+        set type iprange
+        set start-ip 10.152.13.155
+        set end-ip 10.152.13.156
+    next
+    edit "range_10.151.12.103-104"
+        set uuid e74eee00-bba6-51ea-2666-deffedec92dc
+        set type iprange
+        set start-ip 10.151.12.103
+        set end-ip 10.151.12.104
+    next
+    edit "range_10.151.12.161-166"
+        set uuid e76166d4-bba6-51ea-a468-a584989885b0
+        set type iprange
+        set start-ip 10.151.12.161
+        set end-ip 10.151.12.166
+    next
+    edit "range_10.152.12.103-104"
+        set uuid e773b424-bba6-51ea-bae8-34b31b279c13
+        set type iprange
+        set start-ip 10.152.12.103
+        set end-ip 10.152.12.104
+    next
+    edit "range_10.152.12.161-166"
+        set uuid e7867bae-bba6-51ea-8ed2-ddb22480bf73
+        set type iprange
+        set start-ip 10.152.12.161
+        set end-ip 10.152.12.166
+    next
+    edit "host_10.151.13.157"
+        set uuid e795693e-bba6-51ea-a639-7efdec0950a7
+        set subnet 10.151.13.157 255.255.255.255
+    next
+    edit "host_10.152.13.157"
+        set uuid e7a1271a-bba6-51ea-5494-cc4f2a23c65a
+        set subnet 10.152.13.157 255.255.255.255
+    next
+    edit "host_10.151.12.171"
+        set uuid e7abebc8-bba6-51ea-6d9c-b90fe6f56ef0
+        set subnet 10.151.12.171 255.255.255.255
+    next
+    edit "host_10.152.12.171"
+        set uuid e7b6e4d8-bba6-51ea-8054-60d937579145
+        set subnet 10.152.12.171 255.255.255.255
+    next
+    edit "host_10.151.12.37"
+        set uuid e7c207d2-bba6-51ea-0305-bdeb56a63703
+        set subnet 10.151.12.37 255.255.255.255
+    next
+    edit "host_10.152.12.35"
+        set uuid e7ca9424-bba6-51ea-4241-96e4da0e4d4a
+        set subnet 10.152.12.35 255.255.255.255
+    next
+    edit "host_10.151.5.37"
+        set uuid e7d8281e-bba6-51ea-3839-0a26199ff945
+        set subnet 10.151.5.37 255.255.255.255
+    next
+    edit "host_10.151.54.86"
+        set uuid e7e5e26a-bba6-51ea-36e2-0909e8e01c9b
+        set subnet 10.151.54.86 255.255.255.255
+    next
+    edit "host_10.151.54.37"
+        set uuid e7ef1d44-bba6-51ea-5f44-63d5015ea05b
+        set subnet 10.151.54.37 255.255.255.255
+    next
+    edit "host_10.151.54.99"
+        set uuid e7f9e06c-bba6-51ea-8f84-c176c9c45694
+        set subnet 10.151.54.99 255.255.255.255
+    next
+    edit "host_10.152.54.35"
+        set uuid e807e6ee-bba6-51ea-3b16-5da523c7786b
+        set subnet 10.152.54.35 255.255.255.255
+    next
+    edit "range_10.151.58.101-102"
+        set uuid e81595e6-bba6-51ea-a3ea-0775d50ddb37
+        set type iprange
+        set start-ip 10.151.58.101
+        set end-ip 10.151.58.102
+    next
+    edit "range_10.151.58.155-157"
+        set uuid e822ec6e-bba6-51ea-2faf-ff2038a8292e
+        set type iprange
+        set start-ip 10.151.58.155
+        set end-ip 10.151.58.157
+    next
+    edit "range_10.152.58.101-102"
+        set uuid e8342ab0-bba6-51ea-7ce3-d755d9881e35
+        set type iprange
+        set start-ip 10.152.58.101
+        set end-ip 10.152.58.102
+    next
+    edit "range_10.152.58.155-157"
+        set uuid e844ce56-bba6-51ea-c474-8e4e287fb48d
+        set type iprange
+        set start-ip 10.152.58.155
+        set end-ip 10.152.58.157
+    next
+    edit "net_192.176.4.0/24"
+        set uuid e855b8e2-bba6-51ea-a750-cd02c3062d97
+        set subnet 192.176.4.0 255.255.255.0
+    next
+    edit "host_10.245.126.180"
+        set uuid e85f415a-bba6-51ea-74e8-803f2c3d7877
+        set subnet 10.245.126.180 255.255.255.255
+    next
+    edit "host_10.151.4.37"
+        set uuid e8682c34-bba6-51ea-3aa6-33dbd1d0f482
+        set subnet 10.151.4.37 255.255.255.255
+    next
+    edit "net_10.151.5.0/24"
+        set uuid e8751296-bba6-51ea-1b52-54414e759d96
+        set subnet 10.151.5.0 255.255.255.0
+    next
+    edit "net_10.151.25.0/24"
+        set uuid e87e0072-bba6-51ea-78c8-8b9d05e7e32d
+        set subnet 10.151.25.0 255.255.255.0
+    next
+    edit "net_10.152.25.0/24"
+        set uuid e886ed0e-bba6-51ea-f698-2f15ed6f572f
+        set subnet 10.152.25.0 255.255.255.0
+    next
+    edit "host_10.151.5.38"
+        set uuid e89246c2-bba6-51ea-07a9-fbbb31b7d58c
+        set subnet 10.151.5.38 255.255.255.255
+    next
+    edit "host_10.151.5.86"
+        set uuid e89d3168-bba6-51ea-b521-11f5547a4ada
+        set subnet 10.151.5.86 255.255.255.255
+    next
+    edit "host_10.152.5.36"
+        set uuid e8a6ce58-bba6-51ea-8a6e-1d5e051de655
+        set subnet 10.152.5.36 255.255.255.255
+    next
+    edit "host_10.2.150.21"
+        set uuid e8b0421c-bba6-51ea-9f85-3da4114ee12e
+        set subnet 10.2.150.21 255.255.255.255
+    next
+    edit "host_10.63.107.108"
+        set uuid e8b9843a-bba6-51ea-4178-89cac1d9674b
+        set subnet 10.63.107.108 255.255.255.255
+    next
+    edit "range_10.241.51.41-42"
+        set uuid e8c3208a-bba6-51ea-4e49-401ba9b57891
+        set type iprange
+        set start-ip 10.241.51.41
+        set end-ip 10.241.51.42
+    next
+    edit "range_10.241.151.41-42"
+        set uuid e8d32462-bba6-51ea-1c13-b52780f071b7
+        set type iprange
+        set start-ip 10.241.151.41
+        set end-ip 10.241.151.42
+    next
+    edit "range_10.151.5.37-38"
+        set uuid e8e35d1e-bba6-51ea-97d8-cc964cb979f1
+        set type iprange
+        set start-ip 10.151.5.37
+        set end-ip 10.151.5.38
+    next
+    edit "range_10.152.5.35-36"
+        set uuid e8f26714-bba6-51ea-73ac-b67a83bb5c63
+        set type iprange
+        set start-ip 10.152.5.35
+        set end-ip 10.152.5.36
+    next
+    edit "range_10.152.54.53-77"
+        set uuid e906521a-bba6-51ea-3e43-dfadedd83241
+        set type iprange
+        set start-ip 10.152.54.53
+        set end-ip 10.152.54.77
+    next
+    edit "range_10.152.54.80-83"
+        set uuid e91448fc-bba6-51ea-68af-fc72dcd8f5dc
+        set type iprange
+        set start-ip 10.152.54.80
+        set end-ip 10.152.54.83
+    next
+    edit "range_10.151.54.133-138"
+        set uuid e9260fc4-bba6-51ea-a388-95b059422289
+        set type iprange
+        set start-ip 10.151.54.133
+        set end-ip 10.151.54.138
+    next
+    edit "range_10.152.5.75-77"
+        set uuid e93823da-bba6-51ea-d9ed-4e7d6c103ff6
+        set type iprange
+        set start-ip 10.152.5.75
+        set end-ip 10.152.5.77
+    next
+    edit "net_10.244.128.0/24"
+        set uuid e9485084-bba6-51ea-e01d-a32b33aa0503
+        set subnet 10.244.128.0 255.255.255.0
+    next
+    edit "net_10.248.128.0/24"
+        set uuid e959b824-bba6-51ea-1237-c3557bdb5536
+        set subnet 10.248.128.0 255.255.255.0
+    next
+    edit "host_10.152.54.75"
+        set uuid e9631342-bba6-51ea-b90d-2e9d637ac80a
+        set subnet 10.152.54.75 255.255.255.255
+    next
+    edit "host_10.152.14.157"
+        set uuid e96c7626-bba6-51ea-6c7b-b1c9ee9a64d9
+        set subnet 10.152.14.157 255.255.255.255
+    next
+    edit "host_10.151.5.171"
+        set uuid e9764c5a-bba6-51ea-7699-eb2a3669e345
+        set subnet 10.151.5.171 255.255.255.255
+    next
+    edit "host_10.152.5.171"
+        set uuid e980dea4-bba6-51ea-70d7-3f125de2b609
+        set subnet 10.152.5.171 255.255.255.255
+    next
+    edit "range_10.152.54.43-46"
+        set uuid e99309da-bba6-51ea-f35a-1fd44caafaae
+        set type iprange
+        set start-ip 10.152.54.43
+        set end-ip 10.152.54.46
+    next
+    edit "range_10.152.54.59-76"
+        set uuid e9a1678c-bba6-51ea-ed40-102684d2c3e6
+        set type iprange
+        set start-ip 10.152.54.59
+        set end-ip 10.152.54.76
+    next
+    edit "range_10.151.54.82-85"
+        set uuid e9b1bbaa-bba6-51ea-5b4f-53147b7ab68b
+        set type iprange
+        set start-ip 10.151.54.82
+        set end-ip 10.151.54.85
+    next
+    edit "host_10.152.54.79"
+        set uuid e9c36e5e-bba6-51ea-b393-fbe379b910c6
+        set subnet 10.152.54.79 255.255.255.255
+    next
+    edit "net_172.24.4.0/24"
+        set uuid e9d1885e-bba6-51ea-7cbc-91760d039a82
+        set subnet 172.24.4.0 255.255.255.0
+    next
+    edit "range_10.152.5.45-46"
+        set uuid e9dd35f0-bba6-51ea-8d6d-294fd05fb9ed
+        set type iprange
+        set start-ip 10.152.5.45
+        set end-ip 10.152.5.46
+    next
+    edit "host_10.152.5.79"
+        set uuid e9eb2868-bba6-51ea-89a6-5900c3352f20
+        set subnet 10.152.5.79 255.255.255.255
+    next
+    edit "net_10.170.33.0/24"
+        set uuid e9f429ae-bba6-51ea-8ff0-e4cc00418e26
+        set subnet 10.170.33.0 255.255.255.0
+    next
+    edit "net_10.170.43.0/24"
+        set uuid e9fdebce-bba6-51ea-4117-acb2a1b405c6
+        set subnet 10.170.43.0 255.255.255.0
+    next
+    edit "net_10.1.150.0/24"
+        set uuid ea073a26-bba6-51ea-e260-e62af47094f4
+        set subnet 10.1.150.0 255.255.255.0
+    next
+    edit "host_10.152.54.86"
+        set uuid 03490210-bbae-51ea-7f30-e287075b03f4
+        set subnet 10.152.54.86 255.255.255.255
+    next
+    edit "host_10.152.54.99"
+        set uuid a4204cde-bbae-51ea-dc7e-c1e628bd56f9
+        set subnet 10.152.54.99 255.255.255.255
+    next
+    edit "host_10.152.4.35"
+        set uuid d647419a-bbae-51ea-ced7-372ca661cd1c
+        set subnet 10.152.4.35 255.255.255.255
+    next
+    edit "host_10.152.54.37"
+        set uuid 219ed26e-bbb1-51ea-5667-98439b30fe17
+        set subnet 10.152.54.37 255.255.255.255
+    next
+    edit "range_10.152.54.133-134"
+        set uuid a8e3272a-bbb1-51ea-7698-cae8d7b41c38
+        set type iprange
+        set start-ip 10.152.54.133
+        set end-ip 10.152.54.134
+    next
+    edit "net_192.168.86.0/24"
+        set uuid c1d8244a-c289-51ea-2f45-e31f71693f46
+        set subnet 192.168.86.0 255.255.255.0
+    next
+    edit "net_192.168.90.0/24"
+        set uuid c1e899f6-c289-51ea-1f49-e290e770c3d5
+        set subnet 192.168.90.0 255.255.255.0
+    next
+    edit "net_192.168.70.0/24"
+        set uuid c1f2cf20-c289-51ea-28f3-86650515a367
+        set subnet 192.168.70.0 255.255.255.0
+    next
+    edit "net_192.168.234.0/24"
+        set uuid c1febbdc-c289-51ea-f626-e92815b96a7d
+        set subnet 192.168.234.0 255.255.255.0
+    next
+    edit "net_192.168.237.0/24"
+        set uuid c208514c-c289-51ea-67e9-7eaf9a4cc362
+        set subnet 192.168.237.0 255.255.255.0
+    next
+    edit "net_10.2.150.0/24"
+        set uuid c2121182-c289-51ea-63e5-9e171d79f2df
+        set subnet 10.2.150.0 255.255.255.0
+    next
+    edit "net_10.70.12.0/24"
+        set uuid c21a4eb0-c289-51ea-501e-a03cedd125f7
+        set subnet 10.70.12.0 255.255.255.0
+    next
+    edit "host_10.244.192.17"
+        set uuid c223ef7e-c289-51ea-cb2d-abf1dacdca47
+        set subnet 10.244.192.17 255.255.255.255
+    next
+    edit "host_10.244.192.75"
+        set uuid c22e26ce-c289-51ea-53f7-0867a77f85cf
+        set subnet 10.244.192.75 255.255.255.255
+    next
+    edit "host_10.244.240.15"
+        set uuid c2377616-c289-51ea-69c5-d9d17c3bbfd3
+        set subnet 10.244.240.15 255.255.255.255
+    next
+    edit "host_10.244.192.59"
+        set uuid c24239de-c289-51ea-ad73-abcc0d620ff7
+        set subnet 10.244.192.59 255.255.255.255
+    next
+    edit "net_10.204.130.0/24"
+        set uuid c24c6b66-c289-51ea-a1a0-5810476a03a1
+        set subnet 10.204.130.0 255.255.255.0
+    next
+    edit "net_10.204.131.0/24"
+        set uuid c2549afc-c289-51ea-8f68-6ad4488c8b08
+        set subnet 10.204.131.0 255.255.255.0
+    next
+    edit "host_10.244.192.161"
+        set uuid c25e5a92-c289-51ea-2760-83878477b2d4
+        set subnet 10.244.192.161 255.255.255.255
+    next
+    edit "host_10.70.14.61"
+        set uuid c267ce24-c289-51ea-a439-4b760d1e098a
+        set subnet 10.70.14.61 255.255.255.255
+    next
+    edit "host_10.70.12.200"
+        set uuid c27517be-c289-51ea-749d-2da242ed2849
+        set subnet 10.170.12.200 255.255.255.255
+    next
+    edit "host_10.1.125.15"
+        set uuid c27cdefe-c289-51ea-7d28-fbc337cccb67
+        set subnet 10.1.125.15 255.255.255.255
+    next
+    edit "host_10.1.125.103"
+        set uuid c287b356-c289-51ea-ae00-02e307baa4cc
+        set subnet 10.1.125.103 255.255.255.255
+    next
+    edit "host_10.216.111.13"
+        set uuid c290934a-c289-51ea-7f65-edeeee029c88
+        set subnet 10.216.111.13 255.255.255.255
+    next
+    edit "host_10.1.150.122"
+        set uuid c29bfd02-c289-51ea-bac0-1c98870f90e0
+        set subnet 10.1.150.122 255.255.255.255
+    next
+    edit "host_10.1.150.124"
+        set uuid c2a599d4-c289-51ea-89c8-476e1ba83cc8
+        set subnet 10.1.150.124 255.255.255.255
+    next
+    edit "host_10.2.153.21"
+        set uuid c2b04de8-c289-51ea-081b-6ee76781df9d
+        set subnet 10.2.153.21 255.255.255.255
+    next
+    edit "net_10.193.46.0/24"
+        set uuid c2b8ac0e-c289-51ea-1494-aec1ee4f1d33
+        set subnet 10.193.46.0 255.255.255.0
+    next
+    edit "net_10.18.113.0/24"
+        set uuid c2c11934-c289-51ea-f19b-855ac2fc2d0b
+        set subnet 10.18.113.0 255.255.255.0
+    next
+    edit "host_10.2.150.27"
+        set uuid c2d536da-c289-51ea-600e-6fd9ab368f39
+        set subnet 10.2.150.27 255.255.255.255
+    next
+    edit "host_10.2.153.26"
+        set uuid ac929974-c28b-51ea-6df9-dc79eb287098
+        set subnet 10.2.153.26 255.255.255.255
+    next
+    edit "host_10.2.153.27"
+        set uuid b34c85c2-c28b-51ea-c4ff-c82d72d84b3c
+        set subnet 10.2.153.27 255.255.255.255
+    next
+    edit "host_10.2.150.20"
+        set uuid 623984ce-c726-51ea-6e47-018e7f1582be
+        set subnet 10.2.150.20 255.255.255.255
+    next
+    edit "host_10.244.129.41"
+        set uuid 41ae44e2-ccbc-51ea-b9ae-a08179a87f22
+        set subnet 10.244.129.41 255.255.255.255
+    next
+    edit "host_10.248.129.41"
+        set uuid 4e39862c-ccbc-51ea-0151-c98eba71dd9a
+        set subnet 10.248.129.41 255.255.255.255
+    next
+    edit "IP_10.244.64.174"
+        set uuid 02e90da4-e11c-51ea-6959-7840ae855654
+        set subnet 10.244.64.174 255.255.255.255
+    next
+    edit "IP_10.248.64.174"
+        set uuid 0b6a78c8-e11c-51ea-e8cc-5118ecf670ed
+        set subnet 10.248.64.174 255.255.255.255
+    next
+    edit "IP_10.170.63.95"
+        set uuid c5145a9c-e341-51ea-efae-b453b0f214ce
+        set subnet 10.170.63.95 255.255.255.255
+    next
+    edit "IP_10.151.5.37"
+        set uuid c516cf3e-e341-51ea-c27a-812ff3236540
+        set subnet 10.151.5.37 255.255.255.255
+    next
+    edit "IP_10.152.5.35"
+        set uuid c5171cf0-e341-51ea-5660-291850d66849
+        set subnet 10.152.5.35 255.255.255.255
+    next
+    edit "IP_10.151.25.12"
+        set uuid c51767fa-e341-51ea-e56b-817890cc3408
+        set subnet 10.151.25.12 255.255.255.255
+    next
+    edit "IP_10.152.25.12"
+        set uuid c517b41c-e341-51ea-f1ed-02be98332351
+        set subnet 10.152.25.12 255.255.255.255
+    next
+    edit "net_239.1.1.0/24"
+        set uuid c5195dee-e341-51ea-9b93-a2075053c026
+        set subnet 239.1.1.0 255.255.255.0
+    next
+    edit "net_239.1.127.0/24"
+        set uuid c519d12a-e341-51ea-d1a5-af68b8c1c8f5
+        set subnet 239.1.127.0 255.255.255.0
+    next
+    edit "IP_10.241.51.51"
+        set uuid c51a66bc-e341-51ea-c61c-13f350153c02
+        set subnet 10.241.51.51 255.255.255.255
+    next
+    edit "IP_10.241.51.52"
+        set uuid c51ab202-e341-51ea-c507-d741dac875ed
+        set subnet 10.241.51.52 255.255.255.255
+    next
+    edit "IP_10.241.51.55"
+        set uuid c51afd66-e341-51ea-7c0a-e1ab4b1c5002
+        set subnet 10.241.51.55 255.255.255.255
+    next
+    edit "IP_10.241.151.51"
+        set uuid c51b4a00-e341-51ea-2f64-9c784df64c57
+        set subnet 10.241.151.51 255.255.255.255
+    next
+    edit "IP_10.241.151.52"
+        set uuid c51b9622-e341-51ea-e734-3c85d2a41d58
+        set subnet 10.241.151.52 255.255.255.255
+    next
+    edit "IP_10.241.151.55"
+        set uuid c51be5be-e341-51ea-dcee-c926501c2b55
+        set subnet 10.241.151.55 255.255.255.255
+    next
+    edit "IP_159.220.180.3"
+        set uuid c51c5ba2-e341-51ea-10a7-8f27e2ce9b59
+        set subnet 159.220.180.3 255.255.255.255
+    next
+    edit "IP_159.220.180.66"
+        set uuid c51ca896-e341-51ea-ba2f-11a6e485b39a
+        set subnet 159.220.180.66 255.255.255.255
+    next
+    edit "IP_10.63.91.11"
+        set uuid c51cf68e-e341-51ea-2fcc-c3351b3039f0
+        set subnet 10.63.91.11 255.255.255.255
+    next
+    edit "IP_10.63.92.11"
+        set uuid c51d4378-e341-51ea-f1bc-53b6de670e07
+        set subnet 10.63.92.11 255.255.255.255
+    next
+    edit "IP_10.244.128.13"
+        set uuid c51db86c-e341-51ea-8724-282bf95c0644
+        set subnet 10.244.128.13 255.255.255.255
+    next
+    edit "IP_10.151.25.11"
+        set uuid c51e2bd0-e341-51ea-18bf-c3ba515eebdf
+        set subnet 10.151.25.11 255.255.255.255
+    next
+    edit "IP_10.152.25.11"
+        set uuid c51e7a90-e341-51ea-ef1f-8a9062b98a17
+        set subnet 10.152.25.11 255.255.255.255
+    next
+    edit "IP_10.170.53.89"
+        set uuid c51ec798-e341-51ea-1a96-f816644d9ce6
+        set subnet 10.170.53.89 255.255.255.255
+    next
+    edit "IP_10.170.53.90"
+        set uuid c51f14f0-e341-51ea-9e04-6a38765124a8
+        set subnet 10.170.53.90 255.255.255.255
+    next
+    edit "IP_10.170.63.89"
+        set uuid c51f6108-e341-51ea-d312-9c1143cea77b
+        set subnet 10.170.63.89 255.255.255.255
+    next
+    edit "IP_10.170.63.90"
+        set uuid c51fad7a-e341-51ea-de4d-52f7236a2817
+        set subnet 10.170.63.90 255.255.255.255
+    next
+    edit "IP_10.170.53.96"
+        set uuid c51ff8de-e341-51ea-60ee-6af3853817d5
+        set subnet 10.170.53.96 255.255.255.255
+    next
+    edit "IP_10.170.63.96"
+        set uuid c5204410-e341-51ea-8910-3c5583049710
+        set subnet 10.170.63.96 255.255.255.255
+    next
+    edit "IP_174.20.2.86"
+        set uuid c5208f06-e341-51ea-1cf5-e6f8f7dba173
+        set subnet 174.20.2.86 255.255.255.255
+    next
+    edit "IP_10.244.128.134"
+        set uuid c5210210-e341-51ea-3d2f-fc4035db2c67
+        set subnet 10.244.128.134 255.255.255.255
+    next
+    edit "IP_10.248.128.134"
+        set uuid c52150c6-e341-51ea-c481-6d5469d14ed0
+        set subnet 10.248.128.134 255.255.255.255
+    next
+    edit "IP_10.245.126.179"
+        set uuid c521a198-e341-51ea-9dd8-5dbbb80230ed
+        set subnet 10.245.126.179 255.255.255.255
+    next
+    edit "IP_10.249.126.179"
+        set uuid c521f116-e341-51ea-4e20-0649f56d3bce
+        set subnet 10.249.126.179 255.255.255.255
+    next
+    edit "IP_10.245.126.181"
+        set uuid c522409e-e341-51ea-b805-510be1433ddb
+        set subnet 10.245.126.181 255.255.255.255
+    next
+    edit "IP_10.249.126.181"
+        set uuid c5228f7c-e341-51ea-2619-b3a61f033098
+        set subnet 10.249.126.181 255.255.255.255
+    next
+    edit "IP_10.1.90.113"
+        set uuid c52307a4-e341-51ea-5453-bb7d3be243da
+        set subnet 10.1.90.113 255.255.255.255
+    next
+    edit "IP_10.1.90.114"
+        set uuid c52350ce-e341-51ea-dea5-ccc5a6a885b0
+        set subnet 10.1.90.114 255.255.255.255
+    next
+    edit "IP_10.2.90.113"
+        set uuid c5239a20-e341-51ea-2a4a-e33ede86375d
+        set subnet 10.2.90.113 255.255.255.255
+    next
+    edit "IP_10.2.90.114"
+        set uuid c523e264-e341-51ea-4475-332874b41598
+        set subnet 10.2.90.114 255.255.255.255
+    next
+    edit "IP_10.70.2.33"
+        set uuid c5242a76-e341-51ea-bec7-226de858a021
+        set subnet 10.70.2.33 255.255.255.255
+    next
+    edit "IP_10.70.2.34"
+        set uuid c524709e-e341-51ea-b417-45a53292ba06
+        set subnet 10.70.2.34 255.255.255.255
+    next
+    edit "IP_10.70.12.33"
+        set uuid c524b8e2-e341-51ea-64f7-bdb77200ae40
+        set subnet 10.70.12.33 255.255.255.255
+    next
+    edit "IP_10.70.12.34"
+        set uuid c5250144-e341-51ea-107e-4b66778d5fed
+        set subnet 10.70.12.34 255.255.255.255
+    next
+    edit "IP_10.1.90.123"
+        set uuid c525d11e-e341-51ea-9529-5e0b31f4843c
+        set subnet 10.1.90.123 255.255.255.255
+    next
+    edit "IP_10.1.90.124"
+        set uuid c52617d2-e341-51ea-97eb-bc67f84debe2
+        set subnet 10.1.90.124 255.255.255.255
+    next
+    edit "IP_10.2.90.123"
+        set uuid c5265ea4-e341-51ea-2ecf-05f2a3270118
+        set subnet 10.2.90.123 255.255.255.255
+    next
+    edit "IP_10.2.90.124"
+        set uuid c526a602-e341-51ea-6338-c1f5acecb09f
+        set subnet 10.2.90.124 255.255.255.255
+    next
+    edit "IP_10.151.5.75"
+        set uuid c5271506-e341-51ea-daf0-cafce5842823
+        set subnet 10.151.5.75 255.255.255.255
+    next
+    edit "IP_10.152.5.75"
+        set uuid c5275dae-e341-51ea-70ae-d751baac2f0c
+        set subnet 10.152.5.75 255.255.255.255
+    next
+    edit "IP_10.244.192.90"
+        set uuid c527db9e-e341-51ea-1370-76e37eb23027
+        set subnet 10.244.192.90 255.255.255.255
+    next
+    edit "IP_10.245.95.102"
+        set uuid c52826f8-e341-51ea-39ad-489a97da5088
+        set subnet 10.245.95.102 255.255.255.255
+    next
+    edit "IP_10.248.192.90"
+        set uuid c5287374-e341-51ea-1e59-55bf2c10a705
+        set subnet 10.248.192.90 255.255.255.255
+    next
+    edit "IP_10.249.95.102"
+        set uuid c528be42-e341-51ea-ae9b-7f96a22f0ca1
+        set subnet 10.249.95.102 255.255.255.255
+    next
+    edit "IP_10.80.3.95"
+        set uuid c5292f26-e341-51ea-7c3a-2c6480b8f14e
+        set subnet 10.80.3.95 255.255.255.255
+    next
+    edit "IP_10.80.4.95"
+        set uuid c5299be6-e341-51ea-ec67-60807a46b88c
+        set subnet 10.80.4.95 255.255.255.255
+    next
+    edit "range_10.244.64.174-175"
+        set uuid 775c88ce-e5bc-51ea-585e-bf34c670ed00
+        set type iprange
+        set start-ip 10.244.64.174
+        set end-ip 10.244.64.175
+    next
+    edit "range_10.248.64.174-175"
+        set uuid 775d6fbe-e5bc-51ea-6dfd-667dc84b3056
+        set type iprange
+        set start-ip 10.248.64.174
+        set end-ip 10.248.64.175
+    next
+    edit "host_10.244.128.14"
+        set uuid 61c691f8-e6a2-51ea-e3e7-89c0432931b3
+        set subnet 10.244.128.14 255.255.255.255
+    next
+    edit "host_10.244.128.20"
+        set uuid 61c6ea0e-e6a2-51ea-9734-ed0e39e6eed1
+        set subnet 10.244.128.20 255.255.255.255
+    next
+    edit "host_10.244.255.13"
+        set uuid 876e0ac6-e6a2-51ea-eb6e-65cd949e605a
+        set subnet 10.244.255.13 255.255.255.255
+    next
+    edit "host_10.248.255.13"
+        set uuid 876e5972-e6a2-51ea-b71b-e524923c794b
+        set subnet 10.248.255.13 255.255.255.255
+    next
+    edit "host_10.152.54.45"
+        set uuid ca8de76a-ec09-51ea-da8d-921257b7fc08
+        set subnet 10.152.54.45 255.255.255.255
+    next
+    edit "host_10.151.54.75"
+        set uuid cfcd9d90-ec0b-51ea-df21-d199cae15487
+        set subnet 10.151.54.75 255.255.255.255
+    next
+end
+config firewall multicast-address
+    edit "all_hosts"
+        set start-ip 224.0.0.1
+        set end-ip 224.0.0.1
+    next
+    edit "all_routers"
+        set start-ip 224.0.0.2
+        set end-ip 224.0.0.2
+    next
+    edit "Bonjour"
+        set start-ip 224.0.0.251
+        set end-ip 224.0.0.251
+    next
+    edit "EIGRP"
+        set start-ip 224.0.0.10
+        set end-ip 224.0.0.10
+    next
+    edit "OSPF"
+        set start-ip 224.0.0.5
+        set end-ip 224.0.0.6
+    next
+    edit "all"
+        set start-ip 224.0.0.0
+        set end-ip 239.255.255.255
+    next
+end
+config firewall address6
+    edit "all"
+        set uuid 6d2d6c1c-7198-51ea-a12d-4dbbe6ab5470
+    next
+    edit "none"
+        set uuid 6d2d782e-7198-51ea-e746-00a3e9c97df5
+        set ip6 ::/128
+    next
+    edit "SSLVPN_TUNNEL_IPv6_ADDR1"
+        set uuid 6daeed32-7198-51ea-a4b6-c37627242b1d
+        set ip6 fdff:ffff::/120
+    next
+end
+config firewall multicast-address6
+    edit "all"
+        set ip6 ff00::/8
+    next
+end
+config firewall addrgrp
+    edit "NetGp_BMC_SERVER"
+        set uuid 2257033e-9681-51ea-2707-17110d6fde9b
+        set member "range_10.244.64.68-70" "range_10.248.64.68-70"
+    next
+    edit "NetGp_TIME_SERVER"
+        set uuid 22662a1c-9681-51ea-b030-10bb0f169a74
+        set member "range_10.164.1.200-201" "range_10.164.129.200-201"
+    next
+    edit "NetGp_AD"
+        set uuid 226f3576-9681-51ea-b0b0-aadf8e22a0c7
+        set member "host_10.245.95.100" "host_10.245.95.102" "host_10.245.95.111" "host_10.249.95.102" "range_10.244.192.88-90" "range_10.248.192.88-90" "range_10.249.95.99-100"
+    next
+    edit "NetGp_WIN_JUMPNODE"
+        set uuid 22793ae4-9681-51ea-d6aa-83da1f2698a5
+        set member "host_10.249.132.60" "host_10.244.64.77" "host_10.245.132.39" "host_10.245.132.51" "host_10.248.64.77" "host_10.249.132.58" "net_10.248.95.0"
+    next
+    edit "NetGp_SCOM"
+        set uuid 22834ba6-9681-51ea-e380-dbea7a240f42
+        set member "host_10.245.79.24" "host_10.249.79.24"
+    next
+    edit "NetGp_SCCM"
+        set uuid 228b6368-9681-51ea-f317-83284a159270
+        set member "host_10.245.95.19" "host_10.249.79.19" "range_10.245.79.19-20"
+    next
+    edit "NetGp_TRENDMICRO"
+        set uuid 2294b954-9681-51ea-9348-e6740cb45651
+        set member "host_10.245.127.67" "host_10.249.127.51"
+    next
+    edit "NetGp_CCI_CO_JUMPNODE"
+        set uuid 229e6a1c-9681-51ea-5987-95221b7b0713
+        set member "host_10.249.132.59" "range_10.245.127.38-46" "range_10.245.132.73-75" "range_10.249.127.35-44" "range_10.249.132.49-50"
+    next
+    edit "NetGp_CO_JUMPNODE"
+        set uuid 22a967b4-9681-51ea-0eb9-c3fff8bbd6a7
+        set member "host_10.63.142.130" "host_10.63.142.133" "range_10.163.142.23-24"
+    next
+end
+config firewall service category
+    edit "General"
+        set comment "General services."
+    next
+    edit "Web Access"
+        set comment "Web access."
+    next
+    edit "File Access"
+        set comment "File access."
+    next
+    edit "Email"
+        set comment "Email services."
+    next
+    edit "Network Services"
+        set comment "Network services."
+    next
+    edit "Authentication"
+        set comment "Authentication service."
+    next
+    edit "Remote Access"
+        set comment "Remote access."
+    next
+    edit "Tunneling"
+        set comment "Tunneling service."
+    next
+    edit "VoIP, Messaging & Other Applications"
+        set comment "VoIP, messaging, and other applications."
+    next
+    edit "Web Proxy"
+        set comment "Explicit web proxy."
+    next
+end
+config firewall service custom
+    edit "ALL"
+        set category "General"
+        set protocol IP
+    next
+    edit "ALL_TCP"
+        set category "General"
+        set tcp-portrange 1-65535
+    next
+    edit "ALL_UDP"
+        set category "General"
+        set udp-portrange 1-65535
+    next
+    edit "ALL_ICMP"
+        set category "General"
+        set protocol ICMP
+        unset icmptype
+    next
+    edit "ALL_ICMP6"
+        set category "General"
+        set protocol ICMP6
+        unset icmptype
+    next
+    edit "GRE"
+        set category "Tunneling"
+        set protocol IP
+        set protocol-number 47
+    next
+    edit "AH"
+        set category "Tunneling"
+        set protocol IP
+        set protocol-number 51
+    next
+    edit "ESP"
+        set category "Tunneling"
+        set protocol IP
+        set protocol-number 50
+    next
+    edit "AOL"
+        set visibility disable
+        set tcp-portrange 5190-5194
+    next
+    edit "BGP"
+        set category "Network Services"
+        set tcp-portrange 179
+    next
+    edit "DHCP"
+        set category "Network Services"
+        set udp-portrange 67-68
+    next
+    edit "DNS"
+        set category "Network Services"
+        set tcp-portrange 53
+        set udp-portrange 53
+    next
+    edit "FINGER"
+        set visibility disable
+        set tcp-portrange 79
+    next
+    edit "FTP"
+        set category "File Access"
+        set tcp-portrange 21
+    next
+    edit "FTP_GET"
+        set category "File Access"
+        set tcp-portrange 21
+    next
+    edit "FTP_PUT"
+        set category "File Access"
+        set tcp-portrange 21
+    next
+    edit "GOPHER"
+        set visibility disable
+        set tcp-portrange 70
+    next
+    edit "H323"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 1720 1503
+        set udp-portrange 1719
+    next
+    edit "HTTP"
+        set category "Web Access"
+        set tcp-portrange 80
+    next
+    edit "HTTPS"
+        set category "Web Access"
+        set tcp-portrange 443
+    next
+    edit "IKE"
+        set category "Tunneling"
+        set udp-portrange 500 4500
+    next
+    edit "IMAP"
+        set category "Email"
+        set tcp-portrange 143
+    next
+    edit "IMAPS"
+        set category "Email"
+        set tcp-portrange 993
+    next
+    edit "Internet-Locator-Service"
+        set visibility disable
+        set tcp-portrange 389
+    next
+    edit "IRC"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 6660-6669
+    next
+    edit "L2TP"
+        set category "Tunneling"
+        set tcp-portrange 1701
+        set udp-portrange 1701
+    next
+    edit "LDAP"
+        set category "Authentication"
+        set tcp-portrange 389
+    next
+    edit "NetMeeting"
+        set visibility disable
+        set tcp-portrange 1720
+    next
+    edit "NFS"
+        set category "File Access"
+        set tcp-portrange 111 2049
+        set udp-portrange 111 2049
+    next
+    edit "NNTP"
+        set visibility disable
+        set tcp-portrange 119
+    next
+    edit "NTP"
+        set category "Network Services"
+        set tcp-portrange 123
+        set udp-portrange 123
+    next
+    edit "OSPF"
+        set category "Network Services"
+        set protocol IP
+        set protocol-number 89
+    next
+    edit "PC-Anywhere"
+        set category "Remote Access"
+        set tcp-portrange 5631
+        set udp-portrange 5632
+    next
+    edit "PING"
+        set category "Network Services"
+        set protocol ICMP
+        set icmptype 8
+        unset icmpcode
+    next
+    edit "TIMESTAMP"
+        set protocol ICMP
+        set visibility disable
+        set icmptype 13
+        unset icmpcode
+    next
+    edit "INFO_REQUEST"
+        set protocol ICMP
+        set visibility disable
+        set icmptype 15
+        unset icmpcode
+    next
+    edit "INFO_ADDRESS"
+        set protocol ICMP
+        set visibility disable
+        set icmptype 17
+        unset icmpcode
+    next
+    edit "ONC-RPC"
+        set category "Remote Access"
+        set tcp-portrange 111
+        set udp-portrange 111
+    next
+    edit "DCE-RPC"
+        set category "Remote Access"
+        set tcp-portrange 135
+        set udp-portrange 135
+    next
+    edit "POP3"
+        set category "Email"
+        set tcp-portrange 110
+    next
+    edit "POP3S"
+        set category "Email"
+        set tcp-portrange 995
+    next
+    edit "PPTP"
+        set category "Tunneling"
+        set tcp-portrange 1723
+    next
+    edit "QUAKE"
+        set visibility disable
+        set udp-portrange 26000 27000 27910 27960
+    next
+    edit "RAUDIO"
+        set visibility disable
+        set udp-portrange 7070
+    next
+    edit "REXEC"
+        set visibility disable
+        set tcp-portrange 512
+    next
+    edit "RIP"
+        set category "Network Services"
+        set udp-portrange 520
+    next
+    edit "RLOGIN"
+        set visibility disable
+        set tcp-portrange 513:512-1023
+    next
+    edit "RSH"
+        set visibility disable
+        set tcp-portrange 514:512-1023
+    next
+    edit "SCCP"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 2000
+    next
+    edit "SIP"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 5060
+        set udp-portrange 5060
+    next
+    edit "SIP-MSNmessenger"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 1863
+    next
+    edit "SAMBA"
+        set category "File Access"
+        set tcp-portrange 139
+    next
+    edit "SMTP"
+        set category "Email"
+        set tcp-portrange 25
+    next
+    edit "SMTPS"
+        set category "Email"
+        set tcp-portrange 465
+    next
+    edit "SNMP"
+        set category "Network Services"
+        set tcp-portrange 161-162
+        set udp-portrange 161-162
+    next
+    edit "SSH"
+        set category "Remote Access"
+        set tcp-portrange 22
+    next
+    edit "SYSLOG"
+        set category "Network Services"
+        set udp-portrange 514
+    next
+    edit "TALK"
+        set visibility disable
+        set udp-portrange 517-518
+    next
+    edit "TELNET"
+        set category "Remote Access"
+        set tcp-portrange 23
+    next
+    edit "TFTP"
+        set category "File Access"
+        set udp-portrange 69
+    next
+    edit "MGCP"
+        set visibility disable
+        set udp-portrange 2427 2727
+    next
+    edit "UUCP"
+        set visibility disable
+        set tcp-portrange 540
+    next
+    edit "VDOLIVE"
+        set visibility disable
+        set tcp-portrange 7000-7010
+    next
+    edit "WAIS"
+        set visibility disable
+        set tcp-portrange 210
+    next
+    edit "WINFRAME"
+        set visibility disable
+        set tcp-portrange 1494 2598
+    next
+    edit "X-WINDOWS"
+        set category "Remote Access"
+        set tcp-portrange 6000-6063
+    next
+    edit "PING6"
+        set protocol ICMP6
+        set visibility disable
+        set icmptype 128
+        unset icmpcode
+    next
+    edit "MS-SQL"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 1433 1434
+    next
+    edit "MYSQL"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 3306
+    next
+    edit "RDP"
+        set category "Remote Access"
+        set tcp-portrange 3389
+    next
+    edit "VNC"
+        set category "Remote Access"
+        set tcp-portrange 5900
+    next
+    edit "DHCP6"
+        set category "Network Services"
+        set udp-portrange 546 547
+    next
+    edit "SQUID"
+        set category "Tunneling"
+        set tcp-portrange 3128
+    next
+    edit "SOCKS"
+        set category "Tunneling"
+        set tcp-portrange 1080
+        set udp-portrange 1080
+    next
+    edit "WINS"
+        set category "Remote Access"
+        set tcp-portrange 1512
+        set udp-portrange 1512
+    next
+    edit "RADIUS"
+        set category "Authentication"
+        set udp-portrange 1812 1813
+    next
+    edit "RADIUS-OLD"
+        set visibility disable
+        set udp-portrange 1645 1646
+    next
+    edit "CVSPSERVER"
+        set visibility disable
+        set tcp-portrange 2401
+        set udp-portrange 2401
+    next
+    edit "AFS3"
+        set category "File Access"
+        set tcp-portrange 7000-7009
+        set udp-portrange 7000-7009
+    next
+    edit "TRACEROUTE"
+        set category "Network Services"
+        set udp-portrange 33434-33535
+    next
+    edit "RTSP"
+        set category "VoIP, Messaging & Other Applications"
+        set tcp-portrange 554 7070 8554
+        set udp-portrange 554
+    next
+    edit "MMS"
+        set visibility disable
+        set tcp-portrange 1755
+        set udp-portrange 1024-5000
+    next
+    edit "KERBEROS"
+        set category "Authentication"
+        set tcp-portrange 88 464
+        set udp-portrange 88 464
+    next
+    edit "LDAP_UDP"
+        set category "Authentication"
+        set udp-portrange 389
+    next
+    edit "SMB"
+        set category "File Access"
+        set tcp-portrange 445
+    next
+    edit "NONE"
+        set visibility disable
+        set tcp-portrange 0
+    next
+    edit "webproxy"
+        set proxy enable
+        set category "Web Proxy"
+        set protocol ALL
+        set tcp-portrange 0-65535:0-65535
+    next
+    edit "Port_to_BMC"
+        set tcp-portrange 2059 1828-1838 3181-3183
+        set udp-portrange 162
+    next
+    edit "Port_from_BMC"
+        set tcp-portrange 1828-1838 3181 3281 3381 3481 3581 3681 3781 3881 3981
+    next
+    edit "Port_SEPM"
+        set tcp-portrange 22 80 137-139 443 445 2967 8014
+    next
+    edit "UDP/123"
+        set udp-portrange 123
+    next
+    edit "TCP/22"
+        set tcp-portrange 22
+    next
+    edit "TCP/80"
+        set tcp-portrange 80
+    next
+    edit "PORT_PATCH_MGT"
+        set tcp-portrange 137-139 443 445 3121 3389
+    next
+    edit "PORT_AD_TCP"
+        set tcp-portrange 53 88 123 135 139 389 445 464 636 3268-3269 1024-3388 3390-65535
+    next
+    edit "PORT_AD_UDP"
+        set udp-portrange 53 88 123 135 138 389 445 464 1024-65535
+    next
+    edit "PORT_HP_ILO"
+        set tcp-portrange 22 23 80 443 623 3002 3389 9300 17988 17990
+    next
+    edit "PORT_SCOM"
+        set tcp-portrange 80 443 5723
+    next
+    edit "PORT_TRENDMICRO"
+        set tcp-portrange 8080 11267
+    next
+    edit "TCP/3389"
+        set tcp-portrange 3389
+    next
+    edit "TCP/1688"
+        set tcp-portrange 1688
+    next
+    edit "PORT_SCCM"
+        set tcp-portrange 80 135 389 443 445 636 2701 3268-3269 10123
+        set udp-portrange 135 636
+    next
+    edit "TCP/12024-12025"
+        set tcp-portrange 12024-12025
+    next
+    edit "TCP/8080"
+        set tcp-portrange 8080
+    next
+    edit "TCP/443"
+        set tcp-portrange 443
+    next
+    edit "TCP/9901"
+        set tcp-portrange 9901
+    next
+    edit "TCP/8801"
+        set tcp-portrange 8801
+    next
+    edit "TCP/12024-12027"
+        set tcp-portrange 12024-12027
+    next
+    edit "TCP/8443"
+        set tcp-portrange 8443
+    next
+    edit "TCP/8082-8083"
+        set tcp-portrange 8082-8083
+    next
+    edit "TCP/8090-8093"
+        set tcp-portrange 8090-8093
+    next
+    edit "TCP/34001-34004"
+        set tcp-portrange 34001-34004
+    next
+    edit "TCP/10022"
+        set tcp-portrange 10022
+    next
+    edit "TCP/14030"
+        set tcp-portrange 14030
+    next
+    edit "TCP/3010"
+        set tcp-portrange 3010
+    next
+    edit "TCP/8081"
+        set tcp-portrange 8081
+    next
+    edit "TCP/8444"
+        set tcp-portrange 8444
+    next
+    edit "TCP/18082-18083"
+        set tcp-portrange 18082-18083
+    next
+    edit "TCP/32001-32004"
+        set tcp-portrange 32001-32004
+    next
+    edit "TCP/33001-33004"
+        set tcp-portrange 33001-33004
+    next
+    edit "TCP/29109-29110"
+        set tcp-portrange 29109-29110
+    next
+    edit "TCP/61001-61002"
+        set tcp-portrange 61001-61002
+    next
+    edit "TCP/62001-62004"
+        set tcp-portrange 62001-62004
+    next
+    edit "TCP/6800"
+        set tcp-portrange 6800
+    next
+    edit "TCP/1435"
+        set tcp-portrange 1435
+    next
+    edit "TCP/139"
+        set tcp-portrange 139
+    next
+    edit "TCP/445"
+        set tcp-portrange 445
+    next
+    edit "TCP/1433-1434"
+        set tcp-portrange 1433-1434
+    next
+    edit "TCP/1433-1435"
+        set tcp-portrange 1433-1435
+    next
+    edit "TCP/8025"
+        set tcp-portrange 8025
+    next
+    edit "TCP/8026"
+        set tcp-portrange 8026
+    next
+    edit "TCP/8028"
+        set tcp-portrange 8028
+    next
+    edit "TCP/8032"
+        set tcp-portrange 8032
+    next
+    edit "TCP/8099"
+        set tcp-portrange 8099
+    next
+    edit "TCP/21"
+        set tcp-portrange 21
+    next
+    edit "TCP_10022"
+        set tcp-portrange 10022
+    next
+    edit "TCP_14002"
+        set tcp-portrange 14002
+    next
+    edit "TCP_22"
+        set tcp-portrange 22
+    next
+    edit "TCP_30001-30010"
+        set tcp-portrange 30001-30010
+    next
+    edit "TCP_55455"
+        set tcp-portrange 55455
+    next
+    edit "TCP_12024"
+        set tcp-portrange 12024
+    next
+    edit "TCP_12025"
+        set tcp-portrange 12025
+    next
+    edit "TCP_389"
+        set tcp-portrange 389
+    next
+    edit "UDP_51000-51009"
+        set udp-portrange 51000-51009
+    next
+    edit "TCP_2059"
+        set tcp-portrange 2059
+    next
+    edit "TCP_1828-1838"
+        set tcp-portrange 1828-1838
+    next
+    edit "TCP_3181-3183"
+        set tcp-portrange 3181-3183
+    next
+    edit "UDP_162"
+        set udp-portrange 162
+    next
+    edit "TCP_21"
+        set tcp-portrange 21
+    next
+end
+config firewall service group
+    edit "Email Access"
+        set member "DNS" "IMAP" "IMAPS" "POP3" "POP3S" "SMTP" "SMTPS"
+    next
+    edit "Web Access"
+        set member "DNS" "HTTP" "HTTPS"
+    next
+    edit "Windows AD"
+        set member "DCE-RPC" "DNS" "KERBEROS" "LDAP" "LDAP_UDP" "SAMBA" "SMB"
+    next
+    edit "Exchange Server"
+        set member "DCE-RPC" "DNS" "HTTPS"
+    next
+end
+config webfilter ftgd-local-cat
+    edit "custom1"
+        set id 140
+    next
+    edit "custom2"
+        set id 141
+    next
+end
+config ips sensor
+    edit "default"
+        set comment "Prevent critical attacks."
+        config entries
+            edit 1
+                set severity medium high critical 
+                set status enable
+                set action pass
+            next
+        end
+    next
+    edit "sniffer-profile"
+        set comment "Monitor IPS attacks."
+        config entries
+            edit 1
+                set severity high critical 
+            next
+        end
+    next
+    edit "sdn3-all"
+        config entries
+            edit 1
+                set severity info low medium high critical 
+                set status enable
+                set action pass
+            next
+        end
+    next
+end
+config firewall shaper traffic-shaper
+    edit "high-priority"
+        set maximum-bandwidth 1048576
+        set per-policy enable
+    next
+    edit "medium-priority"
+        set maximum-bandwidth 1048576
+        set priority medium
+        set per-policy enable
+    next
+    edit "low-priority"
+        set maximum-bandwidth 1048576
+        set priority low
+        set per-policy enable
+    next
+    edit "guarantee-100kbps"
+        set guaranteed-bandwidth 100
+        set maximum-bandwidth 1048576
+        set per-policy enable
+    next
+    edit "shared-1M-pipe"
+        set maximum-bandwidth 1024
+    next
+end
+config web-proxy global
+    set proxy-fqdn "default.fqdn"
+end
+config dlp filepattern
+    edit 1
+        set name "builtin-patterns"
+        config entries
+            edit "*.bat"
+            next
+            edit "*.com"
+            next
+            edit "*.dll"
+            next
+            edit "*.doc"
+            next
+            edit "*.exe"
+            next
+            edit "*.gz"
+            next
+            edit "*.hta"
+            next
+            edit "*.ppt"
+            next
+            edit "*.rar"
+            next
+            edit "*.scr"
+            next
+            edit "*.tar"
+            next
+            edit "*.tgz"
+            next
+            edit "*.vb?"
+            next
+            edit "*.wps"
+            next
+            edit "*.xl?"
+            next
+            edit "*.zip"
+            next
+            edit "*.pif"
+            next
+            edit "*.cpl"
+            next
+        end
+    next
+    edit 2
+        set name "all_executables"
+        config entries
+            edit "bat"
+                set filter-type type
+                set file-type bat
+            next
+            edit "exe"
+                set filter-type type
+                set file-type exe
+            next
+            edit "elf"
+                set filter-type type
+                set file-type elf
+            next
+            edit "hta"
+                set filter-type type
+                set file-type hta
+            next
+        end
+    next
+end
+config dlp fp-sensitivity
+    edit "Private"
+    next
+    edit "Critical"
+    next
+    edit "Warning"
+    next
+end
+config webfilter ips-urlfilter-setting
+end
+config webfilter ips-urlfilter-setting6
+end
+config log threat-weight
+    config web
+        edit 1
+            set category 26
+            set level high
+        next
+        edit 2
+            set category 61
+            set level high
+        next
+        edit 3
+            set category 86
+            set level high
+        next
+        edit 4
+            set category 1
+            set level medium
+        next
+        edit 5
+            set category 3
+            set level medium
+        next
+        edit 6
+            set category 4
+            set level medium
+        next
+        edit 7
+            set category 5
+            set level medium
+        next
+        edit 8
+            set category 6
+            set level medium
+        next
+        edit 9
+            set category 12
+            set level medium
+        next
+        edit 10
+            set category 59
+            set level medium
+        next
+        edit 11
+            set category 62
+            set level medium
+        next
+        edit 12
+            set category 83
+            set level medium
+        next
+        edit 13
+            set category 72
+        next
+        edit 14
+            set category 14
+        next
+    end
+    config application
+        edit 1
+            set category 2
+        next
+        edit 2
+            set category 6
+            set level medium
+        next
+    end
+end
+config icap profile
+    edit "default"
+    next
+end
+config vpn certificate ca
+end
+config vpn certificate local
+    edit "Fortinet_CA_SSL"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_CA_Untrusted"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_SSL"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_SSL_RSA1024"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_SSL_RSA2048"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_SSL_DSA1024"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_SSL_DSA2048"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_SSL_ECDSA256"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_SSL_ECDSA384"
+        set comments "This certificate is embedded in the hardware at the factory and is unique to this unit. "
+        set range global
+        set source factory
+        set last-updated 1585471006
+    next
+    edit "Fortinet_CA_SSLProxy"
+        set comments "This is the default CA certificate the SSL Inspection will use when generating new server certificates."
+        set range global
+        set last-updated 1585377282
+    next
+    edit "Fortinet_SSLProxy"
+        set range global
+        set last-updated 1585377282
+    next
+end
+config user setting
+    set auth-cert "Fortinet_Factory"
+end
+config user quarantine
+    set quarantine disable
+end
+config user group
+    edit "SSO_Guest_Users"
+    next
+end
+config user device-group
+    edit "Mobile Devices"
+        set member "android-phone" "android-tablet" "blackberry-phone" "blackberry-playbook" "ipad" "iphone" "windows-phone" "windows-tablet"
+        set comment "Phones, tablets, etc."
+    next
+    edit "Network Devices"
+        set member "fortinet-device" "other-network-device" "router-nat-device"
+        set comment "Routers, firewalls, gateways, etc."
+    next
+    edit "Others"
+        set member "gaming-console" "media-streaming"
+        set comment "Other devices."
+    next
+end
+config vpn ssl web host-check-software
+    edit "FortiClient-AV"
+        set guid "C86EC76D-5A4C-40E7-BD94-59358E544D81"
+    next
+    edit "FortiClient-FW"
+        set type fw
+        set guid "528CB157-D384-4593-AAAA-E42DFF111CED"
+    next
+    edit "FortiClient-AV-Vista"
+        set guid "385618A6-2256-708E-3FB9-7E98B93F91F9"
+    next
+    edit "FortiClient-FW-Vista"
+        set type fw
+        set guid "006D9983-6839-71D6-14E6-D7AD47ECD682"
+    next
+    edit "FortiClient-AV-Win7"
+        set guid "71629DC5-BE6F-CCD3-C5A5-014980643264"
+    next
+    edit "AVG-Internet-Security-AV"
+        set guid "17DDD097-36FF-435F-9E1B-52D74245D6BF"
+    next
+    edit "AVG-Internet-Security-FW"
+        set type fw
+        set guid "8DECF618-9569-4340-B34A-D78D28969B66"
+    next
+    edit "AVG-Internet-Security-AV-Vista-Win7"
+        set guid "0C939084-9E57-CBDB-EA61-0B0C7F62AF82"
+    next
+    edit "AVG-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "34A811A1-D438-CA83-C13E-A23981B1E8F9"
+    next
+    edit "CA-Anti-Virus"
+        set guid "17CFD1EA-56CF-40B5-A06B-BD3A27397C93"
+    next
+    edit "CA-Internet-Security-AV"
+        set guid "6B98D35F-BB76-41C0-876B-A50645ED099A"
+    next
+    edit "CA-Internet-Security-FW"
+        set type fw
+        set guid "38102F93-1B6E-4922-90E1-A35D8DC6DAA3"
+    next
+    edit "CA-Internet-Security-AV-Vista-Win7"
+        set guid "3EED0195-0A4B-4EF3-CC4F-4F401BDC245F"
+    next
+    edit "CA-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "06D680B0-4024-4FAB-E710-E675E50F6324"
+    next
+    edit "CA-Personal-Firewall"
+        set type fw
+        set guid "14CB4B80-8E52-45EA-905E-67C1267B4160"
+    next
+    edit "F-Secure-Internet-Security-AV"
+        set guid "E7512ED5-4245-4B4D-AF3A-382D3F313F15"
+    next
+    edit "F-Secure-Internet-Security-FW"
+        set type fw
+        set guid "D4747503-0346-49EB-9262-997542F79BF4"
+    next
+    edit "F-Secure-Internet-Security-AV-Vista-Win7"
+        set guid "15414183-282E-D62C-CA37-EF24860A2F17"
+    next
+    edit "F-Secure-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "2D7AC0A6-6241-D774-E168-461178D9686C"
+    next
+    edit "Kaspersky-AV"
+        set guid "2C4D4BC6-0793-4956-A9F9-E252435469C0"
+    next
+    edit "Kaspersky-FW"
+        set type fw
+        set guid "2C4D4BC6-0793-4956-A9F9-E252435469C0"
+    next
+    edit "Kaspersky-AV-Vista-Win7"
+        set guid "AE1D740B-8F0F-D137-211D-873D44B3F4AE"
+    next
+    edit "Kaspersky-FW-Vista-Win7"
+        set type fw
+        set guid "9626F52E-C560-D06F-0A42-2E08BA60B3D5"
+    next
+    edit "McAfee-Internet-Security-Suite-AV"
+        set guid "84B5EE75-6421-4CDE-A33A-DD43BA9FAD83"
+    next
+    edit "McAfee-Internet-Security-Suite-FW"
+        set type fw
+        set guid "94894B63-8C7F-4050-BDA4-813CA00DA3E8"
+    next
+    edit "McAfee-Internet-Security-Suite-AV-Vista-Win7"
+        set guid "86355677-4064-3EA7-ABB3-1B136EB04637"
+    next
+    edit "McAfee-Internet-Security-Suite-FW-Vista-Win7"
+        set type fw
+        set guid "BE0ED752-0A0B-3FFF-80EC-B2269063014C"
+    next
+    edit "McAfee-Virus-Scan-Enterprise"
+        set guid "918A2B0B-2C60-4016-A4AB-E868DEABF7F0"
+    next
+    edit "Norton-360-2.0-AV"
+        set guid "A5F1BC7C-EA33-4247-961C-0217208396C4"
+    next
+    edit "Norton-360-2.0-FW"
+        set type fw
+        set guid "371C0A40-5A0C-4AD2-A6E5-69C02037FBF3"
+    next
+    edit "Norton-360-3.0-AV"
+        set guid "E10A9785-9598-4754-B552-92431C1C35F8"
+    next
+    edit "Norton-360-3.0-FW"
+        set type fw
+        set guid "7C21A4C9-F61F-4AC4-B722-A6E19C16F220"
+    next
+    edit "Norton-Internet-Security-AV"
+        set guid "E10A9785-9598-4754-B552-92431C1C35F8"
+    next
+    edit "Norton-Internet-Security-FW"
+        set type fw
+        set guid "7C21A4C9-F61F-4AC4-B722-A6E19C16F220"
+    next
+    edit "Norton-Internet-Security-AV-Vista-Win7"
+        set guid "88C95A36-8C3B-2F2C-1B8B-30FCCFDC4855"
+    next
+    edit "Norton-Internet-Security-FW-Vista-Win7"
+        set type fw
+        set guid "B0F2DB13-C654-2E74-30D4-99C9310F0F2E"
+    next
+    edit "Symantec-Endpoint-Protection-AV"
+        set guid "FB06448E-52B8-493A-90F3-E43226D3305C"
+    next
+    edit "Symantec-Endpoint-Protection-FW"
+        set type fw
+        set guid "BE898FE3-CD0B-4014-85A9-03DB9923DDB6"
+    next
+    edit "Symantec-Endpoint-Protection-AV-Vista-Win7"
+        set guid "88C95A36-8C3B-2F2C-1B8B-30FCCFDC4855"
+    next
+    edit "Symantec-Endpoint-Protection-FW-Vista-Win7"
+        set type fw
+        set guid "B0F2DB13-C654-2E74-30D4-99C9310F0F2E"
+    next
+    edit "Panda-Antivirus+Firewall-2008-AV"
+        set guid "EEE2D94A-D4C1-421A-AB2C-2CE8FE51747A"
+    next
+    edit "Panda-Antivirus+Firewall-2008-FW"
+        set type fw
+        set guid "7B090DC0-8905-4BAF-8040-FD98A41C8FB8"
+    next
+    edit "Panda-Internet-Security-AV"
+        set guid "4570FB70-5C9E-47E9-B16C-A3A6A06C4BF0"
+    next
+    edit "Panda-Internet-Security-2006~2007-FW"
+        set type fw
+        set guid "4570FB70-5C9E-47E9-B16C-A3A6A06C4BF0"
+    next
+    edit "Panda-Internet-Security-2008~2009-FW"
+        set type fw
+        set guid "7B090DC0-8905-4BAF-8040-FD98A41C8FB8"
+    next
+    edit "Sophos-Anti-Virus"
+        set guid "3F13C776-3CBE-4DE9-8BF6-09E5183CA2BD"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-FW"
+        set type fw
+        set guid "0786E95E-326A-4524-9691-41EF88FB52EA"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-AV-Vista-Win7"
+        set guid "479CCF92-4960-B3E0-7373-BF453B467D2C"
+    next
+    edit "Sophos-Enpoint-Secuirty-and-Control-FW-Vista-Win7"
+        set type fw
+        set guid "7FA74EB7-030F-B2B8-582C-1670C5953A57"
+    next
+    edit "Trend-Micro-AV"
+        set guid "7D2296BC-32CC-4519-917E-52E652474AF5"
+    next
+    edit "Trend-Micro-FW"
+        set type fw
+        set guid "3E790E9E-6A5D-4303-A7F9-185EC20F3EB6"
+    next
+    edit "Trend-Micro-AV-Vista-Win7"
+        set guid "48929DFC-7A52-A34F-8351-C4DBEDBD9C50"
+    next
+    edit "Trend-Micro-FW-Vista-Win7"
+        set type fw
+        set guid "70A91CD9-303D-A217-A80E-6DEE136EDB2B"
+    next
+    edit "ZoneAlarm-AV"
+        set guid "5D467B10-818C-4CAB-9FF7-6893B5B8F3CF"
+    next
+    edit "ZoneAlarm-FW"
+        set type fw
+        set guid "829BDA32-94B3-44F4-8446-F8FCFF809F8B"
+    next
+    edit "ZoneAlarm-AV-Vista-Win7"
+        set guid "D61596DF-D219-341C-49B3-AD30538CBC5B"
+    next
+    edit "ZoneAlarm-FW-Vista-Win7"
+        set type fw
+        set guid "EE2E17FA-9876-3544-62EC-0405AD5FFB20"
+    next
+    edit "ESET-Smart-Security-AV"
+        set guid "19259FAE-8396-A113-46DB-15B0E7DFA289"
+    next
+    edit "ESET-Smart-Security-FW"
+        set type fw
+        set guid "211E1E8B-C9F9-A04B-6D84-BC85190CE5F2"
+    next
+end
+config vpn ssl web portal
+    edit "full-access"
+        set tunnel-mode enable
+        set ipv6-tunnel-mode enable
+        set web-mode enable
+        set ip-pools "SSLVPN_TUNNEL_ADDR1"
+        set ipv6-pools "SSLVPN_TUNNEL_IPv6_ADDR1"
+    next
+    edit "web-access"
+        set web-mode enable
+    next
+    edit "tunnel-access"
+        set tunnel-mode enable
+        set ipv6-tunnel-mode enable
+        set ip-pools "SSLVPN_TUNNEL_ADDR1"
+        set ipv6-pools "SSLVPN_TUNNEL_IPv6_ADDR1"
+    next
+end
+config vpn ssl settings
+    set servercert "Fortinet_Factory"
+    set port 443
+end
+config voip profile
+    edit "default"
+        set comment "Default VoIP profile."
+        config sip
+            set strict-register disable
+        end
+    next
+    edit "strict"
+        config sip
+            set malformed-request-line discard
+            set malformed-header-via discard
+            set malformed-header-from discard
+            set malformed-header-to discard
+            set malformed-header-call-id discard
+            set malformed-header-cseq discard
+            set malformed-header-rack discard
+            set malformed-header-rseq discard
+            set malformed-header-contact discard
+            set malformed-header-record-route discard
+            set malformed-header-route discard
+            set malformed-header-expires discard
+            set malformed-header-content-type discard
+            set malformed-header-content-length discard
+            set malformed-header-max-forwards discard
+            set malformed-header-allow discard
+            set malformed-header-p-asserted-identity discard
+            set malformed-header-sdp-v discard
+            set malformed-header-sdp-o discard
+            set malformed-header-sdp-s discard
+            set malformed-header-sdp-i discard
+            set malformed-header-sdp-c discard
+            set malformed-header-sdp-b discard
+            set malformed-header-sdp-z discard
+            set malformed-header-sdp-k discard
+            set malformed-header-sdp-a discard
+            set malformed-header-sdp-t discard
+            set malformed-header-sdp-r discard
+            set malformed-header-sdp-m discard
+        end
+    next
+end
+config webfilter profile
+    edit "default"
+        set comment "Default web filtering."
+        config ftgd-wf
+            unset options
+            config filters
+                edit 1
+                    set category 2
+                    set action warning
+                next
+                edit 2
+                    set category 7
+                    set action warning
+                next
+                edit 3
+                    set category 8
+                    set action warning
+                next
+                edit 4
+                    set category 9
+                    set action warning
+                next
+                edit 5
+                    set category 11
+                    set action warning
+                next
+                edit 6
+                    set category 12
+                    set action warning
+                next
+                edit 7
+                    set category 13
+                    set action warning
+                next
+                edit 8
+                    set category 14
+                    set action warning
+                next
+                edit 9
+                    set category 15
+                    set action warning
+                next
+                edit 10
+                    set category 16
+                    set action warning
+                next
+                edit 11
+                    set action warning
+                next
+                edit 12
+                    set category 57
+                    set action warning
+                next
+                edit 13
+                    set category 63
+                    set action warning
+                next
+                edit 14
+                    set category 64
+                    set action warning
+                next
+                edit 15
+                    set category 65
+                    set action warning
+                next
+                edit 16
+                    set category 66
+                    set action warning
+                next
+                edit 17
+                    set category 67
+                    set action warning
+                next
+                edit 18
+                    set category 26
+                    set action block
+                next
+                edit 19
+                    set category 61
+                    set action block
+                next
+                edit 20
+                    set category 86
+                    set action block
+                next
+                edit 21
+                    set category 88
+                    set action block
+                next
+                edit 22
+                    set category 90
+                    set action warning
+                next
+                edit 23
+                    set category 91
+                    set action warning
+                next
+            end
+        end
+    next
+end
+config webfilter search-engine
+    edit "google"
+        set hostname ".*\\.google\\..*"
+        set url "^\\/((custom|search|images|videosearch|webhp)\\?)"
+        set query "q="
+        set safesearch url
+        set safesearch-str "&safe=active"
+    next
+    edit "yahoo"
+        set hostname ".*\\.yahoo\\..*"
+        set url "^\\/search(\\/video|\\/images){0,1}(\\?|;)"
+        set query "p="
+        set safesearch url
+        set safesearch-str "&vm=r"
+    next
+    edit "bing"
+        set hostname ".*\\.bing\\..*"
+        set url "^(\\/images|\\/videos)?(\\/search|\\/async|\\/asyncv2)\\?"
+        set query "q="
+        set safesearch header
+    next
+    edit "yandex"
+        set hostname "yandex\\..*"
+        set url "^\\/((yand|images\\/|video\\/)(search)|search\\/)\\?"
+        set query "text="
+        set safesearch url
+        set safesearch-str "&family=yes"
+    next
+    edit "youtube"
+        set hostname ".*youtube.*"
+        set safesearch header
+    next
+    edit "baidu"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/s?\\?"
+        set query "wd="
+    next
+    edit "baidu2"
+        set hostname ".*\\.baidu\\.com"
+        set url "^\\/(ns|q|m|i|v)\\?"
+        set query "word="
+    next
+    edit "baidu3"
+        set hostname "tieba\\.baidu\\.com"
+        set url "^\\/f\\?"
+        set query "kw="
+    next
+end
+config dnsfilter profile
+    edit "default"
+        set comment "Default dns filtering."
+        config ftgd-dns
+            config filters
+                edit 1
+                    set category 2
+                next
+                edit 2
+                    set category 7
+                next
+                edit 3
+                    set category 8
+                next
+                edit 4
+                    set category 9
+                next
+                edit 5
+                    set category 11
+                next
+                edit 6
+                    set category 12
+                next
+                edit 7
+                    set category 13
+                next
+                edit 8
+                    set category 14
+                next
+                edit 9
+                    set category 15
+                next
+                edit 10
+                    set category 16
+                next
+                edit 11
+                next
+                edit 12
+                    set category 57
+                next
+                edit 13
+                    set category 63
+                next
+                edit 14
+                    set category 64
+                next
+                edit 15
+                    set category 65
+                next
+                edit 16
+                    set category 66
+                next
+                edit 17
+                    set category 67
+                next
+                edit 18
+                    set category 26
+                    set action block
+                next
+                edit 19
+                    set category 61
+                    set action block
+                next
+                edit 20
+                    set category 86
+                    set action block
+                next
+                edit 21
+                    set category 88
+                    set action block
+                next
+                edit 22
+                    set category 90
+                    set action block
+                next
+                edit 23
+                    set category 91
+                    set action block
+                next
+            end
+        end
+        set block-botnet enable
+    next
+end
+config antivirus profile
+    edit "default"
+        set comment "Scan files and block viruses."
+        set inspection-mode proxy
+        config http
+            set options scan
+        end
+        config ftp
+            set options scan
+        end
+        config imap
+            set options scan
+            set executables virus
+        end
+        config pop3
+            set options scan
+            set executables virus
+        end
+        config smtp
+            set options scan
+            set executables virus
+        end
+    next
+end
+config spamfilter profile
+    edit "default"
+        set comment "Malware and phishing URL filtering."
+    next
+    edit "sniffer-profile"
+        set comment "Malware and phishing URL monitoring."
+        set flow-based enable
+    next
+end
+config wanopt settings
+    set host-id "default-id"
+end
+config wanopt profile
+    edit "default"
+        set comments "Default WANopt profile."
+    next
+end
+config firewall schedule recurring
+    edit "always"
+        set day sunday monday tuesday wednesday thursday friday saturday
+    next
+    edit "none"
+    next
+end
+config firewall profile-protocol-options
+    edit "default"
+        set comment "All default services."
+        config http
+            set ports 80
+            unset options
+            unset post-lang
+        end
+        config ftp
+            set ports 21
+            set options splice
+        end
+        config imap
+            set ports 143
+            set options fragmail
+        end
+        config mapi
+            set ports 135
+            set options fragmail
+        end
+        config pop3
+            set ports 110
+            set options fragmail
+        end
+        config smtp
+            set ports 25
+            set options fragmail splice
+        end
+        config nntp
+            set ports 119
+            set options splice
+        end
+        config dns
+            set ports 53
+        end
+    next
+end
+config firewall ssl-ssh-profile
+    edit "certificate-inspection"
+        set comment "Read-only SSL handshake inspection profile."
+        config https
+            set ports 443
+            set status certificate-inspection
+        end
+        config ftps
+            set status disable
+        end
+        config imaps
+            set status disable
+        end
+        config pop3s
+            set status disable
+        end
+        config smtps
+            set status disable
+        end
+        config ssh
+            set ports 22
+            set status disable
+        end
+    next
+    edit "deep-inspection"
+        set comment "Read-only deep inspection profile."
+        config https
+            set ports 443
+        end
+        config ftps
+            set ports 990
+        end
+        config imaps
+            set ports 993
+        end
+        config pop3s
+            set ports 995
+        end
+        config smtps
+            set ports 465
+        end
+        config ssh
+            set ports 22
+        end
+        config ssl-exempt
+            edit 1
+                set fortiguard-category 31
+            next
+            edit 2
+                set fortiguard-category 33
+            next
+            edit 3
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-adobe"
+            next
+            edit 4
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-Adobe Login"
+            next
+            edit 5
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-android"
+            next
+            edit 6
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-apple"
+            next
+            edit 7
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-appstore"
+            next
+            edit 8
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-auth.gfx.ms"
+            next
+            edit 9
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-citrix"
+            next
+            edit 10
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-dropbox.com"
+            next
+            edit 11
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-eease"
+            next
+            edit 12
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-firefox update server"
+            next
+            edit 13
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-fortinet"
+            next
+            edit 14
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-googleapis.com"
+            next
+            edit 15
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-drive"
+            next
+            edit 16
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-play2"
+            next
+            edit 17
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-play3"
+            next
+            edit 18
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-Gotomeeting"
+            next
+            edit 19
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-icloud"
+            next
+            edit 20
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-itunes"
+            next
+            edit 21
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-microsoft"
+            next
+            edit 22
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-skype"
+            next
+            edit 23
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-softwareupdate.vmware.com"
+            next
+            edit 24
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-verisign"
+            next
+            edit 25
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-Windows update 2"
+            next
+            edit 26
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-live.com"
+            next
+            edit 27
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-play"
+            next
+            edit 28
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-update.microsoft.com"
+            next
+            edit 29
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-swscan.apple.com"
+            next
+            edit 30
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-autoupdate.opera.com"
+            next
+        end
+    next
+    edit "custom-deep-inspection"
+        set comment "Customizable deep inspection profile."
+        config https
+            set ports 443
+        end
+        config ftps
+            set ports 990
+        end
+        config imaps
+            set ports 993
+        end
+        config pop3s
+            set ports 995
+        end
+        config smtps
+            set ports 465
+        end
+        config ssh
+            set ports 22
+        end
+        config ssl-exempt
+            edit 1
+                set fortiguard-category 31
+            next
+            edit 2
+                set fortiguard-category 33
+            next
+            edit 3
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-adobe"
+            next
+            edit 4
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-Adobe Login"
+            next
+            edit 5
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-android"
+            next
+            edit 6
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-apple"
+            next
+            edit 7
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-appstore"
+            next
+            edit 8
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-auth.gfx.ms"
+            next
+            edit 9
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-citrix"
+            next
+            edit 10
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-dropbox.com"
+            next
+            edit 11
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-eease"
+            next
+            edit 12
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-firefox update server"
+            next
+            edit 13
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-fortinet"
+            next
+            edit 14
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-googleapis.com"
+            next
+            edit 15
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-drive"
+            next
+            edit 16
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-play2"
+            next
+            edit 17
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-play3"
+            next
+            edit 18
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-Gotomeeting"
+            next
+            edit 19
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-icloud"
+            next
+            edit 20
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-itunes"
+            next
+            edit 21
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-microsoft"
+            next
+            edit 22
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-skype"
+            next
+            edit 23
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-softwareupdate.vmware.com"
+            next
+            edit 24
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-verisign"
+            next
+            edit 25
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-Windows update 2"
+            next
+            edit 26
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-live.com"
+            next
+            edit 27
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-google-play"
+            next
+            edit 28
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-update.microsoft.com"
+            next
+            edit 29
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-swscan.apple.com"
+            next
+            edit 30
+                set type wildcard-fqdn
+                set wildcard-fqdn "g-autoupdate.opera.com"
+            next
+        end
+    next
+end
+config waf profile
+    edit "default"
+        config signature
+            config main-class 100000000
+                set action block
+                set severity high
+            end
+            config main-class 20000000
+            end
+            config main-class 30000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 40000000
+            end
+            config main-class 50000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 60000000
+            end
+            config main-class 70000000
+                set status enable
+                set action block
+                set severity high
+            end
+            config main-class 80000000
+                set status enable
+                set severity low
+            end
+            config main-class 110000000
+                set status enable
+                set severity high
+            end
+            config main-class 90000000
+                set status enable
+                set action block
+                set severity high
+            end
+            set disabled-signature 80080005 80200001 60030001 60120001 80080003 90410001 90410002
+        end
+        config constraint
+            config header-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config content-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config line-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config url-param-length
+                set status enable
+                set log enable
+                set severity low
+            end
+            config version
+                set log enable
+            end
+            config method
+                set action block
+                set log enable
+            end
+            config hostname
+                set action block
+                set log enable
+            end
+            config malformed
+                set log enable
+            end
+            config max-cookie
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-header-line
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-url-param
+                set status enable
+                set log enable
+                set severity low
+            end
+            config max-range-segment
+                set status enable
+                set log enable
+                set severity high
+            end
+        end
+    next
+end
+config firewall policy
+    edit 1
+        set name "LIN_Genium_5001"
+        set uuid 2b0bc60c-9683-51ea-27f7-5183597049ed
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.152.54.0/24" "net_10.170.64.0/24"
+        set dstaddr "NetGp_BMC_SERVER"
+        set action accept
+        set schedule "always"
+        set service "Port_to_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 2
+        set name "LIN_Genium_5002"
+        set uuid 2b36e1e8-9683-51ea-d198-51975e1c4b8b
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "NetGp_BMC_SERVER"
+        set dstaddr "net_10.152.54.0/24" "net_10.170.64.0/24" "net_10.152.34.0/24"
+        set action accept
+        set schedule "always"
+        set service "Port_from_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 3
+        set name "LIN_Genium_5003"
+        set uuid 31353298-9683-51ea-fd55-66a103c09c3a
+        set srcintf "I.PWTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "net_10.152.58.0/24"
+        set dstaddr "host_10.151.54.37" "host_10.151.54.75"
+        set action accept
+        set schedule "always"
+        set service "UDP/123"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 4
+        set name "LIN_Genium_5004"
+        set uuid 31882b60-9683-51ea-65e1-d845f85e818c
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "host_10.164.1.21" "host_10.164.129.21" "net_10.163.142.0/24" "net_10.163.143.0/24" "net_10.63.142.0/24" "net_10.1.85.0"
+        set dstaddr "net_10.152.54.0/24" "net_10.170.64.0/24" "net_10.152.52.0/24" "net_10.152.34.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 5
+        set name "LIN_Genium_5005"
+        set uuid 3600c29c-9683-51ea-7875-f916487d8fab
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "host_10.244.130.6" "host_10.248.64.43" "net_10.245.127.0/24" "net_10.245.132.0/24" "net_10.249.127.0/24" "net_10.249.132.0/24" "host_10.244.64.43"
+        set dstaddr "net_10.152.54.0/24" "net_10.170.64.0/24" "net_10.152.34.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 6
+        set name "LIN_Genium_5006"
+        set uuid 362fdc6c-9683-51ea-5561-f67521f6f28e
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "net_10.152.54.0/24" "net_10.170.64.0/24" "net_10.152.52.0/24" "net_10.152.34.0/24" "net_10.2.153.0/24"
+        set dstaddr "host_10.164.1.21" "host_10.164.129.21"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 7
+        set name "LIN_Genium_5007"
+        set uuid 367aeb76-9683-51ea-69ac-903d66b72a54
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "host_10.244.64.88"
+        set dstaddr "net_10.152.54.0/24" "net_10.152.34.0/24" "net_10.170.64.0/24"
+        set action accept
+        set schedule "always"
+        set service "Port_SEPM"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 8
+        set name "LIN_Genium_5008"
+        set uuid 36a0e4e8-9683-51ea-bdea-1edbe8cd1a1c
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.152.54.0/24" "net_10.170.64.0/24"
+        set dstaddr "host_10.244.64.88"
+        set action accept
+        set schedule "always"
+        set service "Port_SEPM"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 15
+        set name "LIN_Genium_5009"
+        set uuid 36c75a9c-9683-51ea-84e9-f378b7da3173
+        set srcintf "I.PWTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.152.58.0/24"
+        set dstaddr "NetGp_BMC_SERVER"
+        set action accept
+        set schedule "always"
+        set service "Port_to_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 40
+        set name "LIN_Genium_5020"
+        set uuid 78eb2c70-ac8e-51ea-88a2-a5d59ea6f723
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.244.64.19-20"
+        set dstaddr "net_10.152.52.0/24" "net_10.152.54.0/24" "net_10.152.34.0/24" "net_10.170.64.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 17
+        set name "LIN_Genium_5010"
+        set uuid 3b29d6be-9683-51ea-2691-c668e3ade940
+        set srcintf "D.CCI"
+        set dstintf "I.PWTBP"
+        set srcaddr "NetGp_BMC_SERVER"
+        set dstaddr "net_10.152.58.0/24"
+        set action accept
+        set schedule "always"
+        set service "Port_from_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 18
+        set name "LIN_Genium_5011"
+        set uuid 3b52abde-9683-51ea-ac6d-c82890c12dc0
+        set srcintf "I.PWTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.152.58.0/24"
+        set dstaddr "host_10.152.54.35" "host_10.152.54.45"
+        set action accept
+        set schedule "always"
+        set service "UDP/123"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 132
+        set name "LIN_Genium_5012"
+        set uuid d9172db4-ec09-51ea-8acf-69568f1e019c
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.151.58.0/24"
+        set dstaddr "host_10.152.54.35" "host_10.152.54.45"
+        set action accept
+        set schedule "always"
+        set service "UDP/123"
+        set utm-status enable
+        set logtraffic all
+        set fsso disable
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 20
+        set name "LIN_Genium_5013"
+        set uuid 3b9f2e50-9683-51ea-8e4e-14983a3a75ca
+        set srcintf "X.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "host_10.164.1.21" "host_10.164.129.21" "net_10.163.142.0/24" "net_10.163.143.0/24" "net_10.63.142.0/24" "net_10.1.85.0"
+        set dstaddr "net_10.152.58.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 22
+        set name "LIN_Genium_5015"
+        set uuid 3beb3e62-9683-51ea-77af-5743f9ad7c39
+        set srcintf "D.CCI"
+        set dstintf "I.PWTBP"
+        set srcaddr "host_10.244.130.6" "host_10.248.64.43" "net_10.245.127.0/24" "net_10.245.132.0/24" "net_10.249.127.0/24" "net_10.249.132.0/24" "host_10.244.64.43"
+        set dstaddr "net_10.152.58.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 23
+        set name "LIN_Genium_5016"
+        set uuid 3c11742e-9683-51ea-5575-f5bcf211a5d9
+        set srcintf "I.PWTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "net_10.152.58.0/24"
+        set dstaddr "host_10.164.1.21" "host_10.164.129.21"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 25
+        set name "LIN_Genium_5018"
+        set uuid 3c5dbb4a-9683-51ea-0ead-cac35125ecd7
+        set srcintf "D.CCI"
+        set dstintf "I.PWTBP"
+        set srcaddr "host_10.244.64.88"
+        set dstaddr "net_10.152.58.0/24"
+        set action accept
+        set schedule "always"
+        set service "Port_SEPM"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 41
+        set name "LIN_Genium_5021"
+        set uuid dbfe3f50-ac8e-51ea-38c0-a52423827944
+        set srcintf "D.CCI"
+        set dstintf "I.PWTBP"
+        set srcaddr "range_10.244.64.19-20"
+        set dstaddr "net_10.152.58.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 26
+        set name "LIN_Genium_5019"
+        set uuid 3c8424c4-9683-51ea-d317-28b5c1c40651
+        set srcintf "I.PWTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.152.58.0/24"
+        set dstaddr "host_10.244.64.88"
+        set action accept
+        set schedule "always"
+        set service "Port_SEPM"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 27
+        set name "WIN_HKATS_5001"
+        set uuid 40557c60-9683-51ea-5b12-61b96bd28478
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "host_10.245.79.99"
+        set action accept
+        set schedule "always"
+        set service "PORT_PATCH_MGT" "TCP/3389"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 28
+        set name "WIN_HKATS_5002"
+        set uuid 407e68f0-9683-51ea-2e62-7989a8e2b7fb
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "host_10.245.79.99"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_PATCH_MGT" "TCP/3389"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 29
+        set name "WIN_HKATS_5003"
+        set uuid 40a4a1f0-9683-51ea-b122-0032d44090f0
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "range_10.245.127.83-84"
+        set action accept
+        set schedule "always"
+        set service "TCP/1688"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 30
+        set name "WIN_HKATS_5004"
+        set uuid 40ca67dc-9683-51ea-4c1d-b80af8d4f486
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "NetGp_AD"
+        set action accept
+        set schedule "always"
+        set service "PORT_AD_TCP" "PORT_AD_UDP"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 31
+        set name "WIN_HKATS_5005"
+        set uuid 40f07562-9683-51ea-a4e2-73bcfe3139a7
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "NetGp_AD"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_AD_TCP" "PORT_AD_UDP"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 33
+        set name "WIN_HKATS_5007"
+        set uuid 413da27e-9683-51ea-cb43-695d8eecbc1e
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "NetGp_WIN_JUMPNODE"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 34
+        set name "WIN_HKATS_5008"
+        set uuid 41632954-9683-51ea-1a0c-5ab7382d9daa
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "NetGp_SCOM"
+        set action accept
+        set schedule "always"
+        set service "PORT_SCOM"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 39
+        set name "WIN_HKATS_5009"
+        set uuid 8bda012c-9f1d-51ea-4df5-8d31715bc946
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "NetGp_SCCM"
+        set action accept
+        set schedule "always"
+        set service "PORT_SCCM"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 35
+        set name "WIN_HKATS_5010"
+        set uuid 4550b50e-9683-51ea-2f08-2f419c32d1b5
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "host_10.245.127.67" "host_10.249.127.51"
+        set action accept
+        set schedule "always"
+        set service "PORT_TRENDMICRO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 36
+        set name "WIN_HKATS_5011"
+        set uuid 4579ca48-9683-51ea-b5eb-cd426eb583ef
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "host_10.245.127.67" "host_10.249.127.51"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_TRENDMICRO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 37
+        set name "WIN_HKATS_5012"
+        set uuid 45a0b518-9683-51ea-4396-22f1d610797f
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "NetGp_CCI_CO_JUMPNODE" "range_10.193.46.21-23"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/3389"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 38
+        set name "WIN_HKATS_5013"
+        set uuid 45c69a30-9683-51ea-f4d9-4a82f510a536
+        set srcintf "X.HTBP"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "NetGp_CO_JUMPNODE"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5136:2020_0512"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 42
+        set name "MDS_MIX_0002"
+        set uuid 16da536a-aec0-51ea-aa2d-e3fce9ced454
+        set srcintf "I.HTBP"
+        set dstintf "D.SDN2"
+        set srcaddr "host_10.170.63.95" "range_10.170.63.89-90" "IP_10.170.63.96"
+        set dstaddr "net_10.161.5.0/24" "net_10.162.5.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12025" "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5192:2020_0615"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 43
+        set name "MDS_MIX_0004"
+        set uuid 94dcc716-aec0-51ea-6485-1891875373f5
+        set srcintf "D.SDN2"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.161.5.0/24" "net_10.162.5.0/24"
+        set dstaddr "host_10.170.63.95" "IP_10.170.63.96"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5192:2020_0615"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 44
+        set name "LIN_Genium_5022"
+        set uuid 96a133e8-ba78-51ea-3560-9d6dc4f4ca62
+        set srcintf "X.HTBP"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "host_10.164.1.21" "host_10.164.129.21" "net_10.163.142.0/24" "net_10.163.143.0/24" "net_10.63.142.0/24"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 45
+        set name "LIN_Genium_5023"
+        set uuid bd7a0f76-ba78-51ea-d732-b7db0915f24b
+        set srcintf "I.SMARTTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "host_10.164.1.21" "host_10.164.129.21" "net_10.163.142.0/24" "net_10.163.143.0/24" "net_10.63.142.0/24"
+        set action accept
+        set schedule "always"
+        set service "PORT_HP_ILO"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 47
+        set name "DSDS_DIRS_0002"
+        set uuid 9ca8c424-bba7-51ea-fa3e-0b8a8a669d87
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "range_10.152.25.11-12"
+        set dstaddr "host_10.161.5.199"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 46
+        set name "DSDS_DIRS_0004"
+        set uuid b6436650-bba7-51ea-d1ca-e044de920b93
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.152.5.35" "host_10.152.5.99"
+        set dstaddr "host_10.161.5.199"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 48
+        set name "DSDS_HKATS_0022"
+        set uuid 1ca71b6c-bba8-51ea-f33a-a8cf09b2f800
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.161.5.0/24" "net_10.162.5.0/24"
+        set dstaddr "net_10.152.5.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 49
+        set name "DSDS_HKATS_0024"
+        set uuid 5592050e-bba8-51ea-d287-28389aa14f3e
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.163.143.0/24" "net_10.164.1.0/24" "net_10.164.129.0/24" "net_10.63.142.0/24"
+        set dstaddr "net_10.152.34.0/24" "net_10.152.54.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 50
+        set name "DSDS_HKATS_0025"
+        set uuid ea0afe64-bbaa-51ea-3245-3b0390d8c7c6
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.244.64.0/24" "net_10.248.64.0/24"
+        set dstaddr "net_10.152.34.0/24" "net_10.152.54.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 51
+        set name "DSDS_HKATS_0027"
+        set uuid 08e656ee-bbab-51ea-a847-20edfabf8977
+        set srcintf "X.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "net_10.163.143.0/24" "net_10.164.1.0/24" "net_10.164.129.0/24" "net_10.63.142.0/24"
+        set dstaddr "net_10.152.58.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 52
+        set name "DSDS_HKATS_0028"
+        set uuid 3c2e3058-bbab-51ea-01b2-3d78c0fe9b70
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.244.64.0/24" "net_10.248.64.0/24"
+        set dstaddr "net_10.152.58.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 53
+        set name "DSDS_HKATS_0029"
+        set uuid 4ced32ae-bbab-51ea-a22b-1596d997024a
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.168.36.0/24"
+        set dstaddr "net_10.152.5.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 54
+        set name "DSDS_HKATS_0030"
+        set uuid 6bc5a1a2-bbab-51ea-a4c6-8362ada1fc2e
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.168.36.0/24"
+        set dstaddr "range_10.152.14.101-102" "range_10.152.14.155-157"
+        set action accept
+        set schedule "always"
+        set service "TCP/8082-8083" "TCP/8090-8093" "TCP/8443"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 55
+        set name "DSDS_HKATS_0032"
+        set uuid bb7e773c-bbab-51ea-c4f1-583daa509347
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.168.80.0/24"
+        set dstaddr "net_10.152.5.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 56
+        set name "DSDS_HKATS_0034"
+        set uuid d158cbe8-bbab-51ea-dabb-bb6cc89b02b8
+        set srcintf "X.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "net_192.168.80.0/24"
+        set dstaddr "range_10.152.14.101-102" "range_10.152.14.155-157"
+        set action accept
+        set schedule "always"
+        set service "TCP/8082-8083" "TCP/8090-8093" "TCP/8443"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 57
+        set name "DSDS_HKATS_0035"
+        set uuid ed363b7a-bbab-51ea-a70b-f439ebf49e76
+        set srcintf "I.PWTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.152.13.101-102" "range_10.152.13.155-156"
+        set dstaddr "range_10.152.12.103-104" "range_10.152.12.161-166"
+        set action accept
+        set schedule "always"
+        set service "TCP/18082-18083" "TCP/32001-32004" "TCP/33001-33004"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 58
+        set name "DSDS_HKATS_0036"
+        set uuid 1a9b1b94-bbac-51ea-993d-192dd4709079
+        set srcintf "I.PWTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "range_10.152.13.101-102" "range_10.152.13.155-156"
+        set dstaddr "range_10.151.12.103-104" "range_10.151.12.161-166"
+        set action accept
+        set schedule "always"
+        set service "TCP/18082-18083" "TCP/32001-32004" "TCP/33001-33004"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 59
+        set name "DSDS_HKATS_0037"
+        set uuid 34ad73ce-bbac-51ea-c4d7-7f4012554203
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.151.13.101-102" "range_10.151.13.155-156"
+        set dstaddr "range_10.152.12.103-104" "range_10.152.12.161-166"
+        set action accept
+        set schedule "always"
+        set service "TCP/18082-18083" "TCP/32001-32004" "TCP/33001-33004"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 60
+        set name "DSDS_HKATS_0038"
+        set uuid 556a5ae6-bbac-51ea-f19f-56f33e7180ac
+        set srcintf "I.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "range_10.152.12.103-104" "range_10.152.12.161-166"
+        set dstaddr "range_10.152.13.101-102" "range_10.152.13.155-156"
+        set action accept
+        set schedule "always"
+        set service "TCP/22" "TCP/34001-34004"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 61
+        set name "DSDS_HKATS_0039"
+        set uuid 9d2898c0-bbac-51ea-dfe7-cc2a786e6c48
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "range_10.152.12.103-104" "range_10.152.12.161-166"
+        set dstaddr "range_10.151.13.101-102" "range_10.151.13.155-156"
+        set action accept
+        set schedule "always"
+        set service "TCP/22" "TCP/34001-34004"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 62
+        set name "DSDS_HKATS_0040"
+        set uuid cbb90a44-bbac-51ea-43bc-da68fe6dad8c
+        set srcintf "X.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "range_10.151.12.103-104" "range_10.151.12.161-166"
+        set dstaddr "range_10.152.13.101-102" "range_10.152.13.155-156"
+        set action accept
+        set schedule "always"
+        set service "TCP/22" "TCP/34001-34004"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 63
+        set name "DSDS_HKATS_0041"
+        set uuid edba2c5e-bbac-51ea-5c7d-a3d81af4e097
+        set srcintf "I.PWTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "host_10.152.13.157"
+        set dstaddr "host_10.152.12.171"
+        set action accept
+        set schedule "always"
+        set service "TCP/8081" "TCP/8444"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 64
+        set name "DSDS_HKATS_0042"
+        set uuid 09856bba-bbad-51ea-0617-4febdcca1380
+        set srcintf "I.PWTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.152.13.157"
+        set dstaddr "host_10.151.12.171"
+        set action accept
+        set schedule "always"
+        set service "TCP/8081" "TCP/8444"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 65
+        set name "DSDS_HKATS_0043"
+        set uuid 1997018a-bbad-51ea-e9c1-f54faa85d227
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "host_10.151.13.157" "host_10.151.12.37"
+        set dstaddr "host_10.152.12.171"
+        set action accept
+        set schedule "always"
+        set service "TCP/8081" "TCP/8444"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 66
+        set name "DSDS_HKATS_0044"
+        set uuid 34812dae-bbad-51ea-1168-e7e0a8f6c946
+        set srcintf "I.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "host_10.152.12.171" "host_10.152.12.35"
+        set dstaddr "host_10.152.13.157" "range_10.152.13.101-102" "range_10.152.13.155-156"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 67
+        set name "DSDS_HKATS_0045"
+        set uuid 51a89246-bbad-51ea-274f-58d64933448c
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.152.12.171" "host_10.152.12.35"
+        set dstaddr "host_10.151.13.157" "range_10.151.13.101-102" "range_10.151.13.155-156"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 68
+        set name "DSDS_HKATS_0046"
+        set uuid 6a1ab566-bbad-51ea-2689-d6d4c4efb2a9
+        set srcintf "X.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "host_10.151.12.171" "host_10.151.12.37"
+        set dstaddr "host_10.152.13.157" "range_10.152.13.101-102" "range_10.152.13.155-156"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 69
+        set name "DSDS_HKATS_0047"
+        set uuid 8663ea62-bbad-51ea-d479-cb66fb041588
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.168.36.0/24"
+        set dstaddr "host_10.152.5.35"
+        set action accept
+        set schedule "always"
+        set service "TCP/22" "TCP/3010"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 70
+        set name "DSDS_HKATS_0049"
+        set uuid a432c982-bbad-51ea-41d8-d6e68b634da0
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.168.80.0/24"
+        set dstaddr "host_10.152.5.35"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 71
+        set name "DSDS_HKATS_0050"
+        set uuid d55f62ae-bbad-51ea-997e-4bf6dfb357d0
+        set srcintf "I.PWTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.152.58.101-102" "range_10.152.58.155-157"
+        set dstaddr "host_10.152.54.35" "host_10.152.54.86"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 72
+        set name "DSDS_HKATS_0051"
+        set uuid 18d22102-bbae-51ea-8a2c-a468bfe89f54
+        set srcintf "I.PWTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "range_10.152.58.101-102" "range_10.152.58.155-157"
+        set dstaddr "host_10.151.54.37" "host_10.151.54.99"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 73
+        set name "DSDS_HKATS_0052"
+        set uuid 524895e2-bbae-51ea-825a-a1ba6ea3d4dd
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.151.58.101-102" "range_10.151.58.155-157"
+        set dstaddr "host_10.152.54.35" "host_10.152.54.86"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 74
+        set name "DSDS_HKATS_0054"
+        set uuid 7392f9ea-bbae-51ea-a050-fae97884dc61
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.176.4.0/24"
+        set dstaddr "host_10.152.54.99"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 75
+        set name "DSDS_HKATS_0055"
+        set uuid b3298aba-bbae-51ea-35fc-c3696b1fc199
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "host_10.152.4.35"
+        set dstaddr "host_10.245.126.180"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 76
+        set name "DSDS_HKATS_0057"
+        set uuid e1a909d8-bbae-51ea-acca-65cdd6626a04
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "net_10.151.25.0/24" "net_10.152.5.0/24"
+        set dstaddr "range_10.241.151.41-42" "range_10.241.51.41-42"
+        set action accept
+        set schedule "always"
+        set service "TCP/10022"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 77
+        set name "DSDS_HKATS_0059"
+        set uuid 077c5f7a-bbaf-51ea-2ca5-e49f6885203d
+        set srcintf "X.HTBP"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "net_192.168.80.0/24"
+        set dstaddr "host_10.2.150.21"
+        set action accept
+        set schedule "always"
+        set service "TCP/3389"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 78
+        set name "DSDS_HKATS_0061"
+        set uuid 3460924a-bbaf-51ea-838b-3be3f39cdb47
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.152.5.36" "host_10.152.5.99"
+        set dstaddr "host_10.63.107.108"
+        set action accept
+        set schedule "always"
+        set service "TCP/29109-29110"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 79
+        set name "DSDS_HKATS_0063"
+        set uuid 5aff12b4-bbaf-51ea-f645-d4ed31cc47bd
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.152.5.99" "range_10.152.5.35-36"
+        set dstaddr "host_10.161.5.199"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 80
+        set name "DSDS_HKATS_0065"
+        set uuid 7373902c-bbaf-51ea-0143-4c137986348a
+        set srcintf "X.HTBP"
+        set dstintf "I.PWTBP"
+        set srcaddr "net_10.163.143.0/24" "net_10.63.142.0/24"
+        set dstaddr "range_10.152.58.101-102" "range_10.152.58.155-157"
+        set action accept
+        set schedule "always"
+        set service "TCP/8082-8083" "TCP/8090-8093" "TCP/8443"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 81
+        set name "DSDS_HKATS_0067"
+        set uuid 9fb01a8e-bbaf-51ea-e265-cbd288225ee0
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.163.143.0/24" "net_10.63.142.0/24"
+        set dstaddr "host_10.152.54.79" "range_10.151.54.82-85" "range_10.152.54.43-46" "range_10.152.54.59-76"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 82
+        set name "DSDS_HKATS_0069"
+        set uuid 595a4c48-bbb0-51ea-f997-391b0d33e87c
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.163.143.0/24" "net_10.63.142.0/24"
+        set dstaddr "host_10.152.54.99"
+        set action accept
+        set schedule "always"
+        set service "TCP/14030" "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 83
+        set name "DSDS_HKATS_0070"
+        set uuid 7ab39cb4-bbb0-51ea-2f25-4e8522000c57
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.244.128.0/24" "net_10.248.128.0/24"
+        set dstaddr "range_10.152.5.75-77"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 84
+        set name "DSDS_HKATS_0071"
+        set uuid a806fd6e-bbb0-51ea-4f0a-5da5afc052a3
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "host_10.152.54.75" "host_10.152.54.86" "host_10.152.54.37"
+        set dstaddr "host_10.245.126.180"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 85
+        set name "DSDS_HKATS_0072"
+        set uuid 39cdecf8-bbb1-51ea-94c3-3d47c354ef3a
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.168.36.0/24"
+        set dstaddr "range_10.152.54.53-77" "range_10.152.54.80-83" "range_10.152.54.133-134"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 86
+        set name "DSDS_HKATS_0073"
+        set uuid b909afca-bbb1-51ea-8b7b-a9fd697409ec
+        set srcintf "D.CCI"
+        set dstintf "I.PWTBP"
+        set srcaddr "net_192.168.36.0/24"
+        set dstaddr "range_10.152.14.101-102" "range_10.152.14.155-157"
+        set action accept
+        set schedule "always"
+        set service "TCP/8082-8083" "TCP/8090-8093" "TCP/8443"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 87
+        set name "DSDS_HKATS_0074"
+        set uuid dc568b10-bbb1-51ea-4402-837cb38b69bf
+        set srcintf "D.CCI"
+        set dstintf "I.PWTBP"
+        set srcaddr "net_192.168.36.0/24"
+        set dstaddr "host_10.152.14.157"
+        set action accept
+        set schedule "always"
+        set service "TCP/8443"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 88
+        set name "DSDS_HKATS_0075"
+        set uuid 0385462c-bbb2-51ea-bfe0-df5608484daf
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_192.168.36.0/24"
+        set dstaddr "host_10.152.5.35"
+        set action accept
+        set schedule "always"
+        set service "TCP/22" "TCP/3010"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 89
+        set name "DSDS_HKATS_0077"
+        set uuid 25de3986-bbb2-51ea-52b8-115cb8165b1a
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_172.24.4.0/24"
+        set dstaddr "host_10.152.5.79" "range_10.152.5.45-46"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 90
+        set name "DSDS_HKATS_0079"
+        set uuid 422c7c24-bbb2-51ea-701c-47c3cda29ca1
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_172.24.4.0/24"
+        set dstaddr "host_10.152.5.171"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 91
+        set name "DSDS_HKATS_0081"
+        set uuid 540baeb0-bbb2-51ea-ad67-f1fee607d5d5
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.161.5.0/24" "net_10.162.5.0/24" "net_10.170.33.0/24" "net_10.170.43.0/24"
+        set dstaddr "host_10.152.5.79" "range_10.152.5.45-46"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 92
+        set name "DSDS_HKATS_0083"
+        set uuid 790c6948-bbb2-51ea-3b6b-efdd32b2f47e
+        set srcintf "X.HTBP"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.1.150.0/24"
+        set dstaddr "host_10.152.5.79" "range_10.152.5.45-46"
+        set action accept
+        set schedule "always"
+        set service "TCP/12024-12027"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 93
+        set name "DSDS_HKATS_0085"
+        set uuid 953ae5cc-bbb2-51ea-b6d3-caae59994368
+        set srcintf "I.HTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.152.5.35"
+        set dstaddr "net_10.161.5.0/24" "net_10.162.5.0/24" "net_10.170.33.0/24" "net_10.170.43.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5259:2020_0622"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 94
+        set name "SOTC_SMARTS_0002"
+        set uuid 01fb1df2-c28a-51ea-b896-63520efde536
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "net_192.168.234.0/24" "net_192.168.237.0/24" "net_192.168.70.0/24" "net_192.168.86.0/24" "net_192.168.90.0/24"
+        set dstaddr "host_10.2.150.21"
+        set action accept
+        set schedule "always"
+        set service "TCP/3389"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 95
+        set name "SOTC_SMARTS_0004"
+        set uuid 256f05e6-c28a-51ea-e145-3571f4af238b
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.OTPC"
+        set srcaddr "net_10.2.150.0/24"
+        set dstaddr "net_10.70.12.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/61001-61002" "TCP/62001-62004"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 96
+        set name "SOTC_SMARTS_0007"
+        set uuid 41e8a7f4-c28a-51ea-43fe-c17cee1391a7
+        set srcintf "I.SMARTTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.2.150.20"
+        set dstaddr "net_10.204.130.0/24" "net_10.204.131.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/21" "TCP/6800"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 97
+        set name "SOTC_SMARTS_0009"
+        set uuid 6396f126-c28a-51ea-6a30-ad4747a1e63a
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "host_10.2.150.21"
+        set dstaddr "host_10.244.192.75"
+        set action accept
+        set schedule "always"
+        set service "TCP/1435"
+        set utm-status enable
+        set logtraffic all
+        set fsso disable
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 98
+        set name "SOTC_SMARTS_0012"
+        set uuid 815ea636-c28a-51ea-b3c2-abf32a27e19e
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "host_10.244.192.17"
+        set dstaddr "net_10.2.150.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 101
+        set name "SOTC_SMARTS_0014"
+        set uuid 987af590-c28a-51ea-b8ac-c98437fa1868
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.150.0/24"
+        set dstaddr "host_10.244.192.161"
+        set action accept
+        set schedule "always"
+        set service "TCP/1433-1434"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 102
+        set name "SOTC_SMARTS_0016"
+        set uuid aba578f2-c28a-51ea-ca4a-a3603c6b79ee
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.OTPC"
+        set srcaddr "net_10.2.150.0/24"
+        set dstaddr "host_10.70.12.200" "host_10.70.14.61"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 103
+        set name "SOTC_SMARTS_0018"
+        set uuid f67f9a24-c28a-51ea-dd2a-d2f3382e7a60
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.150.0/24"
+        set dstaddr "host_10.244.192.59"
+        set action accept
+        set schedule "always"
+        set service "TCP/1433-1435"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 104
+        set name "SOTC_SMARTS_0020"
+        set uuid 103ed646-c28b-51ea-277e-5cbd028fb707
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.OTPC"
+        set srcaddr "net_10.2.150.0/24"
+        set dstaddr "host_10.1.125.103" "host_10.1.125.15"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 105
+        set name "SOTC_SMARTS_0021"
+        set uuid 27e25854-c28b-51ea-6c93-ce8842859548
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "net_10.193.46.0/24"
+        set dstaddr "host_10.2.150.21" "host_10.2.150.27"
+        set action accept
+        set schedule "always"
+        set service "TCP/3389"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 106
+        set name "SOTC_SMARTS_0024"
+        set uuid 4030fe10-c28b-51ea-de98-20996d835ff9
+        set srcintf "X.HTBP"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "net_10.18.113.0/24"
+        set dstaddr "net_10.2.150.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 107
+        set name "SOTC_SMARTS_0026"
+        set uuid 57ea5a24-c28b-51ea-a621-5bf9278ae863
+        set srcintf "I.SMARTTBP"
+        set dstintf "X.HTBP"
+        set srcaddr "host_10.2.150.21" "host_10.2.150.27"
+        set dstaddr "net_10.18.113.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP/22" "TCP/8025" "TCP/8026" "TCP/8028" "TCP/8032"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 108
+        set name "SOTC_SMARTS_0028"
+        set uuid 7291bf52-c28b-51ea-8c07-48c3d89eb09d
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "net_10.193.46.0/24"
+        set dstaddr "host_10.2.153.21" "host_10.2.153.26" "host_10.2.153.27"
+        set action accept
+        set schedule "always"
+        set service "TCP/3389"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 109
+        set name "SOTC_SMARTS_0031"
+        set uuid c877b3ea-c28b-51ea-50a6-2e7e46bc52c4
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.150.0/24"
+        set dstaddr "net_10.248.128.0/24" "host_10.244.129.41" "host_10.248.129.41"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5474:2020_0710"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 99
+        set name "allow-all-ping"
+        set uuid cc1eb104-bbb2-51ea-1cd4-2cf837c41d13
+        set srcintf "any"
+        set dstintf "any"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set schedule "always"
+        set service "ALL_ICMP"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 100
+        set name "allow-all"
+        set uuid cc483efc-bbb2-51ea-90f2-9e04249fad6b
+        set srcintf "any"
+        set dstintf "any"
+        set srcaddr "all"
+        set dstaddr "all"
+        set action accept
+        set status disable
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set logtraffic all
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 110
+        set uuid 3cd450b4-e11c-51ea-2c64-253709028422
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.244.64.68-70" "range_10.248.64.68-70" "IP_10.244.64.174" "IP_10.248.64.174"
+        set dstaddr "net_10.152.54.0/24"
+        set action accept
+        set schedule "always"
+        set service "Port_from_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 111
+        set uuid 3cd6a152-e11c-51ea-0aac-5912ccdaa3da
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "range_10.244.64.68-70" "range_10.248.64.68-70" "IP_10.244.64.174" "IP_10.248.64.174"
+        set dstaddr "net_10.152.54.0/24"
+        set action accept
+        set schedule "always"
+        set service "Port_from_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 112
+        set uuid b703beec-e11c-51ea-9e80-373a4ea0a171
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.244.64.68-70" "range_10.248.64.68-70" "IP_10.244.64.174" "IP_10.248.64.174"
+        set dstaddr "net_10.152.54.0/24"
+        set action accept
+        set schedule "always"
+        set service "Port_from_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 113
+        set uuid b7060cf6-e11c-51ea-2f92-f6a8d04bec23
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.152.54.0/24"
+        set dstaddr "range_10.244.64.68-70" "range_10.248.64.68-70" "IP_10.244.64.174" "IP_10.248.64.174"
+        set action accept
+        set schedule "always"
+        set service "Port_to_BMC"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5027:2020_0506"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 114
+        set name "MDS_MIX_5002"
+        set uuid c52a1d00-e341-51ea-544f-b496b0a79b36
+        set srcintf "I.HTBP"
+        set dstintf "D.SDN2"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.241.51.51" "IP_10.241.51.52" "IP_10.241.51.55" "IP_10.241.151.51" "IP_10.241.151.52" "IP_10.241.151.55"
+        set action accept
+        set schedule "always"
+        set service "TCP_10022"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 115
+        set name "MDS_MIX_5004"
+        set uuid c52ccf00-e341-51ea-c59f-9182286328ff
+        set srcintf "I.HTBP"
+        set dstintf "D.OTPC"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.63.91.11" "IP_10.63.92.11"
+        set action accept
+        set schedule "always"
+        set service "TCP_14002"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 116
+        set name "MDS_MIX_5006"
+        set uuid c52f1c06-e341-51ea-5020-0170946b81e6
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.244.128.13"
+        set action accept
+        set schedule "always"
+        set service "TCP_30001-30010" "TCP_21"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 117
+        set name "MDS_MIX_5008"
+        set uuid c5314878-e341-51ea-8e8c-153d9bf447b1
+        set srcintf "I.HTBP"
+        set dstintf "D.SDN2"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.151.25.11" "IP_10.152.25.11" "IP_10.170.53.89" "IP_10.170.53.90" "IP_10.170.63.89" "IP_10.170.63.90" "IP_10.170.53.96" "IP_10.170.63.96" "IP_174.20.2.86"
+        set action accept
+        set schedule "always"
+        set service "TCP_22"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 118
+        set name "MDS_MIX_5010"
+        set uuid c533eb1e-e341-51ea-db87-111dea8e7953
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.244.128.134" "IP_10.248.128.134" "IP_10.245.126.179" "IP_10.249.126.179" "IP_10.245.126.181" "IP_10.249.126.181"
+        set action accept
+        set schedule "always"
+        set service "TCP_22"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 119
+        set name "MDS_MIX_5012"
+        set uuid c5365f2a-e341-51ea-93cc-9eabe501f940
+        set srcintf "I.HTBP"
+        set dstintf "D.OTPC"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.70.2.33" "IP_10.70.2.34" "IP_10.70.12.33" "IP_10.70.12.34"
+        set action accept
+        set schedule "always"
+        set service "TCP_22"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 120
+        set name "MDS_MIX_5014"
+        set uuid c538eb50-e341-51ea-4e4e-ca7981bf7ac2
+        set srcintf "D.SDN2"
+        set dstintf "I.HTBP"
+        set srcaddr "IP_10.151.5.37" "IP_10.152.5.35" "IP_10.151.25.12" "IP_10.152.25.12"
+        set dstaddr "IP_10.170.63.95"
+        set action accept
+        set schedule "always"
+        set service "TCP_22"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 121
+        set name "MDS_MIX_5019"
+        set uuid c53b2bb8-e341-51ea-0bb7-663c4e440b54
+        set srcintf "I.HTBP"
+        set dstintf "D.OTPC"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.1.90.123" "IP_10.1.90.124" "IP_10.2.90.123" "IP_10.2.90.124" "IP_10.1.90.113" "IP_10.1.90.114" "IP_10.2.90.113" "IP_10.2.90.114"
+        set action accept
+        set schedule "always"
+        set service "TCP_22" "TCP_55455"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 122
+        set name "MDS_MIX_5021"
+        set uuid c53d7dd2-e341-51ea-b579-8253ac8fb9bd
+        set srcintf "I.HTBP"
+        set dstintf "D.SDN2"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.151.5.75" "IP_10.152.5.75"
+        set action accept
+        set schedule "always"
+        set service "TCP_22" "TCP_12024" "TCP_12025"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 123
+        set name "MDS_MIX_5023"
+        set uuid c53fbb60-e341-51ea-bf66-0a812fe49569
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "IP_10.170.63.95"
+        set dstaddr "IP_10.244.192.90" "IP_10.245.95.102" "IP_10.248.192.90" "IP_10.249.95.102"
+        set action accept
+        set schedule "always"
+        set service "TCP_389"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 124
+        set name "MDS_MIX_5026"
+        set uuid c542177a-e341-51ea-f2f3-e9df8939e8c7
+        set srcintf "D.SDN2"
+        set dstintf "I.HTBP"
+        set srcaddr "net_239.1.1.0/24"
+        set dstaddr "IP_10.80.3.95"
+        set action accept
+        set schedule "always"
+        set service "UDP_51000-51009"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 125
+        set name "MDS_MIX_5027"
+        set uuid c54438d4-e341-51ea-4e33-db3493101e4e
+        set srcintf "D.SDN2"
+        set dstintf "I.HTBP"
+        set srcaddr "net_239.1.127.0/24"
+        set dstaddr "IP_10.80.4.95"
+        set action accept
+        set schedule "always"
+        set service "UDP_51000-51009"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 126
+        set name "PPP_BMC_5011"
+        set uuid 7cf993b2-e5bc-51ea-1226-4b628efef79d
+        set srcintf "I.SMARTTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.2.153.0/24"
+        set dstaddr "range_10.244.64.68-70" "range_10.244.64.174-175" "range_10.248.64.68-70" "range_10.248.64.174-175"
+        set action accept
+        set schedule "always"
+        set service "TCP_2059" "TCP_1828-1838" "TCP_3181-3183" "UDP_162"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set comments "NCR-5546:2020_824"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 127
+        set name "PPP_BMC_5012"
+        set uuid 7f7ff2de-e5bc-51ea-6c31-54e787eb5dc5
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "net_10.152.34.0/24"
+        set dstaddr "range_10.244.64.68-70" "range_10.244.64.174-175" "range_10.248.64.68-70" "range_10.248.64.174-175"
+        set action accept
+        set schedule "always"
+        set service "TCP_2059" "TCP_1828-1838" "TCP_3181-3183" "UDP_162"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set comments "NCR-5546:2020_824"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 128
+        set name "MDS_OMDD_0011"
+        set uuid 674d6f66-e6a2-51ea-084c-23ef5546f7bf
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "host_10.244.128.14" "host_10.244.128.20" "IP_10.244.128.13"
+        set dstaddr "IP_10.170.63.96"
+        set action accept
+        set schedule "always"
+        set service "TCP/22"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5364:2020_0825"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 129
+        set name "MDS_OMDD_0012"
+        set uuid 8cf92ce6-e6a2-51ea-7eec-0d0285663d67
+        set srcintf "I.HTBP"
+        set dstintf "D.CCI"
+        set srcaddr "IP_10.170.63.96"
+        set dstaddr "host_10.244.255.13" "host_10.248.255.13"
+        set action accept
+        set schedule "always"
+        set service "SMTP"
+        set utm-status enable
+        set logtraffic all
+        set comments "NCR-5364:2020_0825"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 130
+        set name "PPP_BMC_5021"
+        set uuid 7549e158-e77e-51ea-2e0f-6fcb531c3af8
+        set srcintf "D.CCI"
+        set dstintf "I.SMARTTBP"
+        set srcaddr "range_10.244.64.68-70" "range_10.244.64.174-175" "range_10.248.64.68-70" "range_10.248.64.174-175"
+        set dstaddr "net_10.2.153.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP_2059" "TCP_1828-1838" "TCP_3181-3183" "UDP_162"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set comments "NCR-5546:2020_824"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 131
+        set name "PPP_BMC_5022"
+        set uuid 754cf618-e77e-51ea-dda8-a04cf465e3e9
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "range_10.244.64.68-70" "range_10.244.64.174-175" "range_10.248.64.68-70" "range_10.248.64.174-175" "net_10.244.64.0/24" "net_10.248.64.0/24"
+        set dstaddr "net_10.152.34.0/24"
+        set action accept
+        set schedule "always"
+        set service "TCP_2059" "TCP_1828-1838" "TCP_3181-3183" "UDP_162"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set comments "NCR-5546:2020_824"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+    edit 133
+        set name "CO_NMC_5002"
+        set uuid 1b4a0fda-ee5d-51ea-00ea-493417885648
+        set srcintf "D.CCI"
+        set dstintf "I.HTBP"
+        set srcaddr "net_10.245.127.0/24"
+        set dstaddr "IP_10.170.63.95"
+        set action accept
+        set schedule "always"
+        set service "TCP_22"
+        set utm-status enable
+        set logtraffic all
+        set logtraffic-start enable
+        set comments "NCR-5741:2020_0904"
+        set ips-sensor "sdn3-all"
+        set ssl-ssh-profile "certificate-inspection"
+    next
+end
+config firewall ssh setting
+    set caname "g-Fortinet_SSH_CA"
+    set untrusted-caname "g-Fortinet_SSH_CA_Untrusted"
+    set hostkey-rsa2048 "g-Fortinet_SSH_RSA2048"
+    set hostkey-dsa1024 "g-Fortinet_SSH_DSA1024"
+    set hostkey-ecdsa256 "g-Fortinet_SSH_ECDSA256"
+    set hostkey-ecdsa384 "g-Fortinet_SSH_ECDSA384"
+    set hostkey-ecdsa521 "g-Fortinet_SSH_ECDSA521"
+    set hostkey-ed25519 "g-Fortinet_SSH_ED25519"
+end
+config switch-controller security-policy 802-1X
+    edit "802-1X-policy-default"
+        set user-group "SSO_Guest_Users"
+        set mac-auth-bypass disable
+        set open-auth disable
+        set eap-passthru enable
+        set guest-vlan disable
+        set auth-fail-vlan disable
+        set radius-timeout-overwrite disable
+    next
+end
+config switch-controller lldp-profile
+    edit "default"
+        set med-tlvs inventory-management network-policy
+        set auto-isl disable
+        config med-network-policy
+            edit "voice"
+            next
+            edit "voice-signaling"
+            next
+            edit "guest-voice"
+            next
+            edit "guest-voice-signaling"
+            next
+            edit "softphone-voice"
+            next
+            edit "video-conferencing"
+            next
+            edit "streaming-video"
+            next
+            edit "video-signaling"
+            next
+        end
+    next
+    edit "default-auto-isl"
+    next
+end
+config switch-controller qos dot1p-map
+    edit "voice-dot1p"
+        set priority-0 queue-4
+        set priority-1 queue-4
+        set priority-2 queue-3
+        set priority-3 queue-2
+        set priority-4 queue-3
+        set priority-5 queue-1
+        set priority-6 queue-2
+        set priority-7 queue-2
+    next
+end
+config switch-controller qos ip-dscp-map
+    edit "voice-dscp"
+        config map
+            edit "1"
+                set cos-queue 1
+                set value 46
+            next
+            edit "2"
+                set cos-queue 2
+                set value 24,26,48,56
+            next
+            edit "5"
+                set cos-queue 3
+                set value 34
+            next
+        end
+    next
+end
+config switch-controller qos queue-policy
+    edit "default"
+        set schedule round-robin
+        config cos-queue
+            edit "queue-0"
+            next
+            edit "queue-1"
+            next
+            edit "queue-2"
+            next
+            edit "queue-3"
+            next
+            edit "queue-4"
+            next
+            edit "queue-5"
+            next
+            edit "queue-6"
+            next
+            edit "queue-7"
+            next
+        end
+    next
+    edit "voice-egress"
+        set schedule weighted
+        config cos-queue
+            edit "queue-0"
+            next
+            edit "queue-1"
+                set weight 0
+            next
+            edit "queue-2"
+                set weight 6
+            next
+            edit "queue-3"
+                set weight 37
+            next
+            edit "queue-4"
+                set weight 12
+            next
+            edit "queue-5"
+            next
+            edit "queue-6"
+            next
+            edit "queue-7"
+            next
+        end
+    next
+end
+config switch-controller qos qos-policy
+    edit "default"
+    next
+    edit "voice-qos"
+        set trust-dot1p-map "voice-dot1p"
+        set trust-ip-dscp-map "voice-dscp"
+        set queue-policy "voice-egress"
+    next
+end
+config switch-controller switch-profile
+    edit "default"
+    next
+end
+config endpoint-control profile
+    edit "default"
+        config forticlient-winmac-settings
+        end
+        config forticlient-android-settings
+        end
+        config forticlient-ios-settings
+        end
+    next
+end
+config wireless-controller wids-profile
+    edit "default"
+        set comment "Default WIDS profile."
+        set ap-scan enable
+        set wireless-bridge enable
+        set deauth-broadcast enable
+        set null-ssid-probe-resp enable
+        set long-duration-attack enable
+        set invalid-mac-oui enable
+        set weak-wep-iv enable
+        set auth-frame-flood enable
+        set assoc-frame-flood enable
+        set spoofed-deauth enable
+        set asleap-attack enable
+        set eapol-start-flood enable
+        set eapol-logoff-flood enable
+        set eapol-succ-flood enable
+        set eapol-fail-flood enable
+        set eapol-pre-succ-flood enable
+        set eapol-pre-fail-flood enable
+    next
+    edit "default-wids-apscan-enabled"
+        set ap-scan enable
+    next
+end
+config wireless-controller wtp-profile
+    edit "FAPU323EV-default"
+        config platform
+            set type U323EV
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU321EV-default"
+        config platform
+            set type U321EV
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU24JEV-default"
+        config platform
+            set type U24JEV
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU223EV-default"
+        config platform
+            set type U223EV
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU221EV-default"
+        config platform
+            set type U221EV
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU423E-default"
+        config platform
+            set type U423E
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU422EV-default"
+        config platform
+            set type U422EV
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPU421E-default"
+        config platform
+            set type U421E
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS223E-default"
+        config platform
+            set type S223E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS221E-default"
+        config platform
+            set type S221E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP224E-default"
+        config platform
+            set type 224E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP223E-default"
+        config platform
+            set type 223E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP222E-default"
+        config platform
+            set type 222E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP221E-default"
+        config platform
+            set type 221E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP423E-default"
+        config platform
+            set type 423E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP421E-default"
+        config platform
+            set type 421E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS423E-default"
+        config platform
+            set type S423E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS422E-default"
+        config platform
+            set type S422E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS421E-default"
+        config platform
+            set type S421E
+        end
+        set handoff-sta-thresh 55
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS323CR-default"
+        config platform
+            set type S323CR
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS322CR-default"
+        config platform
+            set type S322CR
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS321CR-default"
+        config platform
+            set type S321CR
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS313C-default"
+        config platform
+            set type S313C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11ac
+        end
+    next
+    edit "FAPS311C-default"
+        config platform
+            set type S311C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11ac
+        end
+    next
+    edit "FAPS323C-default"
+        config platform
+            set type S323C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS322C-default"
+        config platform
+            set type S322C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAPS321C-default"
+        config platform
+            set type S321C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP321C-default"
+        config platform
+            set type 321C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP223C-default"
+        config platform
+            set type 223C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP112D-default"
+        config platform
+            set type 112D
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP24D-default"
+        config platform
+            set type 24D
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP21D-default"
+        config platform
+            set type 21D
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FK214B-default"
+        config platform
+            set type 214B
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP224D-default"
+        config platform
+            set type 224D
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP222C-default"
+        config platform
+            set type 222C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP25D-default"
+        config platform
+            set type 25D
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP221C-default"
+        config platform
+            set type 221C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP320C-default"
+        config platform
+            set type 320C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11ac
+        end
+    next
+    edit "FAP28C-default"
+        config platform
+            set type 28C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP223B-default"
+        config platform
+            set type 223B
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP14C-default"
+        config platform
+            set type 14C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP11C-default"
+        config platform
+            set type 11C
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP320B-default"
+        config platform
+            set type 320B
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP112B-default"
+        config platform
+            set type 112B
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP222B-default"
+        config platform
+            set type 222B
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+        config radio-2
+            set band 802.11n-5G
+        end
+    next
+    edit "FAP210B-default"
+        config platform
+            set type 210B
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+    edit "FAP220B-default"
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n-5G
+        end
+        config radio-2
+            set band 802.11n,g-only
+        end
+    next
+    edit "AP-11N-default"
+        config platform
+            set type AP-11N
+        end
+        set handoff-sta-thresh 30
+        config radio-1
+            set band 802.11n,g-only
+        end
+    next
+end
+config log memory setting
+    set status disable
+end
+config log disk setting
+    set status disable
+end
+config log eventfilter
+    set vpn disable
+    set wireless-activity disable
+    set wan-opt disable
+    set endpoint disable
+    set compliance-check disable
+end
+config log null-device setting
+    set status disable
+end
+config log setting
+    set fwpolicy-implicit-log enable
+    set log-invalid-packet enable
+    set local-in-allow enable
+    set local-in-deny-unicast enable
+    set local-in-deny-broadcast enable
+    set local-out enable
+end
+config log gui-display
+    set resolve-hosts disable
+    set resolve-apps disable
+end
+config router rip
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ripng
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router static
+    edit 1
+        set dst 10.164.202.0 255.255.255.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 2
+        set dst 10.152.52.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 3
+        set dst 10.170.13.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 5
+        set dst 10.1.1.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+    edit 6
+        set dst 10.152.54.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 7
+        set dst 10.152.5.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 8
+        set dst 10.170.64.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 9
+        set dst 10.170.12.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 10
+        set dst 10.170.63.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 11
+        set dst 10.152.34.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 12
+        set dst 10.152.25.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 13
+        set dst 10.152.12.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 15
+        set dst 10.152.13.0 255.255.255.0
+        set gateway 10.164.206.54
+        set device "I.PWTBP.2907"
+    next
+    edit 16
+        set dst 10.152.19.0 255.255.255.0
+        set gateway 10.164.206.54
+        set device "I.PWTBP.2907"
+    next
+    edit 18
+        set dst 10.2.150.0 255.255.255.0
+        set gateway 10.164.206.62
+        set device "I.SMARTTBP.2908"
+    next
+    edit 19
+        set dst 10.2.152.0 255.255.255.0
+        set gateway 10.164.206.62
+        set device "I.SMARTTBP.2908"
+    next
+    edit 20
+        set dst 10.164.129.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 21
+        set dst 10.164.1.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 22
+        set dst 10.244.0.0 255.254.0.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 23
+        set dst 10.248.0.0 255.254.0.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 24
+        set dst 10.151.54.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 25
+        set dst 10.170.54.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 26
+        set dst 10.151.58.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 27
+        set dst 10.152.58.0 255.255.255.0
+        set gateway 10.164.206.54
+        set device "I.PWTBP.2907"
+    next
+    edit 28
+        set dst 10.2.153.0 255.255.255.0
+        set gateway 10.164.206.62
+        set device "I.SMARTTBP.2908"
+    next
+    edit 29
+        set status disable
+        set dst 10.1.153.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 30
+        set dst 10.151.34.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 31
+        set status disable
+        set dst 10.151.52.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 32
+        set dst 10.1.85.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 33
+        set dst 10.193.0.0 255.255.0.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 34
+        set dst 10.161.5.0 255.255.255.0
+        set gateway 10.164.206.244
+        set device "D.SDN2.2931"
+    next
+    edit 35
+        set dst 10.151.13.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 36
+        set dst 10.162.5.0 255.255.255.0
+        set gateway 10.164.206.244
+        set device "D.SDN2.2931"
+    next
+    edit 37
+        set dst 192.168.36.0 255.255.255.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 38
+        set dst 192.168.80.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 39
+        set dst 10.152.14.0 255.255.255.0
+        set gateway 10.164.206.54
+        set device "I.PWTBP.2907"
+    next
+    edit 40
+        set dst 10.151.12.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 41
+        set dst 192.176.4.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 42
+        set dst 10.63.107.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 43
+        set dst 10.63.142.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 44
+        set dst 10.163.143.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 45
+        set dst 10.170.33.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 46
+        set dst 10.170.43.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 47
+        set dst 10.152.4.0 255.255.255.0
+        set gateway 10.164.206.38
+        set device "I.HTBP.2905"
+    next
+    edit 48
+        set dst 10.241.51.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 49
+        set dst 10.241.151.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 50
+        set dst 172.24.4.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 51
+        set dst 10.1.150.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 52
+        set dst 192.168.86.0 255.255.255.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 53
+        set dst 192.168.90.0 255.255.255.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 54
+        set dst 192.168.70.0 255.255.255.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 55
+        set dst 192.168.234.0 255.255.255.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 56
+        set dst 192.168.237.0 255.255.255.0
+        set gateway 10.164.206.238
+        set device "D.CCI.2930"
+    next
+    edit 57
+        set dst 10.70.12.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+    edit 58
+        set dst 10.204.130.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 59
+        set dst 10.204.131.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 60
+        set dst 10.18.113.0 255.255.255.0
+        set gateway 10.151.90.89
+        set device "I.XHTBP.3112"
+    next
+    edit 61
+        set dst 10.70.14.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+    edit 62
+        set dst 10.1.125.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+    edit 63
+        set dst 10.63.91.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+    edit 64
+        set dst 10.63.92.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+    edit 65
+        set dst 10.1.90.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+    edit 66
+        set dst 10.2.90.0 255.255.255.0
+        set gateway 10.164.206.254
+        set device "D.OTPC.2932"
+    next
+end
+config router ospf
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router ospf6
+    config redistribute "connected"
+    end
+    config redistribute "static"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "isis"
+    end
+end
+config router bgp
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "static"
+    end
+    config redistribute "isis"
+    end
+    config redistribute6 "connected"
+    end
+    config redistribute6 "rip"
+    end
+    config redistribute6 "ospf"
+    end
+    config redistribute6 "static"
+    end
+    config redistribute6 "isis"
+    end
+end
+config router isis
+    config redistribute "connected"
+    end
+    config redistribute "rip"
+    end
+    config redistribute "ospf"
+    end
+    config redistribute "bgp"
+    end
+    config redistribute "static"
+    end
+    config redistribute6 "connected"
+    end
+    config redistribute6 "rip"
+    end
+    config redistribute6 "ospf"
+    end
+    config redistribute6 "bgp"
+    end
+    config redistribute6 "static"
+    end
+end
+config router multicast
+end
+end

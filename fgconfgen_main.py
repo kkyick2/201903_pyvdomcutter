@@ -324,7 +324,7 @@ def analyze_bas_mis_obj(key, bas_l, req_l):
                 missingObjList: find the requirement missing obj in baseline, return in list
     """
     logger1 = logger.logger().get()
-    print('--- [' + key + '] ----------------------------------------------------------')
+    print('--- [' + key + '] -------------------------------------------------------')
     print('start: analyze_bas_mis_obj: (key,bas_len,req_len) is ({},{},{})'.format(key,len(bas_l),len(req_l)))
     logger1.info('start: analyze_bas_mis_obj: (key,bas_len,req_len) is ({},{},{})'.format(key,len(bas_l),len(req_l)))
 
@@ -344,7 +344,7 @@ def analyze_bas_mis_obj(key, bas_l, req_l):
     # print('*** baseline obj: {}'.format(bas_List))
     # print('*** reqiremt obj: {}'.format(req_uniqList))
     print('*** No of obj in (key,baseline,req,missing) is ({},{},{},{})'.format(key,len(bas_l),len(req_l),len(missingObjList)))
-    print('-------------------------------------------------------------------------------')
+    print('--------------------------------------------------------------------------')
     print('')
     return missingObjList
 
@@ -358,7 +358,7 @@ def analyze_bas_mis_route(key, bas_l, req_l):
                 missingObjList: find the requirement missing obj in baseline, return in list
     """
     logger1 = logger.logger().get()
-    print('--- [' + key + '] ----------------------------------------------------------')
+    print('--- [' + key + '] --------------------------------------------------------')
     print('start: analyze_bas_mis_route: (key,bas_len,req_len) is ({},{},{})'.format(key,len(bas_l),len(req_l)))
     logger1.info('start: analyze_bas_mis_route: (key,bas_len,req_len) is ({},{},{})'.format(key,len(bas_l),len(req_l)))
 
@@ -673,9 +673,9 @@ def start(bas, req, vdom):
     # define full path
     bas_conf_path = os.path.join(conf.FGCONFGEN_BAS_PATH, bas_conf)
     req_conf_path = os.path.join(conf.FGCONFGEN_REQ_PATH, req_conf)
-    print('==================================================================================')
-    print('====================Begin: Script argument =======================================')
-    print('==================================================================================')
+    print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
+    print('$$$                    Begin: Script argument                                  &&&')
+    print('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
     print('=== baseline conf: {}'.format(bas_conf))
     print('=== requiremt xls: {}'.format(req_conf))
     print('=== requiremt tab: {}'.format(req_conf_sheet))
@@ -685,7 +685,7 @@ def start(bas, req, vdom):
     # A---prepare checking List
     # baseline, xls to List elements
     print('==================================================================================')
-    print('================== Task A1: Baseline to list =====================================')
+    print('---                    Task A1: Baseline to list                               ---')
     bas_zone = xls2_obj_list(bas_conf_path, '02zone', vdom, 'name')
     bas_rout = xls2_obj_list(bas_conf_path, '03route', vdom, 'dst')
     bas_addr = xls2_obj_list(bas_conf_path, '04addr', vdom, 'name')
@@ -694,20 +694,20 @@ def start(bas, req, vdom):
     print('')
 
     # requirement, xls to List elements
-    print('=================== Task A2: Requirement to list =================================')
+    print('---                    Task A2: Requirement to list                            ---')
     req_poli, keys = xls2_policy_list(req_conf_path, req_conf_sheet, vdom)
     print('')
 
     # B---analyze duplicate policy name / baseline missing obj
     print('==================================================================================')
-    print('=================== Task B1: Duplicate policy name ===============================')
+    print('---                    Task B1: Duplicate policy name                          ---')
     # ---------- task for name
     key = 'name'
     l = xls2_obj_list(req_conf_path, req_conf_sheet, vdom, key)
     dup_name = analyze_dup_policy_name(key, bas_name, l)
 
     print('==================================================================================')
-    print('=================== Task B2: Missing object in baseline ==========================')
+    print('---                    Task B2: Missing object in baseline                     ---')
     # ---------- task for service
     key = 'service'
     l, d = raw2_uniq_list(key, req_poli)
@@ -740,24 +740,24 @@ def start(bas, req, vdom):
     print('')
 
     # analyze baseline missing route
-    print('=================== Task B3: Missing static route in baseline =====================')
+    print('---                 Task B3: Missing static route in baseline                   ---')
     key = 'route'
     mis_rout = analyze_bas_mis_route(key, bas_rout, mis_addr)
     print('')
 
     # C --- gen conf, policy
     print('===================================================================================')
-    print('=================== Task C1: gen policy conf ======================================')
+    print('---                   Task C1: gen policy conf                                  ---')
     gen_conf_policy(req_poli, keys, vdom)
     print('')
 
     # 4/gen conf, missing service
-    print('=================== Task C2: gen missing service conf ============================')
+    print('---                   Task C2: gen missing service conf                         ---')
     gen_conf_service(mis_serv, vdom)
     print('')
 
     # 5/gen conf, missing address
-    print('=================== Task C3: gen missing address conf ============================')
+    print('---                   Task C3: gen missing address conf                         ---')
     gen_conf_address(mis_addr, vdom, addrDictList)
     print('')
 
@@ -767,7 +767,17 @@ def start(bas, req, vdom):
 if __name__ == "__main__":
     # readme: refer /example/CP03CASH2_20190328a.xlsx for the req xls first row
 
-    bas_conf = 'DTHFW01_20200723_2138.conf.xlsx'
-    req_conf = 'DTHFW01_20200722_1500.conf_edit.xlsx'
+    bas_conf = 'DEHFW01_20200909_0104.conf.xlsx'
+    req_conf = 'req_DEHFW01_20200907_1810.conf.xlsx'
+    vdom = 'DEH1DEV'
+    start(bas_conf, req_conf, vdom)
+
+    bas_conf = 'DTHFW01_20200909_0104.conf.xlsx'
+    req_conf = 'req_DTHFW01_20200907_1810.conf.xlsx'
     vdom = 'DTH1COMM'
+    start(bas_conf, req_conf, vdom)
+
+    bas_conf = 'DTHFW01_20200909_0104.conf.xlsx'
+    req_conf = 'req_DTHFW01_20200907_1810.conf.xlsx'
+    vdom = 'DTH1DEV'
     start(bas_conf, req_conf, vdom)
