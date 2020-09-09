@@ -499,6 +499,10 @@ def gen_conf_policy(dictList, keys, vdom):
                             write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
                         elif key == 'ips-sensor':
                             string = "sdn3-all"
+                            #string = "otpc-all"
+                            write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
+                        elif key == 'ssl-ssh-profile':
+                            string = "certificate-inspection"
                             write_row(outF, 'set ' + str(key) + ' "' + string + '"' + NEXTLINE)
                         else:
                             write_row(outF, 'set ' + str(key) + ' "' + str(policydict[key]) + '"' + NEXTLINE)
@@ -602,7 +606,7 @@ def gen_conf_address(list, vdom, addrDictList):
             for i in addrDictList:
                 if item in i['addr']:
                     asso_int = i['asso_int']
-            #write_row(outF, 'set associated-interface ' + '"' + asso_int + '"' + NEXTLINE)
+            # write_row(outF, 'set associated-interface ' + '"' + asso_int + '"' + NEXTLINE)
 
             # change to lower letter for checking, remarks: output is original letter
             item_lw = item.lower()
@@ -765,7 +769,23 @@ def start(bas, req, vdom):
 
 
 if __name__ == "__main__":
-    # readme: refer /example/CP03CASH2_20190328a.xlsx for the req xls first row
+    # readme:
+    # 1/ refer /example/CP03CASH2_20190328a.xlsx for the req xls first row
+    #
+    # 2.1/ Below item are needed in requirment table, , [xxx] need input to requirement excel
+    # policy id         -> need requirement input ['0]
+    # name              -> need requirement input
+    # srcintf, dstintf  -> need requirement input
+    # srcaddr, dstaddr  -> need requirement input
+    # service           -> need requirement input
+    # action            -> need requirement input, [accept]
+
+    # 2.2/ Below are policy base value,  [xxx] need input to requirement excel
+    # schedule          -> [always]
+    # utm-status        -> [enable]
+    # logtraffic        -> [all]
+    # ips-sensor        -> [sdn3-all / otpc-all]
+    # ssl-ssh-profile   -> [certificate-inspection]
 
     bas_conf = 'DEHFW01_20200909_0104.conf.xlsx'
     req_conf = 'req_DEHFW01_20200907_1810.conf.xlsx'
