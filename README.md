@@ -41,3 +41,4 @@
 - 20191205 tested python2.7.13 and python3.7.5 compatibility
 - 20200723 tested sdn3 requirement, need edit ips profile, int-asso on addr obj comment out
 - 20200909 update vdomcutter.py , tested config-version=FG1K5D-6.0.9, config-version=FG1K5D-5.04, both version ok
+- 20210109 update fgconfgen_main.py , add gen_route, gen_interface function, not tested yet 

@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="447256f0-8bfc-4f45-bed8-5b8c91f5bb3a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fgconfgen_baseline/DEHFW01_20200909_0104.conf.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/fgconfgen_baseline/DEHFW01_20200909_0104.conf.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fgconfgen_baseline/DTHFW01_20200909_0104.conf.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/fgconfgen_baseline/DTHFW01_20200909_0104.conf.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fg2xls_input/DEHFW01_20200909_0104.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fg2xls_input/DTHFW01_20200909_0104.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fgconfgen_baseline/DEHFW01_20200909_0104.conf.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fgconfgen_baseline/DTHFW01_20200909_0104.conf.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/fgconfgen_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/fgconfgen_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fgconfgen_req/req_DEHFW01_20200907_1810.conf.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/fgconfgen_req/req_DEHFW01_20200907_1810.conf.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fgconfgen_req/req_DTHFW01_20200907_1810.conf.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/fgconfgen_req/req_DTHFW01_20200907_1810.conf.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fgconfgen_req/req_DEHFW01_20200907_1810.conf.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fgconfgen_req/req_DTHFW01_20200907_1810.conf.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/update.txt" beforeDir="false" afterPath="$PROJECT_DIR$/update.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -380,29 +384,21 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="264" key="FileChooserDialogImpl" timestamp="1599593139914">
-      <screen x="0" y="0" width="1920" height="1019" />
+    <state width="1899" height="319" key="GridCell.Tab.0.bottom" timestamp="1610220204968">
+      <screen x="0" y="1080" width="1920" height="1050" />
     </state>
-    <state x="740" y="264" key="FileChooserDialogImpl/0.0.1920.1019@0.0.1920.1019" timestamp="1599593139914" />
-    <state width="931" height="384" key="GridCell.Tab.0.bottom" timestamp="1599636461087">
-      <screen x="0" y="0" width="1920" height="1019" />
+    <state width="1899" height="319" key="GridCell.Tab.0.bottom/0.1080.1920.1050/0.0.1920.1050@0.1080.1920.1050" timestamp="1610220204968" />
+    <state width="1899" height="319" key="GridCell.Tab.0.center" timestamp="1610220204967">
+      <screen x="0" y="1080" width="1920" height="1050" />
     </state>
-    <state width="931" height="384" key="GridCell.Tab.0.bottom/0.0.1920.1019/-551.-1080.1920.1050@0.0.1920.1019" timestamp="1599636461087" />
-    <state width="1490" height="324" key="GridCell.Tab.0.bottom/0.0.1920.1019@0.0.1920.1019" timestamp="1599593143317" />
-    <state width="931" height="384" key="GridCell.Tab.0.center" timestamp="1599636461087">
-      <screen x="0" y="0" width="1920" height="1019" />
+    <state width="1899" height="319" key="GridCell.Tab.0.center/0.1080.1920.1050/0.0.1920.1050@0.1080.1920.1050" timestamp="1610220204967" />
+    <state width="1899" height="319" key="GridCell.Tab.0.left" timestamp="1610220204967">
+      <screen x="0" y="1080" width="1920" height="1050" />
     </state>
-    <state width="931" height="384" key="GridCell.Tab.0.center/0.0.1920.1019/-551.-1080.1920.1050@0.0.1920.1019" timestamp="1599636461087" />
-    <state width="1490" height="324" key="GridCell.Tab.0.center/0.0.1920.1019@0.0.1920.1019" timestamp="1599593143317" />
-    <state width="931" height="384" key="GridCell.Tab.0.left" timestamp="1599636461087">
-      <screen x="0" y="0" width="1920" height="1019" />
+    <state width="1899" height="319" key="GridCell.Tab.0.left/0.1080.1920.1050/0.0.1920.1050@0.1080.1920.1050" timestamp="1610220204967" />
+    <state width="1899" height="319" key="GridCell.Tab.0.right" timestamp="1610220204967">
+      <screen x="0" y="1080" width="1920" height="1050" />
     </state>
-    <state width="931" height="384" key="GridCell.Tab.0.left/0.0.1920.1019/-551.-1080.1920.1050@0.0.1920.1019" timestamp="1599636461087" />
-    <state width="1490" height="324" key="GridCell.Tab.0.left/0.0.1920.1019@0.0.1920.1019" timestamp="1599593143316" />
-    <state width="931" height="384" key="GridCell.Tab.0.right" timestamp="1599636461087">
-      <screen x="0" y="0" width="1920" height="1019" />
-    </state>
-    <state width="931" height="384" key="GridCell.Tab.0.right/0.0.1920.1019/-551.-1080.1920.1050@0.0.1920.1019" timestamp="1599636461087" />
-    <state width="1490" height="324" key="GridCell.Tab.0.right/0.0.1920.1019@0.0.1920.1019" timestamp="1599593143317" />
+    <state width="1899" height="319" key="GridCell.Tab.0.right/0.1080.1920.1050/0.0.1920.1050@0.1080.1920.1050" timestamp="1610220204967" />
   </component>
 </project>

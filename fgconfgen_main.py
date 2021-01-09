@@ -659,6 +659,97 @@ def gen_conf_address(list, vdom, addrDictList):
     return
 
 
+def gen_conf_route(list, vdom):
+    """
+        @param:	list: a list of route object in List format
+        @return: N/A
+    """
+    # output file name
+    outfile = vdom + '_route.txt'
+
+    logger1 = logger.logger().get()
+    print('start: gen_conf_route: {}, Total item to gen is {}'.format(vdom,len(list)))
+    logger1.info('start: gen_conf_route: {}, Total item to gen is {}'.format(vdom,len(list)))
+    print('***** output file {}'.format(outfile))
+
+    with open_csv(outfile, 'w') as outF:
+        # 1 section [config vdom, edit <vdom>]
+        write_row(outF, 'config vdom' + NEXTLINE)
+        write_row(outF, 'edit ' + vdom + NEXTLINE)
+        write_row(outF, 'config router static' + NEXTLINE)
+        write_row(outF, NEXTLINE)
+        # loop for each item in list
+
+        for item in list:
+            # if format is 10.1.0.0/16, get the mask
+            if '/' in str(item):
+                cidr = str(item).split('/')[1]
+                subnet = str(item).split('/')[0]
+                mask = cidr_to_netmask(cidr)
+
+                # 2 section [create static route]
+                write_row(outF, 'edit 0' + NEXTLINE)
+                if cidr == '24':
+                    write_row(outF, 'set dst ' + subnet + ' ' + mask + NEXTLINE)
+                else:
+                    write_row(outF, 'set dst ' + subnet + ' ' + mask + '!!!!! NOT /24 route, need review !!!!!!!' + NEXTLINE)
+                write_row(outF, 'gateway <X.X.X.X 255.255.255.Y>' + NEXTLINE)
+                write_row(outF, 'device <I.ABCD.###>' + NEXTLINE)
+                write_row(outF, 'next' + NEXTLINE)
+                write_row(outF, NEXTLINE)
+        write_row(outF, 'end' + NEXTLINE)
+        write_row(outF, 'end' + NEXTLINE)
+    return
+
+
+def gen_conf_interface(list, vdom):
+    """
+        @param:	list: a list of zone object in List format
+        @return: N/A
+    """
+    # output file name
+    outfile = vdom + '_interface_zone.txt'
+
+    logger1 = logger.logger().get()
+    print('start: gen_conf_interface: {}, Total item to gen is {}'.format(vdom,len(list)))
+    logger1.info('start: gen_conf_interface: {}, Total item to gen is {}'.format(vdom,len(list)))
+    print('***** output file {}'.format(outfile))
+
+    with open_csv(outfile, 'w') as outF:
+        # loop for each item in list
+        for item in list:
+            write_row(outF, '-------------------------------' + NEXTLINE)
+            # First section [config global]
+            write_row(outF, 'config global' + NEXTLINE)
+            write_row(outF, 'config system interface' + NEXTLINE)
+            write_row(outF, NEXTLINE)
+            # 2 section [create interface_vlan]
+            write_row(outF, 'edit <I.ABCD.###>' + NEXTLINE)
+            write_row(outF, 'set vdom ' + vdom + NEXTLINE)
+            write_row(outF, 'set ip <1.2.3.1 255.255.255.248>' + NEXTLINE)
+            write_row(outF, 'set allowaccess ping' + NEXTLINE)
+            write_row(outF, 'set role lan' + NEXTLINE)
+            write_row(outF, 'set interface port<x>' + NEXTLINE)
+            write_row(outF, 'set vlanid <###>' + NEXTLINE)
+            write_row(outF, 'next' + NEXTLINE)
+            write_row(outF, NEXTLINE)
+            write_row(outF, 'end' + NEXTLINE)
+            write_row(outF, 'end' + NEXTLINE)
+            # 3 section [config vdom, edit <vdom>]
+            write_row(outF, 'config vdom' + NEXTLINE)
+            write_row(outF, 'edit ' + vdom + NEXTLINE)
+            write_row(outF, 'config system zone' + NEXTLINE)
+            write_row(outF, NEXTLINE)
+            # 4 section [create zone and bind to interface_vlan]
+            write_row(outF, 'edit ' + str(item) + NEXTLINE)
+            write_row(outF, 'set interface <I.ABCD.###>' + NEXTLINE)
+            write_row(outF, 'next' + NEXTLINE)
+            write_row(outF, NEXTLINE)
+            write_row(outF, 'end' + NEXTLINE)
+            write_row(outF, 'end' + NEXTLINE)
+    return
+
+
 def start(bas, req, vdom):
 
     # define logger
@@ -755,14 +846,24 @@ def start(bas, req, vdom):
     gen_conf_policy(req_poli, keys, vdom)
     print('')
 
-    # 4/gen conf, missing service
+    # C2/gen conf, missing service
     print('---                   Task C2: gen missing service conf                         ---')
     gen_conf_service(mis_serv, vdom)
     print('')
 
-    # 5/gen conf, missing address
+    # C3/gen conf, missing address
     print('---                   Task C3: gen missing address conf                         ---')
     gen_conf_address(mis_addr, vdom, addrDictList)
+    print('')
+ 
+    # C4/gen conf, missing route
+    print('---                   Task C4: gen missing static route conf                    ---')
+    gen_conf_route(mis_rout, vdom)
+    print('')
+
+    # C5/gen conf, missing interface and zone
+    print('---                   Task C4: gen missing interface and zone conf        ---')
+    gen_conf_interface(mis_zone, vdom)
     print('')
 
     logger1.info('end: '+__name__)
@@ -787,17 +888,56 @@ if __name__ == "__main__":
     # ips-sensor        -> [sdn3-all / otpc-all]
     # ssl-ssh-profile   -> [certificate-inspection]
 
-    bas_conf = 'DEHFW01_20200909_0104.conf.xlsx'
-    req_conf = 'req_DEHFW01_20200907_1810.conf.xlsx'
-    vdom = 'DEH1DEV'
+    # eqx
+    #bas_conf = 'PECFW01_20201204_0228.conf.xlsx'
+    #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
+    #vdom = 'PEC1SWIFT1'
+    #start(bas_conf, req_conf, vdom) 
+    
+    bas_conf = 'PECFW01_20201204_0228.conf.xlsx'
+    req_conf = 'req_6253_20210109_ng_omdtr_jacky.xlsx'
+    vdom = 'PEC1C31'
     start(bas_conf, req_conf, vdom)
+    
+    #bas_conf = 'PECFW01_20201204_0228.conf.xlsx'
+    #req_conf = 'req_5959_20210109_jacky.xlsx'
+    #vdom = 'PEC3COMM'
+    #start(bas_conf, req_conf, vdom)
 
-    bas_conf = 'DTHFW01_20200909_0104.conf.xlsx'
-    req_conf = 'req_DTHFW01_20200907_1810.conf.xlsx'
-    vdom = 'DTH1COMM'
-    start(bas_conf, req_conf, vdom)
+    #bas_conf = 'PEOFW01_20210109_0415.conf.xlsx'
+    #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
+    #vdom = 'PEO1NMC'
+    #start(bas_conf, req_conf, vdom)
 
-    bas_conf = 'DTHFW01_20200909_0104.conf.xlsx'
-    req_conf = 'req_DTHFW01_20200907_1810.conf.xlsx'
-    vdom = 'DTH1DEV'
+    # tko
+    #bas_conf = 'PTCFW01_20201204_0227.conf.xlsx'
+    #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
+    #vdom = 'PTC1SWIFT1'
+    #start(bas_conf, req_conf, vdom) 
+    
+    bas_conf = 'PTCFW03_20201204_0227.conf.xlsx'
+    req_conf = 'req_6253_20210109_ng_omdtr_jacky.xlsx'
+    vdom = 'PTC1C31'
     start(bas_conf, req_conf, vdom)
+    
+    #bas_conf = 'PTOFW03_20201129_0939.conf.xlsx'
+    #req_conf = 'req_6253_6256_6171-72_c3.xlsx'
+    #vdom = 'PTC3COMM'
+    #start(bas_conf, req_conf, vdom)
+    
+    ## nmc common
+    #bas_conf = 'PTOFW03_20201129_0939.conf.xlsx'
+    #req_conf = 'req_6253_6256_6171-72_c3.xlsx'
+    #vdom = 'PTO3COMM'
+    #start(bas_conf, req_conf, vdom)
+    #
+    #bas_conf = 'PEOFW03_20201129_0939.conf.xlsx'
+    #req_conf = 'req_6253_6256_6171-72_c3.xlsx'
+    #vdom = 'PEO3COMM'
+    #start(bas_conf, req_conf, vdom)
+ 
+    #bas_conf = 'PTOFW01_20210109_0415.conf.xlsx'
+    #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
+    #vdom = 'PTO1NMC'
+    #start(bas_conf, req_conf, vdom)
+ 
