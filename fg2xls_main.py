@@ -52,6 +52,7 @@ def iterate_dir_to_list(dir):
             namelist.append(file)
     return pathlist, namelist
 
+
 def start():
     """
         start() to enter script  task

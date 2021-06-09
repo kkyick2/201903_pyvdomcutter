@@ -888,37 +888,63 @@ if __name__ == "__main__":
     # ips-sensor        -> [sdn3-all / otpc-all]
     # ssl-ssh-profile   -> [certificate-inspection]
 
-    # eqx
-    #bas_conf = 'PECFW01_20201204_0228.conf.xlsx'
-    #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
-    #vdom = 'PEC1SWIFT1'
+    # ========================eqx===========================
+    #bas_conf = 'PECFW01_20210313_1929.conf.xlsx'
+    #req_conf = 'req_0003_20210313_hostint_tko_jacky.xlsx'
+    #vdom = 'PEC3HOST'
     #start(bas_conf, req_conf, vdom) 
     
-    bas_conf = 'PECFW01_20201204_0228.conf.xlsx'
-    req_conf = 'req_6253_20210109_ng_omdtr_jacky.xlsx'
-    vdom = 'PEC1C31'
-    start(bas_conf, req_conf, vdom)
+    #bas_conf = 'PECFW01_20210328_0645.conf.xlsx'
+    #req_conf = 'req_6707_20210328_c3tenable_jacky.xlsx'
+    #vdom = 'PEC1SWIFT1'
+    #start(bas_conf, req_conf, vdom) 
+    #
+    #bas_conf = 'PECFW01_20210328_0645.conf.xlsx'
+    #req_conf = 'req_6707_20210328_c3tenable_jacky.xlsx'
+    #vdom = 'PEC1C31'
+    #start(bas_conf, req_conf, vdom)
     
     #bas_conf = 'PECFW01_20201204_0228.conf.xlsx'
     #req_conf = 'req_5959_20210109_jacky.xlsx'
     #vdom = 'PEC3COMM'
     #start(bas_conf, req_conf, vdom)
-
+    #
     #bas_conf = 'PEOFW01_20210109_0415.conf.xlsx'
     #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
     #vdom = 'PEO1NMC'
     #start(bas_conf, req_conf, vdom)
+    
+    bas_conf = 'PEHFW03_20210328_0733.conf.xlsx'
+    req_conf = 'req_host_hkats_20210402.xlsx'
+    vdom = 'PEH3COMM'
+    start(bas_conf, req_conf, vdom)
+    
+    # ===========================tko===========================
 
-    # tko
-    #bas_conf = 'PTCFW01_20201204_0227.conf.xlsx'
-    #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
-    #vdom = 'PTC1SWIFT1'
+    bas_conf = 'PTHFW01_20210320_2345.conf.xlsx'
+    req_conf = 'req_host_hkats_20210402.xlsx'
+    vdom = 'PTH1HKATS1'
+    start(bas_conf, req_conf, vdom)
+    
+    bas_conf = 'PTHFW03_20210320_2345.conf.xlsx'
+    req_conf = 'req_host_hkats_20210402.xlsx'
+    vdom = 'PTH3COMM'
+    start(bas_conf, req_conf, vdom)
+    
+    #bas_conf = 'PTCFW01_20210313_1929.conf.xlsx'
+    #req_conf = 'req_0003_20210313_hostint_tko_jacky.xlsx'
+    #vdom = 'PTC3HOST'
     #start(bas_conf, req_conf, vdom) 
     
-    bas_conf = 'PTCFW03_20201204_0227.conf.xlsx'
-    req_conf = 'req_6253_20210109_ng_omdtr_jacky.xlsx'
-    vdom = 'PTC1C31'
-    start(bas_conf, req_conf, vdom)
+    #bas_conf = 'PTCFW01_20210328_0645.conf.xlsx'
+    #req_conf = 'req_6707_20210328_c3tenable_jacky.xlsx'
+    #vdom = 'PTC1SWIFT1'
+    #start(bas_conf, req_conf, vdom) 
+    #
+    #bas_conf = 'PTCFW01_20210328_0645.conf.xlsx'
+    #req_conf = 'req_6707_20210328_c3tenable_jacky.xlsx'
+    #vdom = 'PTC1C31'
+    #start(bas_conf, req_conf, vdom)
     
     #bas_conf = 'PTOFW03_20201129_0939.conf.xlsx'
     #req_conf = 'req_6253_6256_6171-72_c3.xlsx'
@@ -940,4 +966,11 @@ if __name__ == "__main__":
     #req_conf = 'req_6253_20210109_emft_jacky.xlsx'
     #vdom = 'PTO1NMC'
     #start(bas_conf, req_conf, vdom)
+    
+    # ========================dev===========================
+    #bas_conf = 'DTOFW01_20210316_0130.conf.xlsx'
+    #req_conf = 'req_6750_20210316_dev_host.xlsx'
+    #vdom = 'DTC1C31'
+    #start(bas_conf, req_conf, vdom) 
+    
  
