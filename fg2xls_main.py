@@ -83,6 +83,9 @@ def start():
 
     # loop each config file in fg2xls_input file
     for (fullpath, filename) in zip(pathlist, namelist):
+        # skip this file
+        if filename == 'put_fgt_conf_here.txt':
+            continue
         # create result folder
         result_dir = os.path.join(conf.BATCH_PATH, filename)
         mkdir(result_dir)

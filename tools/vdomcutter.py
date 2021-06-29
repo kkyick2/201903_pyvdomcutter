@@ -4,9 +4,11 @@
 import os
 import re
 from shutil import copy2
+
+
 # import 3rd parties pkg
 # import project pkg
-from . import logger
+# from . import logger
 
 
 def vdomcutter(filename, infile, outdir):
@@ -17,20 +19,21 @@ def vdomcutter(filename, infile, outdir):
         @param outdir : fg2xls_output folder: full path for the fg2xls_output folder
         @rtype: na
     """
-    logger1 = logger.logger().get()
+    # logger1 = logger.logger().get()
 
     # 1/ find version of the fortigate
     firstline = ''
     version = ''
     with open(infile, 'r') as inF:
         firstline = inF.readline()
-        #print(firstline)
+        # print(firstline)
         MODEL = 'MODEL'
         VERSION = 'VERSION'
         BUILD = 'BUILD'
         OTHER = 'OTHER'
         # config-version=FGT61E-6.0.6-FW-build0272-190716:opmode=0:vdom=0:user=col
-        p_firstline = re.compile('^\s*#config-version=+(?P<MODEL>\S+)-(?P<VERSION>\S+)-FW-(?P<BUILD>\S+):(?P<OTHER>.*)$', re.IGNORECASE)
+        p_firstline = re.compile(
+            '^\s*#config-version=+(?P<MODEL>\S+)-(?P<VERSION>\S+)-FW-(?P<BUILD>\S+):(?P<OTHER>.*)$', re.IGNORECASE)
         if p_firstline.search(firstline):
             model = p_firstline.search(firstline).group(MODEL)
             version = p_firstline.search(firstline).group(VERSION)
@@ -42,7 +45,7 @@ def vdomcutter(filename, infile, outdir):
     with open(infile, 'r') as inF:
         data = inF.read()
     # find the vdom name in conf to a list
-    p_foundvdom = re.findall(r'\n*(config\svdom.*?\nconfig\ssystem\ssettings)\n*', data, re.M | re.S)
+    p_foundvdom = re.findall(r'\n*(config\svdom.*?\nconfig\ssystem\sobject-tagging)\n*', data, re.M | re.S)
     # find the content of each vdom to a list
     p_foundcontent = re.findall(r'\n*(config\svdom.*?\nend\nend\n)\n*', data, re.M | re.S)
 
@@ -51,8 +54,8 @@ def vdomcutter(filename, infile, outdir):
     for i in range(0, len(p_foundvdom)):
         name = p_foundvdom[i].split('\n')[1].rstrip()[5:]
         vdomList.append(name)
-    logger1.info('cut', len(vdomList), 'vdom to txt: ', str(vdomList))
-    print('cut', len(vdomList), 'vdom to txt: ', str(vdomList))
+    # logger1.info('cut', len(vdomList), 'vdom to txt: ', str(vdomList))
+    # print('cut', len(vdomList), 'vdom to txt: ', str(vdomList))
 
     # 4/ check fortigate version
     '''
@@ -76,15 +79,19 @@ def vdomcutter(filename, infile, outdir):
     '''
     index = 0
     # for fortigate version <6, index is 1'
-    if int(version[0]) <6:
+    if int(version[0]) < 6:
         index = 1
 
     # 5/ write each vdom to txt in fg2xls_output folder
-    # print(len(p_foundcontent), ' | ', len(p_foundvdom))
+    # print('content|vdom: ', len(p_foundcontent), ' | ', len(p_foundvdom))
     for i in range(1, len(p_foundcontent) + index):
+        # print(i, ' | ', index,' | ' ,vdomList[i - 1])
+        # print(os.path.join(outdir, filename + '_global.txt'))
+        with open(os.path.join(outdir, filename + '_global.txt'), 'w') as outF0:
+            outF0.write(p_foundcontent[0])  ##Global Vdom
         with open(os.path.join(outdir, filename + '_' + vdomList[i - 1] + '.txt'), 'w') as outF:
-            outF.write(p_foundcontent[i - 1])
+            outF.write(p_foundcontent[i])
     # copy original config to fg2xls_output folder
     # copy2(infile, outdir)
-    print(' ')
+    # print(' ')
     return

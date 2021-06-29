@@ -10,6 +10,9 @@ from . import fg2csv_route
 from . import fg2csv_service
 from . import fg2csv_vip
 from . import fg2csv_zone
+from . import fg2csv_mcaddr
+from . import fg2csv_mcpolicy
+from . import fg2csv_dospolicy
 
 
 def fg2csv(infile, outdir):
@@ -28,3 +31,7 @@ def fg2csv(infile, outdir):
     fg2csv_policy.main2(infile, os.path.join(outdir, '07policy.csv'), False, False)
     fg2csv_ippool.main2(infile, os.path.join(outdir, '08ippool.csv'), False, False)
     fg2csv_vip.main2(infile, os.path.join(outdir, '09vip.csv'), False, False)
+
+    fg2csv_mcaddr.main2(infile, os.path.join(outdir, '10mcaddr.csv'), False, False)
+    fg2csv_mcpolicy.main2(infile, os.path.join(outdir, '11mcpolicy.csv'), False, False)
+    fg2csv_dospolicy.main2(infile, os.path.join(outdir, '12dospolicy.csv'), False, False)
