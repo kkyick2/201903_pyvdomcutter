@@ -20,9 +20,8 @@ def vdomcutter(filename, infile, outdir):
         @rtype: na
     """
     # logger1 = logger.logger().get()
-
+    # ================================================
     # 1/ find version of the fortigate
-    firstline = ''
     version = ''
     with open(infile, 'r') as inF:
         firstline = inF.readline()
@@ -39,59 +38,87 @@ def vdomcutter(filename, infile, outdir):
             version = p_firstline.search(firstline).group(VERSION)
             build = p_firstline.search(firstline).group(BUILD)
             other = p_firstline.search(firstline).group(OTHER)
-            print('info: ', model, ' | ', version, ' | ', build, ' | ', other)
+            print('Info: ', model, ' | ', version, ' | ', build, ' | ', other)
 
+    # ================================================
+
+    '''
+    --------------------
+    Sytenx for fortigate version below <6, 
+    --------------------
+    config global           | p_foundcontent_g[0]
+    ..                      |
+    end                     |
+                            |
+    end                     |
+                            |
+    config vdom             | p_foundcontent[0]
+    edit root               |
+    config system settings  |
+    ...
+    --------------------
+    Sytenx for fortigate version >=6:
+    --------------------
+    config global           | p_foundcontent[0]
+    ..                      |
+    end                     |
+    end                     |
+                            |
+    config vdom             | p_foundcontent[1]
+    edit root               |
+    config ssystem object-tagging
+    ...
+    --------------------
+    '''
     # 2/ read the file as data
     with open(infile, 'r') as inF:
         data = inF.read()
-    # find the vdom name in conf to a list
-    p_foundvdom = re.findall(r'\n*(config\svdom.*?\nconfig\ssystem\sobject-tagging)\n*', data, re.M | re.S)
-    # find the content of each vdom to a list
-    p_foundcontent = re.findall(r'\n*(config\svdom.*?\nend\nend\n)\n*', data, re.M | re.S)
 
-    # 3/ create vdom list and cut vdom
+    # 3A/ handle fortigate version <6'
+    if int(version[0]) < 6:
+        # find vdom name
+        p_foundvdom = re.findall(r'\n*(config\svdom.*?\nconfig\ssystem\ssettings)\n*', data, re.M | re.S)
+        # find content of each vdom
+        p_foundcontent = re.findall(r'\n*(config\svdom\nedit\s[^\n]+\nconfig\ssystem\ssettings.*?\nend\nend\n)\n*', data, re.M | re.S)
+        # find content of global
+        p_foundcontent_g = re.findall(r'\n*(config\svdom.*?\nend\n\nend\n)\n*', data, re.M | re.S)
+
+    # 3B/ handle fortigate version >=6'
+    else:
+        # find vdom name
+        p_foundvdom = re.findall(r'\n*(config\svdom.*?\nconfig\ssystem\sobject-tagging)\n*', data, re.M | re.S)
+        # find content of each vdom + global
+        p_foundcontent = re.findall(r'\n*(config\svdom.*?\nend\nend\n)\n*', data, re.M | re.S)
+        # find content of global (no use for version >=6)
+        p_foundcontent_g = []
+
+    # ================================================
+    # 4/ create vdom list
     vdomList = []
     for i in range(0, len(p_foundvdom)):
         name = p_foundvdom[i].split('\n')[1].rstrip()[5:]
         vdomList.append(name)
     # logger1.info('cut', len(vdomList), 'vdom to txt: ', str(vdomList))
-    # print('cut', len(vdomList), 'vdom to txt: ', str(vdomList))
+    print('content|vdom: ', len(p_foundcontent),'+',len(p_foundcontent_g), '|', len(p_foundvdom), '+ global || ', len(vdomList), 'vdom: ', str(vdomList), '+ global')
 
-    # 4/ check fortigate version
-    '''
-    below are sytenx for fortigate version >=6, 
-    --------------------
-    end
-    end
-
-    config vdom
-    edit root
-    --------------------
-    below are sytenx for fortigate version below 5, 
-    --------------------
-    end
-
-    end
-
-    config vdom
-    edit root
-    --------------------
-    '''
-    index = 0
-    # for fortigate version <6, index is 1'
+    # ================================================
+    # 5A/ write each vdom to txt in fg2xls_output folder, for fortigate version <6'
     if int(version[0]) < 6:
-        index = 1
-
-    # 5/ write each vdom to txt in fg2xls_output folder
-    # print('content|vdom: ', len(p_foundcontent), ' | ', len(p_foundvdom))
-    for i in range(1, len(p_foundcontent) + index):
-        # print(i, ' | ', index,' | ' ,vdomList[i - 1])
-        # print(os.path.join(outdir, filename + '_global.txt'))
         with open(os.path.join(outdir, filename + '_global.txt'), 'w') as outF0:
-            outF0.write(p_foundcontent[0])  ##Global Vdom
-        with open(os.path.join(outdir, filename + '_' + vdomList[i - 1] + '.txt'), 'w') as outF:
-            outF.write(p_foundcontent[i])
-    # copy original config to fg2xls_output folder
-    # copy2(infile, outdir)
-    # print(' ')
+            outF0.write(p_foundcontent_g[0])  ##Global Vdom
+
+        for i in range(0, len(p_foundcontent)):
+            # print(i, ' | ', index, ' | ', vdomList[i - 1])
+            with open(os.path.join(outdir, filename + '_' + vdomList[i - 1] + '.txt'), 'w') as outF:
+                outF.write(p_foundcontent[i - 1])
+
+    # 5B/ write each vdom to txt in fg2xls_output folder, for fortigate version >=6'
+    else:
+        for i in range(0, len(p_foundcontent)):
+            # print(i, ' | ', index, ' | ', vdomList[i - 1])
+            with open(os.path.join(outdir, filename + '_global.txt'), 'w') as outF0:
+                outF0.write(p_foundcontent[0])  ##Global Vdom
+
+            with open(os.path.join(outdir, filename + '_' + vdomList[i - 1] + '.txt'), 'w') as outF:
+                outF.write(p_foundcontent[i])
     return

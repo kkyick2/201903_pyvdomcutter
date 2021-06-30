@@ -20,7 +20,7 @@
 2. put "requirement xlsx" to folder "fgconfgen_req"
 3. Remark1: requirement xlsx should have below column
 {id,name,srcintf,dstintf,srcaddr,dstaddr,action,schedule,service,utm-status,logtraffic,ips-sensor,nat,ippool,poolname}
-4. Remark2: reqirement xlsx should have sheet name "Policy"
+4. Remark2: reqirement xlsx should have sheet name "07policy"
 
 ### Step2: fg2xls.py -> this script will gen a baseline xlsx
 1. execute fg2xls_main.py
@@ -35,7 +35,7 @@
 5. Remark1: cmd will show missing object {service,address,zone,route}
 6. Remark2: txt conf gen {policy,service,address}
 
-## 
+## Create By
 - kkyick2
 
 
@@ -46,5 +46,7 @@
 - 20200723 tested sdn3 requirement, need edit ips profile, int-asso on addr obj comment out
 - 20200909 update vdomcutter.py , tested config-version=FG1K5D-6.0.9, config-version=FG1K5D-5.04, both version ok
 - 20210109 update fgconfgen_main.py , add gen_route, gen_interface function, not tested yet 
-- 20210629 update vdomcutter.py , add split global function
-- 20210629 update fg2csv.py , add fg2csv_mcaddr.py, fg2csv_mcpolicy.py
+- 20210629 update vdomcutter.py , add split global function, fix bug for root and global vdom
+- 20210629 update fg2csv.py, add fg2csv_mcaddr.py, fg2csv_mcpolicy.py
+- 20210701 update fg2csv.py, add fg2csv_dospolicy.py
+
