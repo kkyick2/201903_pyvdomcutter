@@ -19,13 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="447256f0-8bfc-4f45-bed8-5b8c91f5bb3a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/fg2csv/fg2csv_dospolicy_bkp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fg2csv/fg2csv_dospolicy.py" beforeDir="false" afterPath="$PROJECT_DIR$/fg2csv/fg2csv_dospolicy.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/vdomcutter.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/vdomcutter.py" afterDir="false" />
-    </list>
+    <list default="true" id="447256f0-8bfc-4f45-bed8-5b8c91f5bb3a" name="Default" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
